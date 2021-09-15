@@ -6,12 +6,12 @@ const expressSetup = require('./config/express');
 const mongooseSetup = require('./config/mongoose');
 
 const start = async () => {
-    const app = express();
-    expressSetup(app);
-    cloudinary.config(config.CLOUDINARY);
-    await mongooseSetup();
+	const app = express();
+	expressSetup(app);
+	cloudinary.config(config.CLOUDINARY);
+	await mongooseSetup();
 
-    app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}`));
+	app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}`));
 };
 
 start();

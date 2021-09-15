@@ -1,0 +1,27 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.hero-content {
+    flex-basis: 60%;
+}
+
+.hero-img {
+    flex-basis: 40%;
+}
+
+.hero-content-title {
+    font-size: 3rem;
+}
+
+.hero-content-subtitle {
+    font-size: 2rem;
+    margin-right: 13%;
+}

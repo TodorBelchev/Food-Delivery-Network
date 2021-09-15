@@ -1,0 +1,44 @@
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.navigation-wrapper > article {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-list-item {
+    padding: 5px 20px;
+    font-size: 1.2rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}

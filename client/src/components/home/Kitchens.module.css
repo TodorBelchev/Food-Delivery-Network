@@ -1,0 +1,54 @@
+.kitchens {
+    margin-top: 50px;
+}
+
+.kitchens {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.kitchens-title {
+    flex-basis: 100%;
+}
+
+.kitchen {
+    flex-basis: 31%;
+    position: relative;
+    height: 300px;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 2px lightgrey;
+}
+
+.kitchen:hover {
+    cursor: pointer;
+}
+
+.kitchen img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transform-origin: 0 0;
+    transition: all 0.5s ease;
+    filter: brightness(70%);
+}
+
+.kitchen:hover img {
+    transform: scale(1.1);
+    filter: brightness(100%);
+}
+
+.kitchen-name {
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+}

@@ -1,0 +1,63 @@
+.cities,
+.benefits,
+.kitchens {
+    margin-top: 50px;
+}
+
+.cities,
+.kitchens {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cities-title,
+.kitchens-title {
+    flex-basis: 100%;
+}
+
+.city,
+.kitchen {
+    flex-basis: 18%;
+    position: relative;
+    height: 300px;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 2px lightgrey;
+}
+
+.city:hover,
+.kitchen:hover {
+    cursor: pointer;
+}
+
+.city img,
+.kitchen img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transform-origin: 0 0;
+    transition: all 0.5s ease;
+    filter: brightness(70%);
+}
+
+.city:hover img,
+.kitchen:hover img {
+    transform: scale(1.1);
+    filter: brightness(100%);
+}
+
+.city-name,
+.kitchen-name {
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+}
