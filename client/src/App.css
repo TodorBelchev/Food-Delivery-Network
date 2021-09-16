@@ -5,20 +5,20 @@ html,
     box-sizing: border-box;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-    margin: 0;
-    overflow-y: scroll;
-}
-
 body {
-    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow: auto;
 }
 
 main {
     max-width: 1400px;
     margin: 0 auto 257px;
+    display: block;
+    flex: 1 0 auto;
 }
 
 textarea {
