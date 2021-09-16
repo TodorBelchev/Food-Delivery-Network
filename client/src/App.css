@@ -18,7 +18,7 @@ body {
 
 main {
     max-width: 1400px;
-    margin: 0 auto 225px;
+    margin: 0 auto 257px;
 }
 
 textarea {
@@ -27,7 +27,7 @@ textarea {
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 
 .error {
