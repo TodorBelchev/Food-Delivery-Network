@@ -5,21 +5,26 @@ import { ILoginModalProps } from '../interfaces/ILoginModal';
 import classes from './Modal.module.css';
 
 const Backdrop: React.FC<ILoginModalProps> = (props) => {
-    return <div className={classes.backdrop} onClick={props.onBackdropClick}/>;
+    return <div className={classes.backdrop} onClick={props.onBackdropClick} />;
 }
 
 let ModalOverlay: React.FC = () => {
     return <div></div>;
 };
 
+let IncomingModal: React.FC = () => {
+    return <div></div>;
+}
+
 const Modal: React.FC<ILoginModalProps> = (props) => {
-    ModalOverlay = props.overlay!;
-    
+    IncomingModal = props.overlay!;
+    ModalOverlay = () => <div className={classes.modal}><IncomingModal /></div>;
+
     return (
         <>
             <React.Fragment>
                 {ReactDOM.createPortal(
-                    <Backdrop onBackdropClick={props.onBackdropClick}/>,
+                    <Backdrop onBackdropClick={props.onBackdropClick} />,
                     document.getElementById('backdrop-root')!
                 )}
                 {ReactDOM.createPortal(
