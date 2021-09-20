@@ -25,11 +25,11 @@ const Navigation: React.FC = () => {
     useEffect(() => {
         if (modalIsOpen) {
             document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight = `${scrollBarWidth}px`;
+            document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
         }
         return () => {
-            document.body.style.overflow = 'unset';
-            document.body.style.paddingRight = '0px';
+            document.body.style.overflow = '';
+            document.body.style.width = '100%';
         };
     }, [modalIsOpen, scrollBarWidth]);
 

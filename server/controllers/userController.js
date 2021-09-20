@@ -2,8 +2,8 @@ const { Router } = require('express');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-	res.send('It works');
+router.post('/login', (req, res) => {
+	res.status(200).send({ email: 'pesho@abv.bg'});
 });
 
 module.exports = router;

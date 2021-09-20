@@ -8,17 +8,17 @@ const Backdrop: React.FC<ILoginModalProps> = (props) => {
     return <div className={classes.backdrop} onClick={props.onBackdropClick} />;
 }
 
-let ModalOverlay: React.FC = () => {
+let ModalOverlay: React.FC<ILoginModalProps> = () => {
     return <div></div>;
 };
 
-let IncomingModal: React.FC = () => {
+let IncomingModal: React.FC<ILoginModalProps> = () => {
     return <div></div>;
 }
 
 const Modal: React.FC<ILoginModalProps> = (props) => {
     IncomingModal = props.overlay!;
-    ModalOverlay = () => <div className={classes.modal}><IncomingModal /></div>;
+    ModalOverlay = () => <div className={classes.modal}><IncomingModal onBackdropClick={props.onBackdropClick}/></div>;
 
     return (
         <>

@@ -1,4 +1,4 @@
 export interface ILoginModalProps {
-    onBackdropClick: () => void;
+    onBackdropClick?: () => void;
     overlay?: React.FC
 }

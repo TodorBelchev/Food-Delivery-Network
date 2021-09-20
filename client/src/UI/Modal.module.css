@@ -9,12 +9,11 @@
 }
 
 .modal {
-    position: fixed;
+    position: absolute;
     top: 15vh;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+    left: 50%;
     width: 600px;
     z-index: 100;
     overflow: hidden;
+    transform: translateX(-50%);
 }
