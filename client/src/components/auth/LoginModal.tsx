@@ -6,13 +6,13 @@ import useHttp from '../../hooks/use-http';
 import useInput from '../../hooks/use-input';
 
 import classes from './LoginModal.module.css';
-import { ILoginModalProps } from '../../interfaces/ILoginModal';
+import { modalActions } from '../../store/modal';
 
 
 const isEmail = (value: string) => value.includes('@');
 const minLength = (value: string) => value.length >= 6;
 
-const LoginModal: React.FC<ILoginModalProps> = (props) => {
+const LoginModal: React.FC = () => {
     const {
         value: emailValue,
         isValid: emailIsValid,
@@ -41,9 +41,7 @@ const LoginModal: React.FC<ILoginModalProps> = (props) => {
     const submitHandler = (e: FormEvent) => {
         e.preventDefault();
 
-        if (!formIsValid) {
-            return;
-        }
+        if (!formIsValid) { return; }
 
         sendRequest({
             url: 'http://localhost:3030/api/user/login',
@@ -56,7 +54,7 @@ const LoginModal: React.FC<ILoginModalProps> = (props) => {
                 password: passwordValue
             }
         }, () => {
-            props.onBackdropClick!();
+            dispatch(modalActions.close());
             dispatch(authActions.login());
         });
 

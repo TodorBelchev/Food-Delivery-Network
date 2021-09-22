@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { modalActions } from '../../store/modal';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+
 import Modal from '../../UI/Modal';
-import LoginModal from '../auth/LoginModal';
 import classes from './Navigation.module.css';
 
 const Navigation: React.FC = () => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const modalIsOpen = useAppSelector(state => state.modal.isOpen);
+    const dispatch = useAppDispatch();
 
     const onLoginClick = () => {
-        setModalIsOpen(oldState => {
-            return !oldState;
-        });
+        dispatch(modalActions.open('login'));
     };
-
-    const onBackdropClick = () => {
-        setModalIsOpen(false);
-    }
 
     const documentWidth = document.documentElement.clientWidth;
     const windowWidth = window.innerWidth;
@@ -36,7 +33,7 @@ const Navigation: React.FC = () => {
 
     return (
         <header className={classes.header}>
-            {modalIsOpen && <Modal onBackdropClick={onBackdropClick} overlay={LoginModal}></Modal>}
+            {modalIsOpen && <Modal />}
             <div className={classes.container}>
                 <NavLink to="/" className={classes['logo-link']}>
                     <img className={classes.icon} src="/images/utensils-solid.svg" alt=" utensils" />
