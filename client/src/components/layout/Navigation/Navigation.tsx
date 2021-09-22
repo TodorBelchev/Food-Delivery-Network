@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { modalActions } from '../../store/modal';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { modalActions } from '../../../store/modal';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 
-import Modal from '../../UI/Modal';
+import Modal from '../../UI/Modal/Modal';
 import classes from './Navigation.module.css';
 
 const Navigation: React.FC = () => {

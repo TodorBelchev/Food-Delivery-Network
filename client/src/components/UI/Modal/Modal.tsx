@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
-import { modalActions } from '../store/modal';
-import LoginModal from '../components/auth/LoginModal';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { modalActions } from '../../../store/modal';
+import LoginModal from '../../auth/Login/LoginModal';
 
 import classes from './Modal.module.css';
 

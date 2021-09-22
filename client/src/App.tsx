@@ -1,4 +1,4 @@
-import Layout from './components/layout/Layout';
+import Layout from './components/layout/Layout/Layout';
 
 import './App.css';
 import { Route, Switch } from 'react-router';

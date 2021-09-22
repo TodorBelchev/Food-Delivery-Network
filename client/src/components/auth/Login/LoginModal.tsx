@@ -1,12 +1,12 @@
 import React, { FormEvent } from 'react';
 
-import { authActions } from '../../store/auth';
-import { useAppDispatch } from '../../hooks/redux-hooks';
-import useHttp from '../../hooks/use-http';
-import useInput from '../../hooks/use-input';
+import { authActions } from '../../../store/auth';
+import { useAppDispatch } from '../../../hooks/redux-hooks';
+import useHttp from '../../../hooks/use-http';
+import useInput from '../../../hooks/use-input';
 
 import classes from './LoginModal.module.css';
-import { modalActions } from '../../store/modal';
+import { modalActions } from '../../../store/modal';
 
 
 const isEmail = (value: string) => value.includes('@');
