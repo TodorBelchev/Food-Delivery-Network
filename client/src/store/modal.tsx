@@ -19,6 +19,9 @@ const modalSlice = createSlice({
         close(state) {
             state.isOpen = false;
             state.overlayName = '';
+        },
+        changeOverlay(state, action: PayloadAction<string>) {
+            state.overlayName = action.payload;
         }
     }
 });

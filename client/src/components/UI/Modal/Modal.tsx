@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 import { modalActions } from '../../../store/modal';
 import LoginModal from '../../auth/Login/LoginModal';
+import RegisterModal from '../../auth/Register/RegisterModal';
 
 import classes from './Modal.module.css';
 
@@ -12,7 +13,7 @@ const Backdrop: React.FC = () => {
     const closeModal = () => {
         dispatch(modalActions.close())
     }
-    return <div className={classes.backdrop} onClick={closeModal} />;
+    return <div className={classes.backdrop} onClick={closeModal}></div>;
 }
 
 let ModalOverlay: React.FC = () => {
@@ -20,7 +21,8 @@ let ModalOverlay: React.FC = () => {
 };
 
 const modals: { [key: string]: React.FC } = {
-    'login': LoginModal
+    'login': LoginModal,
+    'register': RegisterModal
 }
 
 const Modal: React.FC = () => {

@@ -7,10 +7,9 @@ import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
 
-import classes from './LoginModal.module.css';
+import classes from './RegisterModal.module.css';
 
-
-const LoginModal: React.FC = () => {
+const RegisterModal: React.FC = () => {
     const dispatch = useAppDispatch();
     const { isLoading, error, closeError, sendRequest } = useHttp();
     const {
@@ -29,19 +28,28 @@ const LoginModal: React.FC = () => {
         inputBlurHandler: passwordBlurHandler,
         reset: resetPassword
     } = useInput(validators.minLength);
+    const {
+        value: rePasswordValue,
+        isValid: rePasswordIsValid,
+        hasError: rePasswordHasError,
+        valueChangeHandler: rePasswordChangeHandler,
+        inputBlurHandler: rePasswordBlurHandler,
+        reset: resetRePassword
+    } = useInput(validators.stringMatch.bind(null, passwordValue));
 
     let formIsValid = false;
 
-    if (emailIsValid && passwordIsValid) {
+    if (emailIsValid && passwordIsValid && rePasswordIsValid && passwordValue === rePasswordValue) {
         formIsValid = true;
     }
 
     const processResponse = (response: { email: string }) => {
         resetEmail();
         resetPassword();
+        resetRePassword();
         dispatch(modalActions.close());
         dispatch(authActions.login());
-    }
+    };
 
     const submitHandler = (e: FormEvent) => {
         e.preventDefault();
@@ -49,7 +57,7 @@ const LoginModal: React.FC = () => {
         if (!formIsValid) { return; }
 
         sendRequest({
-            url: 'http://localhost:3030/api/user/login',
+            url: 'http://localhost:3030/api/user/register',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,21 +67,18 @@ const LoginModal: React.FC = () => {
                 password: passwordValue
             }
         }, processResponse);
-
-        resetEmail();
-        resetPassword();
     }
 
-    const switchToRegister = (e: React.MouseEvent) => {
+    const switchToLogin = (e: React.MouseEvent) => {
         e.preventDefault();
-        dispatch(modalActions.changeOverlay('register'));
+        dispatch(modalActions.changeOverlay('login'));
     }
 
     return (
-        <section className={classes.login}>
+        <section className={classes.register}>
             {error && <div>{error}<button onClick={closeError}>Close error</button></div>}
             {isLoading && <div>Loading...</div>}
-            <form className={classes['login-form']} onSubmit={submitHandler}>
+            <form className={classes['register-form']} onSubmit={submitHandler}>
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
@@ -96,12 +101,23 @@ const LoginModal: React.FC = () => {
                     onBlur={passwordBlurHandler}
                 />
                 {passwordHasError && <p>Password must be at least 6 characters</p>}
-                <button className="main-btn" disabled={!formIsValid}>Login</button>
+                <label htmlFor="re-password">Repeat password:</label>
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    name="re-password"
+                    id="re-password"
+                    value={rePasswordValue}
+                    onChange={rePasswordChangeHandler}
+                    onBlur={rePasswordBlurHandler}
+                />
+                {rePasswordHasError && <p>Passwords must match</p>}
+                <button className="main-btn">register</button>
             </form>
-            <p>You don't have registration?</p>
-            <a href="/register" onClick={switchToRegister}>Click here to register</a>
+            <p>You already have registration?</p>
+            <a href="/login" onClick={switchToLogin}>Click here to login</a>
         </section>
     );
-};
+}
 
-export default LoginModal;
+export default RegisterModal;

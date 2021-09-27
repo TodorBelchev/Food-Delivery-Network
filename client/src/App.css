@@ -2,7 +2,6 @@
 html,
 * {
     font-family: "Roboto", sans-serif;
-    box-sizing: border-box;
 }
 
 body {
@@ -35,13 +34,14 @@ a {
 }
 
 .main-btn {
-    box-sizing: border-box;
     margin: 10px auto;
     padding: 10px 20px;
-    border: 1px solid black;
+    border: none;
+    display: inline-block;
     border-radius: 5px;
     outline: none;
-    background: black;
+    border: 1px solid #0080ff;
+    background: #0080ff;
     color: white;
     cursor: pointer;
     text-decoration: none;
@@ -50,7 +50,7 @@ a {
 
 .main-btn:hover {
     background: white;
-    color: black;
+    color: #0080ff;
 }
 
 .create-btn {

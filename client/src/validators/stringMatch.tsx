@@ -1,0 +1,1 @@
+export const stringMatch = (value: string, match: string) => value === match;

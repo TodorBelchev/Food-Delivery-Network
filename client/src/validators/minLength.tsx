@@ -1,0 +1,1 @@
+export const minLength = (value: string) => value.length >= 6;
