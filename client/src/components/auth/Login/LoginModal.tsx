@@ -6,6 +6,8 @@ import { useAppDispatch } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
+import IUser from '../../../interfaces/IUser';
+import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './LoginModal.module.css';
 
@@ -36,11 +38,11 @@ const LoginModal: React.FC = () => {
         formIsValid = true;
     }
 
-    const processResponse = (response: { email: string }) => {
+    const processResponse = (response: IUser) => {
         resetEmail();
         resetPassword();
         dispatch(modalActions.close());
-        dispatch(authActions.login());
+        dispatch(authActions.login(response));
     }
 
     const submitHandler = (e: FormEvent) => {
@@ -72,8 +74,8 @@ const LoginModal: React.FC = () => {
     return (
         <section className={classes.login}>
             <h3 className={classes['login-title']}>Sign in into Food Delivery Network</h3>
+            {isLoading && <Spinner />}
             {error && <div>{error}<button onClick={closeError}>Close error</button></div>}
-            {isLoading && <div>Loading...</div>}
             <form className={classes['login-form']} onSubmit={submitHandler}>
                 <label htmlFor="email">Email:</label>
                 <input

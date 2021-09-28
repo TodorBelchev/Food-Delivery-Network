@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
+import IUser from '../../../interfaces/IUser';
 
 import classes from './RegisterModal.module.css';
 
@@ -43,12 +44,12 @@ const RegisterModal: React.FC = () => {
         formIsValid = true;
     }
 
-    const processResponse = (response: { email: string }) => {
+    const processResponse = (response: IUser) => {
         resetEmail();
         resetPassword();
         resetRePassword();
         dispatch(modalActions.close());
-        dispatch(authActions.login());
+        dispatch(authActions.login(response));
     };
 
     const submitHandler = (e: FormEvent) => {
@@ -64,7 +65,8 @@ const RegisterModal: React.FC = () => {
             },
             body: {
                 email: emailValue,
-                password: passwordValue
+                password: passwordValue,
+                rePassword: rePasswordValue
             }
         }, processResponse);
     }
