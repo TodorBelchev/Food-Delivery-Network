@@ -2,8 +2,19 @@
     background: #f6f8fa;
     text-align: center;
     border-radius: 15px;
-    padding: 30px;
+    overflow: auto;
     margin: 0 auto;
+}
+
+.login-title {
+    color: #fff;
+    background: #0080ff;
+    margin: 0;
+    padding: 20px;
+}
+
+.login form {
+    padding: 30px;
 }
 
 .login-form label,

@@ -71,6 +71,7 @@ const LoginModal: React.FC = () => {
 
     return (
         <section className={classes.login}>
+            <h3 className={classes['login-title']}>Sign in into Food Delivery Network</h3>
             {error && <div>{error}<button onClick={closeError}>Close error</button></div>}
             {isLoading && <div>Loading...</div>}
             <form className={classes['login-form']} onSubmit={submitHandler}>
