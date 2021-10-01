@@ -1,5 +1,5 @@
 .login {
-    background: #f6f8fa;
+    background: #fff;
     text-align: center;
     border-radius: 15px;
     overflow: auto;
@@ -14,23 +14,50 @@
 }
 
 .login form {
-    padding: 30px;
+    padding: 20px;
 }
 
-.login-form label,
-.login-form input {
-    display: block;
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
     margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    left: 55px;
+    transition: 0.2s ease all;
+    top: 25px;
+}
+
+.login-form input:focus ~ .placeholder,
+.login-form input:not(:placeholder-shown) ~ .placeholder {
+    font-size: 12px;
+    top: 5px;
 }
 
 .login-form input {
     height: 30px;
-    width: 70%;
     outline: none;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
     padding-left: 10px;
-    margin: 10px auto;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    flex: 0 0 85%;
+    font-size: 16px;
+}
+
+.login-form input.input-invalid {
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.login-form label {
+    display: contents;
 }
 
 .login p {
@@ -40,4 +67,38 @@
 .login a {
     color: black;
     font-weight: bold;
+}
+
+.input-notification {
+    position: absolute;
+    color: #ff0000;
+    top: 5px;
+    right: 0;
+    font-size: 12px;
+}
+
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+p.invite {
+    margin-top: 10px;
+}
+
+.spinner-container {
+    margin-left: 15px;
+}
+
+.main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+}
+
+.eye {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
 }

@@ -36,7 +36,7 @@ const Navigation: React.FC = () => {
             {modalIsOpen && <Modal />}
             <div className={classes.container}>
                 <NavLink to="/" className={classes['logo-link']}>
-                    <img className={classes.icon} src="/images/utensils-solid.svg" alt=" utensils" />
+                    <img className={classes.icon} src="/icons/utensils-solid.svg" alt=" utensils" />
                     <h2>Food Delivery Network</h2>
                 </NavLink>
                 <nav>
@@ -49,7 +49,7 @@ const Navigation: React.FC = () => {
                         </li>
                         <li className={classes['nav-list-item']}>
                             <NavLink to="#">
-                                <img className={classes.icon} src="/images/shopping-cart-solid.svg" alt="shopping cart" />
+                                <img className={classes.icon} src="/icons/shopping-cart-solid.svg" alt="shopping cart" />
                             </NavLink>
                         </li>
                     </ul>

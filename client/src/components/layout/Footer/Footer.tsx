@@ -23,17 +23,17 @@ const Footer: React.FC = () => {
                 <ul className={`${classes.social} ${classes['footer-list']}`}>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://facebook.com" target="_blank" rel="noreferrer">
-                            <img src="/images/facebook.svg" alt="facebook icon" />
+                            <img src="/icons/facebook.svg" alt="facebook icon" />
                         </a>
                     </li>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://instagram.com" target="_blank" rel="noreferrer">
-                            <img src="/images/instagram.svg" alt="instagram icon" />
+                            <img src="/icons/instagram.svg" alt="instagram icon" />
                         </a>
                     </li>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://twitter.com" target="_blank" rel="noreferrer">
-                            <img src="/images/twitter.svg" alt="twitter icon" />
+                            <img src="/icons/twitter.svg" alt="twitter icon" />
                         </a>
                     </li>
                 </ul>

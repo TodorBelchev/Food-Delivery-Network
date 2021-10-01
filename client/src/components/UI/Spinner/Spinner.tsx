@@ -1,8 +1,17 @@
+import { ReactNode } from 'react';
+
 import classes from './Spinner.module.css';
 
-const Spinner: React.FC = () => {
+type SpinnerProps = JSX.IntrinsicElements['div'] & {
+    size?: string
+}
+
+const Spinner: React.FC<SpinnerProps> = (props: { children?: ReactNode; size?: string }) => {
     return (
-        <div className={classes['lds-dual-ring']}></div>
+        <div className={`
+            ${classes['lds-dual-ring']}
+            ${props.size === 'small' ? classes.small : ''}
+            ${props.size === 'medium' ? classes.medium: ''}`}></div>
     )
 }
 
