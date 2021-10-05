@@ -2,6 +2,7 @@
 html,
 * {
     font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     flex-direction: column;
     margin: 0;
     overflow: auto;
+    overflow-y: scroll;
 }
 
 main {

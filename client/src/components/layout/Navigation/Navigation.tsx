@@ -6,9 +6,11 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 
 import Modal from '../../UI/Modal/Modal';
 import classes from './Navigation.module.css';
+import UserIcon from '../../user-profile/UserIcon/UserIcon';
 
 const Navigation: React.FC = () => {
     const modalIsOpen = useAppSelector(state => state.modal.isOpen);
+    const user = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
 
     const onLoginClick = () => {
@@ -21,11 +23,11 @@ const Navigation: React.FC = () => {
 
     useEffect(() => {
         if (modalIsOpen) {
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflowY = 'hidden';
             document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
         }
         return () => {
-            document.body.style.overflow = '';
+            document.body.style.overflowY = 'scroll';
             document.body.style.width = '100%';
         };
     }, [modalIsOpen, scrollBarWidth]);
@@ -42,15 +44,10 @@ const Navigation: React.FC = () => {
                 <nav>
                     <ul className={classes['nav-list']}>
                         <li className={classes['nav-list-item']}>
-                            <button onClick={onLoginClick} className="login-link">Login</button>
-                        </li>
-                        <li className={classes['nav-list-item']}>
-                            <NavLink to="/register" className="register-link">Register</NavLink>
-                        </li>
-                        <li className={classes['nav-list-item']}>
-                            <NavLink to="#">
-                                <img className={classes.icon} src="/icons/shopping-cart-solid.svg" alt="shopping cart" />
-                            </NavLink>
+                            {user.email ?
+                                <UserIcon /> :
+                                <img className={classes['user-icon']} src="/icons/user-icon.svg" alt="user icon" onClick={onLoginClick} />
+                            }
                         </li>
                     </ul>
                 </nav>

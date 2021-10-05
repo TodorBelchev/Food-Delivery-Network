@@ -44,3 +44,12 @@
     max-width: 1400px;
     margin: 0 auto;
 }
+
+.footer-icon {
+    transition: 0.5s all ease;
+}
+
+.footer-icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}

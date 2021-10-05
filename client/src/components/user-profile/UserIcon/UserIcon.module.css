@@ -1,0 +1,13 @@
+.user-icon {
+    vertical-align: middle;
+    transition: 0.5s all ease;
+}
+
+.user-icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.container {
+    position: relative;
+}
