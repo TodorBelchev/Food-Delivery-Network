@@ -1,12 +1,10 @@
-import { ReactNode } from 'react';
-
 import classes from './Spinner.module.css';
 
 type SpinnerProps = JSX.IntrinsicElements['div'] & {
     size?: string
 }
 
-const Spinner: React.FC<SpinnerProps> = (props: { children?: ReactNode; size?: string }) => {
+const Spinner: React.FC<SpinnerProps> = (props) => {
     return (
         <div className={`
             ${classes['lds-dual-ring']}

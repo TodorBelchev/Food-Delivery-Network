@@ -3,9 +3,9 @@
     background: none;
     color: #000;
     top: 55px;
-    left: 18px;
+    left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 200px;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px lightgrey;
 }
@@ -17,7 +17,7 @@
     transform: rotate(-45deg);
     background: #fff;
     position: absolute;
-    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px 2px lightgrey;
     z-index: -1;
     top: -10px;
     left: calc(50% - 10px);
@@ -25,7 +25,53 @@
 
 .inner {
     background: #fff;
-    padding: 20px;
     margin: 0;
     border-radius: 10px;
+    overflow: auto;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    margin: 20px auto 15px;
+    width: fit-content;
+    padding-bottom: 5px;
+    background-image: linear-gradient(#0080ff, #0080ff), linear-gradient(#fff, #fff);
+    background-size: 0 3px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    background-size: 100% 3px, auto;
+    color: #0080ff;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    background: #fff;
+    border-top: 1px solid rgb(207, 207, 207);
+    padding: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #0080ff;
+    color: #fff;
+}
+
+@media (max-width: 1640px) {
+    .popup {
+        left: -114px;
+        top: -14px;
+    }
+
+    .popup:after {
+        top: 20px;
+        left: calc(50% + 89px);
+    }
 }
