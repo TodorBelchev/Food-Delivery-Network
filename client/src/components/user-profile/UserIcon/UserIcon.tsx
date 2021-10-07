@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import UserPopup from "../UserPopup/UserPopup";
 
@@ -15,15 +15,15 @@ const UserIcon: React.FC = () => {
         }
     }
 
-    const handleInsideClick = (e: React.MouseEvent) => {
+    const handleInsideClick = useCallback((e: React.MouseEvent) => {
         if ((e.target as Node) === imgRef.current) {
             setPopupIsOpen(oldState => !oldState);
-        } else if((e.target as Node).nodeName === 'A' || (e.target as Node).nodeName === 'BUTTON') {
+        } else if ((e.target as Node).nodeName === 'A' || (e.target as Node).nodeName === 'BUTTON') {
             setPopupIsOpen(false);
         } else {
             setPopupIsOpen(true);
         }
-    }
+    }, []);
 
     useEffect(() => {
         document.addEventListener('mousedown', handleOutsideClick);
@@ -33,7 +33,7 @@ const UserIcon: React.FC = () => {
     return (
         <div className={classes.container} ref={containerRef} onClick={handleInsideClick}>
             <img className={classes['user-icon']} ref={imgRef} src="/icons/user-icon.svg" alt="user icon" />
-            {popupIsOpen && <UserPopup onClosePopup={handleInsideClick}/>}
+            {popupIsOpen && <UserPopup />}
         </div>
     )
 }
