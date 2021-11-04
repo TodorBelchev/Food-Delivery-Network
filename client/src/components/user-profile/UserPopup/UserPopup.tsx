@@ -16,7 +16,7 @@ const UserPopup: React.FC = () => {
 
     const resHandler = useCallback(() => null, []);
 
-    const logoutHandler = useCallback((e: React.MouseEvent) => {
+    const logoutHandler = useCallback(() => {
         sendRequest({ url: 'http://localhost:3030/api/user/logout' }, resHandler);
         dispatch(authActions.logout());
         history.push('/');

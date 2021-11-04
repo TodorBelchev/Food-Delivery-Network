@@ -1,0 +1,29 @@
+.nav {
+    position: sticky;
+    top: 70px;
+}
+
+.nav--scrolled {
+    box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 25%);
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    background: white;
+}
+
+.list-item {
+    margin-right: 14px;
+    padding: 7px 14px;
+    border: 1px solid #0080ff;
+    color: #0080ff;
+    border-radius: 5px;
+}
+
+.list-item.active {
+    background: #0080ff;
+    color: #fff;
+}

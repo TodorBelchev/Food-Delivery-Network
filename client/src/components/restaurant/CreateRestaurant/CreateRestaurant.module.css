@@ -1,0 +1,67 @@
+.create-restaurant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.create-restaurant-title {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.create-restaurant-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 600px;
+    background: #f6f8fa;
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.create-restaurant-form p {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.create-restaurant-form label,
+.create-restaurant-form input {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.create-restaurant-form input {
+    margin: 10px 20%;
+}
+
+.create-restaurant-form label.checkbox-container {
+    flex-basis: 33%;
+    background: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.create-btn {
+    margin: 30px 100px;
+}
+
+.cities-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cities-container label {
+    cursor: pointer;
+}
+
+.create-restaurant-form label.checkbox-container.checked {
+    color: white;
+    background: black;
+}
