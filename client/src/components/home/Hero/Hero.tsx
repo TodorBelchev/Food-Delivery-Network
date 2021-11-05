@@ -2,7 +2,7 @@ import classes from './Hero.module.css';
 
 const Hero: React.FC = () => {
     return(
-        <section className={classes.hero}>
+        <section className={`${classes.hero} container`}>
         <article className={classes['hero-content']}>
             <h1 className={classes['hero-content-title']}>Order your favorite food</h1>
             <p className={classes['hero-content-subtitle']}>Enjoy fast delivery to your address or take it yourself from the restaurant

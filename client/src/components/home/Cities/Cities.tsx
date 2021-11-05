@@ -2,7 +2,7 @@ import classes from './Cities.module.css';
 
 const Cities = () => {
     return (
-        <section className={classes.cities}>
+        <section className={`${classes.cities} container`}>
             <h2 className={classes['cities-title']}>Select your city</h2>
             <article className={classes['city']}>
                 <a href="/city/Sofia">

@@ -1,12 +1,4 @@
 .create-restaurant {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.create-restaurant-title {
-    flex-basis: 100%;
     text-align: center;
 }
 
@@ -15,53 +7,52 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 600px;
     background: #f6f8fa;
     border: 1px solid #e6e6e6;
     border-radius: 15px;
     padding: 30px;
 }
 
-.create-restaurant-form p {
-    flex-basis: 100%;
-    text-align: center;
+.col {
+    width: 45%;
+    padding: 20px 0;
+    margin: 0 20px;
+    position: relative;
 }
 
-.create-restaurant-form label,
-.create-restaurant-form input {
-    flex-basis: 100%;
-    text-align: center;
+.create-restaurant-form-input {
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    font-size: 16px;
+    background: #f6f8fa;
+    width: 100%;
 }
 
-.create-restaurant-form input {
-    margin: 10px 20%;
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    transition: 0.2s ease all;
+    top: 25px;
 }
 
-.create-restaurant-form label.checkbox-container {
-    flex-basis: 33%;
-    background: white;
-    padding: 10px 20px;
-    margin: 10px 5px 0 5px;
-    border-radius: 10px;
-    border: 1px solid black;
+.file-btn {
+    display: none;
 }
 
-.create-btn {
-    margin: 30px 100px;
+.file-label {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #a7a7a7;
+    text-align: left;
+    padding: 0 0 5px 10px;
 }
 
-.cities-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.cities-container label {
-    cursor: pointer;
-}
-
-.create-restaurant-form label.checkbox-container.checked {
-    color: white;
-    background: black;
+.create-restaurant-form input:focus ~ .placeholder,
+.create-restaurant-form input:not(:placeholder-shown) ~ .placeholder {
+    font-size: 12px;
+    top: 5px;
 }

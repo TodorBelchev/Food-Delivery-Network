@@ -1,33 +1,59 @@
+import React, { useState } from 'react';
+import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
 import classes from './CreateRestaurant.module.css';
 
+
+
 const CreateRestaurant: React.FC = () => {
+    const cities = [
+        { name: 'Sofia', _id: 0 },
+        { name: 'Varna', _id: 1 },
+        { name: 'Burgas', _id: 2 },
+        { name: 'Plovdiv', _id: 3 },
+        { name: 'Shumen', _id: 4 },
+        { name: 'Stara Zagora', _id: 5 },
+        { name: 'Blagoevgrad', _id: 6 },
+    ]
+    const [selectedCities, setSelectedCities] = useState<InputStringType[]>([]);
+
+    const submitHandler = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(selectedCities);
+
+    };
+
     return (
-        <section className={classes['create-restaurant']}>
-            <h2 className={classes['create-restaurant-title']}>Lets create together the best restaurant</h2>
-            <form className={classes['create-restaurant-form']}>
-                <label htmlFor="name">Enter the name of the restaurant:</label>
-                <input type="text" placeholder="Name of the restaurant" name="name" />
-                <label htmlFor="theme">Enter main theme of the restaurant</label>
-                <input type="text" placeholder="Main theme of the restaurant" name="theme" />
-                <label htmlFor="categories">Please fill the categories separated by ',':</label>
-                <input type="text" placeholder="Categories separated by ','" name="categories" />
-                <label htmlFor="work-time">Please fill working time with days and hours:</label>
-                <input type="text" placeholder="Monday-Friday 10:00-20:00" name="work-time" />
-                <label htmlFor="image">Upload your image</label>
-                <input id="my-file" type="file" name="image" />
-                <p>Please select cities of the restaurant</p>
-                <article className={classes['cities-container']}>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Sofia</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Varna</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Plovdiv</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Burgas</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Stara Zagora</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Veliko Tarnovo</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Pleven</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Blagoevgrad</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Ruse</label>
-                    <label htmlFor="checkbox" className={classes['checkbox-container']}>Shumen</label>
-                </article>
+        <section className={`${classes['create-restaurant']} container`}>
+            <h2>Lets create together the best restaurant</h2>
+            <form className={classes['create-restaurant-form']} onSubmit={submitHandler}>
+                <div className={classes.col}>
+                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="name" />
+                    <span className={classes.placeholder}>Name of the restaurant</span>
+                </div>
+                <div className={classes.col}>
+                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="theme" />
+                    <span className={classes.placeholder}>Main theme of the restaurant</span>
+                </div>
+                <div className={classes.col}>
+                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="categories" />
+                    <span className={classes.placeholder}>Categories separated by ","</span>
+                </div>
+                <div className={classes.col}>
+                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="work-time" />
+                    <span className={classes.placeholder}>Monday-Friday 10:00-20:00</span>
+                </div>
+                <div className={classes.col}>
+                    <label className={classes['file-label']} htmlFor="image">Upload restaurant cover image</label>
+                    <input className={classes['file-btn']} id="image" type="file" name="image" />
+                </div>
+                <div className={classes.col}>
+                    <MultiChoiceSelect
+                        text={'Select cities'}
+                        inputStrings={cities}
+                        setStateHandler={setSelectedCities}
+                        selected={selectedCities}
+                    />
+                </div>
                 <button className="main-btn create-btn">Create</button>
             </form>
         </section>

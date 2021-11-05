@@ -2,7 +2,7 @@ import classes from './Kitchens.module.css';
 
 const Kitchens = () => {
     return (
-        <section className={classes.kitchens}>
+        <section className={`${classes.kitchens} container`}>
             <h2 className={classes['kitchens-title']}>Popular categories</h2>
             <article className={classes.kitchen}>
                 <p className={classes['kitchen-name']}>Italian</p>

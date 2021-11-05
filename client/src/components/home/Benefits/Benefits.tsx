@@ -2,7 +2,7 @@ import classes from './Benefits.module.css';
 
 const Benefits = () => {
     return (
-        <section className={classes.benefits}>
+        <section className={`${classes.benefits} container`}>
             <article className={classes['benefits-img']}>
                 <img src="/images/firmbee-com-SpVHcbuKi6E-unsplash.jpg" alt="all-devices" />
             </article>

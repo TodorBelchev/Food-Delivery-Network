@@ -1,0 +1,48 @@
+.select {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #a7a7a7;
+    text-align: left;
+    padding: 0 0 5px 10px;
+    position: relative;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #e2e6e9;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.text {
+    cursor: pointer;
+}
+
+.list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: #757575;
+    border-radius: 10px;
+}
+
+.list li {
+    padding: 10px;
+}
+
+.list input {
+    margin-right: 10px;
+}
+
+.list label {
+    display: inline-block;
+    width: 85%;
+    cursor: pointer;
+}
