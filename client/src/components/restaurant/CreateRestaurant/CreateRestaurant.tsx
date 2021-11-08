@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
+import useHttp from '../../../hooks/use-http';
+import useInput from '../../../hooks/use-input';
+import validators from '../../../validators';
+import IRestaurant from '../../../interfaces/IRestaurant';
+
 import classes from './CreateRestaurant.module.css';
-
-
 
 const CreateRestaurant: React.FC = () => {
     const cities = [
@@ -15,36 +20,161 @@ const CreateRestaurant: React.FC = () => {
         { name: 'Blagoevgrad', _id: 6 },
     ]
     const [selectedCities, setSelectedCities] = useState<InputStringType[]>([]);
+    const [selectedFile, setSelectedFile] = useState<File>();
+    const [fileIsValid, setFileIsValid] = useState(true);
+    const { isLoading, error, sendRequest } = useHttp();
+    const history = useHistory();
+    const {
+        value: nameValue,
+        isValid: nameIsValid,
+        hasError: nameHasError,
+        valueChangeHandler: nameChangeHandler,
+        inputBlurHandler: nameBlurHandler,
+        reset: nameReset
+    } = useInput(validators.minLength.bind(null, 6));
+    const {
+        value: mainThemeValue,
+        isValid: mainThemeIsValid,
+        hasError: mainThemeHasError,
+        valueChangeHandler: mainThemeChangeHandler,
+        inputBlurHandler: mainThemeBlurHandler,
+        reset: mainThemeReset
+    } = useInput(validators.minLength.bind(null, 6));
+    const {
+        value: categoriesValue,
+        isValid: categoriesIsValid,
+        hasError: categoriesHasError,
+        valueChangeHandler: categoriesChangeHandler,
+        inputBlurHandler: categoriesBlurHandler,
+        reset: categoriesReset
+    } = useInput(validators.categoriesCount);
+    const {
+        value: workTimeValue,
+        isValid: workTimeIsValid,
+        hasError: workTimeHasError,
+        valueChangeHandler: workTimeChangeHandler,
+        inputBlurHandler: workTimeBlurHandler,
+        reset: workTimeReset
+    } = useInput(validators.workTime);
+
+    let formIsValid = false;
+
+    if (nameIsValid && mainThemeIsValid && categoriesIsValid && workTimeIsValid && fileIsValid) {
+        formIsValid = true;
+    }
+
+    const processResponse = (response: IRestaurant) => {
+        nameReset();
+        mainThemeReset();
+        categoriesReset();
+        workTimeReset();
+        history.replace(`/restaurants/${response._id}`);
+    };
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(selectedCities);
+
+        if (!selectedFile) {
+            setFileIsValid(false);
+        }
+
+        if (!formIsValid) { return; }
+
+        const formData = new FormData();
+        formData.append('Restaurant Cover', selectedFile!, selectedFile!.name);
+        formData.append('name', nameValue);
+        formData.append('mainTheme', mainThemeValue);
+        formData.append('categories', categoriesValue);
+        formData.append('workTime', workTimeValue);
+        formData.append('cities', selectedCities.map(x => x.name).join(','));
+
+
+        sendRequest({
+            url: 'http://localhost:3030/api/restaurant/create',
+            method: 'POST',
+            body: formData
+        }, processResponse);
 
     };
 
     return (
         <section className={`${classes['create-restaurant']} container`}>
             <h2>Lets create together the best restaurant</h2>
+            {error && <div>{error}</div>}
             <form className={classes['create-restaurant-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
-                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="name" />
+                    <input
+                        className={`${classes['create-restaurant-form-input']} ${nameHasError ? classes['input--invalid'] : ''}`}
+                        type="text"
+                        placeholder=" "
+                        name="name"
+                        disabled={isLoading}
+                        value={nameValue}
+                        onChange={nameChangeHandler}
+                        onBlur={nameBlurHandler}
+                    />
                     <span className={classes.placeholder}>Name of the restaurant</span>
+                    {nameHasError && <p className={classes['input-notification']}>Name must be at least 6 characters long!</p>}
                 </div>
                 <div className={classes.col}>
-                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="theme" />
+                    <input
+                        className={`${classes['create-restaurant-form-input']} ${mainThemeHasError ? classes['input--invalid'] : ''}`}
+                        type="text"
+                        placeholder=" "
+                        name="theme"
+                        disabled={isLoading}
+                        value={mainThemeValue}
+                        onChange={mainThemeChangeHandler}
+                        onBlur={mainThemeBlurHandler}
+                    />
                     <span className={classes.placeholder}>Main theme of the restaurant</span>
+                    {mainThemeHasError && <p className={classes['input-notification']}>Main theme must be at least 6 characters long!</p>}
                 </div>
                 <div className={classes.col}>
-                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="categories" />
+                    <input
+                        className={`${classes['create-restaurant-form-input']} ${categoriesHasError ? classes['input--invalid'] : ''}`}
+                        type="text"
+                        placeholder=" "
+                        name="categories"
+                        disabled={isLoading}
+                        value={categoriesValue}
+                        onChange={categoriesChangeHandler}
+                        onBlur={categoriesBlurHandler}
+                    />
                     <span className={classes.placeholder}>Categories separated by ","</span>
+                    {categoriesHasError && <p className={classes['input-notification']}>At least 3 categories are required!</p>}
                 </div>
                 <div className={classes.col}>
-                    <input className={classes['create-restaurant-form-input']} type="text" placeholder=" " name="work-time" />
+                    <input
+                        className={`${classes['create-restaurant-form-input']} ${workTimeHasError ? classes['input--invalid'] : ''}`}
+                        type="text"
+                        placeholder=" "
+                        name="work-time"
+                        disabled={isLoading}
+                        value={workTimeValue}
+                        onChange={workTimeChangeHandler}
+                        onBlur={workTimeBlurHandler}
+                    />
                     <span className={classes.placeholder}>Monday-Friday 10:00-20:00</span>
+                    {workTimeHasError && <p className={classes['input-notification']}>Please fill working time in the correct format!</p>}
                 </div>
                 <div className={classes.col}>
-                    <label className={classes['file-label']} htmlFor="image">Upload restaurant cover image</label>
-                    <input className={classes['file-btn']} id="image" type="file" name="image" />
+                    <label className={`${classes['file-label']} ${!fileIsValid ? classes['file-label--invalid'] : ''}`} htmlFor="image">
+                        {selectedFile ? 'File selected' : 'Upload restaurant cover image'}
+                    </label>
+                    <input
+                        className={classes['file-btn']}
+                        id="image"
+                        type="file"
+                        name="image"
+                        onChange={(e) => {
+                            if (e.target.files?.length !== 0) {
+                                setSelectedFile(e.target.files![0]);
+                                setFileIsValid(true);
+                            }
+                        }}
+                    />
+                    {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>
                 <div className={classes.col}>
                     <MultiChoiceSelect

@@ -26,7 +26,7 @@ const useHttp = () => {
                 method: requestConfig.method || 'GET',
                 credentials: 'include',
                 headers: requestConfig.headers || {},
-                body: requestConfig.body ? JSON.stringify(requestConfig.body) : null
+                body: requestConfig.body || null
             });
 
             const data = await response.json();

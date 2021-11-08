@@ -29,6 +29,7 @@
     font-size: 16px;
     background: #f6f8fa;
     width: 100%;
+    cursor: pointer;
 }
 
 .placeholder {
@@ -51,8 +52,26 @@
     padding: 0 0 5px 10px;
 }
 
+.file-label--invalid {
+    border-bottom: 1px solid #ff0000;
+}
+
 .create-restaurant-form input:focus ~ .placeholder,
 .create-restaurant-form input:not(:placeholder-shown) ~ .placeholder {
     font-size: 12px;
     top: 5px;
+}
+
+.create-restaurant-form input.input--invalid {
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.input-notification {
+    position: absolute;
+    color: #ff0000;
+    top: 5px;
+    right: 0;
+    font-size: 12px;
+    margin: 0;
 }

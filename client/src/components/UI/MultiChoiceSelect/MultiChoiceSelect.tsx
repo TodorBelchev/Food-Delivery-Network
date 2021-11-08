@@ -16,13 +16,16 @@ export type InputStringType = {
 
 const MultiChoiceSelect: React.FC<MultiChoiceSelectProps> = (props) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isTouched, setIsTouched] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
+    const isInvalid = isTouched && props.selected.length === 0;
 
     const onContainerClick = (e: React.MouseEvent<HTMLElement>) => {
         const element = e.target as HTMLElement;
         if (element === containerRef.current || element === textRef.current) {
             setIsVisible(oldValue => !oldValue);
+            setIsTouched(true);
         }
     };
 
@@ -56,7 +59,7 @@ const MultiChoiceSelect: React.FC<MultiChoiceSelectProps> = (props) => {
     }, [outsideClickHandler]);
 
     return (
-        <div ref={containerRef} className={classes.select} onClick={onContainerClick}>
+        <div ref={containerRef} className={`${classes.select} ${isInvalid ? classes['select--invalid'] : ''}`} onClick={onContainerClick}>
             <div ref={textRef} className={classes.text}>{props.selected.map(x => x.name).join(', ') || props.text}</div>
             {isVisible && <ul className={classes.list}>{props.inputStrings.map(x => {
                 return (
@@ -66,6 +69,7 @@ const MultiChoiceSelect: React.FC<MultiChoiceSelectProps> = (props) => {
                     </li>
                 )
             })}</ul>}
+            {isInvalid && <p className={classes['input-notification']}>At least one city is required!</p>}
         </div>
     )
 }

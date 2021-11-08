@@ -31,7 +31,7 @@ const LoginModal: React.FC = () => {
         valueChangeHandler: passwordChangeHandler,
         inputBlurHandler: passwordBlurHandler,
         reset: resetPassword
-    } = useInput(validators.minLength);
+    } = useInput(validators.minLength.bind(null, 6));
 
     let formIsValid = false;
 
@@ -57,10 +57,10 @@ const LoginModal: React.FC = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
+            body: JSON.stringify({
                 email: emailValue,
                 password: passwordValue
-            }
+            })
         }, processResponse);
     }
 

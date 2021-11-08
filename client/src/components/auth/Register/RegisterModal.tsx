@@ -31,7 +31,7 @@ const RegisterModal: React.FC = () => {
         valueChangeHandler: passwordChangeHandler,
         inputBlurHandler: passwordBlurHandler,
         reset: resetPassword
-    } = useInput(validators.minLength);
+    } = useInput(validators.minLength.bind(null, 6));
     const {
         value: rePasswordValue,
         isValid: rePasswordIsValid,
@@ -66,11 +66,11 @@ const RegisterModal: React.FC = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
+            body: JSON.stringify({
                 email: emailValue,
                 password: passwordValue,
                 rePassword: rePasswordValue
-            }
+            })
         }, processResponse);
     }
 

@@ -1,1 +1,1 @@
-export const minLength = (value: string) => value.length >= 6;
+export const minLength = (expectedLength: number, value: string) => value.length >= expectedLength;
