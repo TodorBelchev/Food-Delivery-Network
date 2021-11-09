@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createRestaurant } = require('../services/restaurantService');
+const { createRestaurant, getByOwnerId } = require('../services/restaurantService');
 const { getFormData, uploadToCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
@@ -37,6 +37,16 @@ router.post('/create', checkUser(), async (req, res) => {
 
         const restaurant = await createRestaurant(restaurantData);
         res.status(200).send(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/by-owner', checkUser(), async (req, res) => {
+    try {
+        const restaurants = await getByOwnerId(req.decoded.id);
+        res.status(200).send(restaurants);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

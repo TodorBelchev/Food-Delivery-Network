@@ -32,7 +32,13 @@ const UserNav: React.FC<UserNavProps> = ({ user }) => {
                     <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/create-restaurant`}>Create Restaurant</NavLink>
                 </li>
                 <li>
+                    <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/restaurants`}>My restaurants</NavLink>
+                </li>
+                <li>
                     <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/favorites`}>Favorite restaurants</NavLink>
+                </li>
+                <li>
+                    <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/orders`}>Orders</NavLink>
                 </li>
                 <li>
                     <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/orders`}>Orders</NavLink>

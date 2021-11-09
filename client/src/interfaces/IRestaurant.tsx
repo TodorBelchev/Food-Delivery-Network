@@ -8,4 +8,5 @@ export default interface IRestaurant {
     owner: string;
     workDays: string[];
     workHours: string[];
+    rating: number;
 }

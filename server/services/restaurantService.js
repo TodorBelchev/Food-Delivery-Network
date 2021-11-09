@@ -6,6 +6,11 @@ const createRestaurant = (data) => {
     return restaurant.save();
 }
 
+const getByOwnerId = (owner) => {
+    return Restaurant.find({ owner });
+}
+
 module.exports = {
-    createRestaurant
+    createRestaurant,
+    getByOwnerId
 }
