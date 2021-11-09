@@ -10,7 +10,12 @@ const getByOwnerId = (owner) => {
     return Restaurant.find({ owner });
 }
 
+const getById = (id) => {
+    return Restaurant.findById(id);
+}
+
 module.exports = {
     createRestaurant,
-    getByOwnerId
+    getByOwnerId,
+    getById
 }

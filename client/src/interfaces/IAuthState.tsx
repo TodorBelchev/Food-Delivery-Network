@@ -7,4 +7,5 @@ export default interface IAuthState {
     phoneNumber?: number;
     city?: string;
     location?: string;
+    favorites: string[];
 }

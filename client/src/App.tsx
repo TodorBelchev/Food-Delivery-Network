@@ -1,11 +1,21 @@
-import Layout from './components/layout/Layout/Layout';
-
-import './App.css';
 import { Route, Switch } from 'react-router';
-import Home from './pages/Home';
-import UserProfile from './pages/UserProfile';
+import './App.css';
+
+import Layout from './components/layout/Layout/Layout';
+import Home from './pages/Home/Home';
+import UserProfile from './pages/UserProfile/UserProfile';
+import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
+
+import { useAppDispatch } from './hooks/redux-hooks';
+import { authActions } from './store/auth';
+import { useEffect } from 'react';
 
 function App() {
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(authActions.autoLoadFavorites());
+	}, [dispatch]);
 	return (
 		<Layout>
 			<Switch>
@@ -14,6 +24,9 @@ function App() {
 				</Route>
 				<Route path='/profile/:id'>
 					<UserProfile />
+				</Route>
+				<Route path='/restaurant/:id'>
+					<RestaurantDetails />
 				</Route>
 			</Switch>
 		</Layout>

@@ -40,9 +40,6 @@ const UserNav: React.FC<UserNavProps> = ({ user }) => {
                 <li>
                     <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/orders`}>Orders</NavLink>
                 </li>
-                <li>
-                    <NavLink activeClassName={classes.active} className={classes['list-item']} to={`/profile/${user._id}/orders`}>Orders</NavLink>
-                </li>
             </ul>
         </nav>
     )

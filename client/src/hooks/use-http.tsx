@@ -35,9 +35,11 @@ const useHttp = () => {
                 throw new Error(data.message);
             }
 
-            if (isMounted) {
+            if(isMounted) {
                 setIsLoading(false);
             }
+
+            setIsLoading(false);
             applyData(data);
         } catch (err) {
             let errorMessage = (err as Error).message;

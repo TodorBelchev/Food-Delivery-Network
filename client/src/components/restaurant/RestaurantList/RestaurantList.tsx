@@ -19,7 +19,7 @@ const RestaurantList: React.FC = () => {
         sendRequest({
             url: 'http://localhost:3030/api/restaurant/by-owner'
         }, processResponse);
-    }, []);
+    }, [sendRequest]);
 
     return (
         <ul className={`${classes.list} container`}>

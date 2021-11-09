@@ -1,0 +1,52 @@
+.restaurant-content {
+    display: flex;
+}
+
+.restaurant-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.restaurant-content-title,
+.icons,
+.scoring,
+.restaurant-content-subtitle {
+    margin: 5px 0;
+}
+
+.restaurant-content-title,
+.restaurant-content-subtitle {
+    margin-right: 40px;
+}
+
+.icons {
+    flex-basis: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.icons img {
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.restaurant-content-title-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.scoring {
+    display: flex;
+    align-items: center;
+}
+
+.scoring span { 
+    font-size: 20px;
+    margin-left: 10px;
+}
