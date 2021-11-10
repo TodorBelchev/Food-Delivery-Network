@@ -4,12 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { modalActions } from '../../../store/modal';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 
-import Modal from '../../UI/Modal/Modal';
 import classes from './Navigation.module.css';
 import UserIcon from '../../user-profile/UserIcon/UserIcon';
+import Modal from '../../UI/Modal/Modal';
+import LoginModal from '../../auth/Login/LoginModal';
+import RegisterModal from '../../auth/Register/RegisterModal';
 
 const Navigation: React.FC = () => {
-    const modalIsOpen = useAppSelector(state => state.modal.isOpen);
+    const modalState = useAppSelector(state => state.modal);
     const user = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
 
@@ -22,7 +24,7 @@ const Navigation: React.FC = () => {
     const scrollBarWidth = windowWidth - documentWidth;
 
     useEffect(() => {
-        if (modalIsOpen) {
+        if (modalState.isOpen) {
             document.body.style.overflowY = 'hidden';
             document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
         }
@@ -30,12 +32,23 @@ const Navigation: React.FC = () => {
             document.body.style.overflowY = 'scroll';
             document.body.style.width = '100%';
         };
-    }, [modalIsOpen, scrollBarWidth]);
+    }, [modalState.isOpen, scrollBarWidth]);
 
 
     return (
         <header className={classes.header}>
-            {modalIsOpen && <Modal />}
+            {modalState.isOpen &&
+                modalState.overlayName === 'login' &&
+                <Modal>
+                    <LoginModal />
+                </Modal>
+            }
+            {modalState.isOpen &&
+                modalState.overlayName === 'register' &&
+                <Modal>
+                    <RegisterModal />
+                </Modal>
+            }
             <div className={classes.container}>
                 <NavLink to="/" className={classes['logo-link']}>
                     <img className={classes.icon} src="/icons/utensils-solid.svg" alt=" utensils" />

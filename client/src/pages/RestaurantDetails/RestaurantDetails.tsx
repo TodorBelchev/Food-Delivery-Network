@@ -11,7 +11,7 @@ import IRestaurant from "../../interfaces/IRestaurant";
 
 
 const RestaurantDetails: React.FC = () => {
-    const { isLoading, error, closeError, sendRequest } = useHttp();
+    const { isLoading, sendRequest } = useHttp();
     const [restaurant, setRestaurant] = useState<IRestaurant | null>(null);
     const params = useParams<{ id: string }>();
     const { id } = params;

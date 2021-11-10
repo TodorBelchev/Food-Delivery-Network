@@ -20,7 +20,14 @@ const restaurantSchema = new mongoose.Schema({
         type: String,
     }],
     image: {
-        type: String
+        type: {
+            url: {
+                type: String
+            },
+            public_id: {
+                type: String
+            }
+        }
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,

@@ -9,7 +9,7 @@ import classes from './RestaurantList.module.css';
 
 const RestaurantList: React.FC = () => {
     const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
-    const { isLoading, error, sendRequest, closeError } = useHttp();
+    const { sendRequest } = useHttp();
 
     const processResponse = (res: IRestaurant[]) => {
         setRestaurants(res);
@@ -22,11 +22,13 @@ const RestaurantList: React.FC = () => {
     }, [sendRequest]);
 
     return (
-        <ul className={`${classes.list} container`}>
-            <li>
-                {restaurants.map(x => <RestaurantCard key={x._id} restaurant={x}/>)}
-            </li>
-        </ul>
+        <section className="container">
+            <ul className={`${classes.list}`}>
+                <li>
+                    {restaurants.map(x => <RestaurantCard key={x._id} restaurant={x} />)}
+                </li>
+            </ul>
+        </section>
     )
 };
 

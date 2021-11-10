@@ -1,32 +1,62 @@
+import React from 'react';
+import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
+
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { modalActions } from '../../../store/modal';
 
 import IRestaurant from '../../../interfaces/IRestaurant';
 
 import classes from './RestaurantCard.module.css';
+import Modal from '../../UI/Modal/Modal';
+import DeleteRestaurantModal from '../DeleteRestaurantModal/DeleteRestaurantModal';
 
 type RestaurantCardProps = JSX.IntrinsicElements['article'] & {
     restaurant: IRestaurant
 }
 
 const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
+    const modalState = useAppSelector(state => state.modal);
+    const user = useAppSelector(state => state.auth);
+    const dispatch = useAppDispatch();
+    const isOwner = user._id === restaurant.owner;
+    const history = useHistory();
 
+    const editClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        history.push(`/restaurant/${restaurant._id}/edit`);
+    }
+
+    const deleteClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        dispatch(modalActions.open('delete-restaurant'));
+    }
 
     return (
-        <NavLink to={`/restaurant/${restaurant._id}`} className={classes.card}>
-            <div className={classes['card-image']}>
-                <img src={restaurant.image} alt="restaurant" />
-            </div>
-            <div className={classes['card-content']}>
-                <div className={classes['card-content-title-wrapper']}>
-                    <h2 className={classes['card-content-title']}>
-                        {restaurant.name}
-                    </h2>
-                    {restaurant.rating !== 0 ? <div className={classes['card-content-rating']}><img src="/icons/star-solid.svg" alt="star" /> <span>4.5(30)</span></div> : null}
-                </div>
-                <p>Theme: {restaurant.mainTheme}</p>
-                <p>Main categories: {restaurant.categories.slice(0, 3).join(', ')}</p>
-            </div>
-        </NavLink>
+        <article className={classes.restaurant}>
+            {modalState.isOpen &&
+                modalState.overlayName === 'delete-restaurant' &&
+                <Modal>
+                    <DeleteRestaurantModal _id={restaurant._id} name={restaurant.name} />
+                </Modal>
+            }
+            <NavLink to={`/restaurant/${restaurant._id}`}>
+                <article className={classes['restaurant-image-wrapper']}>
+                    <img className={classes['restaurant-img-wrapper-img']} src={restaurant.image.url} alt="pizza" />
+                </article>
+                <article className={classes['restaurant-title-wrapper']}>
+                    <h2 className={classes['restaurant-title']}>{restaurant.name}</h2>
+                    <p className={classes['restaurant-score']}><img src="/icons/star-solid.svg" alt="star" />4.5(30)</p>
+                </article>
+                <article className={classes['restaurant-text-wrapper']}>
+                    <p className={classes.description}>{restaurant.mainTheme}, {restaurant.categories[0]}</p>
+                    {isOwner && <div>
+                        <img onClick={editClickHandler} className={classes.icon} src="/icons/tools-solid.svg" alt="edit button" />
+                        <img onClick={deleteClickHandler} className={classes.icon} src="/icons/trash-solid.svg" alt="delete button" />
+                    </div>}
+                </article>
+            </NavLink>
+        </article>
     )
 };
 

@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createRestaurant, getByOwnerId, getById } = require('../services/restaurantService');
-const { getFormData, uploadToCloudinary } = require('../utils');
+const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
+const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
 const router = Router();
@@ -14,8 +14,8 @@ router.post('/create', checkUser(), async (req, res) => {
         const [formData, incFiles] = await getFormData(req, form);
 
         for (const file of Object.values(incFiles)) {
-            const url = await uploadToCloudinary(file.path);
-            imagesURL.push(url);
+            const res = await uploadToCloudinary(file.path);
+            imagesURL.push({ url: res.url, public_id: res.public_id });
         }
 
         formData.images = imagesURL;
@@ -57,6 +57,19 @@ router.get('/:id', async (req, res) => {
     try {
         const restaurant = await getById(req.params.id);
         res.status(200).send(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const restaurant = await getById(req.params.id);
+        const imgId = restaurant.image.public_id;
+        await deleteFromCloudinary(imgId)
+        await deleteById(req.params.id);
+        res.status(200).send({ message: 'Success' });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

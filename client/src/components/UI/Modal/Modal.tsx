@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
-import { modalActions } from '../../../store/modal';
-import LoginModal from '../../auth/Login/LoginModal';
-import RegisterModal from '../../auth/Register/RegisterModal';
+import { useAppDispatch } from "../../../hooks/redux-hooks";
+import { modalActions } from "../../../store/modal";
 
 import classes from './Modal.module.css';
 
@@ -16,20 +14,7 @@ const Backdrop: React.FC = () => {
     return <div className={classes.backdrop} onClick={closeModal}></div>;
 }
 
-let ModalOverlay: React.FC = () => {
-    return <div></div>;
-};
-
-const modals: { [key: string]: React.FC } = {
-    'login': LoginModal,
-    'register': RegisterModal
-}
-
-const Modal: React.FC = () => {
-    const overlayName = useAppSelector(state => state.modal.overlayName);
-    const IncomingModal: React.FC = modals[overlayName];
-    ModalOverlay = () => <div className={classes.modal}><IncomingModal /></div>;
-
+const Modal: React.FC = (props) => {
     return (
         <>
             <React.Fragment>
@@ -38,12 +23,14 @@ const Modal: React.FC = () => {
                     document.getElementById('backdrop-root')!
                 )}
                 {ReactDOM.createPortal(
-                    <ModalOverlay />,
+                    <div className={classes.modal}>
+                        {props.children}
+                    </div>,
                     document.getElementById('overlay-root')!
                 )}
             </React.Fragment>
         </>
     );
-};
+}
 
 export default Modal;

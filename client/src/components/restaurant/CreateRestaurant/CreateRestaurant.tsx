@@ -68,7 +68,7 @@ const CreateRestaurant: React.FC = () => {
         mainThemeReset();
         categoriesReset();
         workTimeReset();
-        history.replace(`/restaurants/${response._id}`);
+        history.replace(`/restaurant/${response._id}`);
     };
 
     const submitHandler = (e: React.FormEvent) => {

@@ -14,8 +14,13 @@ const getById = (id) => {
     return Restaurant.findById(id);
 }
 
+const deleteById = (id) => {
+    return Restaurant.findByIdAndDelete(id);
+}
+
 module.exports = {
     createRestaurant,
     getByOwnerId,
-    getById
+    getById,
+    deleteById
 }
