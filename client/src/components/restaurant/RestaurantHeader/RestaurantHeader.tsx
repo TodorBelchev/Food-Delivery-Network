@@ -1,3 +1,5 @@
+import { useHistory } from "react-router";
+
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 import { authActions } from '../../../store/auth';
 
@@ -16,6 +18,7 @@ type RestaurantHeaderProps = JSX.IntrinsicElements['section'] & {
 }
 
 const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user }) => {
+    const history = useHistory();
     const dispatch = useAppDispatch();
     const userIsOwner = user._id === restaurant.owner;
     const restaurantIsInFavorites = user.favorites.includes(restaurant._id);
@@ -31,6 +34,14 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
 
     const deleteClickHandler = () => {
         dispatch(modalActions.open('delete-restaurant'));
+    }
+
+    const dashboardClickHandler = () => {
+        history.push(`/restaurant/${restaurant._id}/dashboard`);
+    }
+
+    const editClickHandler = () => {
+        history.push(`/restaurant/${restaurant._id}/edit`);
     }
 
     return (
@@ -49,8 +60,9 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
                     <p className={classes.scoring}><img src="/icons/star-solid.svg" alt="star" /><span>4.5(30)</span></p>
                 </article>
                 <p className={classes.icons}>
-                    {userIsOwner && <img src="/icons/tools-solid.svg" alt="edit button" />}
+                    {userIsOwner && <img onClick={dashboardClickHandler} src="/icons/tools-solid.svg" alt="dashboard button" />}
                     {userIsOwner && <img onClick={deleteClickHandler} src="/icons/trash-solid.svg" alt="delete button" />}
+                    {userIsOwner && <img onClick={editClickHandler} src="/icons/edit-solid.svg" alt="edit button" />}
                     {!restaurantIsInFavorites && <img onClick={addToFavoritesHandler} src="/icons/heart-regular.svg" alt="heart" />}
                     {restaurantIsInFavorites && <img onClick={removeFromFavoritesHandler} src="/icons/heart-solid.svg" alt="heart" />}
                     <img src="/icons/comment-regular.svg" alt="comment" />

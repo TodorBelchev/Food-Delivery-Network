@@ -22,9 +22,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
     const isOwner = user._id === restaurant.owner;
     const history = useHistory();
 
-    const editClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+    const dashboardClickHandler = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
-        history.push(`/restaurant/${restaurant._id}/edit`);
+        history.push(`/restaurant/${restaurant._id}/dashboard`);
     }
 
     const deleteClickHandler = (e: React.MouseEvent<HTMLElement>) => {
@@ -51,7 +51,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                 <article className={classes['restaurant-text-wrapper']}>
                     <p className={classes.description}>{restaurant.mainTheme}, {restaurant.categories[0]}</p>
                     {isOwner && <div>
-                        <img onClick={editClickHandler} className={classes.icon} src="/icons/tools-solid.svg" alt="edit button" />
+                        <img onClick={dashboardClickHandler} className={classes.icon} src="/icons/tools-solid.svg" alt="dashboard button" />
                         <img onClick={deleteClickHandler} className={classes.icon} src="/icons/trash-solid.svg" alt="delete button" />
                     </div>}
                 </article>

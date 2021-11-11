@@ -1,7 +1,7 @@
 export default interface IRestaurant {
     _id: string;
     categories: string[];
-    cities: string[];
+    cities: { _id: number; name: string }[];
     image: {
         url: string;
         object_id: string;

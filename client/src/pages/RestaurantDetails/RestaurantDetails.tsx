@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Route, Switch, useParams } from "react-router";
+import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
+import RestaurantDashboard from "../../components/restaurant/RestaurantDashboard/RestaurantDashboard";
 
 import RestaurantHeader from "../../components/restaurant/RestaurantHeader/RestaurantHeader";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -30,6 +32,14 @@ const RestaurantDetails: React.FC = () => {
         <>
             {isLoading && <Spinner />}
             {restaurant && <RestaurantHeader restaurant={restaurant} user={user} />}
+            <Switch>
+                <Route path="/restaurant/:id/dashboard">
+                    <RestaurantDashboard />
+                </Route>
+                <Route path="/restaurant/:id/edit">
+                    {restaurant && <CreateRestaurant edit={true} restaurant={restaurant} setRestaurant={setRestaurant} />}
+                </Route>
+            </Switch>
         </>
     );
 }

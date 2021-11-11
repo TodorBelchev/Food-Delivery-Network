@@ -17,7 +17,12 @@ const restaurantSchema = new mongoose.Schema({
         type: String
     }],
     cities: [{
-        type: String,
+        _id: {
+            type: Number
+        },
+        name: {
+            type: String
+        }
     }],
     image: {
         type: {

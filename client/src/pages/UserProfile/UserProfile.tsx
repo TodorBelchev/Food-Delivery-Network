@@ -14,7 +14,7 @@ const UserProfile: React.FC = () => {
             <UserNav user={user} />
             <Switch>
                 <Route path="/profile/:id/create-restaurant">
-                    <CreateRestaurant />
+                    <CreateRestaurant edit={false} />
                 </Route>
                 <Route path="/profile/:id/restaurants">
                     <RestaurantList />
