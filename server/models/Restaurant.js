@@ -37,6 +37,13 @@ const restaurantSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    recipes: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Recipe'
+        }],
+        default: []
     }
 });
 

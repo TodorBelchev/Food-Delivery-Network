@@ -2,13 +2,14 @@ import { useHistory } from "react-router";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 import { authActions } from '../../../store/auth';
+import { modalActions } from "../../../store/modal";
 
 import IAuthState from "../../../interfaces/IAuthState";
 import IRestaurant from "../../../interfaces/IRestaurant";
 
 import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModal";
 import Modal from "../../UI/Modal/Modal";
-import { modalActions } from "../../../store/modal";
+import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
 
 import classes from './RestaurantHeader.module.css';
 
@@ -44,12 +45,22 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
         history.push(`/restaurant/${restaurant._id}/edit`);
     }
 
+    const addRecipeClickHandler = () => {
+        dispatch(modalActions.open('add-recipe'));
+    }
+
     return (
         <section>
             {modalState.isOpen &&
                 modalState.overlayName === 'delete-restaurant' &&
                 <Modal>
                     <DeleteRestaurantModal _id={restaurant._id} name={restaurant.name} />
+                </Modal>
+            }
+            {modalState.isOpen &&
+                modalState.overlayName === 'add-recipe' &&
+                <Modal>
+                    <AddRecipeModal _id={restaurant._id} categories={restaurant.categories} />
                 </Modal>
             }
             <img className={classes['restaurant-img']} src={restaurant.image.url} alt="" />
@@ -60,9 +71,10 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
                     <p className={classes.scoring}><img src="/icons/star-solid.svg" alt="star" /><span>4.5(30)</span></p>
                 </article>
                 <p className={classes.icons}>
+                    {userIsOwner && <img onClick={editClickHandler} src="/icons/edit-solid.svg" alt="edit button" />}
+                    {userIsOwner && <img onClick={addRecipeClickHandler} src="/icons/add.png" alt="add recipe button" />}
                     {userIsOwner && <img onClick={dashboardClickHandler} src="/icons/tools-solid.svg" alt="dashboard button" />}
                     {userIsOwner && <img onClick={deleteClickHandler} src="/icons/trash-solid.svg" alt="delete button" />}
-                    {userIsOwner && <img onClick={editClickHandler} src="/icons/edit-solid.svg" alt="edit button" />}
                     {!restaurantIsInFavorites && <img onClick={addToFavoritesHandler} src="/icons/heart-regular.svg" alt="heart" />}
                     {restaurantIsInFavorites && <img onClick={removeFromFavoritesHandler} src="/icons/heart-solid.svg" alt="heart" />}
                     <img src="/icons/comment-regular.svg" alt="comment" />

@@ -16,7 +16,7 @@
 
 .icon {
     font-size: 1.5rem;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
 }
 
 .navigation-wrapper > article {
@@ -34,6 +34,10 @@
 
 .nav-list-item {
     padding: 5px 20px;
+}
+
+.nav-list-item:last-child {
+    padding: 5px 0 5px 20px;
 }
 
 .logo-link {

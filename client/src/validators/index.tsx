@@ -1,14 +1,14 @@
 import { isEmail } from "./isEmail";
 import { minLength } from "./minLength";
 import { stringMatch } from "./stringMatch";
-import { categoriesCount } from "./categoriesCount";
+import { minStringCount } from "./minStringCount";
 import { workTime } from "./workTime";
 
 const validators = {
     isEmail,
     minLength,
     stringMatch,
-    categoriesCount,
+    minStringCount,
     workTime
 }
 

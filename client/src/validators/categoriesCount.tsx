@@ -1,1 +1,0 @@
-export const categoriesCount = (value: string) => value.split(',').length > 2;

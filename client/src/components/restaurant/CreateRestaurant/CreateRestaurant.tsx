@@ -56,7 +56,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit, restaurant, s
         inputBlurHandler: categoriesBlurHandler,
         reset: categoriesReset,
         setValue: setCategoriesValue
-    } = useInput(validators.categoriesCount);
+    } = useInput(validators.minStringCount.bind(null, 3));
     const {
         value: workTimeValue,
         isValid: workTimeIsValid,
