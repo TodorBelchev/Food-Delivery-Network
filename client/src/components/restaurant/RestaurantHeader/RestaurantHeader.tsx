@@ -12,6 +12,7 @@ import Modal from "../../UI/Modal/Modal";
 import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
 
 import classes from './RestaurantHeader.module.css';
+import { NavLink } from "react-router-dom";
 
 type RestaurantHeaderProps = JSX.IntrinsicElements['section'] & {
     restaurant: IRestaurant;
@@ -66,7 +67,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
             <img className={classes['restaurant-img']} src={restaurant.image.url} alt="" />
             <article className={`${classes['restaurant-content']} container`}>
                 <article className={classes['restaurant-content-title-wrapper']}>
-                    <h2 className={classes['restaurant-content-title']}>{restaurant.name}</h2>
+                    <NavLink to={`/restaurant/${restaurant._id}`} className={classes['restaurant-content-title']}>{restaurant.name}</NavLink>
                     <h4 className={classes['restaurant-content-subtitle']}>{restaurant.mainTheme}, {restaurant.categories[0]}</h4>
                     <p className={classes.scoring}><img src="/icons/star-solid.svg" alt="star" /><span>4.5(30)</span></p>
                 </article>

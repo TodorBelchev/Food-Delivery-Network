@@ -8,7 +8,6 @@
     object-fit: cover;
 }
 
-.restaurant-content-title,
 .icons,
 .scoring,
 .restaurant-content-subtitle {
@@ -35,10 +34,15 @@
 .restaurant-content-title-wrapper {
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-end;
     flex-wrap: wrap;
     margin-top: 10px;
+}
+
+.restaurant-content-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-right: 10px;
 }
 
 .scoring {
@@ -46,7 +50,7 @@
     align-items: center;
 }
 
-.scoring span { 
+.scoring span {
     font-size: 20px;
     margin-left: 10px;
 }

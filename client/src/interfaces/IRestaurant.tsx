@@ -1,3 +1,5 @@
+import IRecipe from "./IRecipe";
+
 export default interface IRestaurant {
     _id: string;
     categories: string[];
@@ -12,4 +14,5 @@ export default interface IRestaurant {
     workDays: string[];
     workHours: string[];
     rating: number;
+    recipes: IRecipe[];
 }

@@ -7,11 +7,11 @@ const createRestaurant = (data) => {
 }
 
 const getByOwnerId = (owner) => {
-    return Restaurant.find({ owner });
+    return Restaurant.find({ owner }).populate('recipes');
 }
 
 const getById = (id) => {
-    return Restaurant.findById(id);
+    return Restaurant.findById(id).populate('recipes');
 }
 
 const deleteById = (id) => {
