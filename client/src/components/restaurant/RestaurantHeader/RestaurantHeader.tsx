@@ -5,7 +5,6 @@ import { authActions } from '../../../store/auth';
 import { modalActions } from "../../../store/modal";
 
 import IAuthState from "../../../interfaces/IAuthState";
-import IRestaurant from "../../../interfaces/IRestaurant";
 
 import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModal";
 import Modal from "../../UI/Modal/Modal";
@@ -15,11 +14,11 @@ import classes from './RestaurantHeader.module.css';
 import { NavLink } from "react-router-dom";
 
 type RestaurantHeaderProps = JSX.IntrinsicElements['section'] & {
-    restaurant: IRestaurant;
     user: IAuthState;
 }
 
-const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user }) => {
+const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
+    const restaurant = useAppSelector(state => state.restaurant);
     const history = useHistory();
     const dispatch = useAppDispatch();
     const userIsOwner = user._id === restaurant.owner;
@@ -61,7 +60,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant, user })
             {modalState.isOpen &&
                 modalState.overlayName === 'add-recipe' &&
                 <Modal>
-                    <AddRecipeModal _id={restaurant._id} categories={restaurant.categories} />
+                    <AddRecipeModal />
                 </Modal>
             }
             <img className={classes['restaurant-img']} src={restaurant.image.url} alt="" />

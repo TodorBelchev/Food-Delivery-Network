@@ -3,5 +3,10 @@ export default interface IRecipe {
     name: string;
     price: number;
     category: string;
+    weight: number;
     ingredients: string[];
+    image: {
+        url: string;
+        object_id: string;
+    };
 }

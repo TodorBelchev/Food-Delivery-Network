@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
@@ -6,16 +6,18 @@ import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { restaurantActions } from '../../../store/restaurant';
 
 import classes from './CreateRestaurant.module.css';
 
 type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
     edit: boolean;
-    restaurant?: IRestaurant;
-    setRestaurant?: Dispatch<SetStateAction<IRestaurant | null>>;
 }
 
-const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit, restaurant, setRestaurant }) => {
+const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
+    const dispatch = useAppDispatch();
+    const restaurant = useAppSelector(state => state.restaurant);
     const cities = [
         { name: 'Sofia', _id: 0 },
         { name: 'Varna', _id: 1 },
@@ -89,7 +91,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit, restaurant, s
         categoriesReset();
         workTimeReset();
         if (edit) {
-            setRestaurant!(response);
+            dispatch(restaurantActions.setRestaurant(response));
         }
         history.replace(`/restaurant/${response._id}`);
     };

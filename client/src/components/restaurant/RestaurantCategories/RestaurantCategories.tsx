@@ -1,19 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useAppSelector } from '../../../hooks/redux-hooks';
 
-import IRecipe from "../../../interfaces/IRecipe";
 import RestaurantCategoryList from "../RestaurantCategoryList/RestaurantCategoryList";
 
-type RestaurantCategoriesProps = JSX.IntrinsicElements['section'] & {
-    recipes: IRecipe[];
-    restaurantId: string;
-    categories: string[];
-}
 
-const RestaurantCategories: React.FC<RestaurantCategoriesProps> = ({ recipes, restaurantId, categories }) => {
+const RestaurantCategories: React.FC = () => {
+    const restaurant = useAppSelector(state => state.restaurant);
     return (
         <section className={'container'}>
-            {categories.map(category => {
-                const categoryRecipes = recipes.filter(recipe => recipe.category === category);
+            {restaurant.categories.map(category => {
+                const categoryRecipes = restaurant.recipes.filter(recipe => recipe.category === category);
 
                 if (categoryRecipes.length > 0) {
                     return <RestaurantCategoryList key={uuidv4()} categoryRecipes={categoryRecipes} />;

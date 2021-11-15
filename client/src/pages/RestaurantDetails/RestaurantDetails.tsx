@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { Route, Switch, useParams } from "react-router";
 
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
@@ -7,41 +7,43 @@ import RestaurantDashboard from "../../components/restaurant/RestaurantDashboard
 import RestaurantHeader from "../../components/restaurant/RestaurantHeader/RestaurantHeader";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
-import { useAppSelector } from "../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import useHttp from "../../hooks/use-http";
+import { restaurantActions } from "../../store/restaurant";
 
 import IRestaurant from "../../interfaces/IRestaurant";
 
 
 const RestaurantDetails: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const restaurant = useAppSelector(state => state.restaurant);
     const { isLoading, sendRequest } = useHttp();
-    const [restaurant, setRestaurant] = useState<IRestaurant | null>(null);
-    const params = useParams<{ id: string }>();
-    const { id } = params;
+    const { id } = useParams<{ id: string }>();
     const user = useAppSelector(state => state.auth);
 
-    const processResponse = (res: IRestaurant) => {
-        setRestaurant(res);
-    }
+    const processResponse = useCallback((res: IRestaurant) => {
+        dispatch(restaurantActions.setRestaurant(res));
+    }, [dispatch]);
 
     useEffect(() => {
         sendRequest({
             url: 'http://localhost:3030/api/restaurant/' + id
         }, processResponse);
-    }, [id, sendRequest]);
+    }, [id, sendRequest, processResponse]);
     return (
         <>
             {isLoading && <Spinner />}
-            {restaurant && <RestaurantHeader restaurant={restaurant} user={user} />}
+            {restaurant &&
+                <RestaurantHeader user={user} />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
                     <RestaurantDashboard />
                 </Route>
                 <Route path="/restaurant/:id/edit">
-                    {restaurant && <CreateRestaurant edit={true} restaurant={restaurant} setRestaurant={setRestaurant} />}
+                    {restaurant && <CreateRestaurant edit={true} />}
                 </Route>
                 <Route path="/">
-                    {restaurant && <RestaurantCategories recipes={restaurant.recipes} restaurantId={restaurant._id} categories={restaurant.categories} />}
+                    {restaurant && <RestaurantCategories />}
                 </Route>
             </Switch>
         </>

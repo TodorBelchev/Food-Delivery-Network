@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import IRecipe from '../../../interfaces/IRecipe';
 import Recipe from '../Recipe/Recipe';
 import classes from './RestaurantCategoryList.module.css';
@@ -10,7 +12,7 @@ const RestaurantCategoryList: React.FC<RestaurantCategoryListProps> = ({ categor
     return (
         <div className={`${classes.category} container`}>
             <h2>{categoryRecipes[0].category}</h2>
-            {categoryRecipes.map(recipe => <Recipe recipe={recipe} />)}
+            {categoryRecipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
         </div>
     )
 };

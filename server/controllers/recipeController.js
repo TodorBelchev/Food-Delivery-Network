@@ -1,18 +1,34 @@
 const { Router } = require('express');
+const formidable = require('formidable');
 
 const { getById } = require('../services/restaurantService');
 const { createRecipe } = require('../services/recipeService');
+const { getFormData, uploadToCloudinary } = require('../utils');
 
 const { checkUser } = require('../middlewares');
 
 const router = Router();
 
 router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
+    const form = formidable({ multiples: true });
+    const imagesURL = [];
     try {
-        const name = req.body.name.trim();
-        const ingredients = req.body.ingredients.split(',').map(x => x.trim());
-        const price = Number(req.body.price.trim());
-        const category = req.body.category.trim();
+        const [formData, incFiles] = await getFormData(req, form);
+
+        for (const file of Object.values(incFiles)) {
+            const res = await uploadToCloudinary(file.path);
+            imagesURL.push({ url: res.url, public_id: res.public_id });
+        }
+
+        formData.images = imagesURL;
+        if (formData.images.length == 0) {
+            throw new Error('At least one image is required!');
+        }
+        const name = formData.name.trim();
+        const ingredients = formData.ingredients.split(',').map(x => x.trim());
+        const category = formData.category.trim();
+        const price = Number(formData.price.trim());
+        const weight = Number(formData.weight.trim());
 
         if (name.length < 6) {
             throw new Error('Recipe name must be at least 6 characters long!');
@@ -26,6 +42,10 @@ router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
             throw new Error('Price is required!');
         }
 
+        if (!weight) {
+            throw new Error('Weight is required!');
+        }
+
         if (!category) {
             throw new Error('Category is required!');
         }
@@ -35,12 +55,14 @@ router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
             name,
             ingredients,
             price,
-            category
+            category,
+            weight,
+            image: imagesURL[0]
         });
         restaurant.recipes.push(recipe);
         await recipe.save();
         await restaurant.save();
-        res.status(200).send(recipe);
+        res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
