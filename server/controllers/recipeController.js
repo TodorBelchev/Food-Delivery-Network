@@ -2,7 +2,7 @@ const { Router, response } = require('express');
 const formidable = require('formidable');
 
 const { getById } = require('../services/restaurantService');
-const { createRecipe, deleteById } = require('../services/recipeService');
+const { createRecipe, deleteById, getRecipeById } = require('../services/recipeService');
 const { getFormData, uploadToCloudinary } = require('../utils');
 
 const { checkUser } = require('../middlewares');
@@ -62,6 +62,44 @@ router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
         restaurant.recipes.push(recipe);
         await recipe.save();
         await restaurant.save();
+        res.status(200).send(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.put('/:id/:restaurantId', checkUser(), async (req, res) => {
+    try {
+        const form = formidable({ multiples: true });
+        const imagesURL = [];
+        const recipe = await getRecipeById(req.params.id);
+        const [formData, incFiles] = await getFormData(req, form);
+        if (Object.keys(incFiles).length > 0) {
+            for (const file of Object.values(incFiles)) {
+                const res = await uploadToCloudinary(file.path);
+                imagesURL.push({ url: res.url, public_id: res.public_id });
+            }
+
+            formData.images = imagesURL;
+            if (formData.images.length == 0) {
+                throw new Error('At least one image is required!');
+            }
+            await deleteFromCloudinary(recipe.image.public_id);
+        }
+
+        const recipeData = {
+            name: formData.name.trim(),
+            price: formData.price.trim(),
+            category: formData.category.trim(),
+            weight: formData.weight.trim(),
+            ingredients: formData.ingredients.split(',').map(x => x.trim()),
+            image: imagesURL[0] || recipe.image
+        };
+
+        Object.assign(recipe, recipeData);
+        await recipe.save();
+        const restaurant = await getById(req.params.restaurantId);
         res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);

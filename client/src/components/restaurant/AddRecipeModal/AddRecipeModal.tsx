@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
@@ -7,12 +7,17 @@ import { restaurantActions } from '../../../store/restaurant';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
+import IRestaurant from '../../../interfaces/IRestaurant';
+import IRecipe from '../../../interfaces/IRecipe';
 
 import classes from './AddRecipeModal.module.css';
-import IRestaurant from '../../../interfaces/IRestaurant';
 
 
-const AddRecipeModal: React.FC = () => {
+type AddRecipeModalProps = JSX.IntrinsicElements['section'] & {
+    recipe?: IRecipe;
+}
+
+const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
     const restaurant = useAppSelector(state => state.restaurant);
     const dispatch = useAppDispatch();
     const { isLoading, error, sendRequest } = useHttp();
@@ -23,38 +28,53 @@ const AddRecipeModal: React.FC = () => {
         hasError: nameHasError,
         isValid: nameIsValid,
         inputBlurHandler: nameBlurHandler,
-        valueChangeHandler: nameChangeHandler
+        valueChangeHandler: nameChangeHandler,
+        setValue: setNameValue
     } = useInput(validators.minLength.bind(null, 6));
     const {
         value: ingredientsValue,
         hasError: ingredientsHasError,
         isValid: ingredientsIsValid,
         inputBlurHandler: ingredientsBlurHandler,
-        valueChangeHandler: ingredientsChangeHandler
+        valueChangeHandler: ingredientsChangeHandler,
+        setValue: setIngredientsValue
     } = useInput(validators.minStringCount.bind(null, 3));
     const {
         value: priceValue,
         hasError: priceHasError,
         isValid: priceIsValid,
         inputBlurHandler: priceBlurHandler,
-        valueChangeHandler: priceChangeHandler
+        valueChangeHandler: priceChangeHandler,
+        setValue: setPriceValue
     } = useInput(validators.minLength.bind(null, 1));
     const {
         value: weightValue,
         hasError: weightHasError,
         isValid: weightIsValid,
         inputBlurHandler: weightBlurHandler,
-        valueChangeHandler: weightChangeHandler
+        valueChangeHandler: weightChangeHandler,
+        setValue: setWeightValue
     } = useInput(validators.minLength.bind(null, 1));
     const {
         value: categoryValue,
         isValid: categoryIsValid,
         hasError: categoryHasError,
         inputBlurHandler: categoryBlurHandler,
-        valueChangeHandler: categoryChangeHandler
+        valueChangeHandler: categoryChangeHandler,
+        setValue: setCategoryValue
     } = useInput(validators.minLength.bind(null, 1));
 
     let formIsValid = nameIsValid && ingredientsIsValid && priceIsValid && categoryIsValid && weightIsValid;
+
+    useEffect(() => {
+        if (recipe) {
+            setNameValue(recipe.name);
+            setIngredientsValue(recipe.ingredients.join(','));
+            setPriceValue(recipe.price.toString());
+            setWeightValue(recipe.weight.toString());
+            setCategoryValue(recipe.category);
+        }
+    }, [recipe, setNameValue, setIngredientsValue, setPriceValue, setWeightValue, setCategoryValue])
 
     const processResponse = (res: IRestaurant) => {
         // show OK notification
@@ -65,7 +85,7 @@ const AddRecipeModal: React.FC = () => {
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!selectedFile) {
+        if (!selectedFile && !recipe) {
             setFileIsValid(false);
             return;
         }
@@ -73,16 +93,28 @@ const AddRecipeModal: React.FC = () => {
         if (!formIsValid) { return; }
 
         const formData = new FormData();
-        formData.append('Restaurant Cover', selectedFile!, selectedFile!.name);
+        if (selectedFile) {
+            formData.append('Recipe image', selectedFile!, selectedFile!.name);
+        } else {
+            formData.append('Recipe image', JSON.stringify(recipe!.image));
+        }
         formData.append('name', nameValue);
         formData.append('ingredients', ingredientsValue);
         formData.append('price', priceValue);
         formData.append('category', categoryValue);
         formData.append('weight', weightValue);
 
+        let url = 'http://localhost:3030/api/recipe/' + restaurant._id + '/add-recipe';
+        let method = 'POST';
+
+        if (recipe) {
+            url = `http://localhost:3030/api/recipe/${recipe._id}/${restaurant._id}`;
+            method = 'PUT';
+        }
+
         sendRequest({
-            url: 'http://localhost:3030/api/recipe/' + restaurant._id + '/add-recipe',
-            method: 'POST',
+            url,
+            method,
             body: formData
         }, processResponse)
     }

@@ -5,6 +5,7 @@ import IRecipe from '../../../interfaces/IRecipe';
 import classes from './Recipe.module.css';
 import DeleteRecipeModal from '../DeleteRecipeModal/DeleteRecipeModal';
 import Modal from '../../UI/Modal/Modal';
+import AddRecipeModal from '../AddRecipeModal/AddRecipeModal';
 
 type RecipeProps = JSX.IntrinsicElements['article'] & {
     recipe: IRecipe;
@@ -21,6 +22,10 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
         dispatch(modalActions.open(`delete-recipe-${recipe._id}`));
     }
 
+    const editClickHandler = () => {
+        dispatch(modalActions.open(`edit-recipe/${recipe._id}`));
+    }
+
     return (
         <article className={classes.recipe}>
             {modalState.isOpen &&
@@ -31,6 +36,12 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                         name={recipe.name}
                         restaurantId={restaurant._id}
                     />
+                </Modal>
+            }
+            {modalState.isOpen &&
+                modalState.overlayName === `edit-recipe/${recipe._id}` &&
+                <Modal>
+                    <AddRecipeModal recipe={recipe} />
                 </Modal>
             }
             <div className={classes['recipe-img-wrapper']}>
@@ -45,7 +56,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <img src="/icons/plus-solid.svg" alt="plus" />
             </div>
             {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
-                <img src="/icons/edit-solid --small.svg" alt="edit" />
+                <img onClick={editClickHandler} src="/icons/edit-solid --small.svg" alt="edit" />
                 <img onClick={deleteClickHandler} src="/icons/trash-solid--small.svg" alt="trash" />
             </div>}
         </article>

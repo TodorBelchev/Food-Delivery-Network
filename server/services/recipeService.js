@@ -9,7 +9,12 @@ const deleteById = (id) => {
     return Recipe.findByIdAndDelete(id);
 }
 
+const getRecipeById = (id) => {
+    return Recipe.findById(id);
+}
+
 module.exports = {
     createRecipe,
-    deleteById
+    deleteById,
+    getRecipeById
 }
