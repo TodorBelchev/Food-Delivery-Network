@@ -5,6 +5,11 @@ const createRecipe = (data) => {
     return recipe.save();
 }
 
+const deleteById = (id) => {
+    return Recipe.findByIdAndDelete(id);
+}
+
 module.exports = {
-    createRecipe
+    createRecipe,
+    deleteById
 }

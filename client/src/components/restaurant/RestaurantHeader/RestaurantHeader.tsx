@@ -34,7 +34,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
     }
 
     const deleteClickHandler = () => {
-        dispatch(modalActions.open('delete-restaurant'));
+        dispatch(modalActions.open(`delete-restaurant-${restaurant._id}`));
     }
 
     const dashboardClickHandler = () => {
@@ -52,7 +52,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
     return (
         <section>
             {modalState.isOpen &&
-                modalState.overlayName === 'delete-restaurant' &&
+                modalState.overlayName === `delete-restaurant-${restaurant._id}` &&
                 <Modal>
                     <DeleteRestaurantModal _id={restaurant._id} name={restaurant.name} />
                 </Modal>

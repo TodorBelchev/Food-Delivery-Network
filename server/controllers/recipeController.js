@@ -1,8 +1,8 @@
-const { Router } = require('express');
+const { Router, response } = require('express');
 const formidable = require('formidable');
 
 const { getById } = require('../services/restaurantService');
-const { createRecipe } = require('../services/recipeService');
+const { createRecipe, deleteById } = require('../services/recipeService');
 const { getFormData, uploadToCloudinary } = require('../utils');
 
 const { checkUser } = require('../middlewares');
@@ -61,6 +61,19 @@ router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
         });
         restaurant.recipes.push(recipe);
         await recipe.save();
+        await restaurant.save();
+        res.status(200).send(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id/:restaurantId', checkUser(), async (req, res) => {
+    try {
+        const restaurant = await getById(req.params.restaurantId);
+        await deleteById(req.params.id);
+        restaurant.recipes = restaurant.recipes.filter(recipe => recipe._id.toString() !== req.params.id);
         await restaurant.save();
         res.status(200).send(restaurant);
     } catch (error) {
