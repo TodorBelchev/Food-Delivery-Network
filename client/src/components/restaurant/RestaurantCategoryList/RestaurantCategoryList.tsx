@@ -10,8 +10,8 @@ type RestaurantCategoryListProps = JSX.IntrinsicElements['div'] & {
 
 const RestaurantCategoryList: React.FC<RestaurantCategoryListProps> = ({ categoryRecipes }) => {
     return (
-        <div className={`${classes.category} container`}>
-            <h2>{categoryRecipes[0].category}</h2>
+        <div className={`${classes.category}`}>
+            <h2 className={classes['category-title']}>{categoryRecipes[0].category}</h2>
             {categoryRecipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
         </div>
     )
