@@ -1,11 +1,12 @@
 import { modalActions } from '../../../store/modal';
+import { cartActions } from '../../../store/cart';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 import IRecipe from '../../../interfaces/IRecipe';
-
-import classes from './Recipe.module.css';
 import DeleteRecipeModal from '../DeleteRecipeModal/DeleteRecipeModal';
 import Modal from '../../UI/Modal/Modal';
 import AddRecipeModal from '../AddRecipeModal/AddRecipeModal';
+
+import classes from './Recipe.module.css';
 
 type RecipeProps = JSX.IntrinsicElements['article'] & {
     recipe: IRecipe;
@@ -24,6 +25,10 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
 
     const editClickHandler = () => {
         dispatch(modalActions.open(`edit-recipe/${recipe._id}`));
+    }
+
+    const addToCartHandler = () => {
+        dispatch(cartActions.addToCart({ restaurantId: restaurant._id, recipe }));
     }
 
     return (
@@ -53,7 +58,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <p>${recipe.price}</p>
             </div>
             <div className={classes['recipe-icon-wrapper']}>
-                <img src="/icons/plus-solid.svg" alt="plus" />
+                <img onClick={addToCartHandler} src="/icons/plus-solid.svg" alt="plus" />
             </div>
             {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
                 <img onClick={editClickHandler} src="/icons/edit-solid --small.svg" alt="edit" />
