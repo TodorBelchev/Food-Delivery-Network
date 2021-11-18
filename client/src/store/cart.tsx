@@ -27,6 +27,7 @@ const cartSlice = createSlice({
                     recipes: [{ recipe: action.payload.recipe, quantity: 1 }]
                 });
             }
+            localStorage.setItem('cart', JSON.stringify(state));
         },
         removeFromCart(state, action: PayloadAction<{ restaurantId: string; recipe: IRecipe }>) {
             const restaurant = state.restaurants.find(x => x.restaurantId === action.payload.restaurantId);
@@ -36,6 +37,13 @@ const cartSlice = createSlice({
                 restaurant?.recipes.splice(index!, 1);
             } else {
                 recipeToRemove!.quantity--;
+            }
+            localStorage.setItem('cart', JSON.stringify(state));
+        },
+        autoLoadCart(state) {
+            const cart = localStorage.getItem('cart');
+            if (cart) {
+                state.restaurants = JSON.parse(cart).restaurants;
             }
         }
     }

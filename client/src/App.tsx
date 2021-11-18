@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Route, Switch } from 'react-router';
 import './App.css';
 
@@ -8,13 +9,14 @@ import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 
 import { useAppDispatch } from './hooks/redux-hooks';
 import { authActions } from './store/auth';
-import { useEffect } from 'react';
+import { cartActions } from './store/cart';
 
 function App() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(authActions.autoLoadFavorites());
+		dispatch(cartActions.autoLoadCart());
 	}, [dispatch]);
 	return (
 		<Layout>

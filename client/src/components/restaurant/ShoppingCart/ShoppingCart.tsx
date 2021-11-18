@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { useAppSelector } from '../../../hooks/redux-hooks';
@@ -25,7 +25,7 @@ const ShoppingCart: React.FC = () => {
     }
 
     return (
-        <React.Fragment>
+        <>
             {isOpen && ReactDOM.createPortal(
                 <div onClick={backDropClickHandler}>
                     <Backdrop />
@@ -76,7 +76,7 @@ const ShoppingCart: React.FC = () => {
                     </article>
                 </section>}
             </section>
-        </React.Fragment>
+        </>
     );
 };
 

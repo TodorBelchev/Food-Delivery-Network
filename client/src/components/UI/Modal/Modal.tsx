@@ -17,18 +17,16 @@ export const Backdrop: React.FC = () => {
 const Modal: React.FC = (props) => {
     return (
         <>
-            <React.Fragment>
-                {ReactDOM.createPortal(
-                    <Backdrop />,
-                    document.getElementById('backdrop-root')!
-                )}
-                {ReactDOM.createPortal(
-                    <div className={classes.modal}>
-                        {props.children}
-                    </div>,
-                    document.getElementById('overlay-root')!
-                )}
-            </React.Fragment>
+            {ReactDOM.createPortal(
+                <Backdrop />,
+                document.getElementById('backdrop-root')!
+            )}
+            {ReactDOM.createPortal(
+                <div className={classes.modal}>
+                    {props.children}
+                </div>,
+                document.getElementById('overlay-root')!
+            )}
         </>
     );
 }
