@@ -10,6 +10,9 @@ import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 import { useAppDispatch } from './hooks/redux-hooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
+import loadFontAwesome from './utils/loadFontAwesome';
+
+loadFontAwesome();
 
 function App() {
 	const dispatch = useAppDispatch();

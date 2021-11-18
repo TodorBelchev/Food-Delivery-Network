@@ -47,6 +47,7 @@
 
 .footer-icon {
     transition: 0.5s all ease;
+    font-size: 32px;
 }
 
 .footer-icon:hover {

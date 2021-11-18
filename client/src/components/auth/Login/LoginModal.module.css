@@ -97,8 +97,14 @@ p.invite {
     width: 130px;
 }
 
+.icon {
+    color: #8f8f8f;
+    font-size: 25px;
+}
+
 .eye {
     position: absolute;
     right: 0;
     cursor: pointer;
+    font-size: 22px;
 }

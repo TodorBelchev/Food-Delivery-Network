@@ -15,7 +15,7 @@
 }
 
 .icon {
-    font-size: 1.5rem;
+    font-size: 48px;
     padding: 10px 10px 10px 0;
 }
 
@@ -49,6 +49,7 @@
 .user-icon {
     vertical-align: middle;
     transition: 0.5s all ease;
+    font-size: 35px;
 }
 
 .user-icon:hover {

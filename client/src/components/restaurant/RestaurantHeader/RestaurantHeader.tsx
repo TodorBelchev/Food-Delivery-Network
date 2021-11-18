@@ -1,4 +1,7 @@
 import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 import { authActions } from '../../../store/auth';
@@ -10,8 +13,8 @@ import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModa
 import Modal from "../../UI/Modal/Modal";
 import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
 
+
 import classes from './RestaurantHeader.module.css';
-import { NavLink } from "react-router-dom";
 
 type RestaurantHeaderProps = JSX.IntrinsicElements['section'] & {
     user: IAuthState;
@@ -68,16 +71,54 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                 <article className={classes['restaurant-content-title-wrapper']}>
                     <NavLink to={`/restaurant/${restaurant._id}`} className={classes['restaurant-content-title']}>{restaurant.name}</NavLink>
                     <h4 className={classes['restaurant-content-subtitle']}>{restaurant.mainTheme}, {restaurant.categories[0]}</h4>
-                    <p className={classes.scoring}><img src="/icons/star-solid.svg" alt="star" /><span>4.5(30)</span></p>
+                    <p className={classes.scoring}>
+                        <FontAwesomeIcon icon={['fas', 'star']} size="lg" className={classes['icon--blue']} />
+                        <span>4.5(30)</span>
+                    </p>
                 </article>
                 <p className={classes.icons}>
-                    {userIsOwner && <img onClick={editClickHandler} src="/icons/edit-solid.svg" alt="edit button" />}
-                    {userIsOwner && <img onClick={addRecipeClickHandler} src="/icons/add.png" alt="add recipe button" />}
-                    {userIsOwner && <img onClick={dashboardClickHandler} src="/icons/tools-solid.svg" alt="dashboard button" />}
-                    {userIsOwner && <img onClick={deleteClickHandler} src="/icons/trash-solid.svg" alt="delete button" />}
-                    {!restaurantIsInFavorites && <img onClick={addToFavoritesHandler} src="/icons/heart-regular.svg" alt="heart" />}
-                    {restaurantIsInFavorites && <img onClick={removeFromFavoritesHandler} src="/icons/heart-solid.svg" alt="heart" />}
-                    <img src="/icons/comment-regular.svg" alt="comment" />
+                    {userIsOwner &&
+                        <FontAwesomeIcon
+                            className={classes.icon}
+                            onClick={editClickHandler}
+                            icon={['fas', 'edit']}
+                        />}
+                    {userIsOwner &&
+                        <span className={classes['icon--after']}>
+                            <FontAwesomeIcon
+                                className={classes.icon}
+                                onClick={addRecipeClickHandler}
+                                icon={['fas', 'hamburger']}
+                            />
+                        </span>}
+                    {userIsOwner &&
+                        <FontAwesomeIcon
+                            className={classes.icon}
+                            onClick={dashboardClickHandler}
+                            icon={['fas', 'tools']}
+                        />}
+                    {userIsOwner &&
+                        <FontAwesomeIcon
+                            className={classes.icon}
+                            onClick={deleteClickHandler}
+                            icon={['fas', 'trash']}
+                        />}
+                    {!restaurantIsInFavorites &&
+                        <FontAwesomeIcon
+                            className={`${classes.icon} ${classes['icon--red']}`}
+                            onClick={addToFavoritesHandler}
+                            icon={['far', 'heart']}
+                        />}
+                    {restaurantIsInFavorites &&
+                        <FontAwesomeIcon
+                            className={`${classes.icon} ${classes['icon--red']}`}
+                            onClick={removeFromFavoritesHandler}
+                            icon={['fas', 'heart']}
+                        />}
+                    <FontAwesomeIcon
+                        className={`${classes.icon} ${classes['icon--blue']}`}
+                        icon={['far', 'comment']}
+                    />
                 </p >
             </article>
         </section>

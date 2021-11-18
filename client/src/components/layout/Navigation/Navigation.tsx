@@ -9,6 +9,7 @@ import UserIcon from '../../user-profile/UserIcon/UserIcon';
 import Modal from '../../UI/Modal/Modal';
 import LoginModal from '../../auth/Login/LoginModal';
 import RegisterModal from '../../auth/Register/RegisterModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navigation: React.FC = () => {
     const modalState = useAppSelector(state => state.modal);
@@ -51,7 +52,7 @@ const Navigation: React.FC = () => {
             }
             <div className={classes.container}>
                 <NavLink to="/" className={classes['logo-link']}>
-                    <img className={classes.icon} src="/icons/utensils-solid.svg" alt=" utensils" />
+                    <FontAwesomeIcon icon={['fas', 'utensils']} className={classes.icon} />
                     <h2>Food Delivery Network</h2>
                 </NavLink>
                 <nav>
@@ -59,7 +60,7 @@ const Navigation: React.FC = () => {
                         <li className={classes['nav-list-item']}>
                             {user.email ?
                                 <UserIcon /> :
-                                <img className={classes['user-icon']} src="/icons/user-icon.svg" alt="user icon" onClick={onLoginClick} />
+                                <FontAwesomeIcon icon={['far', 'user-circle']} onClick={onLoginClick} className={classes['user-icon']} />
                             }
                         </li>
                     </ul>

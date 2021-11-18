@@ -10,6 +10,7 @@ import IUser from '../../../interfaces/IUser';
 
 import classes from './RegisterModal.module.css';
 import Spinner from '../../UI/Spinner/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const RegisterModal: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -93,7 +94,7 @@ const RegisterModal: React.FC = () => {
             <form className={classes['register-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
                     <label htmlFor="email">
-                        <img src="/icons/email-icon.svg" alt="envelope icon" />
+                        <FontAwesomeIcon icon={['far', 'envelope']} className={classes['icon']} />
                     </label>
                     <input
                         className={emailHasError ? classes['input-invalid'] : ''}
@@ -111,7 +112,7 @@ const RegisterModal: React.FC = () => {
                 </div>
                 <div className={classes.col}>
                     <label htmlFor="password">
-                        <img src="/icons/lock-icon.svg" alt="lock icon" />
+                        <FontAwesomeIcon icon={['fas', 'unlock-alt']} className={classes['icon']} />
                     </label>
                     <input
                         className={passwordHasError ? classes['input-invalid'] : ''}
@@ -123,13 +124,16 @@ const RegisterModal: React.FC = () => {
                         onChange={passwordChangeHandler}
                         onBlur={passwordBlurHandler}
                     />
-                    <img className={classes['eye']} onClick={togglePasswordVisibility} src={passwordIsHidden ? '/icons/eye-hidden.svg' : '/icons/eye-visible.svg'} alt="visible eye icon" />
+                    {passwordIsHidden
+                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                        : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                    }
                     <span className={classes.placeholder}>Password</span>
                     {passwordHasError && <p className={classes['input-notification']}>Password must be at least 6 characters</p>}
                 </div>
                 <div className={classes.col}>
                     <label htmlFor="re-password">
-                        <img src="/icons/lock-icon.svg" alt="lock icon" />
+                        <FontAwesomeIcon icon={['fas', 'unlock-alt']} className={classes['icon']} />
                     </label>
                     <input
                         className={rePasswordHasError ? classes['input-invalid'] : ''}
@@ -141,7 +145,10 @@ const RegisterModal: React.FC = () => {
                         onChange={rePasswordChangeHandler}
                         onBlur={rePasswordBlurHandler}
                     />
-                    <img className={classes['eye']} onClick={toggleRePasswordVisibility} src={rePasswordIsHidden ? '/icons/eye-hidden.svg' : '/icons/eye-visible.svg'} alt="visible eye icon" />
+                    {rePasswordIsHidden
+                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
+                        : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
+                    }
                     <span className={classes.placeholder}>Repeat password</span>
                     {rePasswordHasError && <p className={classes['input-notification']}>Passwords must match</p>}
                 </div>

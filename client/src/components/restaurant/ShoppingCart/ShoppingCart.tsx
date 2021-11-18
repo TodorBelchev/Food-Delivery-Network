@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -35,13 +36,13 @@ const ShoppingCart: React.FC = () => {
             <section className={classes.cart}>
                 <article onClick={headerClickHandler} className={classes['cart-header']}>
                     <article className={classes['cart-header-img-wrapper']}>
-                        <img src="/icons/shopping-cart-solid.svg" alt="shopping cart" />
+                        <FontAwesomeIcon className={classes['cart-header-img-wrapper-icon']} icon={['fas', 'shopping-cart']} />
                         <div className={classes['cart-header-img-quantity']}>{totalQuantity}</div>
                     </article>
                     <div className={classes['cart-header-text']}>
                         <p >Cart(<span>${totalPrice}</span>)</p>
-                        {!isOpen && <img src="/icons/chevron-up-solid.svg" alt="up arrow" />}
-                        {isOpen && <img src="/icons/chevron-down-solid.svg" alt="down arrow" />}
+                        {!isOpen && <FontAwesomeIcon icon={['fas', 'chevron-up']} />}
+                        {isOpen && <FontAwesomeIcon icon={['fas', 'chevron-down']} />}
                     </div>
                 </article>
                 {isOpen && <section className={classes['cart-content']}>

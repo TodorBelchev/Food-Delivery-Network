@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
 import classes from './Footer.module.css';
@@ -20,17 +21,17 @@ const Footer: React.FC = () => {
                 <ul className={`${classes.social} ${classes['footer-list']}`}>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://facebook.com" target="_blank" rel="noreferrer">
-                            <img src="/icons/facebook.svg" alt="facebook icon" className={classes['footer-icon']} />
+                            <FontAwesomeIcon icon={['fab', 'facebook-square']} className={classes['footer-icon']} />
                         </a>
                     </li>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://instagram.com" target="_blank" rel="noreferrer">
-                            <img src="/icons/instagram.svg" alt="instagram icon" className={classes['footer-icon']} />
+                            <FontAwesomeIcon icon={['fab', 'instagram-square']} className={classes['footer-icon']} />
                         </a>
                     </li>
                     <li className={classes['footer-list-item']}>
                         <a className={classes['footer-list-item-link']} href="http://twitter.com" target="_blank" rel="noreferrer">
-                            <img src="/icons/twitter.svg" alt="twitter icon" className={classes['footer-icon']} />
+                        <FontAwesomeIcon icon={['fab', 'twitter-square']} className={classes['footer-icon']} />
                         </a>
                     </li>
                 </ul>

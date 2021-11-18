@@ -10,6 +10,7 @@ import IUser from '../../../interfaces/IUser';
 import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './LoginModal.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const LoginModal: React.FC = () => {
@@ -79,7 +80,7 @@ const LoginModal: React.FC = () => {
             <form className={classes['login-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
                     <label htmlFor="email">
-                        <img src="/icons/email-icon.svg" alt="envelope icon" />
+                        <FontAwesomeIcon icon={['far', 'envelope']} className={classes['icon']} />
                     </label>
                     <input
                         className={emailHasError ? classes['input-invalid'] : ''}
@@ -97,7 +98,7 @@ const LoginModal: React.FC = () => {
                 </div>
                 <div className={classes.col}>
                     <label htmlFor="password">
-                        <img src="/icons/lock-icon.svg" alt="lock icon" />
+                        <FontAwesomeIcon icon={['fas', 'unlock-alt']} className={classes['icon']} />
                     </label>
                     <input
                         className={passwordHasError ? classes['input-invalid'] : ''}
@@ -110,7 +111,10 @@ const LoginModal: React.FC = () => {
                         onChange={passwordChangeHandler}
                         onBlur={passwordBlurHandler}
                     />
-                    <img className={classes['eye']} onClick={togglePasswordVisibility} src={passwordIsHidden ? '/icons/eye-hidden.svg' : '/icons/eye-visible.svg'} alt="visible eye icon" />
+                    {passwordIsHidden
+                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                        : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                    }
                     <span className={classes.placeholder}>Password</span>
                     {passwordHasError && <p className={classes['input-notification']}>Password must be at least 6 characters</p>}
                 </div>

@@ -10,6 +10,7 @@ import IRestaurant from '../../../interfaces/IRestaurant';
 import classes from './RestaurantCard.module.css';
 import Modal from '../../UI/Modal/Modal';
 import DeleteRestaurantModal from '../DeleteRestaurantModal/DeleteRestaurantModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type RestaurantCardProps = JSX.IntrinsicElements['article'] & {
     restaurant: IRestaurant
@@ -46,13 +47,20 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                 </article>
                 <article className={classes['restaurant-title-wrapper']}>
                     <h2 className={classes['restaurant-title']}>{restaurant.name}</h2>
-                    <p className={classes['restaurant-score']}><img src="/icons/star-solid.svg" alt="star" />4.5(30)</p>
+                    <p className={classes['restaurant-score']}>
+                        <FontAwesomeIcon icon={['fas', 'star']} className={classes['restaurant-score-icon']} />
+                        4.5(30)
+                    </p>
                 </article>
                 <article className={classes['restaurant-text-wrapper']}>
                     <p className={classes.description}>{restaurant.mainTheme}, {restaurant.categories[0]}</p>
                     {isOwner && <div>
-                        <img onClick={dashboardClickHandler} className={classes.icon} src="/icons/tools-solid.svg" alt="dashboard button" />
-                        <img onClick={deleteClickHandler} className={classes.icon} src="/icons/trash-solid.svg" alt="delete button" />
+                        <span onClick={dashboardClickHandler} >
+                            <FontAwesomeIcon icon={['fas', 'tools']} className={classes.icon} />
+                        </span>
+                        <span onClick={deleteClickHandler} >
+                            <FontAwesomeIcon icon={['fas', 'trash']} className={classes.icon} />
+                        </span>
                     </div>}
                 </article>
             </NavLink>

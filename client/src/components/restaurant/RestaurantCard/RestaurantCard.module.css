@@ -52,8 +52,9 @@
     font-size: 20px;
 }
 
-.restaurant-score img {
+.restaurant-score-icon {
     margin-right: 5px;
+    color: #0080ff;
 }
 
 .restaurant-text-wrapper {
@@ -65,4 +66,5 @@
 
 .icon {
     margin: 0 10px;
+    font-size: 25px;
 }

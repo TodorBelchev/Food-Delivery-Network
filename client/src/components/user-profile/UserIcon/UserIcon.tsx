@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import UserPopup from "../UserPopup/UserPopup";
@@ -32,7 +33,9 @@ const UserIcon: React.FC = () => {
 
     return (
         <div className={classes.container} ref={containerRef} onClick={handleInsideClick}>
-            <img className={classes['user-icon']} ref={imgRef} src="/icons/user-icon.svg" alt="user icon" />
+            <span ref={imgRef}>
+                <FontAwesomeIcon icon={['far', 'user-circle']} className={classes['user-icon']} />
+            </span>
             {popupIsOpen && <UserPopup />}
         </div>
     )

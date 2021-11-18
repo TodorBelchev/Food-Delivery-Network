@@ -53,7 +53,11 @@
     border-top-left-radius: 15px;
 }
 
-.recipe-admin-icons-wrapper img {
-    margin: 10px;
+.recipe-admin-icons-wrapper .recipe-icon {
+    margin: 11px;
     cursor: pointer;
+}
+
+.recipe-icon {
+    font-size: 22px;
 }

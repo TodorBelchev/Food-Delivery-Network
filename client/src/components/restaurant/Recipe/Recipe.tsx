@@ -7,6 +7,7 @@ import Modal from '../../UI/Modal/Modal';
 import AddRecipeModal from '../AddRecipeModal/AddRecipeModal';
 
 import classes from './Recipe.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type RecipeProps = JSX.IntrinsicElements['article'] & {
     recipe: IRecipe;
@@ -58,11 +59,11 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <p>${recipe.price}</p>
             </div>
             <div onClick={addToCartHandler} className={classes['recipe-icon-wrapper']}>
-                <img src="/icons/plus-solid.svg" alt="plus" />
+                <FontAwesomeIcon icon={['fas', 'plus']} className={classes['recipe-icon']}/>
             </div>
             {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
-                <img onClick={editClickHandler} src="/icons/edit-solid --small.svg" alt="edit" />
-                <img onClick={deleteClickHandler} src="/icons/trash-solid--small.svg" alt="trash" />
+                <FontAwesomeIcon icon={['fas', 'edit']} onClick={editClickHandler} className={classes['recipe-icon']}/>
+                <FontAwesomeIcon icon={['fas', 'trash']} onClick={deleteClickHandler} className={classes['recipe-icon']}/>
             </div>}
         </article>
     )

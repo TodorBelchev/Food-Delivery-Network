@@ -31,6 +31,44 @@
     margin-left: 30px;
 }
 
+.icon {
+    font-size: 28px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.icon--red {
+    color: #cc0000;
+}
+
+.icon--blue {
+    color: #0080ff;
+}
+
+.icon--after {
+    position: relative;
+}
+
+.icon--after::before {
+    content: "";
+    width: 2px;
+    background: #000;
+    height: 9px;
+    position: absolute;
+    top: 0 px;
+    right: -3px;
+}
+
+.icon--after::after {
+    content: "";
+    width: 10px;
+    background: #000;
+    height: 2px;
+    position: absolute;
+    top: 3px;
+    right: -7px;
+}
+
 .restaurant-content-title-wrapper {
     flex-grow: 1;
     display: flex;

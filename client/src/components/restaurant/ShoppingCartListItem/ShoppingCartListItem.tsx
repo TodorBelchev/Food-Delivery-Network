@@ -3,6 +3,7 @@ import { cartActions } from '../../../store/cart';
 import IRecipe from '../../../interfaces/IRecipe';
 
 import classes from './ShoppingCartListItem.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type ShoppingCartListItemProps = JSX.IntrinsicElements['li'] & {
     recipe: IRecipe;
@@ -24,9 +25,9 @@ const ShoppingCartListItem: React.FC<ShoppingCartListItemProps> = ({ recipe, qua
             <div className={classes['cart-item-text']}>{recipe.name} <span>x{quantity}</span></div>
             <div className={classes['cart-item-controls']}>
                 <div className={classes['cart-item-icons']}>
-                    <img onClick={removeFromCartClickHandler} src="/icons/minus-solid.svg" alt="remove from cart" />
+                    <FontAwesomeIcon icon={['fas', 'minus']} onClick={removeFromCartClickHandler} />
                     <span>${recipe.price}</span>
-                    <img onClick={addToCartClickHandler} src="/icons/plus-solid.svg" alt="add to cart" />
+                    <FontAwesomeIcon icon={['fas', 'plus']} onClick={addToCartClickHandler} />
                     <span>${(recipe.price * quantity).toFixed(2)}</span>
                 </div>
             </div>

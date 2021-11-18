@@ -25,6 +25,10 @@
     position: relative;
 }
 
+.cart-header-img-wrapper-icon {
+    font-size: 25px;
+}
+
 .cart-header-img-quantity {
     position: absolute;
     background-color: #0080ff;
@@ -66,7 +70,7 @@
     display: inline-block;
 }
 
-.cart-header-text img {
+.cart-header-text svg {
     margin-left: 10px;
 }
 
