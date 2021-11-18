@@ -6,7 +6,7 @@ import { modalActions } from "../../../store/modal";
 
 import classes from './Modal.module.css';
 
-const Backdrop: React.FC = () => {
+export const Backdrop: React.FC = () => {
     const dispatch = useAppDispatch();
     const closeModal = () => {
         dispatch(modalActions.close())

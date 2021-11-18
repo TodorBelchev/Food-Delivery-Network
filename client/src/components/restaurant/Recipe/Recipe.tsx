@@ -57,8 +57,8 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <p className={classes['recipe-content-text']}>{recipe.ingredients.join(', ')}</p>
                 <p>${recipe.price}</p>
             </div>
-            <div className={classes['recipe-icon-wrapper']}>
-                <img onClick={addToCartHandler} src="/icons/plus-solid.svg" alt="plus" />
+            <div onClick={addToCartHandler} className={classes['recipe-icon-wrapper']}>
+                <img src="/icons/plus-solid.svg" alt="plus" />
             </div>
             {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
                 <img onClick={editClickHandler} src="/icons/edit-solid --small.svg" alt="edit" />

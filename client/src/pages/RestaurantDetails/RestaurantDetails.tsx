@@ -12,6 +12,7 @@ import useHttp from "../../hooks/use-http";
 import { restaurantActions } from "../../store/restaurant";
 
 import IRestaurant from "../../interfaces/IRestaurant";
+import ShoppingCart from "../../components/restaurant/ShoppingCart/ShoppingCart";
 
 
 const RestaurantDetails: React.FC = () => {
@@ -20,6 +21,8 @@ const RestaurantDetails: React.FC = () => {
     const { isLoading, sendRequest } = useHttp();
     const { id } = useParams<{ id: string }>();
     const user = useAppSelector(state => state.auth);
+    const { restaurants } = useAppSelector(state => state.cart);
+    const restaurantIsInCart = restaurants.find(x => x.restaurantId === restaurant._id);
 
     const processResponse = useCallback((res: IRestaurant) => {
         dispatch(restaurantActions.setRestaurant(res));
@@ -33,8 +36,8 @@ const RestaurantDetails: React.FC = () => {
     return (
         <>
             {isLoading && <Spinner />}
-            {restaurant &&
-                <RestaurantHeader user={user} />}
+            {restaurant && <RestaurantHeader user={user} />}
+            {restaurant && restaurantIsInCart && restaurantIsInCart.recipes.length > 0 && <ShoppingCart />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
                     <RestaurantDashboard />

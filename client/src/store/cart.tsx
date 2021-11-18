@@ -27,6 +27,16 @@ const cartSlice = createSlice({
                     recipes: [{ recipe: action.payload.recipe, quantity: 1 }]
                 });
             }
+        },
+        removeFromCart(state, action: PayloadAction<{ restaurantId: string; recipe: IRecipe }>) {
+            const restaurant = state.restaurants.find(x => x.restaurantId === action.payload.restaurantId);
+            const recipeToRemove = restaurant?.recipes.find(x => x.recipe._id === action.payload.recipe._id);
+            if (recipeToRemove?.quantity === 1) {
+                const index = restaurant?.recipes.indexOf(recipeToRemove!);
+                restaurant?.recipes.splice(index!, 1);
+            } else {
+                recipeToRemove!.quantity--;
+            }
         }
     }
 });

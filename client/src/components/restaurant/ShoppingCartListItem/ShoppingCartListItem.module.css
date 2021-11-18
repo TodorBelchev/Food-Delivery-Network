@@ -1,0 +1,29 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.cart-item-controls {
+    display: flex;
+}
+
+.cart-item-icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-icons img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.cart-item-icons span {
+    margin-left: 10px;
+}
+
+.cart-item-text span {
+    font-weight: 600;
+}
