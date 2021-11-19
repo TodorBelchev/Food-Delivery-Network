@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { useAppSelector } from '../../../hooks/redux-hooks';
 import { Backdrop } from '../../UI/Modal/Modal';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import ShoppingCartListItem from '../ShoppingCartListItem/ShoppingCartListItem';
 
 
@@ -73,7 +74,7 @@ const ShoppingCart: React.FC = () => {
                         </article>
                     </article>
                     <article className={classes['cart-content-checkout']}>
-
+                        <CheckoutForm />
                     </article>
                 </section>}
             </section>

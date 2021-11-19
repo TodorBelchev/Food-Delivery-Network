@@ -1,0 +1,59 @@
+.form-title {
+    margin: 0;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    transition: 0.2s ease all;
+    top: 25px;
+}
+
+input:focus ~ .placeholder,
+input:not(:placeholder-shown) ~ .placeholder {
+    font-size: 12px;
+    top: 5px;
+}
+
+input {
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    flex: 0 0 100%;
+    font-size: 16px;
+}
+
+input.input-invalid {
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.input-notification {
+    position: absolute;
+    color: #ff0000;
+    top: 5px;
+    right: 0;
+    font-size: 12px;
+    margin: 0;
+}
+
+.main-btn {
+    width: 130px;
+}
+
+.spinner-container {
+    margin-left: 15px;
+}

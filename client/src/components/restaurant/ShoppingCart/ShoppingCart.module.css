@@ -92,7 +92,7 @@
 
 .cart-content-summary {
     margin: 20px;
-    border-top: 1px solid black;
+    border-top: 1px solid #a7a7a7;
     font-size: 20px;
 }
 
@@ -101,4 +101,9 @@
     align-items: center;
     justify-content: space-between;
     margin: 5px 0;
+}
+
+.cart-content-checkout {
+    padding: 0 20px;
+    border-left: 1px solid #000;
 }
