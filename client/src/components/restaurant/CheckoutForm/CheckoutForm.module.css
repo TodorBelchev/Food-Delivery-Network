@@ -20,13 +20,13 @@
     top: 25px;
 }
 
-input:focus ~ .placeholder,
-input:not(:placeholder-shown) ~ .placeholder {
+.form input:focus ~ .placeholder,
+.form input:not(:placeholder-shown) ~ .placeholder {
     font-size: 12px;
     top: 5px;
 }
 
-input {
+.form input {
     height: 30px;
     outline: none;
     padding-left: 10px;
@@ -36,7 +36,7 @@ input {
     font-size: 16px;
 }
 
-input.input-invalid {
+.form input.input-invalid {
     border-bottom: 1px solid #ff0000;
     color: #ff0000;
 }

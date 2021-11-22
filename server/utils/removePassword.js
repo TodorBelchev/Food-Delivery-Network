@@ -5,9 +5,9 @@ const removePass = (user) => {
         isAdmin: user.isAdmin,
         firstName: user.firstName,
         lastName: user.lastName,
-        phoneNumber: user.phoneNumber,
+        phone: user.phone,
         city: user.city,
-        location: user.location
+        address: user.address
     }
 }
 

@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import IAuthState from "../interfaces/IAuthState";
-import IUser from "../interfaces/IUser";
 
 const initialState: IAuthState = {
     email: null,
     isAdmin: false,
     _id: null,
+    phone: null,
+    firstName: null,
+    lastName: null,
+    city: null,
+    address: null,
     favorites: []
 }
 
@@ -14,10 +18,15 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state, action: PayloadAction<IUser>) {
+        login(state, action: PayloadAction<IAuthState>) {
             state.email = action.payload.email;
             state._id = action.payload._id;
             state.isAdmin = action.payload.isAdmin;
+            state.firstName = action.payload.firstName;
+            state.lastName = action.payload.lastName;
+            state.phone = action.payload.phone;
+            state.city = action.payload.city;
+            state.address = action.payload.address;
         },
         logout(state) {
             state.email = null;

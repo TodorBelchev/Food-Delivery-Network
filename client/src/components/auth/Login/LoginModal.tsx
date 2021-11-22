@@ -6,11 +6,11 @@ import { useAppDispatch } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
-import IUser from '../../../interfaces/IUser';
 import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './LoginModal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IAuthState from '../../../interfaces/IAuthState';
 
 
 const LoginModal: React.FC = () => {
@@ -40,7 +40,7 @@ const LoginModal: React.FC = () => {
         formIsValid = true;
     }
 
-    const processResponse = (response: IUser) => {
+    const processResponse = (response: IAuthState) => {
         resetEmail();
         resetPassword();
         dispatch(modalActions.close());

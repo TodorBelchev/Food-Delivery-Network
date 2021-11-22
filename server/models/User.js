@@ -19,13 +19,13 @@ const userSchema = new mongoose.Schema({
     lastName: {
         type: String
     },
-    phoneNumber: {
-        type: Number
+    phone: {
+        type: String
     },
     city: {
         type: String
     },
-    location: {
+    address: {
         type: String
     }
 });

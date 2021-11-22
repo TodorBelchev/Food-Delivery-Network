@@ -6,11 +6,11 @@ import { useAppDispatch } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import validators from '../../../validators';
-import IUser from '../../../interfaces/IUser';
 
 import classes from './RegisterModal.module.css';
 import Spinner from '../../UI/Spinner/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IAuthState from '../../../interfaces/IAuthState';
 
 const RegisterModal: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -48,7 +48,7 @@ const RegisterModal: React.FC = () => {
         formIsValid = true;
     }
 
-    const processResponse = (response: IUser) => {
+    const processResponse = (response: IAuthState) => {
         resetEmail();
         resetPassword();
         resetRePassword();

@@ -1,4 +1,3 @@
-import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +21,6 @@ type RestaurantHeaderProps = JSX.IntrinsicElements['section'] & {
 
 const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
     const restaurant = useAppSelector(state => state.restaurant);
-    const history = useHistory();
     const dispatch = useAppDispatch();
     const userIsOwner = user._id === restaurant.owner;
     const restaurantIsInFavorites = user.favorites.includes(restaurant._id);
@@ -38,14 +36,6 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
 
     const deleteClickHandler = () => {
         dispatch(modalActions.open(`delete-restaurant-${restaurant._id}`));
-    }
-
-    const dashboardClickHandler = () => {
-        history.push(`/restaurant/${restaurant._id}/dashboard`);
-    }
-
-    const editClickHandler = () => {
-        history.push(`/restaurant/${restaurant._id}/edit`);
     }
 
     const addRecipeClickHandler = () => {
@@ -78,11 +68,12 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                 </article>
                 <p className={classes.icons}>
                     {userIsOwner &&
-                        <FontAwesomeIcon
-                            className={classes.icon}
-                            onClick={editClickHandler}
-                            icon={['fas', 'edit']}
-                        />}
+                        <NavLink to={`/restaurant/${restaurant._id}/edit`}>
+                            <FontAwesomeIcon
+                                className={classes.icon}
+                                icon={['fas', 'edit']}
+                            />
+                        </NavLink>}
                     {userIsOwner &&
                         <span className={classes['icon--after']}>
                             <FontAwesomeIcon
@@ -92,11 +83,12 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                             />
                         </span>}
                     {userIsOwner &&
-                        <FontAwesomeIcon
-                            className={classes.icon}
-                            onClick={dashboardClickHandler}
-                            icon={['fas', 'tools']}
-                        />}
+                        <NavLink to={`/restaurant/${restaurant._id}/dashboard`}>
+                            <FontAwesomeIcon
+                                className={classes.icon}
+                                icon={['fas', 'tools']}
+                            />
+                        </NavLink>}
                     {userIsOwner &&
                         <FontAwesomeIcon
                             className={classes.icon}

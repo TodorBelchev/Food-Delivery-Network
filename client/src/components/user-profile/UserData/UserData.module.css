@@ -1,0 +1,97 @@
+.create-restaurant {
+    text-align: center;
+}
+
+.create-restaurant-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #f6f8fa;
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.col {
+    width: 45%;
+    padding: 20px 0;
+    margin: 0 20px;
+    position: relative;
+}
+
+.create-restaurant-form-input {
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    font-size: 16px;
+    background: #f6f8fa;
+    width: 100%;
+    cursor: pointer;
+}
+
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    transition: 0.2s ease all;
+    top: 25px;
+}
+
+.file-btn {
+    display: none;
+}
+
+.file-label {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #a7a7a7;
+    text-align: left;
+    padding: 0 0 5px 10px;
+}
+
+.file-label--invalid {
+    border-bottom: 1px solid #ff0000;
+}
+
+.create-restaurant-form input:focus ~ .placeholder,
+.create-restaurant-form input:not(:placeholder-shown) ~ .placeholder {
+    font-size: 12px;
+    top: 5px;
+}
+
+.create-restaurant-form input.input--invalid {
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.input-notification {
+    position: absolute;
+    color: #ff0000;
+    top: 5px;
+    right: 0;
+    font-size: 12px;
+    margin: 0;
+}
+
+.btn-container {
+    min-width: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-container-btn {
+    margin: 30px 0;
+    min-width: 91px;
+}
+
+.btn-container-btn--cancel {
+    background: #cc0000;
+    border: 1px solid #cc0000;
+}
+
+.btn-container-btn.btn-container-btn--cancel:hover {
+    color: #cc0000;
+}
