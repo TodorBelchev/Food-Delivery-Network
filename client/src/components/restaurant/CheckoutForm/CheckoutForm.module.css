@@ -57,3 +57,8 @@ input.input-invalid {
 .spinner-container {
     margin-left: 15px;
 }
+
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+}

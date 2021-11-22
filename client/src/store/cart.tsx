@@ -45,6 +45,11 @@ const cartSlice = createSlice({
             if (cart) {
                 state.restaurants = JSON.parse(cart).restaurants;
             }
+        },
+        clearCartOrder(state, action: PayloadAction<{ restaurantId: string }>) {
+            const restaurant = state.restaurants.find(x => x.restaurantId === action.payload.restaurantId);
+            const index = state.restaurants.indexOf(restaurant!);
+            state.restaurants.splice(index, 1);
         }
     }
 });

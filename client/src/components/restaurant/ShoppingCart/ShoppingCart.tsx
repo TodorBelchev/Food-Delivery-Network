@@ -14,9 +14,9 @@ const ShoppingCart: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { restaurants } = useAppSelector(state => state.cart);
     const restaurant = useAppSelector(state => state.restaurant);
-    const cartRecipes = restaurants.find(x => x.restaurantId === restaurant._id);
-    const totalPrice = Number(cartRecipes?.recipes.reduce((acc, curr) => acc += curr.quantity * curr.recipe.price, 0).toFixed(2));
-    const totalQuantity = cartRecipes?.recipes.reduce((acc, curr) => acc += curr.quantity, 0);
+    const cartRecipes = restaurants.find(x => x.restaurantId === restaurant._id)?.recipes;
+    const totalPrice = Number(cartRecipes?.reduce((acc, curr) => acc += curr.quantity * curr.recipe.price, 0).toFixed(2));
+    const totalQuantity = cartRecipes?.reduce((acc, curr) => acc += curr.quantity, 0);
 
     const headerClickHandler = () => {
         setIsOpen(oldState => !oldState);
@@ -49,7 +49,7 @@ const ShoppingCart: React.FC = () => {
                 {isOpen && <section className={classes['cart-content']}>
                     <article className={classes['cart-content-recipes']}>
                         <ul className={classes['cart-content-recipes-list']}>
-                            {cartRecipes?.recipes.map(x => (
+                            {cartRecipes?.map(x => (
                                 <ShoppingCartListItem
                                     key={x.recipe._id}
                                     recipe={x.recipe}
@@ -74,7 +74,7 @@ const ShoppingCart: React.FC = () => {
                         </article>
                     </article>
                     <article className={classes['cart-content-checkout']}>
-                        <CheckoutForm />
+                        <CheckoutForm cartRecipes={cartRecipes!} restaurantId={restaurant._id} />
                     </article>
                 </section>}
             </section>
