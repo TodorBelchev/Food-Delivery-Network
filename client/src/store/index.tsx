@@ -4,13 +4,15 @@ import auth from "./auth";
 import modal from './modal';
 import restaurant from "./restaurant";
 import cart from "./cart";
+import checkout from "./checkout";
 
 const store = configureStore({
     reducer: {
         auth,
         modal,
         restaurant,
-        cart
+        cart,
+        checkout
     }
 });
 

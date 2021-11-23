@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
-import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 import { cartActions } from '../../../store/cart';
+import { checkoutActions } from '../../../store/checkout';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
 import IRecipe from '../../../interfaces/IRecipe';
@@ -19,35 +20,72 @@ type CheckoutFormProps = JSX.IntrinsicElements['form'] & {
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }) => {
     const dispatch = useAppDispatch();
+    const user = useAppSelector(state => state.auth);
+    const checkoutState = useAppSelector(state => state.checkout);
     const { isLoading, sendRequest, error } = useHttp();
     const {
         value: addressValue,
         hasError: addressHasError,
         valueChangeHandler: addressChangeHandler,
         inputBlurHandler: addressBlurHandler,
-        isValid: addressIsValid
+        isValid: addressIsValid,
+        setValue: setAddressValue
     } = useInput(validators.minLength.bind(null, 6));
     const {
         value: cityValue,
         hasError: cityHasError,
         valueChangeHandler: cityChangeHandler,
         inputBlurHandler: cityBlurHandler,
-        isValid: cityIsValid
+        isValid: cityIsValid,
+        setValue: setCityValue
     } = useInput(validators.minLength.bind(null, 4));
     const {
         value: nameValue,
         hasError: nameHasError,
         valueChangeHandler: nameChangeHandler,
         inputBlurHandler: nameBlurHandler,
-        isValid: nameIsValid
+        isValid: nameIsValid,
+        setValue: setNameValue
     } = useInput(validators.minLength.bind(null, 6));
     const {
         value: phoneValue,
         hasError: phoneHasError,
         valueChangeHandler: phoneChangeHandler,
         inputBlurHandler: phoneBlurHandler,
-        isValid: phoneIsValid
+        isValid: phoneIsValid,
+        setValue: setPhoneValue
     } = useInput(validators.isPhone);
+
+    const nameRef = useRef('');
+    const addressRef = useRef('');
+    const cityRef = useRef('');
+    const phoneRef = useRef('');
+    nameRef.current = nameValue;
+    addressRef.current = addressValue;
+    cityRef.current = cityValue;
+    phoneRef.current = phoneValue;
+
+    useEffect(() => {
+        setAddressValue(checkoutState.address || user.address || '');
+        setCityValue(checkoutState.city || user.city || '');
+        setPhoneValue(checkoutState.phone?.toString() || user.phone?.toString() || '');
+        if (user.firstName && user.lastName) {
+            setNameValue(checkoutState.name || `${user.firstName} ${user.lastName}`);
+        } else {
+            setNameValue(checkoutState.name || '');
+        }
+        return () => {
+            dispatch(checkoutActions.save({ name: nameRef.current, phone: phoneRef.current, city: cityRef.current, address: addressRef.current }));
+        }
+    }, [
+        setAddressValue,
+        setCityValue,
+        setPhoneValue,
+        setNameValue,
+        user,
+        checkoutState,
+        dispatch
+    ]);
 
     const formIsValid = addressIsValid && cityIsValid && nameIsValid && phoneIsValid;
 
