@@ -210,7 +210,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                     />
                     {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>
-                <button className="main-btn create-btn">Add</button>
+                <button className="main-btn create-btn" disabled={!formIsValid}>Add</button>
             </form>
         </section>
     )

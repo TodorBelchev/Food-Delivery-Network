@@ -42,6 +42,10 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
         dispatch(modalActions.open('add-recipe'));
     }
 
+    const commentClickHandler = () => {
+        dispatch(modalActions.open('comment'));
+    };
+
     return (
         <section>
             {modalState.isOpen &&
@@ -52,6 +56,12 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
             }
             {modalState.isOpen &&
                 modalState.overlayName === 'add-recipe' &&
+                <Modal>
+                    <AddRecipeModal />
+                </Modal>
+            }
+            {modalState.isOpen &&
+                modalState.overlayName === 'comment' &&
                 <Modal>
                     <AddRecipeModal />
                 </Modal>
@@ -109,6 +119,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                         />}
                     <FontAwesomeIcon
                         className={`${classes.icon} ${classes['icon--blue']}`}
+                        onClick={commentClickHandler}
                         icon={['far', 'comment']}
                     />
                 </p >

@@ -13,6 +13,7 @@ body {
     margin: 0;
     overflow: auto;
     overflow-y: scroll;
+    width: 100%;
 }
 
 main {

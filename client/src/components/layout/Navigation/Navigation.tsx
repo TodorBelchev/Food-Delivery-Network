@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { modalActions } from '../../../store/modal';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import usePreventScrolling from '../../../hooks/use-preventScrolling';
 
-import classes from './Navigation.module.css';
 import UserIcon from '../../user-profile/UserIcon/UserIcon';
 import Modal from '../../UI/Modal/Modal';
 import LoginModal from '../../auth/Login/LoginModal';
 import RegisterModal from '../../auth/Register/RegisterModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+import classes from './Navigation.module.css';
 
 const Navigation: React.FC = () => {
     const modalState = useAppSelector(state => state.modal);
@@ -20,21 +22,7 @@ const Navigation: React.FC = () => {
         dispatch(modalActions.open('login'));
     };
 
-    const documentWidth = document.documentElement.clientWidth;
-    const windowWidth = window.innerWidth;
-    const scrollBarWidth = windowWidth - documentWidth;
-
-    useEffect(() => {
-        if (modalState.isOpen) {
-            document.body.style.overflowY = 'hidden';
-            document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
-        }
-        return () => {
-            document.body.style.overflowY = 'scroll';
-            document.body.style.width = '100%';
-        };
-    }, [modalState.isOpen, scrollBarWidth]);
-
+    usePreventScrolling(modalState.isOpen);
 
     return (
         <header className={classes.header}>

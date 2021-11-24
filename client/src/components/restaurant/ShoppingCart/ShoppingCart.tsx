@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { useAppSelector } from '../../../hooks/redux-hooks';
+import usePreventScrolling from '../../../hooks/use-preventScrolling';
 import { Backdrop } from '../../UI/Modal/Modal';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import ShoppingCartListItem from '../ShoppingCartListItem/ShoppingCartListItem';
@@ -17,6 +18,7 @@ const ShoppingCart: React.FC = () => {
     const cartRecipes = restaurants.find(x => x.restaurantId === restaurant._id)?.recipes;
     const totalPrice = Number(cartRecipes?.reduce((acc, curr) => acc += curr.quantity * curr.recipe.price, 0).toFixed(2));
     const totalQuantity = cartRecipes?.reduce((acc, curr) => acc += curr.quantity, 0);
+    usePreventScrolling(isOpen);
 
     const headerClickHandler = () => {
         setIsOpen(oldState => !oldState);
