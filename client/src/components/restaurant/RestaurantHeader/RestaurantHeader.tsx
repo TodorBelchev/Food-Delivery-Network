@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 import { authActions } from '../../../store/auth';
 import { modalActions } from "../../../store/modal";
-
 import IAuthState from "../../../interfaces/IAuthState";
 
 import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModal";
 import Modal from "../../UI/Modal/Modal";
 import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
+import CommentsModal from "../CommentsModal/CommentsModal";
 
 
 import classes from './RestaurantHeader.module.css';
@@ -63,7 +63,7 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
             {modalState.isOpen &&
                 modalState.overlayName === 'comment' &&
                 <Modal>
-                    <AddRecipeModal />
+                    <CommentsModal />
                 </Modal>
             }
             <img className={classes['restaurant-img']} src={restaurant.image.url} alt="" />

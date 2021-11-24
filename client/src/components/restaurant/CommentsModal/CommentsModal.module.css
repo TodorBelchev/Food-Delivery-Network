@@ -1,0 +1,49 @@
+.comments {
+    background: #fff;
+    padding: 20px;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+.comments-title {
+    margin: 0;
+}
+
+.comments-score {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.comments-score-title {
+    margin: 0 15px 0 0;
+}
+
+.comments-score-icon {
+    color: #0080ff;
+    margin-right: 5px;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comments-list-item {
+    margin-bottom: 10px;
+}
+
+.comments-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.comments-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0080ff;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
