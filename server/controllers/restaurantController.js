@@ -2,7 +2,7 @@ const { Router } = require('express');
 const formidable = require('formidable');
 
 const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
-const { createComment, getComments } = require('../services/commentService');
+const { createComment, getComments, getCommentById } = require('../services/commentService');
 const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
@@ -126,7 +126,7 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
             throw new Error('Name must be at least 6 characters long!')
         }
 
-        if (rating.length < 10) {
+        if (comment.length < 10) {
             throw new Error('Comment must be at least 10 characters long!')
         }
 
@@ -139,6 +139,35 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
         await createComment({ name, comment, rating, owner: req.decoded.id, restaurant: req.params.id, date });
         const comments = await getComments(req.params.id);
         res.status(200).send(comments);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
+    try {
+        const name = req.body.name.trim();
+        const commentText = req.body.comment.trim();
+        const rating = Number(req.body.rating.trim());
+
+        if (name.length < 6) {
+            throw new Error('Name must be at least 6 characters long!')
+        }
+
+        if (commentText.length < 10) {
+            throw new Error('Comment must be at least 10 characters long!')
+        }
+
+        if (!rating) {
+            throw new Error('Rating is required!')
+        }
+
+
+        const comment = await getCommentById(req.params.commentId);
+        Object.assign(comment, { name, comment: commentText, rating });
+        await comment.save();
+        res.status(200).send(comment);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

@@ -67,3 +67,13 @@
     font-size: 14px;
     margin-bottom: 0;
 }
+
+.comment-edit-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #0080ff;
+    margin-left: 10px;
+    cursor: pointer;
+}

@@ -10,8 +10,12 @@ const getComments = (restaurantId) => {
     return Comment.find({ restaurant: restaurantId });
 }
 
+const getCommentById = (id) => {
+    return Comment.findById(id);
+} 
 
 module.exports = {
     createComment,
-    getComments
+    getComments,
+    getCommentById
 }

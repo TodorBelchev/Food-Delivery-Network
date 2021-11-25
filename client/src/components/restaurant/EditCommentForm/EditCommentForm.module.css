@@ -1,0 +1,154 @@
+.form {
+    background: rgb(233, 249, 255);
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    left: 15px;
+    transition: 0.2s ease all;
+    top: 25px;
+}
+
+.form input:focus ~ .placeholder,
+.form input:not(:placeholder-shown) ~ .placeholder,
+.form textarea:focus ~ .placeholder,
+.form textarea:not(:placeholder-shown) ~ .placeholder {
+    font-size: 12px;
+    top: 5px;
+}
+
+.form input {
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    background: rgb(233, 249, 255);
+    flex: 0 0 100%;
+    font-size: 16px;
+}
+
+.form input.input-invalid {
+    border-bottom: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.form .input-notification {
+    position: absolute;
+    color: #ff0000;
+    top: 5px;
+    right: 0;
+    font-size: 12px;
+    margin: 0;
+}
+
+.form .textarea {
+    width: 100%;
+    padding-left: 10px;
+    background: rgb(233, 249, 255);
+    border: 1px solid #a7a7a7;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+}
+
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+}
+
+.rating label:last-child {
+    position: static;
+}
+
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+
+.rating label:last-child .icon {
+    color: #808080;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: #0080ff;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #808080;
+    text-shadow: 0 0 5px #0080ff;
+}
+
+.form .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.controls-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #0080ff;
+    cursor: pointer;
+}
+
+.controls-btn--danger {
+    background: #cc0000;
+    margin-left: 10px;
+}
+
+.error {
+    color: #ff0000;
+    padding: 10px 0 0 10px;
+}

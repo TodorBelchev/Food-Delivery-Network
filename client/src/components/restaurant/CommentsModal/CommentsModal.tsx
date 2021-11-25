@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import IComment from '../../../interfaces/IComment';
+import useHttp from '../../../hooks/use-http';
+import { useAppSelector } from '../../../hooks/redux-hooks';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
 
+
 import classes from './CommentsModal.module.css';
-import useHttp from '../../../hooks/use-http';
-import { useAppSelector } from '../../../hooks/redux-hooks';
 
 const CommentsModal: React.FC = () => {
     const [comments, setComments] = useState<IComment[]>([]);
@@ -27,6 +28,14 @@ const CommentsModal: React.FC = () => {
         setShowAddComment(true)
     }
 
+    const editCommentHandler = (comment: IComment) => {
+        const newComments = comments.map(x => {
+            if (x._id === comment._id) { return comment; }
+            return x;
+        });
+        setComments(newComments);
+    }
+
     return (
         <section className={classes.comments}>
             <h3 className={classes['comments-title']}>Comments</h3>
@@ -40,7 +49,7 @@ const CommentsModal: React.FC = () => {
                 {comments.map(x => {
                     return (
                         <li key={x._id} className={classes['comments-list-item']}>
-                            <Comment commentObj={x} />
+                            <Comment commentObj={x} editCommentHandler={editCommentHandler} />
                         </li>
                     );
                 })}
