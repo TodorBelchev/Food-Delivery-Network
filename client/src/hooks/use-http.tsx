@@ -49,14 +49,10 @@ const useHttp = () => {
 
     }, [isMounted]);
 
-    const closeError = () => {
-        setError(null);
-    }
-
     return {
         isLoading,
         error,
-        closeError,
+        setError,
         sendRequest,
     };
 };

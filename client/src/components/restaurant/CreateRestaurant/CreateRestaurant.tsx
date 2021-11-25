@@ -221,7 +221,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         selected={selectedCities}
                     />
                 </div>
-                <button className="main-btn create-btn">{edit ? 'Edit' : 'Create'}</button>
+                <button className={`main-btn create-btn ${classes['create-restaurant-btn']}`}>{edit ? 'Edit' : 'Create'}</button>
             </form>
         </section>
     )
