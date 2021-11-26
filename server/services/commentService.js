@@ -6,8 +6,8 @@ const createComment = (data) => {
     return comment.save();
 }
 
-const getComments = (restaurantId, page) => {
-    return Comment.find({ restaurant: restaurantId }).sort({ date: 'desc' }).skip(page * 5).limit(5);
+const getCommentsByRestaurantIdAndPage = (restaurantId, page = 0) => {
+    return Comment.find({ restaurant: restaurantId }).sort({ date: 'desc' }).skip(page * 10).limit(10);
 }
 
 const getCommentById = (id) => {
@@ -18,9 +18,14 @@ const getCommentsCountByRestaurantId = (restaurant) => {
     return Comment.estimatedDocumentCount({ restaurant });
 }
 
+const getAllRatingsByRestaurantId = (restaurant) => {
+    return Comment.find({ restaurant });
+}
+
 module.exports = {
     createComment,
-    getComments,
+    getCommentsByRestaurantIdAndPage,
     getCommentById,
-    getCommentsCountByRestaurantId
+    getCommentsCountByRestaurantId,
+    getAllRatingsByRestaurantId
 }

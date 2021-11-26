@@ -45,6 +45,10 @@
     color: #0080ff;
 }
 
+.icon--gray {
+    color: gray;
+}
+
 .icon--after {
     position: relative;
 }

@@ -21,12 +21,17 @@ const RestaurantList: React.FC = () => {
         }, processResponse);
     }, [sendRequest]);
 
+    console.log(restaurants);
+    
+
     return (
         <section className="container">
             <ul className={`${classes.list}`}>
-                <li>
-                    {restaurants.map(x => <RestaurantCard key={x._id} restaurant={x} />)}
-                </li>
+                {restaurants.map(x => (
+                    <li key={x._id}>
+                        <RestaurantCard restaurant={x} />
+                    </li>
+                ))}
             </ul>
         </section>
     )

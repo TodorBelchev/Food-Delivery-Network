@@ -14,5 +14,6 @@ export default interface IRestaurant {
     workDays: string[];
     workHours: string[];
     rating: number;
+    ratingsCount: number;
     recipes: IRecipe[];
 }

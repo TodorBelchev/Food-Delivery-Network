@@ -2,7 +2,7 @@ const { Router } = require('express');
 const formidable = require('formidable');
 
 const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
-const { createComment, getComments, getCommentById, getCommentsCountByRestaurantId } = require('../services/commentService');
+const { createComment, getCommentsByRestaurantIdAndPage, getCommentById, getCommentsCountByRestaurantId, getAllRatingsByRestaurantId } = require('../services/commentService');
 const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
@@ -47,6 +47,15 @@ router.post('/create', checkUser(), async (req, res) => {
 router.get('/by-owner', checkUser(), async (req, res) => {
     try {
         const restaurants = await getByOwnerId(req.decoded.id);
+        const ratings = await Promise.all(restaurants.map(x => getAllRatingsByRestaurantId(x._id)));
+        ratings.forEach((x, i) => {
+            if (x.length === 0) {
+                restaurants[i].rating = 0;
+            } else {
+                restaurants[i].rating = (x.reduce((acc, cur) => acc + cur.rating, 0) / x.length).toFixed(1);
+            }
+            restaurants[i].ratingsCount = x.length;
+        });
         res.status(200).send(restaurants);
     } catch (error) {
         console.log(error);
@@ -57,6 +66,13 @@ router.get('/by-owner', checkUser(), async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const restaurant = await getById(req.params.id);
+        const ratings = await getAllRatingsByRestaurantId(req.params.id);
+        let rating = 0;
+        if (ratings.length > 0) {
+            rating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
+        }
+        restaurant.rating = rating;
+        restaurant.ratingsCount = ratings.length;
         res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
@@ -137,7 +153,7 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
         const date = Date.now();
 
         await createComment({ name, comment, rating, owner: req.decoded.id, restaurant: req.params.id, date });
-        const comments = await getComments(req.params.id);
+        const comments = await getCommentsByRestaurantIdAndPage(req.params.id);
         res.status(200).send(comments);
     } catch (error) {
         console.log(error);
@@ -176,7 +192,7 @@ router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
 
 router.get('/:id/comment', checkUser(), async (req, res) => {
     try {
-        const comments = await getComments(req.params.id, req.query.page - 1);
+        const comments = await getCommentsByRestaurantIdAndPage(req.params.id, req.query.page - 1);
         const commentsCount = await getCommentsCountByRestaurantId(req.params.id);
         res.status(200).send({ comments, commentsCount });
     } catch (error) {

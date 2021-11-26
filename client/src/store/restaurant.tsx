@@ -16,6 +16,7 @@ const initialState: IRestaurant = {
     workDays: [],
     workHours: [],
     rating: 0,
+    ratingsCount: 0,
     recipes: []
 };
 
@@ -34,6 +35,7 @@ const restaurantSlice = createSlice({
             state.workDays = action.payload.workDays;
             state.workHours = action.payload.workHours;
             state.rating = action.payload.rating;
+            state.ratingsCount = action.payload.ratingsCount;
             state.recipes = action.payload.recipes;
         },
         clearRestaurant(state) {

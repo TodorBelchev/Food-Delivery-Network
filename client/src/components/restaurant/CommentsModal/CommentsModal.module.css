@@ -1,7 +1,7 @@
 .comments {
     background: #fff;
     padding: 20px;
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: scroll;
 }
 
@@ -21,6 +21,11 @@
 
 .comments-score-icon {
     color: #0080ff;
+    margin-right: 5px;
+}
+
+.comments-score-icon--gray {
+    color: gray;
     margin-right: 5px;
 }
 

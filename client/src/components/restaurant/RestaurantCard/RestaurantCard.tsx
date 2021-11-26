@@ -48,8 +48,8 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                 <article className={classes['restaurant-title-wrapper']}>
                     <h2 className={classes['restaurant-title']}>{restaurant.name}</h2>
                     <p className={classes['restaurant-score']}>
-                        <FontAwesomeIcon icon={['fas', 'star']} className={classes['restaurant-score-icon']} />
-                        4.5(30)
+                        <FontAwesomeIcon icon={['fas', 'star']} className={`${classes['restaurant-score-icon']} ${restaurant.rating === 0 ? classes['restaurant-score-icon--gray'] : ''}`} />
+                        {restaurant.rating !== 0 && <span>{restaurant.rating}({restaurant.ratingsCount})</span>}
                     </p>
                 </article>
                 <article className={classes['restaurant-text-wrapper']}>

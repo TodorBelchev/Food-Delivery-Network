@@ -57,7 +57,14 @@ const CommentsModal: React.FC = () => {
             <h3 className={classes['comments-title']}>Comments</h3>
             <article className={classes['comments-score']}>
                 <h4 className={classes['comments-score-title']}>Average score:</h4>
-                <div><FontAwesomeIcon icon={['fas', 'star']} className={classes['comments-score-icon']} />4.5 from 30 comments</div>
+                <div>
+                    <FontAwesomeIcon
+                        icon={['fas', 'star']}
+                        className={restaurant.rating !== 0 ? classes['comments-score-icon'] : classes['comments-score-icon--gray']}
+                    />
+                    {restaurant.rating !== 0 && <span>{restaurant.rating} from {restaurant.ratingsCount} comments</span>}
+                    {restaurant.rating === 0 && <span>No comments yet!</span>}
+                </div>
             </article>
             {!showAddComment && user.email && <button onClick={addCommentClickHandler} className={classes['comments-btn']}>Add comment</button>}
             {showAddComment && <AddCommentForm setShowAddComment={setShowAddComment} setComments={setComments} />}

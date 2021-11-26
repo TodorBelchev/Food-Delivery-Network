@@ -72,8 +72,8 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                     <NavLink to={`/restaurant/${restaurant._id}`} className={classes['restaurant-content-title']}>{restaurant.name}</NavLink>
                     <h4 className={classes['restaurant-content-subtitle']}>{restaurant.mainTheme}, {restaurant.categories[0]}</h4>
                     <p className={classes.scoring}>
-                        <FontAwesomeIcon icon={['fas', 'star']} size="lg" className={classes['icon--blue']} />
-                        <span>4.5(30)</span>
+                        <FontAwesomeIcon icon={['fas', 'star']} size="lg" className={restaurant.rating !== 0 ? classes['icon--blue'] : classes['icon--gray']} />
+                        {restaurant.rating !== 0 && <span>{restaurant.rating}({restaurant.ratingsCount})</span>}
                     </p>
                 </article>
                 <p className={classes.icons}>
