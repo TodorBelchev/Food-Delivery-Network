@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import IComment from '../../../interfaces/IComment';
 import useHttp from '../../../hooks/use-http';
-import { useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { restaurantActions } from '../../../store/restaurant';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
@@ -11,28 +12,33 @@ import Spinner from '../../UI/Spinner/Spinner';
 
 
 import classes from './CommentsModal.module.css';
+import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 
 const CommentsModal: React.FC = () => {
     const [comments, setComments] = useState<IComment[]>([]);
     const [totalCommentsCount, setTotalCommentsCount] = useState(0);
     const [page, setPage] = useState(1);
+    const [showAddComment, setShowAddComment] = useState(false);
+    const [formIsLoading, setFormIsLoading] = useState(false);
     const restaurant = useAppSelector(state => state.restaurant);
     const user = useAppSelector(state => state.auth);
-    const [showAddComment, setShowAddComment] = useState(false);
     const { sendRequest, isLoading } = useHttp();
+    const dispatch = useAppDispatch();
+    const resId = restaurant._id;
 
-    const processResponse = useCallback((res: { comments: IComment[], commentsCount: number }) => {
+    const processResponse = useCallback((res: IAddCommentResponse) => {
         setComments(oldState => oldState.concat(res.comments));
-        setTotalCommentsCount(res.commentsCount);
+        setTotalCommentsCount(res.ratingsCount);
     }, [setComments]);
 
     useEffect(() => {
-        sendRequest({ url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment?page=${page}` }, processResponse)
-    }, [restaurant, page, processResponse, sendRequest]);
+        if (page === 0) { return; }
+        sendRequest({ url: `http://localhost:3030/api/restaurant/${resId}/comment?page=${page}` }, processResponse)
+    }, [resId, page, processResponse, sendRequest]);
 
     const observer = useRef<IntersectionObserver>();
     const lastCommentElementRef = useCallback(node => {
-        if (isLoading) { return; }
+        if (isLoading || formIsLoading) { return; }
         if (observer.current) { observer.current.disconnect(); }
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && totalCommentsCount > comments.length) {
@@ -40,9 +46,20 @@ const CommentsModal: React.FC = () => {
             }
         });
         if (node) { observer.current.observe(node); }
-    }, [isLoading, totalCommentsCount, comments]);
+    }, [isLoading, totalCommentsCount, comments, formIsLoading]);
 
     const addCommentClickHandler = () => setShowAddComment(true);
+
+    const cancelClickHandler = () => setShowAddComment(false);
+
+    const addCommentSubmitHandler = useCallback((res: IAddCommentResponse) => {
+        setShowAddComment(false);
+        setComments([]);
+        setPage(0);
+        setPage(1);
+        setTotalCommentsCount(res.ratingsCount);
+        dispatch(restaurantActions.setRestaurant({ ...restaurant, rating: res.rating, ratingsCount: res.ratingsCount }));
+    }, [dispatch, restaurant]);
 
     const editCommentHandler = (comment: IComment) => {
         const newComments = comments.map(x => {
@@ -67,7 +84,7 @@ const CommentsModal: React.FC = () => {
                 </div>
             </article>
             {!showAddComment && user.email && <button onClick={addCommentClickHandler} className={classes['comments-btn']}>Add comment</button>}
-            {showAddComment && <AddCommentForm setShowAddComment={setShowAddComment} setComments={setComments} />}
+            {showAddComment && <AddCommentForm cancelClickHandler={cancelClickHandler} setFormIsLoading={setFormIsLoading} addCommentSubmitHandler={addCommentSubmitHandler} />}
             <ul className={classes['comments-list']}>
                 {comments.map((x, i) => {
                     if (comments.length === i + 1) {

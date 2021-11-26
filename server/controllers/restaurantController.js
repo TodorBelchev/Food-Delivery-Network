@@ -154,7 +154,13 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
 
         await createComment({ name, comment, rating, owner: req.decoded.id, restaurant: req.params.id, date });
         const comments = await getCommentsByRestaurantIdAndPage(req.params.id);
-        res.status(200).send(comments);
+        const ratings = await getAllRatingsByRestaurantId(req.params.id);
+        let restaurantRating = 0;
+        if (ratings.length > 0) {
+            restaurantRating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
+        }
+        const ratingsCount = ratings.length;
+        res.status(200).send({ comments, rating: restaurantRating, ratingsCount });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -193,8 +199,8 @@ router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
 router.get('/:id/comment', checkUser(), async (req, res) => {
     try {
         const comments = await getCommentsByRestaurantIdAndPage(req.params.id, req.query.page - 1);
-        const commentsCount = await getCommentsCountByRestaurantId(req.params.id);
-        res.status(200).send({ comments, commentsCount });
+        const ratingsCount = await getCommentsCountByRestaurantId(req.params.id);
+        res.status(200).send({ comments, ratingsCount });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

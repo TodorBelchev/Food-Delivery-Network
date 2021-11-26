@@ -1,20 +1,21 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { useAppSelector } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
 import useInput from '../../../hooks/use-input';
-import IComment from '../../../interfaces/IComment';
+import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 import validators from '../../../validators';
 
 
 import classes from './AddCommentForm.module.css';
 
 type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
-    setShowAddComment: Dispatch<SetStateAction<boolean>>
-    setComments: Dispatch<SetStateAction<IComment[]>>
+    setFormIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    cancelClickHandler: () => void;
+    addCommentSubmitHandler: (res: IAddCommentResponse) => void;
 }
 
-const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setComments }) => {
+const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, addCommentSubmitHandler, setFormIsLoading }) => {
     const user = useAppSelector(state => state.auth);
     const { isLoading, setError, error, sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
@@ -40,12 +41,10 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setC
         }
     }, [setNameValue, user]);
 
-    const cancelClickHandler = () => setShowAddComment(false);
-
-    const processResponse = (res: IComment[]) => {
-        setComments(res);
-        setShowAddComment(false);
-    }
+    const processResponse = useCallback((res: IAddCommentResponse) => {
+        addCommentSubmitHandler(res);
+        setFormIsLoading(false);
+    }, [addCommentSubmitHandler, setFormIsLoading]);
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
@@ -59,6 +58,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setC
 
         if (!formIsValid) { return; }
 
+        setFormIsLoading(true);
         sendRequest({
             url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment`,
             method: 'POST',

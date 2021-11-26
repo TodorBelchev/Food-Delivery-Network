@@ -15,7 +15,7 @@ const getCommentById = (id) => {
 }
 
 const getCommentsCountByRestaurantId = (restaurant) => {
-    return Comment.estimatedDocumentCount({ restaurant });
+    return Comment.countDocuments({ restaurant });
 }
 
 const getAllRatingsByRestaurantId = (restaurant) => {

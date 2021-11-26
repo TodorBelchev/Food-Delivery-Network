@@ -21,9 +21,6 @@ const RestaurantList: React.FC = () => {
         }, processResponse);
     }, [sendRequest]);
 
-    console.log(restaurants);
-    
-
     return (
         <section className="container">
             <ul className={`${classes.list}`}>
