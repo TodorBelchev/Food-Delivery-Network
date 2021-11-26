@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import IComment from '../../../interfaces/IComment';
@@ -7,26 +7,42 @@ import { useAppSelector } from '../../../hooks/redux-hooks';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
+import Spinner from '../../UI/Spinner/Spinner';
 
 
 import classes from './CommentsModal.module.css';
 
 const CommentsModal: React.FC = () => {
     const [comments, setComments] = useState<IComment[]>([]);
-    const [showAddComment, setShowAddComment] = useState(false);
-    const { sendRequest } = useHttp();
+    const [totalCommentsCount, setTotalCommentsCount] = useState(0);
+    const [page, setPage] = useState(1);
     const restaurant = useAppSelector(state => state.restaurant);
     const user = useAppSelector(state => state.auth);
+    const [showAddComment, setShowAddComment] = useState(false);
+    const { sendRequest, isLoading } = useHttp();
+
+    const processResponse = useCallback((res: { comments: IComment[], commentsCount: number }) => {
+        setComments(oldState => oldState.concat(res.comments));
+        setTotalCommentsCount(res.commentsCount);
+    }, [setComments]);
 
     useEffect(() => {
-        sendRequest({
-            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment`
-        }, (res: IComment[]) => setComments(res));
-    }, [sendRequest, restaurant]);
+        sendRequest({ url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment?page=${page}` }, processResponse)
+    }, [restaurant, page, processResponse, sendRequest]);
 
-    const addCommentClickHandler = () => {
-        setShowAddComment(true)
-    }
+    const observer = useRef<IntersectionObserver>();
+    const lastCommentElementRef = useCallback(node => {
+        if (isLoading) { return; }
+        if (observer.current) { observer.current.disconnect(); }
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && totalCommentsCount > comments.length) {
+                setPage(oldPage => oldPage + 1)
+            }
+        });
+        if (node) { observer.current.observe(node); }
+    }, [isLoading, totalCommentsCount, comments]);
+
+    const addCommentClickHandler = () => setShowAddComment(true);
 
     const editCommentHandler = (comment: IComment) => {
         const newComments = comments.map(x => {
@@ -34,7 +50,7 @@ const CommentsModal: React.FC = () => {
             return x;
         });
         setComments(newComments);
-    }
+    };
 
     return (
         <section className={classes.comments}>
@@ -46,13 +62,22 @@ const CommentsModal: React.FC = () => {
             {!showAddComment && user.email && <button onClick={addCommentClickHandler} className={classes['comments-btn']}>Add comment</button>}
             {showAddComment && <AddCommentForm setShowAddComment={setShowAddComment} setComments={setComments} />}
             <ul className={classes['comments-list']}>
-                {comments.map(x => {
-                    return (
-                        <li key={x._id} className={classes['comments-list-item']}>
-                            <Comment commentObj={x} editCommentHandler={editCommentHandler} />
-                        </li>
-                    );
+                {comments.map((x, i) => {
+                    if (comments.length === i + 1) {
+                        return (
+                            <li ref={lastCommentElementRef} key={x._id} className={classes['comments-list-item']}>
+                                <Comment commentObj={x} editCommentHandler={editCommentHandler} />
+                            </li>
+                        )
+                    } else {
+                        return (
+                            <li key={x._id} className={classes['comments-list-item']}>
+                                <Comment commentObj={x} editCommentHandler={editCommentHandler} />
+                            </li>
+                        );
+                    }
                 })}
+                {isLoading && <Spinner />}
             </ul>
         </section>
     );

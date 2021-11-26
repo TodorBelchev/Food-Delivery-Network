@@ -2,7 +2,7 @@ const { Router } = require('express');
 const formidable = require('formidable');
 
 const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
-const { createComment, getComments, getCommentById } = require('../services/commentService');
+const { createComment, getComments, getCommentById, getCommentsCountByRestaurantId } = require('../services/commentService');
 const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
@@ -176,8 +176,9 @@ router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
 
 router.get('/:id/comment', checkUser(), async (req, res) => {
     try {
-        const comments = await getComments(req.params.id);
-        res.status(200).send(comments);
+        const comments = await getComments(req.params.id, req.query.page - 1);
+        const commentsCount = await getCommentsCountByRestaurantId(req.params.id);
+        res.status(200).send({ comments, commentsCount });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

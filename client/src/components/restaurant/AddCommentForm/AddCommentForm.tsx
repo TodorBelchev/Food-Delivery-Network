@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 
 import { useAppSelector } from '../../../hooks/redux-hooks';
 import useHttp from '../../../hooks/use-http';
@@ -15,13 +15,15 @@ type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
 }
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setComments }) => {
+    const user = useAppSelector(state => state.auth);
     const { isLoading, setError, error, sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
     const {
         value: nameValue,
         hasError: nameHasError,
         valueChangeHandler: nameChangeHandler,
-        inputBlurHandler: nameBlurHandler
+        inputBlurHandler: nameBlurHandler,
+        setValue: setNameValue
     } = useInput(validators.minLength.bind(null, 6));
     const {
         value: commentValue,
@@ -31,6 +33,12 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setC
     } = useInput(validators.minLength.bind(null, 10));
 
     const formIsValid = !nameHasError && !commentHasError;
+
+    useEffect(() => {
+        if (user.firstName && user.lastName) {
+            setNameValue(`${user.firstName} ${user.lastName}`);
+        }
+    }, [setNameValue, user]);
 
     const cancelClickHandler = () => setShowAddComment(false);
 
@@ -128,7 +136,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ setShowAddComment, setC
                 </div>
                 <div>
                     <button className={classes['controls-btn']}>Add</button>
-                    <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`}>Cancel</button>
+                    <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
                 </div>
             </div>
         </form>

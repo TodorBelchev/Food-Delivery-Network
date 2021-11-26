@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
 type reqConfig = {
     url: string;
@@ -10,12 +10,6 @@ type reqConfig = {
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-        return () => setIsMounted(false);
-    }, []);
 
     const sendRequest = useCallback(async (requestConfig: reqConfig, applyData) => {
         setIsLoading(true);
@@ -31,13 +25,7 @@ const useHttp = () => {
 
             const data = await response.json();
 
-            if (!response.ok) {
-                throw new Error(data.message);
-            }
-
-            if(isMounted) {
-                setIsLoading(false);
-            }
+            if (!response.ok) { throw new Error(data.message); }
 
             setIsLoading(false);
             applyData(data);
@@ -46,8 +34,7 @@ const useHttp = () => {
             setError(errorMessage || 'Something went wrong!');
             setIsLoading(false);
         }
-
-    }, [isMounted]);
+    }, []);
 
     return {
         isLoading,

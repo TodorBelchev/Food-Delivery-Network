@@ -32,6 +32,11 @@ const authSlice = createSlice({
             state.email = null;
             state._id = null;
             state.isAdmin = false;
+            state.phone = null;
+            state.firstName = null;
+            state.lastName = null;
+            state.city = null;
+            state.address = null;
         },
         addToFavorites(state, action: PayloadAction<{ _id: string }>) {
             state.favorites.push(action.payload._id);
