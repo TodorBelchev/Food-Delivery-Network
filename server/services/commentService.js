@@ -22,10 +22,15 @@ const getAllRatingsByRestaurantId = (restaurant) => {
     return Comment.find({ restaurant });
 }
 
+const deleteCommentById = (id) => {
+    return Comment.findByIdAndDelete(id);
+}
+
 module.exports = {
     createComment,
     getCommentsByRestaurantIdAndPage,
     getCommentById,
     getCommentsCountByRestaurantId,
-    getAllRatingsByRestaurantId
+    getAllRatingsByRestaurantId,
+    deleteCommentById
 }

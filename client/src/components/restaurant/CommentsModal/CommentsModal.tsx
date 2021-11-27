@@ -15,7 +15,7 @@ import classes from './CommentsModal.module.css';
 import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 
 const CommentsModal: React.FC = () => {
-    const [comments, setComments] = useState<IComment[]>([]);
+    const [comments, setComments] = useState<(IComment | null)[]>([]);
     const [totalCommentsCount, setTotalCommentsCount] = useState(0);
     const [page, setPage] = useState(1);
     const [showAddComment, setShowAddComment] = useState(false);
@@ -63,7 +63,15 @@ const CommentsModal: React.FC = () => {
 
     const editCommentHandler = (comment: IComment) => {
         const newComments = comments.map(x => {
-            if (x._id === comment._id) { return comment; }
+            if (x?._id === comment._id) { return comment; }
+            return x;
+        });
+        setComments(newComments);
+    };
+
+    const deleteCommentHandler = (commentId: string) => {
+        const newComments = comments.map(x => {
+            if (x?._id === commentId) { return null; }
             return x;
         });
         setComments(newComments);
@@ -87,16 +95,17 @@ const CommentsModal: React.FC = () => {
             {showAddComment && <AddCommentForm cancelClickHandler={cancelClickHandler} setFormIsLoading={setFormIsLoading} addCommentSubmitHandler={addCommentSubmitHandler} />}
             <ul className={classes['comments-list']}>
                 {comments.map((x, i) => {
+                    if (x === null) { return null };
                     if (comments.length === i + 1) {
                         return (
-                            <li ref={lastCommentElementRef} key={x._id} className={classes['comments-list-item']}>
-                                <Comment commentObj={x} editCommentHandler={editCommentHandler} />
+                            <li ref={lastCommentElementRef} key={x?._id} className={classes['comments-list-item']}>
+                                <Comment commentObj={x} editCommentHandler={editCommentHandler} deleteCommentHandler={deleteCommentHandler} />
                             </li>
                         )
                     } else {
                         return (
                             <li key={x._id} className={classes['comments-list-item']}>
-                                <Comment commentObj={x} editCommentHandler={editCommentHandler} />
+                                <Comment commentObj={x} editCommentHandler={editCommentHandler} deleteCommentHandler={deleteCommentHandler} />
                             </li>
                         );
                     }

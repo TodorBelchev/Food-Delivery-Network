@@ -2,7 +2,14 @@ const { Router } = require('express');
 const formidable = require('formidable');
 
 const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
-const { createComment, getCommentsByRestaurantIdAndPage, getCommentById, getCommentsCountByRestaurantId, getAllRatingsByRestaurantId } = require('../services/commentService');
+const {
+    createComment,
+    getCommentsByRestaurantIdAndPage,
+    getCommentById,
+    getCommentsCountByRestaurantId,
+    getAllRatingsByRestaurantId,
+    deleteCommentById
+} = require('../services/commentService');
 const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 const { checkUser } = require('../middlewares');
 
@@ -201,6 +208,16 @@ router.get('/:id/comment', checkUser(), async (req, res) => {
         const comments = await getCommentsByRestaurantIdAndPage(req.params.id, req.query.page - 1);
         const ratingsCount = await getCommentsCountByRestaurantId(req.params.id);
         res.status(200).send({ comments, ratingsCount });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/comment/:id', checkUser(), async (req, res) => {
+    try {
+        await deleteCommentById(req.params.id);
+        res.status(200).send({ message: 'OK' });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
