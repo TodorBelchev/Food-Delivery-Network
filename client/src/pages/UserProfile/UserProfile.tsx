@@ -2,17 +2,25 @@ import { Route, Switch } from "react-router";
 
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
 import RestaurantList from "../../components/restaurant/RestaurantList/RestaurantList";
+import HorizontalNav from "../../components/UI/HorizontalNav/HorizontalNav";
 import UserData from "../../components/user-profile/UserData/UserData";
-import UserNav from "../../components/user-profile/UserNav/UserNav";
 
 import { useAppSelector } from "../../hooks/redux-hooks";
 
 const UserProfile: React.FC = () => {
     const user = useAppSelector(state => state.auth);
 
+    const links: { url: string; text: string }[] = [
+        { url: `/profile/${user._id}`, text: 'Profile' },
+        { url: `/profile/${user._id}/create-restaurant`, text: 'Create Restaurant' },
+        { url: `/profile/${user._id}/restaurants`, text: 'My restaurants' },
+        { url: `/profile/${user._id}/favorites`, text: 'Favorite restaurants' },
+        { url: `/profile/${user._id}/orders`, text: 'Orders' },
+    ];
+
     return (
         <>
-            <UserNav user={user} />
+            <HorizontalNav links={links} />
             <Switch>
                 <Route path="/profile/:id/" exact>
                     <UserData edit={false} />
