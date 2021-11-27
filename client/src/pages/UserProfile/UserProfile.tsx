@@ -3,9 +3,9 @@ import { Route, Switch } from "react-router";
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
 import RestaurantList from "../../components/restaurant/RestaurantList/RestaurantList";
 import HorizontalNav from "../../components/UI/HorizontalNav/HorizontalNav";
-import UserData from "../../components/user-profile/UserData/UserData";
+import UserData from "../../components/userProfile/UserData/UserData";
 
-import { useAppSelector } from "../../hooks/redux-hooks";
+import { useAppSelector } from "../../hooks/reduxHooks";
 
 const UserProfile: React.FC = () => {
     const user = useAppSelector(state => state.auth);

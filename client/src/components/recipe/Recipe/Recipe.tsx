@@ -1,6 +1,6 @@
 import { modalActions } from '../../../store/modal';
 import { cartActions } from '../../../store/cart';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import IRecipe from '../../../interfaces/IRecipe';
 import DeleteRecipeModal from '../DeleteRecipeModal/DeleteRecipeModal';
 import Modal from '../../UI/Modal/Modal';

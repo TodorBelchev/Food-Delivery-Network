@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router';
 
-import { useAppDispatch } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
 
 import { modalActions } from '../../../store/modal';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { modalActions } from '../../../store/modal';
 
 import IRestaurant from '../../../interfaces/IRestaurant';

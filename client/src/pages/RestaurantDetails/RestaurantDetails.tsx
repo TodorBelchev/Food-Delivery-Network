@@ -7,12 +7,12 @@ import RestaurantDashboard from "../../components/restaurant/RestaurantDashboard
 import RestaurantHeader from "../../components/restaurant/RestaurantHeader/RestaurantHeader";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
-import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
-import useHttp from "../../hooks/use-http";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import useHttp from "../../hooks/useHttp";
 import { restaurantActions } from "../../store/restaurant";
 
 import IRestaurant from "../../interfaces/IRestaurant";
-import ShoppingCart from "../../components/restaurant/ShoppingCart/ShoppingCart";
+import ShoppingCart from "../../components/shoppingCart/ShoppingCart/ShoppingCart";
 
 
 const RestaurantDetails: React.FC = () => {

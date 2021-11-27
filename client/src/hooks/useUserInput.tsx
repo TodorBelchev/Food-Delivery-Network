@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const useInput = (validator: (value: string) => {}) => {
+const useUserInput = (validator: (value: string) => {}) => {
     const [inputValue, setInputValue] = useState('');
     const [isTouched, setIsTouched] = useState(false);
 
@@ -31,4 +31,4 @@ const useInput = (validator: (value: string) => {}) => {
     };
 };
 
-export default useInput;
+export default useUserInput;

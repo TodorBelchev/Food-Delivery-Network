@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
 
 import { modalActions } from '../../../store/modal';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
-import usePreventScrolling from '../../../hooks/use-preventScrolling';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import usePreventScrolling from '../../../hooks/usePreventScrolling';
 
-import UserIcon from '../../user-profile/UserIcon/UserIcon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from '../../UI/Modal/Modal';
 import LoginModal from '../../auth/Login/LoginModal';
 import RegisterModal from '../../auth/Register/RegisterModal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import UserIcon from '../../userProfile/UserIcon/UserIcon';
 
 
 import classes from './Navigation.module.css';

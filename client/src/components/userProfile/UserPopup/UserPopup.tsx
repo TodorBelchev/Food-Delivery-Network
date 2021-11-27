@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
 import { authActions } from '../../../store/auth';
 
 import classes from './UserPopup.module.css';

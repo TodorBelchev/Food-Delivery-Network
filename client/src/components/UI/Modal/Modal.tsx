@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-import { useAppDispatch } from "../../../hooks/redux-hooks";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { modalActions } from "../../../store/modal";
 
 import classes from './Modal.module.css';

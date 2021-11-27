@@ -2,15 +2,15 @@ import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { authActions } from '../../../store/auth';
 import { modalActions } from "../../../store/modal";
 import IAuthState from "../../../interfaces/IAuthState";
 
 import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModal";
 import Modal from "../../UI/Modal/Modal";
-import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
-import CommentsModal from "../CommentsModal/CommentsModal";
+import AddRecipeModal from "../../recipe/AddRecipeModal/AddRecipeModal";
+import CommentsModal from "../../comment/CommentsModal/CommentsModal";
 
 
 import classes from './RestaurantHeader.module.css';

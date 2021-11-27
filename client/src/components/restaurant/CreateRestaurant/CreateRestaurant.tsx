@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
 
 import classes from './CreateRestaurant.module.css';
@@ -40,7 +40,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         inputBlurHandler: nameBlurHandler,
         reset: nameReset,
         setValue: setNameValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: mainThemeValue,
         isValid: mainThemeIsValid,
@@ -49,7 +49,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         inputBlurHandler: mainThemeBlurHandler,
         reset: mainThemeReset,
         setValue: setMainThemeValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: categoriesValue,
         isValid: categoriesIsValid,
@@ -58,7 +58,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         inputBlurHandler: categoriesBlurHandler,
         reset: categoriesReset,
         setValue: setCategoriesValue
-    } = useInput(validators.minStringCount.bind(null, 3));
+    } = useUserInput(validators.minStringCount.bind(null, 3));
     const {
         value: workTimeValue,
         isValid: workTimeIsValid,
@@ -67,7 +67,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         inputBlurHandler: workTimeBlurHandler,
         reset: workTimeReset,
         setValue: setWorkTimeValue
-    } = useInput(validators.workTime);
+    } = useUserInput(validators.workTime);
 
     useEffect(() => {
         if (edit) {

@@ -7,7 +7,7 @@ import Home from './pages/Home/Home';
 import UserProfile from './pages/UserProfile/UserProfile';
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 
-import { useAppDispatch } from './hooks/redux-hooks';
+import { useAppDispatch } from './hooks/reduxHooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
 import loadFontAwesome from './utils/loadFontAwesome';

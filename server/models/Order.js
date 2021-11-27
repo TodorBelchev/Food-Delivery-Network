@@ -29,6 +29,10 @@ const orderSchema = new mongoose.Schema({
             type: Number
         }
     }],
+    status: {
+        type: String,
+        default: 'pending'
+    }
 });
 
 const Order = mongoose.model('Order', orderSchema);

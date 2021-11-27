@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import IComment from '../../../interfaces/IComment';
-import useHttp from '../../../hooks/use-http';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import useHttp from '../../../hooks/useHttp';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';

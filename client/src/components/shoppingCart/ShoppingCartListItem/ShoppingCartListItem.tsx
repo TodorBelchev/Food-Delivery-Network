@@ -1,4 +1,4 @@
-import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { useAppDispatch } from '../../../hooks/reduxHooks';
 import { cartActions } from '../../../store/cart';
 import IRecipe from '../../../interfaces/IRecipe';
 

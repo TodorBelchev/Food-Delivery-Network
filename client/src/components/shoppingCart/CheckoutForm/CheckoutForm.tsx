@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { cartActions } from '../../../store/cart';
 import { checkoutActions } from '../../../store/checkout';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
 import IRecipe from '../../../interfaces/IRecipe';
 import validators from '../../../validators';
 
@@ -30,7 +30,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
         inputBlurHandler: addressBlurHandler,
         isValid: addressIsValid,
         setValue: setAddressValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: cityValue,
         hasError: cityHasError,
@@ -38,7 +38,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
         inputBlurHandler: cityBlurHandler,
         isValid: cityIsValid,
         setValue: setCityValue
-    } = useInput(validators.minLength.bind(null, 4));
+    } = useUserInput(validators.minLength.bind(null, 4));
     const {
         value: nameValue,
         hasError: nameHasError,
@@ -46,7 +46,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
         inputBlurHandler: nameBlurHandler,
         isValid: nameIsValid,
         setValue: setNameValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: phoneValue,
         hasError: phoneHasError,
@@ -54,7 +54,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
         inputBlurHandler: phoneBlurHandler,
         isValid: phoneIsValid,
         setValue: setPhoneValue
-    } = useInput(validators.isPhone);
+    } = useUserInput(validators.isPhone);
 
     const nameRef = useRef('');
     const addressRef = useRef('');

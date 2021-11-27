@@ -2,9 +2,9 @@ import { FormEvent, useState } from 'react';
 
 import { authActions } from '../../../store/auth';
 import { modalActions } from '../../../store/modal';
-import { useAppDispatch } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 
 import classes from './RegisterModal.module.css';
@@ -24,7 +24,7 @@ const RegisterModal: React.FC = () => {
         valueChangeHandler: emailChangeHandler,
         inputBlurHandler: emailBlurHandler,
         reset: resetEmail
-    } = useInput(validators.isEmail);
+    } = useUserInput(validators.isEmail);
     const {
         value: passwordValue,
         isValid: passwordIsValid,
@@ -32,7 +32,7 @@ const RegisterModal: React.FC = () => {
         valueChangeHandler: passwordChangeHandler,
         inputBlurHandler: passwordBlurHandler,
         reset: resetPassword
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: rePasswordValue,
         isValid: rePasswordIsValid,
@@ -40,7 +40,7 @@ const RegisterModal: React.FC = () => {
         valueChangeHandler: rePasswordChangeHandler,
         inputBlurHandler: rePasswordBlurHandler,
         reset: resetRePassword
-    } = useInput(validators.stringMatch.bind(null, passwordValue));
+    } = useUserInput(validators.stringMatch.bind(null, passwordValue));
 
     let formIsValid = false;
 

@@ -1,7 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import IRecipe from '../../../interfaces/IRecipe';
-import Recipe from '../Recipe/Recipe';
+
+import Recipe from '../../recipe/Recipe/Recipe';
+
+
 import classes from './RestaurantCategoryList.module.css';
 
 type RestaurantCategoryListProps = JSX.IntrinsicElements['div'] & {

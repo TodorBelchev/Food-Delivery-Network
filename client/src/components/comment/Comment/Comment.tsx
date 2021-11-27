@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useAppSelector } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
+import { useAppSelector } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
 import EditCommentForm from '../EditCommentForm/EditCommentForm';
 

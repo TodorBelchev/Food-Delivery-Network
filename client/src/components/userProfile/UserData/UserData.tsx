@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { authActions } from '../../../store/auth';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
 import IAuthState from '../../../interfaces/IAuthState';
 import validators from '../../../validators';
 
@@ -27,7 +27,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: firstNameChangeHandler,
         setValue: setFirstNameValue,
         reset: firstNameReset
-    } = useInput(validators.minLength.bind(null, 4));
+    } = useUserInput(validators.minLength.bind(null, 4));
     const {
         value: lastNameValue,
         hasError: lastNameHasError,
@@ -36,7 +36,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: lastNameChangeHandler,
         setValue: setLastNameValue,
         reset: lastNameReset
-    } = useInput(validators.minLength.bind(null, 4));
+    } = useUserInput(validators.minLength.bind(null, 4));
     const {
         value: emailValue,
         hasError: emailHasError,
@@ -45,7 +45,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: emailChangeHandler,
         setValue: setEmailValue,
         reset: emailReset
-    } = useInput(validators.isEmail);
+    } = useUserInput(validators.isEmail);
     const {
         value: phoneValue,
         hasError: phoneHasError,
@@ -54,7 +54,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: phoneChangeHandler,
         setValue: setPhoneValue,
         reset: phoneReset
-    } = useInput(validators.isPhone);
+    } = useUserInput(validators.isPhone);
     const {
         value: cityValue,
         hasError: cityHasError,
@@ -63,7 +63,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: cityChangeHandler,
         setValue: setCityValue,
         reset: cityReset
-    } = useInput(validators.minLength.bind(null, 4));
+    } = useUserInput(validators.minLength.bind(null, 4));
     const {
         value: addressValue,
         hasError: addressHasError,
@@ -72,7 +72,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
         valueChangeHandler: addressChangeHandler,
         setValue: setAddressValue,
         reset: addressReset
-    } = useInput(validators.minLength.bind(null, 4));
+    } = useUserInput(validators.minLength.bind(null, 4));
 
     const fillForm = useCallback(() => {
         setFirstNameValue(user.firstName || '');

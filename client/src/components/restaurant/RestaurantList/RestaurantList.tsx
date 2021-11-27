@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useHttp from "../../../hooks/use-http";
+import useHttp from "../../../hooks/useHttp";
 import IRestaurant from "../../../interfaces/IRestaurant";
 
 import RestaurantCard from "../RestaurantCard/RestaurantCard";

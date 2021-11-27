@@ -1,22 +1,21 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 
-import { useAppSelector } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
-import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
+import { useAppSelector } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
+import IComment from '../../../interfaces/IComment';
 import validators from '../../../validators';
 
 
-import classes from './AddCommentForm.module.css';
+import classes from './EditCommentForm.module.css';
 
-type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
-    setFormIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    cancelClickHandler: () => void;
-    addCommentSubmitHandler: (res: IAddCommentResponse) => void;
+type EditCommentFormProps = JSX.IntrinsicElements['form'] & {
+    comment: IComment;
+    setIsEditMode: Dispatch<SetStateAction<boolean>>;
+    editCommentHandler: (comment: IComment) => void;
 }
 
-const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, addCommentSubmitHandler, setFormIsLoading }) => {
-    const user = useAppSelector(state => state.auth);
+const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMode, editCommentHandler }) => {
     const { isLoading, setError, error, sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
     const {
@@ -25,26 +24,30 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
         valueChangeHandler: nameChangeHandler,
         inputBlurHandler: nameBlurHandler,
         setValue: setNameValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: commentValue,
         hasError: commentHasError,
         valueChangeHandler: commentChangeHandler,
-        inputBlurHandler: commentBlurHandler
-    } = useInput(validators.minLength.bind(null, 10));
+        inputBlurHandler: commentBlurHandler,
+        setValue: setCommentValue
+    } = useUserInput(validators.minLength.bind(null, 10));
 
     const formIsValid = !nameHasError && !commentHasError;
 
     useEffect(() => {
-        if (user.firstName && user.lastName) {
-            setNameValue(`${user.firstName} ${user.lastName}`);
-        }
-    }, [setNameValue, user]);
+        setNameValue(comment.name);
+        setCommentValue(comment.comment);
+    }, [setNameValue, setCommentValue, comment]);
 
-    const processResponse = useCallback((res: IAddCommentResponse) => {
-        addCommentSubmitHandler(res);
-        setFormIsLoading(false);
-    }, [addCommentSubmitHandler, setFormIsLoading]);
+    const cancelClickHandler = () => {
+        setIsEditMode(false);
+    };
+
+    const processResponse = (res: IComment) => {
+        setIsEditMode(false);
+        editCommentHandler(res);
+    }
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
@@ -58,10 +61,9 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
 
         if (!formIsValid) { return; }
 
-        setFormIsLoading(true);
         sendRequest({
-            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment`,
-            method: 'POST',
+            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment/${comment._id}`,
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -104,29 +106,29 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
             <div className={classes.controls}>
                 <div className={classes.rating}>
                     <label>
-                        <input type="radio" name="rating" value="1" />
+                        <input type="radio" name="rating" value="1" defaultChecked={comment.rating === 1} />
                         <span className={classes.icon}>&#9733;</span>
                     </label>
                     <label>
-                        <input type="radio" name="rating" value="2" />
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="rating" value="3" />
-                        <span className={classes.icon}>&#9733;</span>
+                        <input type="radio" name="rating" value="2" defaultChecked={comment.rating === 2} />
                         <span className={classes.icon}>&#9733;</span>
                         <span className={classes.icon}>&#9733;</span>
                     </label>
                     <label>
-                        <input type="radio" name="rating" value="4" />
-                        <span className={classes.icon}>&#9733;</span>
+                        <input type="radio" name="rating" value="3" defaultChecked={comment.rating === 3} />
                         <span className={classes.icon}>&#9733;</span>
                         <span className={classes.icon}>&#9733;</span>
                         <span className={classes.icon}>&#9733;</span>
                     </label>
                     <label>
-                        <input type="radio" name="rating" value="5" />
+                        <input type="radio" name="rating" value="4" defaultChecked={comment.rating === 4} />
+                        <span className={classes.icon}>&#9733;</span>
+                        <span className={classes.icon}>&#9733;</span>
+                        <span className={classes.icon}>&#9733;</span>
+                        <span className={classes.icon}>&#9733;</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="rating" value="5" defaultChecked={comment.rating === 5} />
                         <span className={classes.icon}>&#9733;</span>
                         <span className={classes.icon}>&#9733;</span>
                         <span className={classes.icon}>&#9733;</span>
@@ -135,7 +137,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                     </label>
                 </div>
                 <div>
-                    <button className={classes['controls-btn']}>Add</button>
+                    <button className={classes['controls-btn']}>Edit</button>
                     <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
                 </div>
             </div>
@@ -143,4 +145,4 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
     );
 };
 
-export default AddCommentForm;
+export default EditCommentForm;

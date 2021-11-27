@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { modalActions } from '../../../store/modal';
 import { restaurantActions } from '../../../store/restaurant';
-import useHttp from '../../../hooks/use-http';
-import useInput from '../../../hooks/use-input';
+import useHttp from '../../../hooks/useHttp';
+import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import IRecipe from '../../../interfaces/IRecipe';
@@ -30,7 +30,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: nameBlurHandler,
         valueChangeHandler: nameChangeHandler,
         setValue: setNameValue
-    } = useInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 6));
     const {
         value: ingredientsValue,
         hasError: ingredientsHasError,
@@ -38,7 +38,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: ingredientsBlurHandler,
         valueChangeHandler: ingredientsChangeHandler,
         setValue: setIngredientsValue
-    } = useInput(validators.minStringCount.bind(null, 3));
+    } = useUserInput(validators.minStringCount.bind(null, 3));
     const {
         value: priceValue,
         hasError: priceHasError,
@@ -46,7 +46,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: priceBlurHandler,
         valueChangeHandler: priceChangeHandler,
         setValue: setPriceValue
-    } = useInput(validators.minLength.bind(null, 1));
+    } = useUserInput(validators.minLength.bind(null, 1));
     const {
         value: weightValue,
         hasError: weightHasError,
@@ -54,7 +54,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: weightBlurHandler,
         valueChangeHandler: weightChangeHandler,
         setValue: setWeightValue
-    } = useInput(validators.minLength.bind(null, 1));
+    } = useUserInput(validators.minLength.bind(null, 1));
     const {
         value: categoryValue,
         isValid: categoryIsValid,
@@ -62,7 +62,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: categoryBlurHandler,
         valueChangeHandler: categoryChangeHandler,
         setValue: setCategoryValue
-    } = useInput(validators.minLength.bind(null, 1));
+    } = useUserInput(validators.minLength.bind(null, 1));
 
     let formIsValid = nameIsValid && ingredientsIsValid && priceIsValid && categoryIsValid && weightIsValid;
 

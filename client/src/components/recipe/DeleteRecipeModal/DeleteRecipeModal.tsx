@@ -1,5 +1,5 @@
-import { useAppDispatch } from '../../../hooks/redux-hooks';
-import useHttp from '../../../hooks/use-http';
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import useHttp from '../../../hooks/useHttp';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import { modalActions } from '../../../store/modal';
 import { restaurantActions } from '../../../store/restaurant';
