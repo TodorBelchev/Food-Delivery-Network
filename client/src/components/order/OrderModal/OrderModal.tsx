@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
@@ -18,6 +18,7 @@ type OrderModalProps = JSX.IntrinsicElements['article'] & {
 
 const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSuccessChangeStatus }) => {
     const [promptAction, setPromptAction] = useState('');
+    const [isMounted, setIsMounted] = useState(false);
     const { sendRequest } = useHttp();
     const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth);
@@ -25,6 +26,14 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
     const formattedDate = formatDate(order.date);
     const totalPrice = order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
     const isOwner = user._id === restaurant.owner;
+
+    useEffect(() => {
+        setIsMounted(true);
+        return () => {
+            setIsMounted(false);
+            dispatch(modalActions.close())
+        };
+    }, [dispatch]);
 
     const onDeleteClickHandler = () => {
         setPromptAction('delete');
@@ -35,13 +44,15 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
     };
 
     const processResponse = () => {
-        dispatch(modalActions.close());
-        if (promptAction === 'delete') {
-            onSuccessDelete();
-        } else {
-            onSuccessChangeStatus();
+        if (isMounted) {
+            dispatch(modalActions.close());
+            if (promptAction === 'delete') {
+                onSuccessDelete();
+            } else {
+                onSuccessChangeStatus();
+            }
+            setPromptAction('');
         }
-        setPromptAction('');
     }
 
     const deleteSubmitHandler = () => {
@@ -84,7 +95,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
             </div>
             <ul className={classes['order-list']}>
                 {order.items.map(x => (
-                    <li className={classes['order-list-item']}>
+                    <li key={x.item._id} className={classes['order-list-item']}>
                         <p className={classes['order-list-item-text']}>{x.item.name} - {x.price} x {x.quantity}</p>
                         <span>{x.price * x.quantity}</span>
                     </li>
@@ -106,6 +117,18 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
                 <p>
                     <span>Status:</span>
                     <span className={order.status === 'pending' ? classes['status-red'] : classes['status']}>{order.status}</span>
+                </p>
+                <p>
+                    <span>Address:</span>
+                    <span>{order.city}, {order.address}</span>
+                </p>
+                <p>
+                    <span>Customer:</span>
+                    <span>{order.name}</span>
+                </p>
+                <p>
+                    <span>Contact phone:</span>
+                    <span>{order.phone.toString().length === 9 ? `+359${order.phone}` : order.phone}</span>
                 </p>
             </article>
             {isOwner && !promptAction && <article className={classes['admin-controls']}>

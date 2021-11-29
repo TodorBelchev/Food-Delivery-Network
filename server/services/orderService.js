@@ -13,6 +13,10 @@ const getActiveOrdersByRestaurantId = (id) => {
     return Order.find({ restaurant: id, status: 'pending' }).populate('items.item').populate('restaurant');
 };
 
+const getCompletedOrdersByRestaurantId = (id) => {
+    return Order.find({ restaurant: id, status: 'completed' }).populate('items.item').populate('restaurant');
+};
+
 const deleteById = (id) => {
     return Order.findByIdAndDelete(id);
 };
@@ -20,6 +24,7 @@ const deleteById = (id) => {
 module.exports = {
     createOrder,
     getActiveOrdersByRestaurantId,
+    getCompletedOrdersByRestaurantId,
     deleteById,
     getOrderById
 }

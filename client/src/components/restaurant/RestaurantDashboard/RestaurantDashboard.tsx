@@ -2,7 +2,7 @@ import { Redirect, Route, Switch } from "react-router";
 
 import { useAppSelector } from "../../../hooks/reduxHooks";
 
-import ActiveOrdersList from "../../order/ActiveOrdersList/ActiveOrdersList";
+import OrdersList from "../../order/ActiveOrdersList/OrdersList";
 import HorizontalNav from "../../UI/HorizontalNav/HorizontalNav"
 
 const RestaurantDashboard: React.FC = () => {
@@ -24,10 +24,10 @@ const RestaurantDashboard: React.FC = () => {
                     <div>Statistics</div>
                 </Route>
                 <Route path="/restaurant/:id/dashboard/active-orders">
-                    <ActiveOrdersList />
+                    <OrdersList status={'active'} />
                 </Route>
                 <Route path="/restaurant/:id/dashboard/completed-orders">
-                    <div>Completed orders</div>
+                    <OrdersList status={'completed'} />
                 </Route>
             </Switch>
         </div>

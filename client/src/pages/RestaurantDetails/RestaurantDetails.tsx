@@ -37,7 +37,6 @@ const RestaurantDetails: React.FC = () => {
         <>
             {isLoading && <Spinner />}
             {restaurant && <RestaurantHeader user={user} />}
-            {restaurant && restaurantIsInCart && restaurantIsInCart.recipes.length > 0 && <ShoppingCart />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
                     <RestaurantDashboard />
@@ -47,6 +46,7 @@ const RestaurantDetails: React.FC = () => {
                 </Route>
                 <Route path="/">
                     {restaurant && <RestaurantCategories />}
+                    {restaurant && restaurantIsInCart && restaurantIsInCart.recipes.length > 0 && <ShoppingCart />}
                 </Route>
             </Switch>
         </>

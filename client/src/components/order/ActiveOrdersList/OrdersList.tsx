@@ -7,20 +7,24 @@ import IOrder from '../../../interfaces/IOrder';
 import OrdersListItem from '../OrdersListItem/OrdersListItem';
 
 
-import classes from './ActiveOrdersList.module.css';
+import classes from './OrdersList.module.css';
 
-const ActiveOrdersList: React.FC = () => {
+type OrdersListProps = JSX.IntrinsicElements['ul'] & {
+    status: string;
+}
+
+const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     const [orders, setOrders] = useState<IOrder[]>([]);
     const { sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
 
     const fetchOrders = useCallback(() => {
         sendRequest({
-            url: `http://localhost:3030/api/order/${restaurant._id}/active`
+            url: `http://localhost:3030/api/order/${restaurant._id}/${status}`
         }, (res: IOrder[]) => {
             setOrders(res);
         });
-    }, [sendRequest, restaurant._id]);
+    }, [sendRequest, restaurant._id, status]);
 
     const onSuccessDelete = () => {
         fetchOrders();
@@ -48,4 +52,4 @@ const ActiveOrdersList: React.FC = () => {
     );
 };
 
-export default ActiveOrdersList;
+export default OrdersList;

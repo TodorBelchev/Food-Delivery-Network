@@ -50,6 +50,7 @@ const cartSlice = createSlice({
             const restaurant = state.restaurants.find(x => x.restaurantId === action.payload.restaurantId);
             const index = state.restaurants.indexOf(restaurant!);
             state.restaurants.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(state));
         }
     }
 });
