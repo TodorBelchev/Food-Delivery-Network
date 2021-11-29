@@ -5,6 +5,21 @@ const createOrder = (data) => {
     return order.save();
 };
 
+const getOrderById = (id) => {
+    return Order.findById(id).populate('items.item').populate('restaurant');
+}
+
+const getActiveOrdersByRestaurantId = (id) => {
+    return Order.find({ restaurant: id }).populate('items.item').populate('restaurant');
+};
+
+const deleteById = (id) => {
+    return Order.findByIdAndDelete(id);
+};
+
 module.exports = {
-    createOrder
+    createOrder,
+    getActiveOrdersByRestaurantId,
+    deleteById,
+    getOrderById
 }

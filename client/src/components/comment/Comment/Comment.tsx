@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
+import formatDate from '../../../utils/formatDate';
+
 import EditCommentForm from '../EditCommentForm/EditCommentForm';
 
 
@@ -20,10 +22,7 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
     const { sendRequest } = useHttp();
     const { name, comment, rating, date, owner } = commentObj;
     const user = useAppSelector(state => state.auth);
-    const newDate = new Date(date);
-    const day = newDate.getDate();
-    const month = newDate.getMonth();
-    const year = newDate.getFullYear();
+    const formattedDate = formatDate(date);
 
     const editClickHandler = () => {
         setIsEditMode(true);
@@ -63,7 +62,7 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
                         </label >
                     </div >
                 </div >
-                <p className={classes['comment-date']}>{`${day}/${month}/${year}`}</p>
+                <p className={classes['comment-date']}>{formattedDate}</p>
                 <p className={classes['comment-text']}>{comment}</p>
             </article>}
             {isEditMode &&

@@ -1,0 +1,91 @@
+.modal {
+    background: #fff;
+    padding: 15px;
+}
+
+.order-title {
+    margin: 0;
+}
+
+.order-date {
+    margin: 10px 0 0;
+}
+
+.order-price {
+    margin: 0;
+}
+
+.order-link {
+    margin-left: 5px;
+}
+
+.order-link:hover {
+    color: #0080ff;
+}
+
+.order-list {
+    padding: 0;
+    list-style: none;
+}
+
+.order-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-list-item-text {
+    margin: 10px 0;
+}
+
+.order-summary {
+    text-align: right;
+}
+
+.order-summary {
+    border-top: 1px solid #a7a7a7;
+}
+
+.order-summary p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0 0;
+}
+
+.status {
+    color: green;
+}
+
+.status-red {
+    color: #cc0000;
+}
+
+.admin-controls {
+    margin-top: 10px;
+}
+
+.admin-controls-control {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #0080ff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.admin-controls-control--red {
+    background: #cc0000;
+}
+
+.delete {
+    text-align: center;
+    padding: 10px 10px;
+    background: #e9f9ff;
+    margin-top: 5px;
+}
+
+.delete-title {
+    margin: 0 0 10px;
+}

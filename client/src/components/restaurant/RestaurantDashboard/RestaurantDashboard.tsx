@@ -1,5 +1,8 @@
 import { Redirect, Route, Switch } from "react-router";
+
 import { useAppSelector } from "../../../hooks/reduxHooks";
+
+import ActiveOrdersList from "../../order/ActiveOrdersList/ActiveOrdersList";
 import HorizontalNav from "../../UI/HorizontalNav/HorizontalNav"
 
 const RestaurantDashboard: React.FC = () => {
@@ -21,7 +24,7 @@ const RestaurantDashboard: React.FC = () => {
                     <div>Statistics</div>
                 </Route>
                 <Route path="/restaurant/:id/dashboard/active-orders">
-                    <div>Active orders</div>
+                    <ActiveOrdersList />
                 </Route>
                 <Route path="/restaurant/:id/dashboard/completed-orders">
                     <div>Completed orders</div>

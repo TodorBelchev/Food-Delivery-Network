@@ -32,7 +32,15 @@ const orderSchema = new mongoose.Schema({
     status: {
         type: String,
         default: 'pending'
-    }
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    restaurant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Restaurant'
+    },
 });
 
 const Order = mongoose.model('Order', orderSchema);

@@ -106,7 +106,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
             phone: phoneValue,
             recipes: cartRecipes.map(x => {
                 return { recipe: x.recipe._id, quantity: x.quantity }
-            })
+            }),
+            restaurant: restaurantId
         }
 
         sendRequest({

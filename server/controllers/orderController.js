@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const { checkUser } = require('../middlewares');
-const { createOrder } = require('../services/orderService');
+const { createOrder, getActiveOrdersByRestaurantId, deleteById, getOrderById } = require('../services/orderService');
 const { getMultipleById } = require('../services/recipeService');
 
 const router = Router();
@@ -13,6 +13,7 @@ router.post('/', checkUser(), async (req, res) => {
         const name = req.body.name.trim();
         const phone = req.body.phone.trim();
         const recipes = req.body.recipes;
+        const restaurant = req.body.restaurant.trim();
         if (address.length < 6) {
             throw new Error('Address must be at least 6 characters long!');
         }
@@ -39,7 +40,8 @@ router.post('/', checkUser(), async (req, res) => {
             items: recipes.map(x => {
                 const price = recipesDB.find(y => y._id.toString() === x.recipe).price;
                 return Object.assign({}, { item: x.recipe, quantity: x.quantity, price });
-            })
+            }),
+            restaurant
         };
 
 
@@ -49,6 +51,38 @@ router.post('/', checkUser(), async (req, res) => {
 
         const order = await createOrder(orderData);
         res.status(200).send(order);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/:restaurantId/active', checkUser(), async (req, res) => {
+    try {
+        const orders = await getActiveOrdersByRestaurantId(req.params.restaurantId);
+        res.status(200).send(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.put('/:id', checkUser(), async (req, res) => {
+    try {
+        const order = await getOrderById(req.params.id);
+        Object.assign(order, req.body);
+        await order.save();
+        res.status(200).send(order);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.delete('/:id', checkUser(), async (req, res) => {
+    try {
+        await deleteById(req.params.id);
+        res.status(200).send({ message: 'Success' });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
