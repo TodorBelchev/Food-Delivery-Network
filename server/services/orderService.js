@@ -10,7 +10,7 @@ const getOrderById = (id) => {
 }
 
 const getActiveOrdersByRestaurantId = (id) => {
-    return Order.find({ restaurant: id }).populate('items.item').populate('restaurant');
+    return Order.find({ restaurant: id, status: 'pending' }).populate('items.item').populate('restaurant');
 };
 
 const deleteById = (id) => {

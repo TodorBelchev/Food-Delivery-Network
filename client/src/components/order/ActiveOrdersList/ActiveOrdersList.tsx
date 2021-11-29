@@ -26,11 +26,8 @@ const ActiveOrdersList: React.FC = () => {
         fetchOrders();
     };
 
-    const onSuccessChangeStatus = (order: IOrder) => {
-        setOrders(oldOrders => oldOrders.map(x => {
-            if (x._id === order._id) { return order; }
-            return x;
-        }));
+    const onSuccessChangeStatus = () => {
+        fetchOrders();
     };
 
     useEffect(() => {

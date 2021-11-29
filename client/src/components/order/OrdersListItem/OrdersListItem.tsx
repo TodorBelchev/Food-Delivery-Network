@@ -14,7 +14,7 @@ import classes from './OrdersListItem.module.css';
 type OrdersListItemProps = JSX.IntrinsicElements['article'] & {
     order: IOrder;
     onSuccessDelete: () => void;
-    onSuccessChangeStatus: (order: IOrder) => void;
+    onSuccessChangeStatus: () => void;
 }
 
 const OrdersListItem: React.FC<OrdersListItemProps> = ({ order, onSuccessDelete, onSuccessChangeStatus }) => {

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { useAppSelector } from '../../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import IOrder from '../../../interfaces/IOrder';
+import { modalActions } from '../../../store/modal';
 import formatDate from '../../../utils/formatDate';
 
 
@@ -12,12 +13,13 @@ import classes from './OrderModal.module.css';
 type OrderModalProps = JSX.IntrinsicElements['article'] & {
     order: IOrder;
     onSuccessDelete: () => void;
-    onSuccessChangeStatus: (order: IOrder) => void;
+    onSuccessChangeStatus: () => void;
 }
 
 const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSuccessChangeStatus }) => {
     const [promptAction, setPromptAction] = useState('');
     const { sendRequest } = useHttp();
+    const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth);
     const restaurant = useAppSelector(state => state.restaurant);
     const formattedDate = formatDate(order.date);
@@ -32,16 +34,23 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
         setPromptAction('status');
     };
 
+    const processResponse = () => {
+        dispatch(modalActions.close());
+        if (promptAction === 'delete') {
+            onSuccessDelete();
+        } else {
+            onSuccessChangeStatus();
+        }
+        setPromptAction('');
+    }
+
     const deleteSubmitHandler = () => {
         sendRequest(
             {
                 url: `http://localhost:3030/api/order/${order._id}`,
                 method: 'DELETE'
             },
-            () => {
-                setPromptAction('');
-                onSuccessDelete();
-            });
+            processResponse);
     };
 
     const changeStatusSubmitHandler = () => {
@@ -55,10 +64,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
                     'Content-Type': 'application/json'
                 }
             },
-            (res: IOrder) => {
-                setPromptAction('');
-                onSuccessChangeStatus(res);
-            });
+            processResponse);
     };
 
     const cancelClickHandler = () => {
