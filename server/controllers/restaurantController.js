@@ -1,7 +1,14 @@
 const { Router } = require('express');
 const formidable = require('formidable');
 
-const { createRestaurant, getByOwnerId, getById, deleteById } = require('../services/restaurantService');
+const {
+    getRestaurants,
+    createRestaurant,
+    getByOwnerId,
+    getById,
+    deleteById,
+    editRestaurant
+} = require('../services/restaurantService');
 const {
     createComment,
     getCommentsByRestaurantIdAndPage,
@@ -10,10 +17,29 @@ const {
     getAllRatingsByRestaurantId,
     deleteCommentById
 } = require('../services/commentService');
-const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
+const {
+    getFormData,
+    uploadToCloudinary,
+    deleteFromCloudinary,
+    attachRating,
+    extractFilterFromQuery
+} = require('../utils');
 const { checkUser } = require('../middlewares');
 
 const router = Router();
+
+router.get('/', async (req, res) => {
+    try {
+        const filter = extractFilterFromQuery(req.query);
+        const restaurants = await getRestaurants(filter);
+        const ratings = await Promise.all(restaurants.map(x => getAllRatingsByRestaurantId(x._id)));
+        attachRating(restaurants, ratings);
+        res.status(200).send(restaurants);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
 
 router.post('/create', checkUser(), async (req, res) => {
     const form = formidable({ multiples: true });
@@ -55,14 +81,7 @@ router.get('/by-owner', checkUser(), async (req, res) => {
     try {
         const restaurants = await getByOwnerId(req.decoded.id);
         const ratings = await Promise.all(restaurants.map(x => getAllRatingsByRestaurantId(x._id)));
-        ratings.forEach((x, i) => {
-            if (x.length === 0) {
-                restaurants[i].rating = 0;
-            } else {
-                restaurants[i].rating = (x.reduce((acc, cur) => acc + cur.rating, 0) / x.length).toFixed(1);
-            }
-            restaurants[i].ratingsCount = x.length;
-        });
+        attachRating(restaurants, ratings);
         res.status(200).send(restaurants);
     } catch (error) {
         console.log(error);
@@ -74,12 +93,7 @@ router.get('/:id', async (req, res) => {
     try {
         const restaurant = await getById(req.params.id);
         const ratings = await getAllRatingsByRestaurantId(req.params.id);
-        let rating = 0;
-        if (ratings.length > 0) {
-            rating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
-        }
-        restaurant.rating = rating;
-        restaurant.ratingsCount = ratings.length;
+        attachRating([restaurant], [ratings]);
         res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
@@ -117,9 +131,11 @@ router.put('/:id', checkUser(), async (req, res) => {
             owner: req.decoded.id
         };
 
-        Object.assign(restaurant, restaurantData);
-        await restaurant.save();
-        res.status(200).send(restaurant);
+        await editRestaurant(req.params.id, restaurantData);
+        const editedRestaurant = await getById(req.params.id);
+        const ratings = await getAllRatingsByRestaurantId(req.params.id);
+        attachRating([editedRestaurant], [ratings]);
+        res.status(200).send(editedRestaurant);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

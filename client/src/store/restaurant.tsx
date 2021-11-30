@@ -39,7 +39,18 @@ const restaurantSlice = createSlice({
             state.recipes = action.payload.recipes;
         },
         clearRestaurant(state) {
-            state = initialState;
+            state._id = '';
+            state.categories = [];
+            state.cities = [];
+            state.image = { url: '', object_id: '' };
+            state.mainTheme = '';
+            state.name = '';
+            state.owner = '';
+            state.workDays = [];
+            state.workHours = [];
+            state.rating = 0;
+            state.ratingsCount = 0;
+            state.recipes = [];
         }
     }
 });

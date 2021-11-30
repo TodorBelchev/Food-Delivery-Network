@@ -32,21 +32,30 @@ const RestaurantDetails: React.FC = () => {
         sendRequest({
             url: 'http://localhost:3030/api/restaurant/' + id
         }, processResponse);
-    }, [id, sendRequest, processResponse]);
+        return () => {
+            dispatch(restaurantActions.clearRestaurant());
+        };
+    }, [id, sendRequest, processResponse, dispatch]);
     return (
         <>
             {isLoading && <Spinner />}
-            {restaurant && <RestaurantHeader user={user} />}
+            {restaurant._id && !isLoading && <RestaurantHeader user={user} />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
                     <RestaurantDashboard />
                 </Route>
                 <Route path="/restaurant/:id/edit">
-                    {restaurant && <CreateRestaurant edit={true} />}
+                    {restaurant._id && <CreateRestaurant edit={true} />}
                 </Route>
                 <Route path="/">
-                    {restaurant && <RestaurantCategories />}
-                    {restaurant && restaurantIsInCart && restaurantIsInCart.recipes.length > 0 && <ShoppingCart />}
+                    {restaurant._id &&
+                        !isLoading &&
+                        <RestaurantCategories />}
+                    {restaurant._id &&
+                        !isLoading &&
+                        restaurantIsInCart &&
+                        restaurantIsInCart.recipes.length > 0 &&
+                        <ShoppingCart />}
                 </Route>
             </Switch>
         </>

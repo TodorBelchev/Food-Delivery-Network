@@ -18,9 +18,19 @@ const deleteById = (id) => {
     return Restaurant.findByIdAndDelete(id);
 }
 
+const editRestaurant = (id, data) => {
+    return Restaurant.findByIdAndUpdate(id, data);
+}
+
+const getRestaurants = (filter) => {
+    return Restaurant.find(filter).lean();
+}
+
 module.exports = {
     createRestaurant,
     getByOwnerId,
     getById,
-    deleteById
+    deleteById,
+    editRestaurant,
+    getRestaurants
 }

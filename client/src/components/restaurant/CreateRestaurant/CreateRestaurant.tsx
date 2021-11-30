@@ -24,8 +24,11 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         { name: 'Burgas', _id: 2 },
         { name: 'Plovdiv', _id: 3 },
         { name: 'Shumen', _id: 4 },
-        { name: 'Stara Zagora', _id: 5 },
+        { name: 'Stara-Zagora', _id: 5 },
         { name: 'Blagoevgrad', _id: 6 },
+        { name: 'Veliko-Tarnovo', _id: 7 },
+        { name: 'Pleven', _id: 8 },
+        { name: 'Ruse', _id: 9 },
     ]
     const [selectedCities, setSelectedCities] = useState<InputStringType[]>([]);
     const [selectedFile, setSelectedFile] = useState<File>();
