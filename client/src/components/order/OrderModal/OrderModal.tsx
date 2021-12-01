@@ -7,6 +7,8 @@ import IOrder from '../../../interfaces/IOrder';
 import { modalActions } from '../../../store/modal';
 import formatDate from '../../../utils/formatDate';
 
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 import classes from './OrderModal.module.css';
 
@@ -19,7 +21,7 @@ type OrderModalProps = JSX.IntrinsicElements['article'] & {
 const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSuccessChangeStatus }) => {
     const [promptAction, setPromptAction] = useState('');
     const [isMounted, setIsMounted] = useState(false);
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
     const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth);
     const restaurant = useAppSelector(state => state.restaurant);
@@ -131,20 +133,23 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
                     <span>{order.phone.toString().length === 9 ? `+359${order.phone}` : order.phone}</span>
                 </p>
             </article>
-            {isOwner && !promptAction && <article className={classes['admin-controls']}>
-                <button onClick={onChangeStatusClickHandler} className={classes['admin-controls-control']}>Change status</button>
-                <button onClick={onDeleteClickHandler} className={`${classes['admin-controls-control']} ${classes['admin-controls-control--red']}`}>Delete</button>
-            </article>}
-            {isOwner && promptAction && <article className={classes['delete']}>
-                <h4 className={classes['delete-title']}>Are you sure?</h4>
-                <button
-                    className={`${classes['admin-controls-control--red']} ${classes['admin-controls-control']}`}
-                    onClick={promptAction === 'delete' ? deleteSubmitHandler : changeStatusSubmitHandler}
-                >
-                    {promptAction === 'delete' ? 'Delete' : 'Change'}
-                </button>
-                <button className={classes['admin-controls-control']} onClick={cancelClickHandler}>Cancel</button>
-            </article>}
+            {isOwner && !promptAction &&
+                <article className={classes['admin-controls']}>
+                    <button onClick={onChangeStatusClickHandler} className={classes['admin-controls-control']}>Change status</button>
+                    <button onClick={onDeleteClickHandler} className={`${classes['admin-controls-control']} ${classes['admin-controls-control--red']}`}>Delete</button>
+                </article>}
+            {isOwner && promptAction && !isLoading &&
+                <article className={classes['delete']}>
+                    <h4 className={classes['delete-title']}>Are you sure?</h4>
+                    <button
+                        className={`${classes['admin-controls-control--red']} ${classes['admin-controls-control']}`}
+                        onClick={promptAction === 'delete' ? deleteSubmitHandler : changeStatusSubmitHandler}
+                    >
+                        {promptAction === 'delete' ? 'Delete' : 'Change'}
+                    </button>
+                    <button className={classes['admin-controls-control']} onClick={cancelClickHandler}>Cancel</button>
+                </article>}
+            {isOwner && promptAction && isLoading && <div className={classes['loader-container']}><Spinner size="medium" /></div>}
         </article>
     );
 };

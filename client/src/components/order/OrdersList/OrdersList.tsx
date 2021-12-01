@@ -4,6 +4,7 @@ import { useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import IOrder from '../../../interfaces/IOrder';
 
+import Spinner from '../../UI/Spinner/Spinner';
 import OrdersListItem from '../OrdersListItem/OrdersListItem';
 
 
@@ -15,7 +16,7 @@ type OrdersListProps = JSX.IntrinsicElements['ul'] & {
 
 const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     const [orders, setOrders] = useState<IOrder[]>([]);
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
 
     const fetchOrders = useCallback(() => {
@@ -39,7 +40,8 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     }, [fetchOrders]);
     return (
         <ul className={classes.list}>
-            {orders.map(x => (
+            {isLoading && <Spinner />}
+            {!isLoading && orders.map(x => (
                 <li key={x._id} className={classes['list-item']}>
                     <OrdersListItem
                         order={x}

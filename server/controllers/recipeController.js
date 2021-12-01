@@ -1,4 +1,4 @@
-const { Router, response } = require('express');
+const { Router } = require('express');
 const formidable = require('formidable');
 
 const { getById } = require('../services/restaurantService');

@@ -91,3 +91,8 @@
 .delete-title {
     margin: 0 0 10px;
 }
+
+.background {
+    background: rgb(233, 249, 255);
+    padding: 10px;
+}

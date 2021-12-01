@@ -91,3 +91,8 @@
 .delete-title {
     margin: 0 0 10px;
 }
+
+.loader-container {
+    background: #e9f9ff;
+    padding: 1px;
+}

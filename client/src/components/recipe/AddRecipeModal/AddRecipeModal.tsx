@@ -10,8 +10,10 @@ import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import IRecipe from '../../../interfaces/IRecipe';
 
-import classes from './AddRecipeModal.module.css';
+import Spinner from '../../UI/Spinner/Spinner';
 
+
+import classes from './AddRecipeModal.module.css';
 
 type AddRecipeModalProps = JSX.IntrinsicElements['section'] & {
     recipe?: IRecipe;
@@ -200,6 +202,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         id="image"
                         type="file"
                         name="image"
+                        disabled={isLoading}
                         onChange={(e) => {
                             if (e.target.files?.length !== 0) {
                                 setSelectedFile(e.target.files![0]);
@@ -209,8 +212,17 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                     />
                     {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>
-                {!recipe && <button className="main-btn create-btn" disabled={!formIsValid}>Add</button>}
-                {recipe && <button className="main-btn create-btn" disabled={!formIsValid}>Edit</button>}
+                {!recipe &&
+                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid}>
+                        Add
+                        {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                    </button>}
+                {recipe &&
+                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid}>
+                        Edit
+                        {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                    </button>}
+
             </form>
         </section>
     )

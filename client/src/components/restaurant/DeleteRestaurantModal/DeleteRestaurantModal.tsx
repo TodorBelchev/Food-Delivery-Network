@@ -4,6 +4,8 @@ import { useAppDispatch } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import { modalActions } from '../../../store/modal';
 
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 import classes from './DeleteRestaurantModal.module.css';
 
@@ -14,7 +16,7 @@ type DeleteRestaurantModalProps = JSX.IntrinsicElements['section'] & {
 
 const DeleteRestaurantModal: React.FC<DeleteRestaurantModalProps> = (props) => {
     const dispatch = useAppDispatch();
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
     const history = useHistory();
 
     const cancelClickHandler = () => {
@@ -35,9 +37,12 @@ const DeleteRestaurantModal: React.FC<DeleteRestaurantModalProps> = (props) => {
 
     return (
         <section className={classes['delete-restaurant']}>
-            <h3 className={classes['delete-restaurant-title']}>Confirm you want to delete {props.name}?</h3>
-            <button onClick={deleteClickHandler} className={`${classes['delete-restaurant-btn']} ${classes['delete-restaurant-btn--danger']}`}>Delete</button>
-            <button onClick={cancelClickHandler} className={classes['delete-restaurant-btn']}>Cancel</button>
+            {!isLoading && <>
+                <h3 className={classes['delete-restaurant-title']}>Confirm you want to delete {props.name}?</h3>
+                <button onClick={deleteClickHandler} className={`${classes['delete-restaurant-btn']} ${classes['delete-restaurant-btn--danger']}`}>Delete</button>
+                <button onClick={cancelClickHandler} className={classes['delete-restaurant-btn']}>Cancel</button>
+            </>}
+            {isLoading && <Spinner />}
         </section>
     )
 }

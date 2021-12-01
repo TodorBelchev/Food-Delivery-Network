@@ -1,17 +1,16 @@
 import { useCallback, useEffect } from "react";
 import { Route, Switch, useParams } from "react-router";
 
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import useHttp from "../../hooks/useHttp";
+import { restaurantActions } from "../../store/restaurant";
+import IRestaurant from "../../interfaces/IRestaurant";
+
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
 import RestaurantCategories from "../../components/restaurant/RestaurantCategories/RestaurantCategories";
 import RestaurantDashboard from "../../components/restaurant/RestaurantDashboard/RestaurantDashboard";
 import RestaurantHeader from "../../components/restaurant/RestaurantHeader/RestaurantHeader";
 import Spinner from "../../components/UI/Spinner/Spinner";
-
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import useHttp from "../../hooks/useHttp";
-import { restaurantActions } from "../../store/restaurant";
-
-import IRestaurant from "../../interfaces/IRestaurant";
 import ShoppingCart from "../../components/shoppingCart/ShoppingCart/ShoppingCart";
 
 

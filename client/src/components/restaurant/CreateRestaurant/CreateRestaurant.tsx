@@ -10,6 +10,7 @@ import { restaurantActions } from '../../../store/restaurant';
 import getCities from '../../../utils/getCities';
 
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
+import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './CreateRestaurant.module.css';
 
@@ -196,6 +197,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         className={classes['file-btn']}
                         id="image"
                         type="file"
+                        disabled={isLoading}
                         name="image"
                         onChange={(e) => {
                             if (e.target.files?.length !== 0) {
@@ -212,9 +214,16 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         inputStrings={cities}
                         setStateHandler={setSelectedCities}
                         selected={selectedCities}
+                        disabled={isLoading}
                     />
                 </div>
-                <button className={`main-btn create-btn ${classes['create-restaurant-btn']}`}>{edit ? 'Edit' : 'Create'}</button>
+                <button
+                    className={`main-btn create-btn ${classes['create-restaurant-btn']}`}
+                    disabled={!formIsValid || isLoading}
+                >
+                    {edit ? 'Edit' : 'Create'}
+                    {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                </button>
             </form>
         </section>
     )

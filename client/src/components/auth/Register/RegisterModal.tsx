@@ -154,7 +154,13 @@ const RegisterModal: React.FC = () => {
                     <span className={classes.placeholder}>Repeat password</span>
                     {rePasswordHasError && <p className={classes['input-notification']}>Passwords must match</p>}
                 </div>
-                <button className={`main-btn ${classes['main-btn']}`} disabled={!formIsValid || isLoading}>Sign up{isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}</button>
+                <button
+                    className={`main-btn ${classes['main-btn']}`}
+                    disabled={!formIsValid || isLoading}
+                >
+                    Sign up
+                    {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                </button>
                 <p className={classes.invite}>You already have registration? <a href="/login" onClick={switchToLogin}>Sign in now!</a></p>
             </form>
         </section>

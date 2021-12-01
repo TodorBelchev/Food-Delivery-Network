@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import RestaurantCard from "../../components/restaurant/RestaurantCard/RestaurantCard";
 
 import useHttp from "../../hooks/useHttp";
 import IRestaurant from "../../interfaces/IRestaurant";
+
+import RestaurantCard from "../../components/restaurant/RestaurantCard/RestaurantCard";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 
 import classes from './City.module.css';
@@ -11,7 +13,7 @@ import classes from './City.module.css';
 const City: React.FC = () => {
     const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
     const { cityName } = useParams<{ cityName: string }>();
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
 
     useEffect(() => {
         sendRequest({
@@ -21,6 +23,7 @@ const City: React.FC = () => {
 
     return (
         <section className={'container'}>
+            {isLoading && <Spinner />}
             <ul className={classes.list}>
                 {restaurants.map(x => <RestaurantCard key={x._id} restaurant={x} />)}
             </ul>

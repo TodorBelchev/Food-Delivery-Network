@@ -11,15 +11,11 @@ const getByOwnerId = (owner) => {
 }
 
 const getById = (id) => {
-    return Restaurant.findById(id).populate('recipes').lean();
+    return Restaurant.findById(id).populate('recipes');
 }
 
 const deleteById = (id) => {
     return Restaurant.findByIdAndDelete(id);
-}
-
-const editRestaurant = (id, data) => {
-    return Restaurant.findByIdAndUpdate(id, data);
 }
 
 const getRestaurants = (filter) => {
@@ -31,6 +27,5 @@ module.exports = {
     getByOwnerId,
     getById,
     deleteById,
-    editRestaurant,
     getRestaurants
 }

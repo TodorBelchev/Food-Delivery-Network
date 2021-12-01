@@ -6,6 +6,8 @@ import useUserInput from '../../../hooks/useUserInput';
 import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 import validators from '../../../validators';
 
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 import classes from './AddCommentForm.module.css';
 
@@ -70,75 +72,79 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
     }
 
     return (
-        <form className={classes.form} onSubmit={submitHandler}>
-            <div className={classes.col}>
-                <input
-                    className={nameHasError ? classes['input-invalid'] : ''}
-                    placeholder=" "
-                    type="name"
-                    name="name"
-                    id="name"
-                    disabled={isLoading}
-                    value={nameValue}
-                    onChange={nameChangeHandler}
-                    onBlur={nameBlurHandler}
-                />
-                <label htmlFor="name" className={classes.placeholder}>Name: ex.John Doe</label>
-                {nameHasError && <p className={classes['input-notification']}>Name must be at least 6 characters long!</p>}
-            </div>
-            <div className={classes.col}>
-                <textarea
-                    className={classes['textarea']}
-                    placeholder=" "
-                    name="comment"
-                    id="comment"
-                    rows={3}
-                    value={commentValue}
-                    onChange={commentChangeHandler}
-                    onBlur={commentBlurHandler}
-                />
-                <label htmlFor="comment" className={classes.placeholder}>Leave comment here...</label>
-                {commentHasError && <p className={classes['input-notification']}>Comment must be at least 10 characters long!</p>}
-            </div>
-            <div className={classes.controls}>
-                <div className={classes.rating}>
-                    <label>
-                        <input type="radio" name="rating" value="1" />
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="rating" value="2" />
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="rating" value="3" />
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="rating" value="4" />
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="rating" value="5" />
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                        <span className={classes.icon}>&#9733;</span>
-                    </label>
+        <>
+            {isLoading && <div className={classes['background']}><Spinner /></div>}
+            {!isLoading && <form className={classes.form} onSubmit={submitHandler}>
+                <div className={classes.col}>
+                    <input
+                        className={nameHasError ? classes['input-invalid'] : ''}
+                        placeholder=" "
+                        type="name"
+                        name="name"
+                        id="name"
+                        disabled={isLoading}
+                        value={nameValue}
+                        onChange={nameChangeHandler}
+                        onBlur={nameBlurHandler}
+                    />
+                    <label htmlFor="name" className={classes.placeholder}>Name: ex.John Doe</label>
+                    {nameHasError && <p className={classes['input-notification']}>Name must be at least 6 characters long!</p>}
                 </div>
-                <div>
-                    <button className={classes['controls-btn']}>Add</button>
-                    <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
+                <div className={classes.col}>
+                    <textarea
+                        className={classes['textarea']}
+                        placeholder=" "
+                        name="comment"
+                        id="comment"
+                        rows={3}
+                        disabled={isLoading}
+                        value={commentValue}
+                        onChange={commentChangeHandler}
+                        onBlur={commentBlurHandler}
+                    />
+                    <label htmlFor="comment" className={classes.placeholder}>Leave comment here...</label>
+                    {commentHasError && <p className={classes['input-notification']}>Comment must be at least 10 characters long!</p>}
                 </div>
-            </div>
-        </form>
+                <div className={classes.controls}>
+                    <div className={classes.rating}>
+                        <label>
+                            <input type="radio" name="rating" value="1" />
+                            <span className={classes.icon}>&#9733;</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="2" />
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="3" />
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="4" />
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="5" />
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                            <span className={classes.icon}>&#9733;</span>
+                        </label>
+                    </div>
+                    <div>
+                        <button className={classes['controls-btn']}>Add</button>
+                        <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
+                    </div>
+                </div>
+            </form>}
+        </>
     );
 };
 

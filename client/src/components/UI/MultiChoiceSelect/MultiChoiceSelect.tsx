@@ -8,11 +8,12 @@ type MultiChoiceSelectProps = JSX.IntrinsicElements['div'] & {
     inputStrings: { name: string; _id: number }[];
     setStateHandler: Dispatch<SetStateAction<InputStringType[]>>;
     selected: InputStringType[];
+    disabled: boolean;
 }
 
 export type InputStringType = {
     name: string;
-    _id: number
+    _id: number;
 }
 
 const MultiChoiceSelect: React.FC<MultiChoiceSelectProps> = (props) => {
@@ -62,7 +63,7 @@ const MultiChoiceSelect: React.FC<MultiChoiceSelectProps> = (props) => {
     return (
         <div ref={containerRef} className={`${classes.select} ${isInvalid ? classes['select--invalid'] : ''}`} onClick={onContainerClick}>
             <div ref={textRef} className={classes.text}>{props.selected.map(x => x.name).join(', ') || props.text}</div>
-            {isVisible && <ul className={classes.list}>{props.inputStrings.map(x => {
+            {isVisible && !props.disabled && <ul className={classes.list}>{props.inputStrings.map(x => {
                 return (
                     <li key={x._id} >
                         <input onChange={() => onSelectHandler(x._id)} id={x.name} type="checkbox" checked={Boolean(props.selected.find(y => y._id === x._id))} />

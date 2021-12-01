@@ -86,3 +86,14 @@ input.input--invalid {
     position: absolute;
     top: 0;
 }
+
+.btn-flex {
+    display: flex;
+    justify-content: center;
+    width: 130px;
+    margin: 30px auto;
+}
+
+.spinner-container {
+    margin-left: 10px;
+}

@@ -5,6 +5,7 @@ import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
 import formatDate from '../../../utils/formatDate';
 
+import Spinner from '../../UI/Spinner/Spinner';
 import EditCommentForm from '../EditCommentForm/EditCommentForm';
 
 
@@ -19,7 +20,7 @@ type CommentProps = JSX.IntrinsicElements['article'] & {
 const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, deleteCommentHandler }) => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [isDeleteMode, setIsDeleteMode] = useState(false);
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
     const { name, comment, rating, date, owner } = commentObj;
     const user = useAppSelector(state => state.auth);
     const formattedDate = formatDate(date);
@@ -65,19 +66,20 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
                 <p className={classes['comment-date']}>{formattedDate}</p>
                 <p className={classes['comment-text']}>{comment}</p>
             </article>}
-            {isEditMode &&
-                !isDeleteMode &&
+            {isEditMode && !isDeleteMode &&
                 <EditCommentForm setIsEditMode={setIsEditMode} comment={commentObj} editCommentHandler={editCommentHandler} />}
-            {!isEditMode && isDeleteMode && <article className={`${classes.comment} ${classes.delete}`}>
-                <h4 className={classes['delete-title']}>Are you sure?</h4>
-                <button
-                    className={`${classes['comment-delete-btn']} ${classes['comment-delete-btn--red']}`}
-                    onClick={deleteSubmitHandler}
-                >
-                    Delete
-                </button>
-                <button className={classes['comment-edit-btn']} onClick={cancelDeleteClickHandler}>Cancel</button>
-            </article>}
+            {!isEditMode && isDeleteMode && !isLoading &&
+                <article className={`${classes.comment} ${classes.delete}`}>
+                    <h4 className={classes['delete-title']}>Are you sure?</h4>
+                    <button
+                        className={`${classes['comment-delete-btn']} ${classes['comment-delete-btn--red']}`}
+                        onClick={deleteSubmitHandler}
+                    >
+                        Delete
+                    </button>
+                    <button className={classes['comment-edit-btn']} onClick={cancelDeleteClickHandler}>Cancel</button>
+                </article>}
+            {isLoading && <div className={classes['background']}><Spinner size='medium'  /></div>}
         </>
     )
 }

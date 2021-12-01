@@ -78,4 +78,11 @@
 
 .create-restaurant-btn {
     margin: 30px 100px 0;
+    display: flex;
+    justify-content: center;
+    width: 130px;
+}
+
+.spinner-container {
+    margin-left: 10px;
 }

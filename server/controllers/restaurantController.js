@@ -6,8 +6,7 @@ const {
     createRestaurant,
     getByOwnerId,
     getById,
-    deleteById,
-    editRestaurant
+    deleteById
 } = require('../services/restaurantService');
 const {
     createComment,
@@ -91,7 +90,7 @@ router.get('/by-owner', checkUser(), async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const restaurant = await getById(req.params.id);
+        const restaurant = await getById(req.params.id).lean();
         const ratings = await getAllRatingsByRestaurantId(req.params.id);
         attachRating([restaurant], [ratings]);
         res.status(200).send(restaurant);
@@ -131,8 +130,9 @@ router.put('/:id', checkUser(), async (req, res) => {
             owner: req.decoded.id
         };
 
-        await editRestaurant(req.params.id, restaurantData);
-        const editedRestaurant = await getById(req.params.id);
+        Object.assign(restaurant, restaurantData);
+        await restaurant.save();
+        const editedRestaurant = await getById(req.params.id).lean();
         const ratings = await getAllRatingsByRestaurantId(req.params.id);
         attachRating([editedRestaurant], [ratings]);
         res.status(200).send(editedRestaurant);

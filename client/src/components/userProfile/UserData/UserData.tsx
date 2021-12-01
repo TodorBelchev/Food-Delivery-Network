@@ -7,6 +7,8 @@ import useUserInput from '../../../hooks/useUserInput';
 import IAuthState from '../../../interfaces/IAuthState';
 import validators from '../../../validators';
 
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 import classes from './UserData.module.css';
 
@@ -93,6 +95,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
     }
 
     const cancelClickHandler = () => {
+        if (isLoading) { return; }
         setIsEditMode(false);
         firstNameReset();
         lastNameReset();
@@ -224,22 +227,32 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
                     <span className={classes.placeholder}>Address</span>
                     {addressHasError && <p className={classes['input-notification']}>Address must be at least 4 characters long!</p>}
                 </div>
-                {!isEditMode && <button className={`main-btn create-btn ${classes['btn-container-btn']}`} onClick={editClickHandler}>Edit</button>}
-                {isEditMode && <div className={classes['btn-container']}>
+                {!isEditMode &&
                     <button
-                        className={`main-btn ${classes['btn-container-btn']}`}
+                        className={`main-btn create-btn ${classes['btn-container-btn']}`}
                         onClick={editClickHandler}
-                        disabled={!formIsValid}
+                        disabled={!formIsValid || isLoading}
                     >
-                        Save
-                    </button>
-                    <button
-                        className={`main-btn ${classes['btn-container-btn']} ${classes['btn-container-btn--cancel']}`}
-                        onClick={cancelClickHandler}
-                    >
-                        Cancel
-                    </button>
-                </div>}
+                        Edit
+                        {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                    </button>}
+                {isEditMode &&
+                    <div className={classes['btn-container']}>
+                        <button
+                            className={`main-btn ${classes['btn-container-btn']}`}
+                            onClick={editClickHandler}
+                            disabled={!formIsValid || isLoading}
+                        >
+                            Save
+                            {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                        </button>
+                        <button
+                            className={`main-btn ${classes['btn-container-btn']} ${classes['btn-container-btn--cancel']}`}
+                            onClick={cancelClickHandler}
+                        >
+                            Cancel
+                        </button>
+                    </div>}
             </form>
         </section>
     );

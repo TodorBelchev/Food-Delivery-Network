@@ -77,14 +77,16 @@
 }
 
 .btn-container {
-    min-width: 210px;
+    min-width: 265px;
     display: flex;
     justify-content: space-between;
 }
 
 .btn-container-btn {
     margin: 30px 0 0;
-    min-width: 91px;
+    display: flex;
+    justify-content: center;
+    width: 120px;
 }
 
 .btn-container-btn--cancel {
@@ -94,4 +96,8 @@
 
 .btn-container-btn.btn-container-btn--cancel:hover {
     color: #cc0000;
+}
+
+.spinner-container {
+    margin-left: 10px;
 }

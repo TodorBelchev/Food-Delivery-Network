@@ -4,6 +4,8 @@ import IRestaurant from '../../../interfaces/IRestaurant';
 import { modalActions } from '../../../store/modal';
 import { restaurantActions } from '../../../store/restaurant';
 
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 import classes from './DeleteRecipeModal.module.css';
 
@@ -15,7 +17,7 @@ type DeleteRecipeModalProps = JSX.IntrinsicElements['section'] & {
 
 const DeleteRecipeModal: React.FC<DeleteRecipeModalProps> = ({ _id, name, restaurantId }) => {
     const dispatch = useAppDispatch();
-    const { sendRequest } = useHttp();
+    const { sendRequest, isLoading } = useHttp();
 
     const processResponse = (res: IRestaurant) => {
         dispatch(modalActions.close());
@@ -35,9 +37,12 @@ const DeleteRecipeModal: React.FC<DeleteRecipeModalProps> = ({ _id, name, restau
 
     return (
         <section className={classes['delete-recipe']}>
-            <h3 className={classes['delete-recipe-title']}>Confirm you want to delete {name}?</h3>
-            <button onClick={deleteClickHandler} className={`${classes['delete-recipe-btn']} ${classes['delete-recipe-btn--danger']}`}>Delete</button>
-            <button onClick={cancelClickHandler} className={classes['delete-recipe-btn']}>Cancel</button>
+            {!isLoading && <>
+                <h3 className={classes['delete-recipe-title']}>Confirm you want to delete {name}?</h3>
+                <button onClick={deleteClickHandler} className={`${classes['delete-recipe-btn']} ${classes['delete-recipe-btn--danger']}`}>Delete</button>
+                <button onClick={cancelClickHandler} className={classes['delete-recipe-btn']}>Cancel</button>
+            </>}
+            {isLoading && <Spinner size="medium" />}
         </section>
     );
 };

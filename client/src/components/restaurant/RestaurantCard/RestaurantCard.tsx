@@ -31,13 +31,13 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
     const deleteClickHandler = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
-        dispatch(modalActions.open('delete-restaurant'));
+        dispatch(modalActions.open(`delete-restaurant-${restaurant._id}`));
     }
 
     return (
         <article className={classes.restaurant}>
             {modalState.isOpen &&
-                modalState.overlayName === 'delete-restaurant' &&
+                modalState.overlayName === `delete-restaurant-${restaurant._id}` &&
                 <Modal>
                     <DeleteRestaurantModal _id={restaurant._id} name={restaurant.name} />
                 </Modal>
