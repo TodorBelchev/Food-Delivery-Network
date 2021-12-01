@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Route, Switch } from 'react-router';
 import './App.css';
 
-import { useAppDispatch } from './hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
 import loadFontAwesome from './utils/loadFontAwesome';
@@ -13,11 +13,13 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
+import Notification from './components/UI/Notification/Notification';
 
 loadFontAwesome();
 
 function App() {
 	const dispatch = useAppDispatch();
+	const notificationState = useAppSelector(state => state.notification);
 
 	useEffect(() => {
 		dispatch(authActions.autoLoadFavorites());
@@ -25,6 +27,7 @@ function App() {
 	}, [dispatch]);
 	return (
 		<Layout>
+			{notificationState.text && <Notification />}
 			<Switch>
 				<Route path='/' exact>
 					<Home />

@@ -5,6 +5,7 @@ import modal from './modal';
 import restaurant from "./restaurant";
 import cart from "./cart";
 import checkout from "./checkout";
+import notification from "./notification";
 
 const store = configureStore({
     reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
         modal,
         restaurant,
         cart,
-        checkout
+        checkout,
+        notification
     }
 });
 

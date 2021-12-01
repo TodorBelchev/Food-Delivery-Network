@@ -12,7 +12,10 @@ import {
 	faStar,
 	faUtensils,
 	faMinus,
-	faUnlockAlt
+	faUnlockAlt,
+    faExclamationCircle,
+    faTimesCircle,
+    faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faHeart,
@@ -47,6 +50,9 @@ const loadFontAwesome = () => {
         faUnlockAlt,
         faEye,
         faEyeSlash,
+        faExclamationCircle,
+        faTimesCircle,
+        faCheckCircle,
     );
 };
 

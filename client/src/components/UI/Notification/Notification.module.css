@@ -1,0 +1,36 @@
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    background: #fff;
+    box-shadow: 0 0 5px 2px lightgrey;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    z-index: 15;
+}
+
+.notification-text {
+    max-width: 240px;
+    margin: 0 10px;
+    padding-left: 10px;
+    border-left: 3px solid green;
+}
+
+.notification-text--red {
+    border-left: 3px solid #cc0000;
+}
+
+.icon {
+    font-size: 20px;
+    color: green;
+}
+
+.icon--red {
+    color: #cc0000;
+}
+
+.icon--close {
+    cursor: pointer;
+}

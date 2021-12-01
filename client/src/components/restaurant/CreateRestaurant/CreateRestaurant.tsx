@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
+import getCities from '../../../utils/getCities';
+
+import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
 
 import classes from './CreateRestaurant.module.css';
+import { notificationActions } from '../../../store/notification';
 
 type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
     edit: boolean;
@@ -18,18 +21,7 @@ type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
 const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
     const dispatch = useAppDispatch();
     const restaurant = useAppSelector(state => state.restaurant);
-    const cities = [
-        { name: 'Sofia', _id: 0 },
-        { name: 'Varna', _id: 1 },
-        { name: 'Burgas', _id: 2 },
-        { name: 'Plovdiv', _id: 3 },
-        { name: 'Shumen', _id: 4 },
-        { name: 'Stara-Zagora', _id: 5 },
-        { name: 'Blagoevgrad', _id: 6 },
-        { name: 'Veliko-Tarnovo', _id: 7 },
-        { name: 'Pleven', _id: 8 },
-        { name: 'Ruse', _id: 9 },
-    ]
+    const cities = getCities();
     const [selectedCities, setSelectedCities] = useState<InputStringType[]>([]);
     const [selectedFile, setSelectedFile] = useState<File>();
     const [fileIsValid, setFileIsValid] = useState(true);
@@ -71,6 +63,12 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         reset: workTimeReset,
         setValue: setWorkTimeValue
     } = useUserInput(validators.workTime);
+
+    useEffect(() => {
+        if (error) {
+            dispatch(notificationActions.show({ type: 'error', text: error }));
+        }
+    }, [dispatch, error]);
 
     useEffect(() => {
         if (edit) {
@@ -140,7 +138,6 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         <section className={`${classes['create-restaurant']} container`}>
             {!edit && <h2>Lets create together the best restaurant</h2>}
             {edit && <h2>Edit restaurant</h2>}
-            {error && <div>{error}</div>}
             <form className={classes['create-restaurant-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
                     <input
