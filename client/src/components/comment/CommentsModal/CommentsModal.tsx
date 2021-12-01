@@ -69,12 +69,18 @@ const CommentsModal: React.FC = () => {
         setComments(newComments);
     };
 
-    const deleteCommentHandler = (commentId: string) => {
-        const newComments = comments.map(x => {
-            if (x?._id === commentId) { return null; }
+    const deleteCommentHandler = (res: { rating: number; ratingsCount: number; commentId: string }) => {
+        let newComments = comments.map(x => {
+            if (x?._id === res.commentId) { return null; }
             return x;
         });
+        if (res.ratingsCount <= 10 && comments.length >= 10) {
+            newComments = [];
+            setPage(0);
+            setPage(1);
+        }
         setComments(newComments);
+        dispatch(restaurantActions.setRestaurant({ ...restaurant, rating: res.rating, ratingsCount: res.ratingsCount }));
     };
 
     return (

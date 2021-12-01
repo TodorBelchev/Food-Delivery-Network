@@ -230,10 +230,16 @@ router.get('/:id/comment', checkUser(), async (req, res) => {
     }
 });
 
-router.delete('/comment/:id', checkUser(), async (req, res) => {
+router.delete('/:restaurantId/comment/:commentId', checkUser(), async (req, res) => {
     try {
-        await deleteCommentById(req.params.id);
-        res.status(200).send({ message: 'OK' });
+        await deleteCommentById(req.params.commentId);
+        const ratings = await getAllRatingsByRestaurantId(req.params.restaurantId);
+        let restaurantRating = 0;
+        if (ratings.length > 0) {
+            restaurantRating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
+        }
+        const ratingsCount = ratings.length;
+        res.status(200).send({ rating: restaurantRating, ratingsCount });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

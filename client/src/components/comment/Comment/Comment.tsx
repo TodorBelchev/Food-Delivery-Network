@@ -14,12 +14,13 @@ import classes from './Comment.module.css';
 type CommentProps = JSX.IntrinsicElements['article'] & {
     commentObj: IComment;
     editCommentHandler: (comment: IComment) => void;
-    deleteCommentHandler: (commentId: string) => void;
+    deleteCommentHandler: (res: { rating: number; ratingsCount: number; commentId: string }) => void;
 }
 
 const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, deleteCommentHandler }) => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const restaurant = useAppSelector(state => state.restaurant);
     const { sendRequest, isLoading } = useHttp();
     const { name, comment, rating, date, owner } = commentObj;
     const user = useAppSelector(state => state.auth);
@@ -39,9 +40,9 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
 
     const deleteSubmitHandler = () => {
         sendRequest({
-            url: `http://localhost:3030/api/restaurant/comment/${commentObj._id}`,
+            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment/${commentObj._id}`,
             method: 'DELETE'
-        }, () => deleteCommentHandler(commentObj._id));
+        }, (res: { rating: number; ratingsCount: number; }) => deleteCommentHandler({ ...res, commentId: commentObj._id }));
     }
 
     return (
@@ -79,7 +80,7 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
                     </button>
                     <button className={classes['comment-edit-btn']} onClick={cancelDeleteClickHandler}>Cancel</button>
                 </article>}
-            {isLoading && <div className={classes['background']}><Spinner size='medium'  /></div>}
+            {isLoading && <div className={classes['background']}><Spinner size='medium' /></div>}
         </>
     )
 }
