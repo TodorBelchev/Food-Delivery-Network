@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 const usePreventScrolling = (isPreventing: boolean) => {
-
     const setScroll = () => {
         document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
     }

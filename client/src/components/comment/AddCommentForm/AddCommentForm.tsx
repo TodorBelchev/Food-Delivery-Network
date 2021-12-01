@@ -17,7 +17,7 @@ type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, addCommentSubmitHandler, setFormIsLoading }) => {
     const user = useAppSelector(state => state.auth);
-    const { isLoading, setError, error, sendRequest } = useHttp();
+    const { isLoading, setError, sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
     const {
         value: nameValue,
@@ -71,7 +71,6 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
-            {error && <div className={classes.error}>{error}</div>}
             <div className={classes.col}>
                 <input
                     className={nameHasError ? classes['input-invalid'] : ''}

@@ -96,8 +96,8 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
             <ul className={classes['order-list']}>
                 {order.items.map(x => (
                     <li key={x.item._id} className={classes['order-list-item']}>
-                        <p className={classes['order-list-item-text']}>{x.item.name} - {x.price} x {x.quantity}</p>
-                        <span>{x.price * x.quantity}</span>
+                        <p className={classes['order-list-item-text']}>{x.item.name} ({x.item.weight}g) - {x.price} x {x.quantity}</p>
+                        <span>${x.price * x.quantity}</span>
                     </li>
                 ))}
             </ul>

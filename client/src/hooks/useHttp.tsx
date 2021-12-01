@@ -1,4 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { notificationActions } from '../store/notification';
+import { useAppDispatch } from './reduxHooks';
 
 type reqConfig = {
     url: string;
@@ -8,6 +10,7 @@ type reqConfig = {
 }
 
 const useHttp = () => {
+    const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -31,10 +34,22 @@ const useHttp = () => {
             applyData(data);
         } catch (err) {
             let errorMessage = (err as Error).message;
-            setError(errorMessage || 'Something went wrong!');
+            if (errorMessage === 'Failed to fetch' || errorMessage === '') {
+                errorMessage = 'Something went wrong. Please try again later.'
+            }
+            setError(errorMessage);
             setIsLoading(false);
         }
     }, []);
+
+    useEffect(() => {
+        if (error) {
+            dispatch(notificationActions.show({ type: 'error', text: error }));
+        }
+        return () => {
+            dispatch(notificationActions.close());
+        }
+    }, [dispatch, error]);
 
     return {
         isLoading,

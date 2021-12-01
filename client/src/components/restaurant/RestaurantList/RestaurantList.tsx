@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+
 import useHttp from "../../../hooks/useHttp";
 import IRestaurant from "../../../interfaces/IRestaurant";
 
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
+
 
 import classes from './RestaurantList.module.css';
 

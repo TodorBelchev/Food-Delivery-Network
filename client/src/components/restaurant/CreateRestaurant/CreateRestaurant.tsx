@@ -12,7 +12,6 @@ import getCities from '../../../utils/getCities';
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
 
 import classes from './CreateRestaurant.module.css';
-import { notificationActions } from '../../../store/notification';
 
 type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
     edit: boolean;
@@ -25,7 +24,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
     const [selectedCities, setSelectedCities] = useState<InputStringType[]>([]);
     const [selectedFile, setSelectedFile] = useState<File>();
     const [fileIsValid, setFileIsValid] = useState(true);
-    const { isLoading, error, sendRequest } = useHttp();
+    const { isLoading, sendRequest } = useHttp();
     const history = useHistory();
     const {
         value: nameValue,
@@ -63,12 +62,6 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         reset: workTimeReset,
         setValue: setWorkTimeValue
     } = useUserInput(validators.workTime);
-
-    useEffect(() => {
-        if (error) {
-            dispatch(notificationActions.show({ type: 'error', text: error }));
-        }
-    }, [dispatch, error]);
 
     useEffect(() => {
         if (edit) {

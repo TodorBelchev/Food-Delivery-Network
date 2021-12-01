@@ -6,16 +6,17 @@ import { useAppDispatch } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
-import Spinner from '../../UI/Spinner/Spinner';
-
-import classes from './LoginModal.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import IAuthState from '../../../interfaces/IAuthState';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Spinner from '../../UI/Spinner/Spinner';
+
+
+import classes from './LoginModal.module.css';
 
 const LoginModal: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { isLoading, error, sendRequest } = useHttp();
+    const { isLoading, sendRequest } = useHttp();
     const [passwordIsHidden, setPasswordIsHidden] = useState(true);
     const {
         value: emailValue,
@@ -118,7 +119,6 @@ const LoginModal: React.FC = () => {
                     <span className={classes.placeholder}>Password</span>
                     {passwordHasError && <p className={classes['input-notification']}>Password must be at least 6 characters</p>}
                 </div>
-                {error && <div className={classes.error}>{error}</div>}
                 <button className={`main-btn ${classes['main-btn']}`} disabled={!formIsValid || isLoading}>Sign in{isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}</button>
                 <p className={classes.invite}>You don't have registration? <a href="/register" onClick={switchToRegister}>Sign up now!</a></p>
             </form>

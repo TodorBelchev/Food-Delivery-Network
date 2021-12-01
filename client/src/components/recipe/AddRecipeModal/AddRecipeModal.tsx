@@ -20,7 +20,7 @@ type AddRecipeModalProps = JSX.IntrinsicElements['section'] & {
 const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
     const restaurant = useAppSelector(state => state.restaurant);
     const dispatch = useAppDispatch();
-    const { isLoading, error, sendRequest } = useHttp();
+    const { isLoading, sendRequest } = useHttp();
     const [selectedFile, setSelectedFile] = useState<File>();
     const [fileIsValid, setFileIsValid] = useState(true);
     const {
@@ -121,7 +121,6 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
     return (
         <section className={`${classes['add-recipe']} container`}>
             <h2>Add recipe</h2>
-            {error && <div>{error}</div>}
             <form className={classes['create-restaurant-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
                     <input

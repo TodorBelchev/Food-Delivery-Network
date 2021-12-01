@@ -16,7 +16,7 @@ type EditCommentFormProps = JSX.IntrinsicElements['form'] & {
 }
 
 const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMode, editCommentHandler }) => {
-    const { isLoading, setError, error, sendRequest } = useHttp();
+    const { isLoading, setError, sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
     const {
         value: nameValue,
@@ -73,7 +73,6 @@ const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMod
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
-            {error && <div className={classes.error}>{error}</div>}
             <div className={classes.col}>
                 <input
                     className={nameHasError ? classes['input-invalid'] : ''}

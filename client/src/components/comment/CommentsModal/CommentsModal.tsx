@@ -5,6 +5,7 @@ import IComment from '../../../interfaces/IComment';
 import useHttp from '../../../hooks/useHttp';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
+import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
@@ -12,7 +13,6 @@ import Spinner from '../../UI/Spinner/Spinner';
 
 
 import classes from './CommentsModal.module.css';
-import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
 
 const CommentsModal: React.FC = () => {
     const [comments, setComments] = useState<(IComment | null)[]>([]);

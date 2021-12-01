@@ -1,12 +1,12 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { authActions } from '../../../store/auth';
 import { modalActions } from "../../../store/modal";
 import IAuthState from "../../../interfaces/IAuthState";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModal";
 import Modal from "../../UI/Modal/Modal";
 import AddRecipeModal from "../../recipe/AddRecipeModal/AddRecipeModal";
@@ -45,6 +45,12 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
     const commentClickHandler = () => {
         dispatch(modalActions.open('comment'));
     };
+
+    useEffect(() => {
+        return () => {
+            dispatch(modalActions.close())
+        }
+    }, [dispatch]);
 
     return (
         <section>

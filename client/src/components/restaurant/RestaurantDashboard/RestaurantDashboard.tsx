@@ -2,7 +2,7 @@ import { Redirect, Route, Switch } from "react-router";
 
 import { useAppSelector } from "../../../hooks/reduxHooks";
 
-import OrdersList from "../../order/ActiveOrdersList/OrdersList";
+import OrdersList from "../../order/OrdersList/OrdersList";
 import HorizontalNav from "../../UI/HorizontalNav/HorizontalNav"
 
 const RestaurantDashboard: React.FC = () => {

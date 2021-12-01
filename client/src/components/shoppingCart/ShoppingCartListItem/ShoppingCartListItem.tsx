@@ -2,8 +2,10 @@ import { useAppDispatch } from '../../../hooks/reduxHooks';
 import { cartActions } from '../../../store/cart';
 import IRecipe from '../../../interfaces/IRecipe';
 
-import classes from './ShoppingCartListItem.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+import classes from './ShoppingCartListItem.module.css';
 
 type ShoppingCartListItemProps = JSX.IntrinsicElements['li'] & {
     recipe: IRecipe;
@@ -22,7 +24,7 @@ const ShoppingCartListItem: React.FC<ShoppingCartListItemProps> = ({ recipe, qua
     }
     return (
         <li className={classes['cart-item']}>
-            <div className={classes['cart-item-text']}>{recipe.name} <span>x{quantity}</span></div>
+            <div className={classes['cart-item-text']}>{recipe.name} ({recipe.weight}g) <span>x {quantity}</span></div>
             <div className={classes['cart-item-controls']}>
                 <div className={classes['cart-item-icons']}>
                     <FontAwesomeIcon icon={['fas', 'minus']} onClick={removeFromCartClickHandler} />

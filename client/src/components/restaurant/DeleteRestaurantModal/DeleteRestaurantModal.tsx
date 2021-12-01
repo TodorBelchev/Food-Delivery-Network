@@ -2,8 +2,8 @@ import { useHistory } from 'react-router';
 
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
-
 import { modalActions } from '../../../store/modal';
+
 
 import classes from './DeleteRestaurantModal.module.css';
 

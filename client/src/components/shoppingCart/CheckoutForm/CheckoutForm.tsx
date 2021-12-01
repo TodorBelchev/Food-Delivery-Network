@@ -22,7 +22,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
     const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth);
     const checkoutState = useAppSelector(state => state.checkout);
-    const { isLoading, sendRequest, error } = useHttp();
+    const { isLoading, sendRequest } = useHttp();
     const {
         value: addressValue,
         hasError: addressHasError,
@@ -184,7 +184,6 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
                 <span className={classes.placeholder}>Phone number</span>
                 {phoneHasError && <p className={classes['input-notification']}>Please enter a valid phone number!</p>}
             </div>
-            {error && <div className={classes.error}>{error}</div>}
             <button
                 className={`main-btn ${classes['main-btn']}`}
                 disabled={!formIsValid || isLoading}

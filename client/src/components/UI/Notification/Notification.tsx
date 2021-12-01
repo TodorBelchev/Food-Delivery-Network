@@ -1,7 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOM from 'react-dom';
+
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { notificationActions } from '../../../store/notification';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 import classes from './Notification.module.css';

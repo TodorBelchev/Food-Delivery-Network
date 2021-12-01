@@ -4,13 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { modalActions } from '../../../store/modal';
-
 import IRestaurant from '../../../interfaces/IRestaurant';
 
-import classes from './RestaurantCard.module.css';
 import Modal from '../../UI/Modal/Modal';
 import DeleteRestaurantModal from '../DeleteRestaurantModal/DeleteRestaurantModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+import classes from './RestaurantCard.module.css';
 
 type RestaurantCardProps = JSX.IntrinsicElements['article'] & {
     restaurant: IRestaurant

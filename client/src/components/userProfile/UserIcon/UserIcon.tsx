@@ -1,7 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserPopup from "../UserPopup/UserPopup";
+
 
 import classes from './UserIcon.module.css';
 

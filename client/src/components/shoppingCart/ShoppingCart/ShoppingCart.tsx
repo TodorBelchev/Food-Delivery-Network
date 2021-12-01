@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -6,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import usePreventScrolling from '../../../hooks/usePreventScrolling';
 import { modalActions } from '../../../store/modal';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Backdrop } from '../../UI/Modal/Modal';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import ShoppingCartListItem from '../ShoppingCartListItem/ShoppingCartListItem';
