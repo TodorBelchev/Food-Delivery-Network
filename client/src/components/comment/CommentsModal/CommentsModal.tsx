@@ -6,6 +6,7 @@ import useHttp from '../../../hooks/useHttp';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
 import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
+import IRestaurant from '../../../interfaces/IRestaurant';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
@@ -52,35 +53,36 @@ const CommentsModal: React.FC = () => {
 
     const cancelClickHandler = () => setShowAddComment(false);
 
-    const addCommentSubmitHandler = useCallback((res: IAddCommentResponse) => {
+    const addCommentSubmitHandler = useCallback((res: { comments: IComment[], restaurant: IRestaurant }) => {
         setShowAddComment(false);
         setComments([]);
         setPage(0);
         setPage(1);
-        setTotalCommentsCount(res.ratingsCount);
-        dispatch(restaurantActions.setRestaurant({ ...restaurant, rating: res.rating, ratingsCount: res.ratingsCount }));
-    }, [dispatch, restaurant]);
+        setTotalCommentsCount(res.comments.length);
+        dispatch(restaurantActions.setRestaurant(res.restaurant));
+    }, [dispatch]);
 
-    const editCommentHandler = (comment: IComment) => {
+    const editCommentHandler = (res: { comment: IComment, restaurant: IRestaurant }) => {
         const newComments = comments.map(x => {
-            if (x?._id === comment._id) { return comment; }
+            if (x?._id === res.comment._id) { return res.comment; }
             return x;
         });
         setComments(newComments);
+        dispatch(restaurantActions.setRestaurant(res.restaurant));
     };
 
-    const deleteCommentHandler = (res: { rating: number; ratingsCount: number; commentId: string }) => {
+    const deleteCommentHandler = (res: { restaurant: IRestaurant; commentId: string }) => {
         let newComments = comments.map(x => {
             if (x?._id === res.commentId) { return null; }
             return x;
         });
-        if (res.ratingsCount <= 10 && comments.length >= 10) {
+        if (res.restaurant.ratingsCount <= 10 && comments.length >= 10) {
             newComments = [];
             setPage(0);
             setPage(1);
         }
         setComments(newComments);
-        dispatch(restaurantActions.setRestaurant({ ...restaurant, rating: res.rating, ratingsCount: res.ratingsCount }));
+        dispatch(restaurantActions.setRestaurant(res.restaurant));
     };
 
     return (

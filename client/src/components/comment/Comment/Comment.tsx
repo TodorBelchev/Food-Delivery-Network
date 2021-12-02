@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
+import IRestaurant from '../../../interfaces/IRestaurant';
 import formatDate from '../../../utils/formatDate';
 
 import Spinner from '../../UI/Spinner/Spinner';
@@ -13,8 +14,8 @@ import classes from './Comment.module.css';
 
 type CommentProps = JSX.IntrinsicElements['article'] & {
     commentObj: IComment;
-    editCommentHandler: (comment: IComment) => void;
-    deleteCommentHandler: (res: { rating: number; ratingsCount: number; commentId: string }) => void;
+    editCommentHandler: (res: { comment: IComment, restaurant: IRestaurant }) => void;
+    deleteCommentHandler: (res: { restaurant: IRestaurant; commentId: string }) => void;
 }
 
 const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, deleteCommentHandler }) => {
@@ -42,7 +43,7 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
         sendRequest({
             url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment/${commentObj._id}`,
             method: 'DELETE'
-        }, (res: { rating: number; ratingsCount: number; }) => deleteCommentHandler({ ...res, commentId: commentObj._id }));
+        }, (res: IRestaurant) => deleteCommentHandler({ restaurant: res, commentId: commentObj._id }));
     }
 
     return (

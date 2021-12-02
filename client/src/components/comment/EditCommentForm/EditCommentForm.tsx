@@ -4,6 +4,7 @@ import { useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import IComment from '../../../interfaces/IComment';
+import IRestaurant from '../../../interfaces/IRestaurant';
 import validators from '../../../validators';
 
 import Spinner from '../../UI/Spinner/Spinner';
@@ -14,7 +15,7 @@ import classes from './EditCommentForm.module.css';
 type EditCommentFormProps = JSX.IntrinsicElements['form'] & {
     comment: IComment;
     setIsEditMode: Dispatch<SetStateAction<boolean>>;
-    editCommentHandler: (comment: IComment) => void;
+    editCommentHandler: (res: { comment: IComment, restaurant: IRestaurant }) => void;
 }
 
 const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMode, editCommentHandler }) => {
@@ -46,7 +47,7 @@ const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMod
         setIsEditMode(false);
     };
 
-    const processResponse = (res: IComment) => {
+    const processResponse = (res: { comment: IComment, restaurant: IRestaurant }) => {
         setIsEditMode(false);
         editCommentHandler(res);
     }

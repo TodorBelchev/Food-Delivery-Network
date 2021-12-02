@@ -3,7 +3,8 @@ import React, { useCallback, useEffect } from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
-import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
+import IComment from '../../../interfaces/IComment';
+import IRestaurant from '../../../interfaces/IRestaurant';
 import validators from '../../../validators';
 
 import Spinner from '../../UI/Spinner/Spinner';
@@ -14,7 +15,7 @@ import classes from './AddCommentForm.module.css';
 type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
     setFormIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
     cancelClickHandler: () => void;
-    addCommentSubmitHandler: (res: IAddCommentResponse) => void;
+    addCommentSubmitHandler: (res: {comments: IComment[], restaurant: IRestaurant}) => void;
 }
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, addCommentSubmitHandler, setFormIsLoading }) => {
@@ -43,7 +44,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
         }
     }, [setNameValue, user]);
 
-    const processResponse = useCallback((res: IAddCommentResponse) => {
+    const processResponse = useCallback((res: { comments: IComment[], restaurant: IRestaurant }) => {
         addCommentSubmitHandler(res);
         setFormIsLoading(false);
     }, [addCommentSubmitHandler, setFormIsLoading]);

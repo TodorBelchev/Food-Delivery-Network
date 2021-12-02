@@ -20,7 +20,6 @@ const {
     getFormData,
     uploadToCloudinary,
     deleteFromCloudinary,
-    attachRating,
     extractFilterFromQuery
 } = require('../utils');
 const { checkUser } = require('../middlewares');
@@ -31,8 +30,6 @@ router.get('/', async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
         const restaurants = await getRestaurants(filter);
-        const ratings = await Promise.all(restaurants.map(x => getAllRatingsByRestaurantId(x._id)));
-        attachRating(restaurants, ratings);
         res.status(200).send(restaurants);
     } catch (error) {
         console.log(error);
@@ -79,8 +76,6 @@ router.post('/create', checkUser(), async (req, res) => {
 router.get('/by-owner', checkUser(), async (req, res) => {
     try {
         const restaurants = await getByOwnerId(req.decoded.id);
-        const ratings = await Promise.all(restaurants.map(x => getAllRatingsByRestaurantId(x._id)));
-        attachRating(restaurants, ratings);
         res.status(200).send(restaurants);
     } catch (error) {
         console.log(error);
@@ -91,8 +86,6 @@ router.get('/by-owner', checkUser(), async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const restaurant = await getById(req.params.id).lean();
-        const ratings = await getAllRatingsByRestaurantId(req.params.id);
-        attachRating([restaurant], [ratings]);
         res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
@@ -132,10 +125,7 @@ router.put('/:id', checkUser(), async (req, res) => {
 
         Object.assign(restaurant, restaurantData);
         await restaurant.save();
-        const editedRestaurant = await getById(req.params.id).lean();
-        const ratings = await getAllRatingsByRestaurantId(req.params.id);
-        attachRating([editedRestaurant], [ratings]);
-        res.status(200).send(editedRestaurant);
+        res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -176,6 +166,7 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
         const date = Date.now();
 
         await createComment({ name, comment, rating, owner: req.decoded.id, restaurant: req.params.id, date });
+
         const comments = await getCommentsByRestaurantIdAndPage(req.params.id);
         const ratings = await getAllRatingsByRestaurantId(req.params.id);
         let restaurantRating = 0;
@@ -183,7 +174,11 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
             restaurantRating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
         }
         const ratingsCount = ratings.length;
-        res.status(200).send({ comments, rating: restaurantRating, ratingsCount });
+        const restaurant = await getById(req.params.id);
+        Object.assign(restaurant, { rating: restaurantRating, ratingsCount });
+        await restaurant.save();
+
+        res.status(200).send({ comments, restaurant });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -212,7 +207,18 @@ router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
         const comment = await getCommentById(req.params.commentId);
         Object.assign(comment, { name, comment: commentText, rating });
         await comment.save();
-        res.status(200).send(comment);
+
+        const ratings = await getAllRatingsByRestaurantId(req.params.id);
+        let restaurantRating = 0;
+        if (ratings.length > 0) {
+            restaurantRating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
+        }
+        const ratingsCount = ratings.length;
+        const restaurant = await getById(req.params.id);
+        Object.assign(restaurant, { rating: restaurantRating, ratingsCount });
+        await restaurant.save();
+
+        res.status(200).send({ comment, restaurant });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -234,12 +240,16 @@ router.delete('/:restaurantId/comment/:commentId', checkUser(), async (req, res)
     try {
         await deleteCommentById(req.params.commentId);
         const ratings = await getAllRatingsByRestaurantId(req.params.restaurantId);
-        let restaurantRating = 0;
+        let rating = 0;
         if (ratings.length > 0) {
-            restaurantRating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
+            rating = (ratings.reduce((acc, cur) => acc + cur.rating, 0) / ratings.length).toFixed(1);
         }
         const ratingsCount = ratings.length;
-        res.status(200).send({ rating: restaurantRating, ratingsCount });
+        const restaurant = await getById(req.params.restaurantId);
+        Object.assign(restaurant, { rating, ratingsCount });
+        await restaurant.save();
+
+        res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
