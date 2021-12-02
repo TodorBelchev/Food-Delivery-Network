@@ -3,7 +3,6 @@ const { createToken } = require('./jwt');
 const { getFormData } = require('./parseForm');
 const { removePass } = require('./removePassword');
 const { extractFilterFromQuery } = require('./extractFilterFromQuery');
-const { attachRating } = require('./attachRating');
 
 module.exports = {
     uploadToCloudinary,
@@ -12,5 +11,4 @@ module.exports = {
     getFormData,
     removePass,
     extractFilterFromQuery,
-    attachRating
 }

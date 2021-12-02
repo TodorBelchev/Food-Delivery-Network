@@ -22,7 +22,7 @@ const {
     deleteFromCloudinary,
     extractFilterFromQuery
 } = require('../utils');
-const { checkUser } = require('../middlewares');
+const { isLoggedIn, checkUser } = require('../middlewares');
 
 const router = Router();
 
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/create', checkUser(), async (req, res) => {
+router.post('/create', isLoggedIn(), async (req, res) => {
     const form = formidable({ multiples: true });
     const imagesURL = [];
     try {
@@ -73,7 +73,7 @@ router.post('/create', checkUser(), async (req, res) => {
     }
 });
 
-router.get('/by-owner', checkUser(), async (req, res) => {
+router.get('/by-owner', isLoggedIn(), async (req, res) => {
     try {
         const restaurants = await getByOwnerId(req.decoded.id);
         res.status(200).send(restaurants);
@@ -93,7 +93,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', checkUser(), async (req, res) => {
+router.put('/:id', isLoggedIn(), async (req, res) => {
     const form = formidable({ multiples: true });
     const imagesURL = [];
     try {
@@ -132,7 +132,7 @@ router.put('/:id', checkUser(), async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isLoggedIn(), async (req, res) => {
     try {
         const restaurant = await getById(req.params.id);
         const imgId = restaurant.image.public_id;
@@ -145,7 +145,7 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id/comment', checkUser(), async (req, res) => {
+router.post('/:id/comment', isLoggedIn(), async (req, res) => {
     try {
         const name = req.body.name.trim();
         const comment = req.body.comment.trim();
@@ -185,7 +185,7 @@ router.post('/:id/comment', checkUser(), async (req, res) => {
     }
 });
 
-router.put('/:id/comment/:commentId', checkUser(), async (req, res) => {
+router.put('/:id/comment/:commentId', isLoggedIn(), async (req, res) => {
     try {
         const name = req.body.name.trim();
         const commentText = req.body.comment.trim();
@@ -229,14 +229,18 @@ router.get('/:id/comment', checkUser(), async (req, res) => {
     try {
         const comments = await getCommentsByRestaurantIdAndPage(req.params.id, req.query.page - 1);
         const ratingsCount = await getCommentsCountByRestaurantId(req.params.id);
-        res.status(200).send({ comments, ratingsCount });
+        const response = { comments, ratingsCount, tokenExpired: true };
+        if (req.decoded) {
+            response.tokenExpired = false;
+        }
+        res.status(200).send(response);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
     }
 });
 
-router.delete('/:restaurantId/comment/:commentId', checkUser(), async (req, res) => {
+router.delete('/:restaurantId/comment/:commentId', isLoggedIn(), async (req, res) => {
     try {
         await deleteCommentById(req.params.commentId);
         const ratings = await getAllRatingsByRestaurantId(req.params.restaurantId);

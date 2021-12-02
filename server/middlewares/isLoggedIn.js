@@ -11,7 +11,8 @@ module.exports = () => (req, res, next) => {
         req.decoded = decoded;
         next();
     } catch (error) {
-        req.decoded = undefined;
-        next();
+        res.clearCookie(COOKIE_NAME);
+        res.status(401).send({ message: 'Please log in' });
     }
+
 }

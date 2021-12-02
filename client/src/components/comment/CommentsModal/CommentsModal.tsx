@@ -5,8 +5,9 @@ import IComment from '../../../interfaces/IComment';
 import useHttp from '../../../hooks/useHttp';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
-import IAddCommentResponse from '../../../interfaces/IAddCommentResponse';
+import ICommentsResponse from '../../../interfaces/ICommentsResponse';
 import IRestaurant from '../../../interfaces/IRestaurant';
+import { authActions } from '../../../store/auth';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
@@ -27,10 +28,13 @@ const CommentsModal: React.FC = () => {
     const dispatch = useAppDispatch();
     const resId = restaurant._id;
 
-    const processResponse = useCallback((res: IAddCommentResponse) => {
+    const processResponse = useCallback((res: ICommentsResponse) => {
         setComments(oldState => oldState.concat(res.comments));
         setTotalCommentsCount(res.ratingsCount);
-    }, [setComments]);
+        if (res.tokenExpired) {
+            dispatch(authActions.logout());
+        }
+    }, [setComments, dispatch]);
 
     useEffect(() => {
         if (page === 0) { return; }

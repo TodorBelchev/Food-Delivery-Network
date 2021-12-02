@@ -1,7 +1,7 @@
 import IComment from "./IComment";
 
-export default interface IAddCommentResponse {
+export default interface ICommentsResponse {
     comments: IComment[];
-    rating: number;
     ratingsCount: number;
+    tokenExpired: boolean;
 }

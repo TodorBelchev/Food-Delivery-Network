@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { checkUser } = require('../middlewares');
+const { isLoggedIn } = require('../middlewares');
 const {
     createOrder,
     getActiveOrdersByRestaurantId,
@@ -13,7 +13,7 @@ const { getMultipleById } = require('../services/recipeService');
 const router = Router();
 
 router.post('/',
-    checkUser(),
+    isLoggedIn(),
     async (req, res) => {
         try {
             const address = req.body.address.trim();
@@ -65,7 +65,7 @@ router.post('/',
         }
     });
 
-router.get('/:restaurantId/active', checkUser(), async (req, res) => {
+router.get('/:restaurantId/active', isLoggedIn(), async (req, res) => {
     try {
         const orders = await getActiveOrdersByRestaurantId(req.params.restaurantId);
         res.status(200).send(orders);
@@ -75,7 +75,7 @@ router.get('/:restaurantId/active', checkUser(), async (req, res) => {
     }
 });
 
-router.get('/:restaurantId/completed', checkUser(), async (req, res) => {
+router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
     try {
         const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId);
         res.status(200).send(orders);
@@ -85,7 +85,7 @@ router.get('/:restaurantId/completed', checkUser(), async (req, res) => {
     }
 });
 
-router.put('/:id', checkUser(), async (req, res) => {
+router.put('/:id', isLoggedIn(), async (req, res) => {
     try {
         const order = await getOrderById(req.params.id);
         Object.assign(order, req.body);
@@ -97,7 +97,7 @@ router.put('/:id', checkUser(), async (req, res) => {
     }
 });
 
-router.delete('/:id', checkUser(), async (req, res) => {
+router.delete('/:id', isLoggedIn(), async (req, res) => {
     try {
         await deleteById(req.params.id);
         res.status(200).send({ message: 'Success' });

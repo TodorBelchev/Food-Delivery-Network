@@ -4,6 +4,10 @@ const getUserByEmail = (email) => {
     return User.findOne({ email });
 };
 
+const getUserById = (id) => {
+    return User.findById(id);
+};
+
 const editUserById = async (id, body) => {
     try {
         const user = await User.findById(id);
@@ -22,5 +26,6 @@ const createUser = (email, password) => {
 module.exports = {
     getUserByEmail,
     createUser,
-    editUserById
+    editUserById,
+    getUserById
 }

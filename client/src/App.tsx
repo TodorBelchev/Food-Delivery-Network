@@ -5,6 +5,7 @@ import './App.css';
 import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
+import useHttp from './hooks/useHttp';
 import loadFontAwesome from './utils/loadFontAwesome';
 
 import Layout from './components/layout/Layout/Layout';
@@ -14,17 +15,22 @@ import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
 import Notification from './components/UI/Notification/Notification';
+import IAuthState from './interfaces/IAuthState';
 
 loadFontAwesome();
 
 function App() {
+	const { sendRequest } = useHttp();
 	const dispatch = useAppDispatch();
 	const notificationState = useAppSelector(state => state.notification);
 
 	useEffect(() => {
 		dispatch(authActions.autoLoadFavorites());
 		dispatch(cartActions.autoLoadCart());
-	}, [dispatch]);
+		sendRequest({
+			url: 'http://localhost:3030/api/user/verify'
+		}, (res: IAuthState) => { dispatch(authActions.login(res)) });
+	}, [dispatch, sendRequest]);
 	return (
 		<Layout>
 			{notificationState.text && <Notification />}

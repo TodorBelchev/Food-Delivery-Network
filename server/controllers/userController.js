@@ -2,9 +2,9 @@ const { Router } = require('express');
 const bcrypt = require('bcrypt');
 
 const { SALT_ROUNDS, COOKIE_NAME } = require('../config');
-const { getUserByEmail, createUser, editUserById } = require('../services/userService');
+const { getUserByEmail, createUser, editUserById, getUserById } = require('../services/userService');
 const { removePass, createToken } = require('../utils');
-const { checkUser } = require('../middlewares');
+const { isLoggedIn, checkUser } = require('../middlewares');
 const { isEmail, isPhone } = require('../validators');
 
 const router = Router();
@@ -80,7 +80,7 @@ router.post('/register', async (req, res) => {
 	}
 });
 
-router.put('/:id', checkUser(), async (req, res) => {
+router.put('/:id', isLoggedIn(), async (req, res) => {
 	try {
 		const firstName = req.body.firstName.trim();
 		const lastName = req.body.lastName.trim();
@@ -110,6 +110,20 @@ router.put('/:id', checkUser(), async (req, res) => {
 
 		const user = await editUserById(req.params.id, { firstName, lastName, email, phone, city, address });
 		const payload = removePass(user);
+		res.status(200).send(payload);
+	} catch (error) {
+		console.log(error);
+		res.status(400).send({ message: error.message });
+	}
+});
+
+router.get('/verify', checkUser(), async (req, res) => {
+	try {
+		let payload = {};
+		if (req.decoded) {
+			const user = await getUserById(req.decoded.id);
+			payload = removePass(user);
+		}
 		res.status(200).send(payload);
 	} catch (error) {
 		console.log(error);

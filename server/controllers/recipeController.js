@@ -5,11 +5,11 @@ const { getById } = require('../services/restaurantService');
 const { createRecipe, deleteById, getRecipeById } = require('../services/recipeService');
 const { getFormData, uploadToCloudinary } = require('../utils');
 
-const { checkUser } = require('../middlewares');
+const { isLoggedIn } = require('../middlewares');
 
 const router = Router();
 
-router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
+router.post('/:RestaurantId/add-recipe', isLoggedIn(), async (req, res) => {
     const form = formidable({ multiples: true });
     const imagesURL = [];
     try {
@@ -69,7 +69,7 @@ router.post('/:RestaurantId/add-recipe', checkUser(), async (req, res) => {
     }
 });
 
-router.put('/:id/:restaurantId', checkUser(), async (req, res) => {
+router.put('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
     try {
         const form = formidable({ multiples: true });
         const imagesURL = [];
@@ -107,7 +107,7 @@ router.put('/:id/:restaurantId', checkUser(), async (req, res) => {
     }
 });
 
-router.delete('/:id/:restaurantId', checkUser(), async (req, res) => {
+router.delete('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
     try {
         const restaurant = await getById(req.params.restaurantId);
         await deleteById(req.params.id);

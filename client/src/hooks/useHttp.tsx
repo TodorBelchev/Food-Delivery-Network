@@ -1,4 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
+import { authActions } from '../store/auth';
+import { modalActions } from '../store/modal';
 import { notificationActions } from '../store/notification';
 import { useAppDispatch } from './reduxHooks';
 
@@ -37,10 +39,15 @@ const useHttp = () => {
             if (errorMessage === 'Failed to fetch' || errorMessage === '') {
                 errorMessage = 'Something went wrong. Please try again later.'
             }
+
+            if (errorMessage === 'Please log in') {
+                dispatch(authActions.logout());
+                dispatch(modalActions.open('login'));
+            }
             setError(errorMessage);
             setIsLoading(false);
         }
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (error) {
