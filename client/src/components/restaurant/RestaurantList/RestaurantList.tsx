@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import useHttp from "../../../hooks/useHttp";
 import IRestaurant from "../../../interfaces/IRestaurant";
+import restaurantOptions from "../../../utils/restaurantOptions";
 
 import Spinner from "../../UI/Spinner/Spinner";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
@@ -19,9 +20,7 @@ const RestaurantList: React.FC = () => {
     }
 
     useEffect(() => {
-        sendRequest({
-            url: 'http://localhost:3030/api/restaurant/by-owner'
-        }, processResponse);
+        sendRequest(restaurantOptions.getByOwner(), processResponse);
     }, [sendRequest]);
 
     return (

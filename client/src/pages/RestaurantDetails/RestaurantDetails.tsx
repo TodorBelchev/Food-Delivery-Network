@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import useHttp from "../../hooks/useHttp";
 import { restaurantActions } from "../../store/restaurant";
 import IRestaurant from "../../interfaces/IRestaurant";
+import restaurantOptions from "../../utils/restaurantOptions";
 
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
 import RestaurantCategories from "../../components/restaurant/RestaurantCategories/RestaurantCategories";
@@ -28,9 +29,7 @@ const RestaurantDetails: React.FC = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        sendRequest({
-            url: 'http://localhost:3030/api/restaurant/' + id
-        }, processResponse);
+        sendRequest(restaurantOptions.getById(id), processResponse);
         return () => {
             dispatch(restaurantActions.clearRestaurant());
         };

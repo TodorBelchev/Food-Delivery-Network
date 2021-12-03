@@ -7,6 +7,7 @@ import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IAuthState from '../../../interfaces/IAuthState';
+import userOptions from '../../../utils/userOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -63,18 +64,7 @@ const RegisterModal: React.FC = () => {
 
         if (!formIsValid) { return; }
 
-        sendRequest({
-            url: 'http://localhost:3030/api/user/register',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: emailValue,
-                password: passwordValue,
-                rePassword: rePasswordValue
-            })
-        }, processResponse);
+        sendRequest(userOptions.register(emailValue, passwordValue, rePasswordValue), processResponse);
     }
 
     const switchToLogin = (e: React.MouseEvent) => {

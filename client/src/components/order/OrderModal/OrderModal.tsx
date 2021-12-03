@@ -6,6 +6,7 @@ import useHttp from '../../../hooks/useHttp';
 import IOrder from '../../../interfaces/IOrder';
 import { modalActions } from '../../../store/modal';
 import formatDate from '../../../utils/formatDate';
+import orderOptions from '../../../utils/orderOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -58,26 +59,12 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
     }
 
     const deleteSubmitHandler = () => {
-        sendRequest(
-            {
-                url: `http://localhost:3030/api/order/${order._id}`,
-                method: 'DELETE'
-            },
-            processResponse);
+        sendRequest(orderOptions.deleteOrder(order._id), processResponse);
     };
 
     const changeStatusSubmitHandler = () => {
         const newStatus = order.status === 'pending' ? 'completed' : 'pending';
-        sendRequest(
-            {
-                url: `http://localhost:3030/api/order/${order._id}`,
-                method: 'PUT',
-                body: JSON.stringify({ status: newStatus }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            },
-            processResponse);
+        sendRequest(orderOptions.edit(order._id, newStatus), processResponse);
     };
 
     const cancelClickHandler = () => {

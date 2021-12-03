@@ -5,6 +5,7 @@ import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import formatDate from '../../../utils/formatDate';
+import restaurantOptions from '../../../utils/restaurantOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 import EditCommentForm from '../EditCommentForm/EditCommentForm';
@@ -40,10 +41,10 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
     };
 
     const deleteSubmitHandler = () => {
-        sendRequest({
-            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment/${commentObj._id}`,
-            method: 'DELETE'
-        }, (res: IRestaurant) => deleteCommentHandler({ restaurant: res, commentId: commentObj._id }));
+        sendRequest(
+            restaurantOptions.deleteComment(restaurant._id, commentObj._id),
+            (res: IRestaurant) => deleteCommentHandler({ restaurant: res, commentId: commentObj._id })
+        );
     }
 
     return (

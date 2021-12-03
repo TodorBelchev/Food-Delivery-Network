@@ -5,6 +5,7 @@ import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import IComment from '../../../interfaces/IComment';
 import IRestaurant from '../../../interfaces/IRestaurant';
+import restaurantOptions from '../../../utils/restaurantOptions';
 import validators from '../../../validators';
 
 import Spinner from '../../UI/Spinner/Spinner';
@@ -64,14 +65,10 @@ const EditCommentForm: React.FC<EditCommentFormProps> = ({ comment, setIsEditMod
 
         if (!formIsValid) { return; }
 
-        sendRequest({
-            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment/${comment._id}`,
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: nameValue, comment: commentValue, rating })
-        }, processResponse);
+        sendRequest(
+            restaurantOptions.editComment(restaurant._id, comment._id, nameValue, commentValue, rating as string),
+            processResponse
+        );
     }
 
     return (

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import { modalActions } from '../../../store/modal';
+import restaurantOptions from '../../../utils/restaurantOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -29,10 +30,7 @@ const DeleteRestaurantModal: React.FC<DeleteRestaurantModalProps> = (props) => {
     }
 
     const deleteClickHandler = () => {
-        sendRequest({
-            url: 'http://localhost:3030/api/restaurant/' + props._id,
-            method: 'DELETE'
-        }, processResponse);
+        sendRequest(restaurantOptions.deleteRestaurant(props._id), processResponse);
     }
 
     return (

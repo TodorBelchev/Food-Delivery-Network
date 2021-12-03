@@ -7,6 +7,7 @@ import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import IRecipe from '../../../interfaces/IRecipe';
 import validators from '../../../validators';
+import orderOptions from '../../../utils/orderOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -110,14 +111,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
             restaurant: restaurantId
         }
 
-        sendRequest({
-            url: 'http://localhost:3030/api/order',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(orderData)
-        }, processResponse);
+        sendRequest(orderOptions.add(orderData), processResponse);
     }
 
 

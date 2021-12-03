@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 
 import useHttp from "../../hooks/useHttp";
 import IRestaurant from "../../interfaces/IRestaurant";
+import restaurantOptions from "../../utils/restaurantOptions";
 
 import RestaurantCard from "../../components/restaurant/RestaurantCard/RestaurantCard";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -16,9 +17,10 @@ const MainTheme: React.FC = () => {
     const { sendRequest, isLoading } = useHttp();
 
     useEffect(() => {
-        sendRequest({
-            url: 'http://localhost:3030/api/restaurant?mainTheme=' + mainTheme
-        }, (res: IRestaurant[]) => { setRestaurants(res) });
+        sendRequest(
+            restaurantOptions.getByTheme(mainTheme),
+            (res: IRestaurant[]) => { setRestaurants(res) }
+        );
     }, [sendRequest, mainTheme]);
 
     return (

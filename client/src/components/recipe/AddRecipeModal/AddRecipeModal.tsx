@@ -9,6 +9,7 @@ import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import IRecipe from '../../../interfaces/IRecipe';
+import recipeOptions from '../../../utils/recipeOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -106,19 +107,13 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         formData.append('category', categoryValue);
         formData.append('weight', weightValue);
 
-        let url = 'http://localhost:3030/api/recipe/' + restaurant._id + '/add-recipe';
-        let method = 'POST';
+        let options = recipeOptions.add(restaurant._id, formData);
 
         if (recipe) {
-            url = `http://localhost:3030/api/recipe/${recipe._id}/${restaurant._id}`;
-            method = 'PUT';
+            options = recipeOptions.edit(recipe._id, restaurant._id, formData);
         }
 
-        sendRequest({
-            url,
-            method,
-            body: formData
-        }, processResponse)
+        sendRequest(options, processResponse)
     }
     return (
         <section className={`${classes['add-recipe']} container`}>

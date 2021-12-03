@@ -13,6 +13,7 @@ import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/M
 import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './CreateRestaurant.module.css';
+import restaurantOptions from '../../../utils/restaurantOptions';
 
 type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
     edit: boolean;
@@ -113,18 +114,12 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         formData.append('workTime', workTimeValue);
         formData.append('cities', JSON.stringify(selectedCities));
 
-        let url = 'http://localhost:3030/api/restaurant/create';
-        let method = 'POST';
+        let options = restaurantOptions.add(formData);
         if (edit) {
-            url = `http://localhost:3030/api/restaurant/${restaurant?._id}`;
-            method = 'PUT';
+            options = restaurantOptions.edit(restaurant._id, formData);
         }
 
-        sendRequest({
-            url,
-            method,
-            body: formData
-        }, processResponse);
+        sendRequest(options, processResponse);
 
     };
 

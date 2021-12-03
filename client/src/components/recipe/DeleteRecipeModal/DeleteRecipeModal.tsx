@@ -3,6 +3,7 @@ import useHttp from '../../../hooks/useHttp';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import { modalActions } from '../../../store/modal';
 import { restaurantActions } from '../../../store/restaurant';
+import recipeOptions from '../../../utils/recipeOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -25,10 +26,7 @@ const DeleteRecipeModal: React.FC<DeleteRecipeModalProps> = ({ _id, name, restau
     };
 
     const deleteClickHandler = () => {
-        sendRequest({
-            url: `http://localhost:3030/api/recipe/${_id}/${restaurantId}`,
-            method: 'DELETE'
-        }, processResponse);
+        sendRequest(recipeOptions.deleteRecipe(_id, restaurantId), processResponse);
     };
 
     const cancelClickHandler = () => {

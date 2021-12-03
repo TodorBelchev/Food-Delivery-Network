@@ -3,6 +3,7 @@ import { useAppSelector } from '../../../hooks/reduxHooks';
 
 import useHttp from '../../../hooks/useHttp';
 import IOrder from '../../../interfaces/IOrder';
+import orderOptions from '../../../utils/orderOptions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 import OrdersListItem from '../OrdersListItem/OrdersListItem';
@@ -19,13 +20,16 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     const { sendRequest, isLoading } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
 
+    const processResponse = useCallback((res: IOrder[]) => {
+        setOrders(res);
+    }, []);
+
     const fetchOrders = useCallback(() => {
-        sendRequest({
-            url: `http://localhost:3030/api/order/${restaurant._id}/${status}`
-        }, (res: IOrder[]) => {
-            setOrders(res);
-        });
-    }, [sendRequest, restaurant._id, status]);
+        sendRequest(
+            orderOptions.getOrders(restaurant._id, status),
+            processResponse
+        );
+    }, [sendRequest, restaurant._id, status, processResponse]);
 
     const onSuccessDelete = () => {
         fetchOrders();

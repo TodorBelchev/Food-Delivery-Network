@@ -5,6 +5,7 @@ import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import IComment from '../../../interfaces/IComment';
 import IRestaurant from '../../../interfaces/IRestaurant';
+import restaurantOptions from '../../../utils/restaurantOptions';
 import validators from '../../../validators';
 
 import Spinner from '../../UI/Spinner/Spinner';
@@ -15,7 +16,7 @@ import classes from './AddCommentForm.module.css';
 type AddCommentFormProps = JSX.IntrinsicElements['form'] & {
     setFormIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
     cancelClickHandler: () => void;
-    addCommentSubmitHandler: (res: {comments: IComment[], restaurant: IRestaurant}) => void;
+    addCommentSubmitHandler: (res: { comments: IComment[], restaurant: IRestaurant }) => void;
 }
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, addCommentSubmitHandler, setFormIsLoading }) => {
@@ -62,14 +63,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
         if (!formIsValid) { return; }
 
         setFormIsLoading(true);
-        sendRequest({
-            url: `http://localhost:3030/api/restaurant/${restaurant._id}/comment`,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: nameValue, comment: commentValue, rating })
-        }, processResponse);
+        sendRequest(restaurantOptions.addComment(restaurant._id, nameValue, commentValue, rating as string), processResponse);
     }
 
     return (

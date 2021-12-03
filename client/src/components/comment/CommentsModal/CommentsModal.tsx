@@ -8,6 +8,7 @@ import { restaurantActions } from '../../../store/restaurant';
 import ICommentsResponse from '../../../interfaces/ICommentsResponse';
 import IRestaurant from '../../../interfaces/IRestaurant';
 import { authActions } from '../../../store/auth';
+import restaurantOptions from '../../../utils/restaurantOptions';
 
 import AddCommentForm from '../AddCommentForm/AddCommentForm';
 import Comment from '../Comment/Comment';
@@ -38,7 +39,7 @@ const CommentsModal: React.FC = () => {
 
     useEffect(() => {
         if (page === 0) { return; }
-        sendRequest({ url: `http://localhost:3030/api/restaurant/${resId}/comment?page=${page}` }, processResponse)
+        sendRequest(restaurantOptions.getComments(resId, page), processResponse);
     }, [resId, page, processResponse, sendRequest]);
 
     const observer = useRef<IntersectionObserver>();
