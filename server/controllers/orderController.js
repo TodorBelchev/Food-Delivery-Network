@@ -85,6 +85,26 @@ router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
     }
 });
 
+router.get('/:restaurantId/categories/count', async (req, res) => {
+    try {
+        const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId);
+        const result = {};
+        orders.forEach(x => {
+            x.items.forEach(i => {
+                if (result[i.item.category]) {
+                    result[i.item.category]++;
+                } else {
+                    result[i.item.category] = 1;
+                }
+            })
+        });
+        res.status(200).send(result);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.put('/:id', isLoggedIn(), async (req, res) => {
     try {
         const order = await getOrderById(req.params.id);

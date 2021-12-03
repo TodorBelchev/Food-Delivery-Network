@@ -40,11 +40,18 @@ const edit = (orderId: string, status: string) => {
     }
 };
 
+const getOrdersCountByCategory = (restaurantId: string) => {
+    return {
+        url: `http://localhost:3030/api/order/${restaurantId}/categories/count`,
+    }
+};
+
 const orderOptions = {
     add,
     getOrders,
     deleteOrder,
-    edit
+    edit,
+    getOrdersCountByCategory
 }
 
 export default orderOptions;
