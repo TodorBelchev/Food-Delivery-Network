@@ -18,6 +18,12 @@ const checkoutSlice = createSlice({
             state.name = action.payload.name;
             state.city = action.payload.city;
             state.address = action.payload.address;
+        },
+        clear(state) {
+            state.phone = null;
+            state.name = null;
+            state.city = null;
+            state.address = null;
         }
     }
 });

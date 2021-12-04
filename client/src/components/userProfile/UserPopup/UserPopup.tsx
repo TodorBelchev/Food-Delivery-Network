@@ -4,6 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import { authActions } from '../../../store/auth';
+import { checkoutActions } from '../../../store/checkout';
 import userOptions from '../../../utils/userOptions';
 
 
@@ -22,6 +23,7 @@ const UserPopup: React.FC = () => {
     const logoutHandler = useCallback(() => {
         sendRequest(userOptions.logout(), resHandler);
         dispatch(authActions.logout());
+        dispatch(checkoutActions.clear());
         history.push('/');
     }, [dispatch, history, sendRequest, resHandler]);
 
