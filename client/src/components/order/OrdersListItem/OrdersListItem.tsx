@@ -50,7 +50,7 @@ const OrdersListItem: React.FC<OrdersListItemProps> = ({ order, onSuccessDelete,
                     <p className={classes['order-date']}>{formattedDate}</p>
                 </div>
                 <div>
-                    <p className={classes['order-price']}>${order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)}</p>
+                    <p className={classes['order-price']}>${(order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)).toFixed(2)}</p>
                 </div>
             </article>
         </>

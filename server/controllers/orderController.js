@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { isLoggedIn } = require('../middlewares');
+const { isLoggedIn, checkUser } = require('../middlewares');
 const {
     createOrder,
     getActiveOrdersByRestaurantId,
@@ -9,11 +9,12 @@ const {
     getCompletedOrdersByRestaurantId
 } = require('../services/orderService');
 const { getMultipleById } = require('../services/recipeService');
+const { getStartDate } = require('../utils');
 
 const router = Router();
 
 router.post('/',
-    isLoggedIn(),
+    checkUser(),
     async (req, res) => {
         try {
             const address = req.body.address.trim();
@@ -85,20 +86,43 @@ router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.get('/:restaurantId/categories/count', async (req, res) => {
+router.get('/:restaurantId/categories/count', isLoggedIn(), async (req, res) => {
     try {
-        const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId);
-        const result = {};
+        const convertedDate = getStartDate(req.query.period);
+        const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId, convertedDate);
+        const categoriesCount = {};
         orders.forEach(x => {
             x.items.forEach(i => {
-                if (result[i.item.category]) {
-                    result[i.item.category]++;
+                if (categoriesCount[i.item.category]) {
+                    categoriesCount[i.item.category]++;
                 } else {
-                    result[i.item.category] = 1;
+                    categoriesCount[i.item.category] = 1;
                 }
             })
         });
-        res.status(200).send(result);
+        res.status(200).send(categoriesCount);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
+router.get('/:restaurantId/sales-volumes', isLoggedIn(), async (req, res) => {
+    try {
+        const convertedDate = getStartDate(req.query.period);
+        const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId, convertedDate);
+        const sales = {};
+        orders.forEach(x => {
+            const orderDate = `${x.date.getDate()}/${x.date.getMonth()}/${x.date.getFullYear()}`;
+            x.items.forEach(i => {
+                if (sales[orderDate]) {
+                    sales[orderDate] += i.price * i.quantity;
+                } else {
+                    sales[orderDate] = i.price * i.quantity;
+                }
+            });
+        });
+        res.status(200).send(sales);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

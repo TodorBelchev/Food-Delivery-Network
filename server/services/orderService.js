@@ -13,8 +13,8 @@ const getActiveOrdersByRestaurantId = (id) => {
     return Order.find({ restaurant: id, status: 'pending' }).populate('items.item').populate('restaurant');
 };
 
-const getCompletedOrdersByRestaurantId = (id) => {
-    return Order.find({ restaurant: id, status: 'completed' }).populate('items.item').populate('restaurant');
+const getCompletedOrdersByRestaurantId = (id, startDate = 0) => {
+    return Order.find({ restaurant: id, status: 'completed', date: { $gte: startDate } }).populate('items.item').populate('restaurant');
 };
 
 const deleteById = (id) => {

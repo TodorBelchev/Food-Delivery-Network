@@ -40,9 +40,15 @@ const edit = (orderId: string, status: string) => {
     }
 };
 
-const getOrdersCountByCategory = (restaurantId: string) => {
+const getOrdersCountByCategoryAndPeriod = (restaurantId: string, period: string) => {
     return {
-        url: `http://localhost:3030/api/order/${restaurantId}/categories/count`,
+        url: `http://localhost:3030/api/order/${restaurantId}/categories/count?period=${period}`
+    }
+};
+
+const getSalesByPeriod = (restaurantId: string, period: string) => {
+    return {
+        url: `http://localhost:3030/api/order/${restaurantId}/sales-volumes?period=${period}`
     }
 };
 
@@ -51,7 +57,8 @@ const orderOptions = {
     getOrders,
     deleteOrder,
     edit,
-    getOrdersCountByCategory
+    getOrdersCountByCategoryAndPeriod,
+    getSalesByPeriod
 }
 
 export default orderOptions;

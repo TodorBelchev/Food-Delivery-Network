@@ -27,7 +27,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
     const user = useAppSelector(state => state.auth);
     const restaurant = useAppSelector(state => state.restaurant);
     const formattedDate = formatDate(order.date);
-    const totalPrice = order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+    const price = order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+    const delivery = price > 10 ? 'Free' : '$3.99';
+    const totalPrice = price > 10 ? (price + 3.99).toFixed(2) : price.toFixed(2);
     const isOwner = user._id === restaurant.owner;
 
     useEffect(() => {
@@ -93,15 +95,15 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
             <article className={classes['order-summary']}>
                 <p>
                     <span>Order:</span>
-                    <span>${totalPrice}</span>
+                    <span>${price.toFixed(2)}</span>
                 </p>
                 <p>
                     <span>Delivery:</span>
-                    <span>{totalPrice > 10 ? 'Free' : '$3.99'}</span>
+                    <span>{delivery}</span>
                 </p>
                 <p>
                     <span>Total:</span>
-                    <span>${totalPrice > 10 ? totalPrice : (totalPrice + 3.99).toFixed(2)}</span>
+                    <span>${totalPrice}</span>
                 </p>
                 <p>
                     <span>Status:</span>

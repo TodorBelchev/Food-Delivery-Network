@@ -6,11 +6,11 @@ import orderOptions from '../../../../utils/orderOptions';
 import { useAppSelector } from '../../../../hooks/reduxHooks';
 
 
-import classes from './CategoriesChart.module.css';
+import classes from './SalesChart.module.css';
 
 Chart.register(...registerables);
 
-const CategoriesChart: React.FC = () => {
+const SalesChart: React.FC = () => {
     const { sendRequest } = useHttp();
     const restaurant = useAppSelector(state => state.restaurant);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -31,7 +31,7 @@ const CategoriesChart: React.FC = () => {
 
     useEffect(() => {
         if (!restaurant._id) { return };
-        sendRequest(orderOptions.getOrdersCountByCategoryAndPeriod(restaurant._id, period), processResponse);
+        sendRequest(orderOptions.getSalesByPeriod(restaurant._id, period), processResponse);
     }, [sendRequest, restaurant._id, processResponse, period]);
 
 
@@ -40,11 +40,11 @@ const CategoriesChart: React.FC = () => {
         const myChart = new Chart(
             canvasRef.current!,
             {
-                type: 'pie',
+                type: 'bar',
                 data: {
                     labels: dataLabels,
                     datasets: [{
-                        label: 'Categories',
+                        label: 'Sales',
                         data: categoriesCount,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -100,7 +100,7 @@ const CategoriesChart: React.FC = () => {
 
     return (
         <div className={classes.chart}>
-            <h2 className={classes['chart-title']}>Categories share:</h2>
+            <h2 className={classes['chart-title']}>Sales:</h2>
             <select onChange={selectChangeHandler} className={classes['chart-select']}>
                 <option value="week">Week</option>
                 <option value="month">Month</option>
@@ -111,4 +111,4 @@ const CategoriesChart: React.FC = () => {
     )
 };
 
-export default CategoriesChart;
+export default SalesChart;
