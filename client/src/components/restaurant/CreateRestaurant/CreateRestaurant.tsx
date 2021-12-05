@@ -54,7 +54,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
         inputBlurHandler: categoriesBlurHandler,
         reset: categoriesReset,
         setValue: setCategoriesValue
-    } = useUserInput(validators.minStringCount.bind(null, 3));
+    } = useUserInput(validators.minStringCount.bind(null, 1));
     const {
         value: workTimeValue,
         isValid: workTimeIsValid,
@@ -168,7 +168,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         onBlur={categoriesBlurHandler}
                     />
                     <span className={classes.placeholder}>Categories separated by ","</span>
-                    {categoriesHasError && <p className={classes['input-notification']}>At least 3 categories are required!</p>}
+                    {categoriesHasError && <p className={classes['input-notification']}>At least 1 category is required!</p>}
                 </div>
                 <div className={classes.col}>
                     <input

@@ -7,6 +7,7 @@
     box-shadow: 0 0 5px 2px lightgrey;
     position: relative;
     align-items: flex-start;
+    min-height: 150px;
 }
 
 .recipe-img-wrapper {

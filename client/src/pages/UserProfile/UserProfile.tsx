@@ -3,9 +3,9 @@ import { Route, Switch } from "react-router";
 import { useAppSelector } from "../../hooks/reduxHooks";
 
 import CreateRestaurant from "../../components/restaurant/CreateRestaurant/CreateRestaurant";
-import RestaurantList from "../../components/restaurant/RestaurantList/RestaurantList";
 import HorizontalNav from "../../components/UI/HorizontalNav/HorizontalNav";
 import UserData from "../../components/userProfile/UserData/UserData";
+import MyRestaurants from "../../components/restaurant/MyRestaurants/MyRestaurants";
 
 const UserProfile: React.FC = () => {
     const user = useAppSelector(state => state.auth);
@@ -29,7 +29,7 @@ const UserProfile: React.FC = () => {
                     <CreateRestaurant edit={false} />
                 </Route>
                 <Route path="/profile/:id/restaurants">
-                    <RestaurantList />
+                    <MyRestaurants />
                 </Route>
             </Switch>
         </>

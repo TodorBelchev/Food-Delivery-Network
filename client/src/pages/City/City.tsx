@@ -5,11 +5,10 @@ import useHttp from "../../hooks/useHttp";
 import IRestaurant from "../../interfaces/IRestaurant";
 import restaurantOptions from "../../utils/restaurantOptions";
 
-import RestaurantCard from "../../components/restaurant/RestaurantCard/RestaurantCard";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
 
-import classes from './City.module.css';
+import RestaurantList from "../../components/restaurant/RestaurantList/RestaurantList";
 
 const City: React.FC = () => {
     const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
@@ -26,9 +25,8 @@ const City: React.FC = () => {
     return (
         <section className={'container'}>
             {isLoading && <Spinner />}
-            <ul className={classes.list}>
-                {restaurants.map(x => <RestaurantCard key={x._id} restaurant={x} />)}
-            </ul>
+            {!isLoading && restaurants.length > 0 && <RestaurantList restaurants={restaurants} />}
+            {!isLoading && restaurants.length === 0 && <h2>No restaurants yet!</h2>}
         </section>
     );
 };

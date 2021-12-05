@@ -30,8 +30,8 @@ router.post('/:RestaurantId/add-recipe', isLoggedIn(), async (req, res) => {
         const price = Number(formData.price.trim());
         const weight = Number(formData.weight.trim());
 
-        if (name.length < 6) {
-            throw new Error('Recipe name must be at least 6 characters long!');
+        if (name.length < 5) {
+            throw new Error('Recipe name must be at least 5 characters long!');
         }
 
         if (ingredients.length < 3) {

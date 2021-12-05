@@ -5,6 +5,10 @@ const Kitchens = () => {
     return (
         <section className={`${classes.kitchens} container`}>
             <h2 className={classes['kitchens-title']}>Popular categories</h2>
+            <NavLink to="/main-theme/Bulgarian" className={classes.kitchen}>
+                <p className={classes['kitchen-name']}>Bulgarian</p>
+                <img src="images/bulgarian.jpg" alt="bulgarian-kitchen" />
+            </NavLink >
             <NavLink to="/main-theme/Italian" className={classes.kitchen}>
                 <p className={classes['kitchen-name']}>Italian</p>
                 <img src="images/kitchen-italian.jpg" alt="italian-kitchen" />
@@ -25,10 +29,6 @@ const Kitchens = () => {
                 <p className={classes['kitchen-name']}>Vegetarian</p>
                 <img src="images/vegetarian.jpg" alt="vegetarian-kitchen" />
             </NavLink>
-            <NavLink to="/main-theme/Drinks" className={classes.kitchen}>
-                <p className={classes['kitchen-name']}>Drinks</p>
-                <img src="images/drinks.jpg" alt="drinks" />
-            </NavLink >
         </section>
     );
 }

@@ -33,7 +33,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
         inputBlurHandler: nameBlurHandler,
         valueChangeHandler: nameChangeHandler,
         setValue: setNameValue
-    } = useUserInput(validators.minLength.bind(null, 6));
+    } = useUserInput(validators.minLength.bind(null, 5));
     const {
         value: ingredientsValue,
         hasError: ingredientsHasError,
@@ -131,7 +131,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         onBlur={nameBlurHandler}
                     />
                     <span className={classes.placeholder}>Recipe name</span>
-                    {nameHasError && <p className={classes['input-notification']}>Recipe name must be at least 6 characters long!</p>}
+                    {nameHasError && <p className={classes['input-notification']}>Recipe name must be at least 5 characters long!</p>}
                 </div>
                 <div className={classes.col}>
                     <input
@@ -208,12 +208,12 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                     {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>
                 {!recipe &&
-                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid}>
+                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid || isLoading}>
                         Add
                         {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
                     </button>}
                 {recipe &&
-                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid}>
+                    <button className={`main-btn create-btn ${classes['btn-flex']}`} disabled={!formIsValid || isLoading}>
                         Edit
                         {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
                     </button>}
