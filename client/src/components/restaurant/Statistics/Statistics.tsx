@@ -7,7 +7,7 @@ import classes from './Statistics.module.css';
 
 const Statistics: React.FC = () => {
     return (
-        <div className={classes.statistics}>
+        <div className={`${classes.statistics} container`}>
             <SalesChart />
             <CategoriesChart />
         </div>

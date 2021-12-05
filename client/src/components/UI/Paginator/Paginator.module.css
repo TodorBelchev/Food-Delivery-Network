@@ -1,0 +1,32 @@
+.paginator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginator-page,
+.paginator-btn {
+    margin: 0 10px;
+    font-size: 22px;
+    border: 2px solid #0080ff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.paginator-btn {
+    margin: 0 2px;
+    cursor: pointer;
+    min-width: 42px;
+    color: #0080ff;
+    background: #fff;
+}
+
+.paginator-btn:not(:disabled):hover {
+    color: #fff;
+    background: #0080ff;
+}
+
+.paginator-btn:disabled {
+    color: gray;
+    border: 2px solid gray;
+}

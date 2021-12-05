@@ -1,11 +1,12 @@
 .nav {
     position: sticky;
-    top: 70px;
+    top: 69px;
     z-index: 1;
+    background: white;
 }
 
 .nav--scrolled {
-    box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 25%);
+    box-shadow: 0 4px 5px -2px rgb(0 0 0 / 25%);
 }
 
 .list {
@@ -13,7 +14,6 @@
     display: flex;
     align-items: center;
     padding: 20px 0;
-    background: white;
 }
 
 .list-item {

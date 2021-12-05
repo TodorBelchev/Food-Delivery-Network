@@ -3,10 +3,13 @@ const { Router } = require('express');
 const { isLoggedIn, checkUser } = require('../middlewares');
 const {
     createOrder,
-    getActiveOrdersByRestaurantId,
+    getActiveOrdersByRestaurantIdAndPage,
     deleteById,
     getOrderById,
-    getCompletedOrdersByRestaurantId
+    getCompletedOrdersByRestaurantId,
+    getCompletedOrdersByRestaurantIdAndPage,
+    getCompletedOrdersCount,
+    getActiveOrdersCount
 } = require('../services/orderService');
 const { getMultipleById } = require('../services/recipeService');
 const { getStartDate } = require('../utils');
@@ -68,8 +71,10 @@ router.post('/',
 
 router.get('/:restaurantId/active', isLoggedIn(), async (req, res) => {
     try {
-        const orders = await getActiveOrdersByRestaurantId(req.params.restaurantId);
-        res.status(200).send(orders);
+        const page = req.query.page - 1 || 0;
+        const orders = await getActiveOrdersByRestaurantIdAndPage(req.params.restaurantId, page);
+        const count = await getActiveOrdersCount(req.params.restaurantId);
+        res.status(200).send({ orders, count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -78,8 +83,10 @@ router.get('/:restaurantId/active', isLoggedIn(), async (req, res) => {
 
 router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
     try {
-        const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId);
-        res.status(200).send(orders);
+        const page = req.query.page - 1 || 0;
+        const orders = await getCompletedOrdersByRestaurantIdAndPage(req.params.restaurantId, page);
+        const count = await getCompletedOrdersCount(req.params.restaurantId);
+        res.status(200).send({ orders, count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

@@ -15,7 +15,7 @@ const RestaurantDashboard: React.FC = () => {
     ];
 
     return (
-        <div className={`container`}>
+        <>
             <HorizontalNav links={links} />
             <Switch>
                 <Route path="/restaurant/:id/dashboard/" exact>
@@ -31,7 +31,7 @@ const RestaurantDashboard: React.FC = () => {
                     <OrdersList status={'completed'} />
                 </Route>
             </Switch>
-        </div>
+        </>
     )
 };
 

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
@@ -11,9 +11,12 @@ type HorizontalNavProps = JSX.IntrinsicElements['nav'] & {
 
 const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
     const [scroll, setScroll] = useState(0);
+    const [elementScroll, setElementScroll]= useState(1);
+    const navRef = useRef<HTMLElement>(null);
 
     const handleScroll = useCallback((e: Event) => {
         const window = e.currentTarget as Window;
+        setElementScroll(navRef.current?.getBoundingClientRect().top || 1);
         setScroll(window.scrollY);
     }, []);
 
@@ -23,7 +26,7 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [handleScroll])
     return (
-        <nav className={`${classes.nav} ${scroll > 0 ? classes['nav--scrolled'] : ''}`}>
+        <nav ref={navRef} className={`${classes.nav} ${scroll > elementScroll ? classes['nav--scrolled'] : ''}`}>
             <ul className={`container ${classes.list}`}>
                 {links.map(x => (
                     <li key={x.url}>

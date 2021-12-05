@@ -16,9 +16,9 @@ const add = (orderData: {
     }
 };
 
-const getOrders = (restaurantId: string, status: string) => {
+const getOrders = (restaurantId: string, status: string, page: number) => {
     return {
-        url: `http://localhost:3030/api/order/${restaurantId}/${status}`
+        url: `http://localhost:3030/api/order/${restaurantId}/${status}?page=${page}`
     }
 };
 
