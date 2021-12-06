@@ -11,8 +11,9 @@ const {
     getCompletedOrdersCount,
     getActiveOrdersCount
 } = require('../services/orderService');
+const { getById } = require('../services/restaurantService');
 const { getMultipleById } = require('../services/recipeService');
-const { getStartDate } = require('../utils');
+const { getStartDate, isOpen } = require('../utils');
 
 const router = Router();
 
@@ -40,6 +41,19 @@ router.post('/',
             }
             if (recipes.length < 1) {
                 throw new Error('No ordered items!');
+            }
+
+            const restaurantDBObj = await getById(restaurant);
+            const restaurantIsOpen = isOpen(restaurantDBObj.workHours);
+            const hasCity = restaurantDBObj.cities.some(x => x.name.toLocaleLowerCase() === city.toLocaleLowerCase());
+
+            if (!restaurantIsOpen) {
+                throw new Error(`Unable to checkout. Restaurant working hours: ${restaurantDBObj.workHours.join('-')}`)
+            }
+
+            if (!hasCity) {
+                const citiesString = restaurantDBObj.cities.map(x => x.name).join(', ');
+                throw new Error(`Unable to checkout. Restaurant delivers in these cities: ${citiesString}.`)
             }
 
             const recipesDB = await getMultipleById(recipes);

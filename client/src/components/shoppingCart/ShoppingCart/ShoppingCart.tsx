@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import usePreventScrolling from '../../../hooks/usePreventScrolling';
 import { modalActions } from '../../../store/modal';
+import { notificationActions } from '../../../store/notification';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Backdrop } from '../../UI/Modal/Modal';
@@ -33,6 +34,12 @@ const ShoppingCart: React.FC = () => {
     const backDropClickHandler = () => {
         setIsOpen(false);
     }
+
+    useEffect(() => {
+        return () => {
+            dispatch(notificationActions.close());
+        }
+    }, [dispatch])
 
     return (
         <>
@@ -82,7 +89,7 @@ const ShoppingCart: React.FC = () => {
                         </article>
                     </article>
                     <article className={classes['cart-content-checkout']}>
-                        <CheckoutForm cartRecipes={cartRecipes!} restaurantId={restaurant._id} />
+                        <CheckoutForm cartRecipes={cartRecipes!} />
                     </article>
                 </section>}
             </section>

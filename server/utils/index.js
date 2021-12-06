@@ -4,6 +4,7 @@ const { getFormData } = require('./parseForm');
 const { removePass } = require('./removePassword');
 const { extractFilterFromQuery } = require('./extractFilterFromQuery');
 const { getStartDate } = require('./getStartDate');
+const { isOpen } = require('./isOpen');
 
 module.exports = {
     uploadToCloudinary,
@@ -13,4 +14,5 @@ module.exports = {
     removePass,
     extractFilterFromQuery,
     getStartDate,
+    isOpen,
 }

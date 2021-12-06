@@ -53,9 +53,6 @@ const useHttp = () => {
         if (error) {
             dispatch(notificationActions.show({ type: 'error', text: error }));
         }
-        return () => {
-            dispatch(notificationActions.close());
-        }
     }, [dispatch, error]);
 
     return {

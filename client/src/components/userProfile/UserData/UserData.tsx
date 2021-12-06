@@ -231,7 +231,7 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
                     <button
                         className={`main-btn create-btn ${classes['btn-container-btn']}`}
                         onClick={editClickHandler}
-                        disabled={!formIsValid || isLoading}
+                        disabled={isLoading}
                     >
                         Edit
                         {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}

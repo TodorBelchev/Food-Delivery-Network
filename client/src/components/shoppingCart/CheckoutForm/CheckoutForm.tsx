@@ -3,11 +3,13 @@ import React, { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { cartActions } from '../../../store/cart';
 import { checkoutActions } from '../../../store/checkout';
+import { notificationActions } from '../../../store/notification';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
 import IRecipe from '../../../interfaces/IRecipe';
 import validators from '../../../validators';
 import orderOptions from '../../../utils/orderOptions';
+import isOpen from '../../../utils/isOpen';
 
 import Spinner from '../../UI/Spinner/Spinner';
 
@@ -16,12 +18,12 @@ import classes from './CheckoutForm.module.css';
 
 type CheckoutFormProps = JSX.IntrinsicElements['form'] & {
     cartRecipes: { recipe: IRecipe; quantity: number; }[];
-    restaurantId: string;
 }
 
-const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }) => {
+const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes }) => {
     const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth);
+    const restaurant = useAppSelector(state => state.restaurant);
     const checkoutState = useAppSelector(state => state.checkout);
     const { isLoading, sendRequest } = useHttp();
     const {
@@ -57,10 +59,10 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
         setValue: setPhoneValue
     } = useUserInput(validators.isPhone);
 
-    const nameRef = useRef('');
-    const addressRef = useRef('');
-    const cityRef = useRef('');
-    const phoneRef = useRef('');
+    const nameRef = useRef<null | string>(null);
+    const addressRef = useRef<null | string>(null);
+    const cityRef = useRef<null | string>(null);
+    const phoneRef = useRef<null | string>(null);
     nameRef.current = nameValue;
     addressRef.current = addressValue;
     cityRef.current = cityValue;
@@ -95,9 +97,31 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
 
         if (!formIsValid) { return; }
 
+        const restaurantIsOpen = isOpen(restaurant.workHours);
+
+        if (!restaurantIsOpen) {
+            dispatch(notificationActions.show({ type: 'error', text: `Unable to checkout. Restaurant working hours: ${restaurant.workHours.join('-')}` }))
+            return;
+        }
+
+        const hasCity = restaurant.cities.some(x => x.name.toLocaleLowerCase() === cityValue.toLocaleLowerCase());
+
+        if (!hasCity) {
+            const citiesString = restaurant.cities.map(x => x.name).join(', ');
+            dispatch(notificationActions.show({ type: 'error', text: `Unable to checkout. Restaurant delivers in these cities: ${citiesString}.` }));
+            return;
+        }
+
         const processResponse = () => {
-            dispatch(cartActions.clearCartOrder({ restaurantId }));
-            // show OK notification
+            nameRef.current = null;
+            addressRef.current = null;
+            cityRef.current = null;
+            phoneRef.current = null;
+            dispatch(cartActions.clearCartOrder({ restaurantId: restaurant._id }));
+            dispatch(notificationActions.show({ type: 'success', text: 'Successful order!'}));
+            setTimeout(() => {
+                dispatch(notificationActions.close());
+            }, 3000);
         }
 
         const orderData = {
@@ -108,7 +132,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ cartRecipes, restaurantId }
             recipes: cartRecipes.map(x => {
                 return { recipe: x.recipe._id, quantity: x.quantity }
             }),
-            restaurant: restaurantId
+            restaurant: restaurant._id
         }
 
         sendRequest(orderOptions.add(orderData), processResponse);
