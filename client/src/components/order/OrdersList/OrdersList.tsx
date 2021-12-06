@@ -45,10 +45,11 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     }, []);
 
     const fetchOrders = useCallback(() => {
-        sendRequest(
-            orderOptions.getOrders(restaurant._id, status, page),
-            processResponse
-        );
+        let options = orderOptions.getOrders(restaurant._id, status, page);
+        if (status === 'my-orders') {
+            options = orderOptions.getOrdersByOwner(page);
+        }
+        sendRequest(options, processResponse);
     }, [sendRequest, restaurant._id, status, processResponse, page]);
 
     const onSuccessDelete = () => {
@@ -60,10 +61,9 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     };
 
     useEffect(() => {
-        if (restaurant._id) {
-            fetchOrders();
-        }
-    }, [fetchOrders, restaurant._id]);
+        fetchOrders();
+    }, [fetchOrders]);
+
     return (
         <div className="container">
             <ul className={classes.list}>
@@ -78,7 +78,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
                     </li>
                 ))}
             </ul>
-            {totalCount > 20 && <Paginator totalCount={totalCount} shownCount={20} page={page} />}
+            {totalCount > 20 && <Paginator totalCount={totalCount} shownCount={20} page={page} isLoading={isLoading} />}
         </div>
     );
 };

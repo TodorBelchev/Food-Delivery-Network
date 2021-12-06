@@ -7,7 +7,15 @@ const createOrder = (data) => {
 
 const getOrderById = (id) => {
     return Order.findById(id).populate('items.item').populate('restaurant');
-}
+};
+
+const getMyOrders = (id, page) => {
+    return Order.find({ user: id }).skip(page * 20).limit(20).populate('items.item').populate('restaurant');
+};
+
+const getMyOrdersCount = (id) => {
+    return Order.countDocuments({ user: id });
+};
 
 const getActiveOrdersByRestaurantIdAndPage = (id, page) => {
     return Order.find({ restaurant: id, status: 'pending' }).skip(page * 20).limit(20).populate('items.item').populate('restaurant');
@@ -41,5 +49,7 @@ module.exports = {
     deleteById,
     getOrderById,
     getActiveOrdersCount,
-    getCompletedOrdersCount
+    getCompletedOrdersCount,
+    getMyOrders,
+    getMyOrdersCount
 }

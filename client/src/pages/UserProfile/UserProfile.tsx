@@ -6,6 +6,7 @@ import CreateRestaurant from "../../components/restaurant/CreateRestaurant/Creat
 import HorizontalNav from "../../components/UI/HorizontalNav/HorizontalNav";
 import UserData from "../../components/userProfile/UserData/UserData";
 import MyRestaurants from "../../components/restaurant/MyRestaurants/MyRestaurants";
+import OrdersList from "../../components/order/OrdersList/OrdersList";
 
 const UserProfile: React.FC = () => {
     const user = useAppSelector(state => state.auth);
@@ -27,6 +28,9 @@ const UserProfile: React.FC = () => {
                 </Route>
                 <Route path="/profile/:id/create-restaurant">
                     <CreateRestaurant edit={false} />
+                </Route>
+                <Route path="/profile/:id/orders">
+                    <OrdersList status={"my-orders"} />
                 </Route>
                 <Route path="/profile/:id/restaurants">
                     <MyRestaurants />

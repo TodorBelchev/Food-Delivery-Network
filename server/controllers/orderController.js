@@ -9,7 +9,9 @@ const {
     getCompletedOrdersByRestaurantId,
     getCompletedOrdersByRestaurantIdAndPage,
     getCompletedOrdersCount,
-    getActiveOrdersCount
+    getActiveOrdersCount,
+    getMyOrders,
+    getMyOrdersCount
 } = require('../services/orderService');
 const { getById } = require('../services/restaurantService');
 const { getMultipleById } = require('../services/recipeService');
@@ -107,6 +109,18 @@ router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
     }
 });
 
+router.get('/my-orders', isLoggedIn(), async (req, res) => {
+    try {
+        const page = req.query.page - 1 || 0;
+        const orders = await getMyOrders(req.decoded.id, page);
+        const count = await getMyOrdersCount(req.decoded.id);
+        res.status(200).send({ orders, count });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/:restaurantId/categories/count', isLoggedIn(), async (req, res) => {
     try {
         const convertedDate = getStartDate(req.query.period);
@@ -134,7 +148,7 @@ router.get('/:restaurantId/sales-volumes', isLoggedIn(), async (req, res) => {
         const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId, convertedDate);
         const sales = {};
         orders.forEach(x => {
-            const orderDate = `${x.date.getDate()}/${x.date.getMonth()}/${x.date.getFullYear()}`;
+            const orderDate = `${x.date.getDate()}/${x.date.getMonth() + 1}/${x.date.getFullYear()}`;
             x.items.forEach(i => {
                 if (sales[orderDate]) {
                     sales[orderDate] += i.price * i.quantity;

@@ -11,9 +11,10 @@ type PaginatorProps = JSX.IntrinsicElements['div'] & {
     totalCount: number;
     shownCount: number;
     page: number;
+    isLoading: boolean;
 }
 
-const Paginator: React.FC<PaginatorProps> = ({ totalCount, shownCount, page }) => {
+const Paginator: React.FC<PaginatorProps> = ({ totalCount, shownCount, page, isLoading }) => {
     const history = useHistory();
     const [query, setQuery] = useState<IObject>({});
     const lastPage = Math.ceil(totalCount / shownCount);
@@ -53,11 +54,11 @@ const Paginator: React.FC<PaginatorProps> = ({ totalCount, shownCount, page }) =
 
     return (
         <div className={classes.paginator}>
-            <button className={classes['paginator-btn']} onClick={firstPageHandler} disabled={1 === page}>&lt;&lt;</button>
-            <button className={classes['paginator-btn']} onClick={previousPageHandler} disabled={1 === page}>-</button>
+            <button className={classes['paginator-btn']} onClick={firstPageHandler} disabled={1 === page || isLoading}>&lt;&lt;</button>
+            <button className={classes['paginator-btn']} onClick={previousPageHandler} disabled={1 === page || isLoading}>-</button>
             <span className={classes['paginator-page']}>{page}</span>
-            <button className={classes['paginator-btn']} onClick={nextPageHandler} disabled={lastPage === page}>+</button>
-            <button className={classes['paginator-btn']} onClick={lastPageHandler} disabled={lastPage === page}>&gt;&gt;</button>
+            <button className={classes['paginator-btn']} onClick={nextPageHandler} disabled={lastPage === page || isLoading}>+</button>
+            <button className={classes['paginator-btn']} onClick={lastPageHandler} disabled={lastPage === page || isLoading}>&gt;&gt;</button>
         </div>
     );
 };

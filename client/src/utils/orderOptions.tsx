@@ -22,6 +22,12 @@ const getOrders = (restaurantId: string, status: string, page: number) => {
     }
 };
 
+const getOrdersByOwner = (page: number) => {
+    return {
+        url: `http://localhost:3030/api/order/my-orders?page=${page}`
+    }
+};
+
 const deleteOrder = (orderId: string) => {
     return {
         url: `http://localhost:3030/api/order/${orderId}`,
@@ -58,7 +64,8 @@ const orderOptions = {
     deleteOrder,
     edit,
     getOrdersCountByCategoryAndPeriod,
-    getSalesByPeriod
+    getSalesByPeriod,
+    getOrdersByOwner
 }
 
 export default orderOptions;
