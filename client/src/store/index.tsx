@@ -6,6 +6,7 @@ import restaurant from "./restaurant";
 import cart from "./cart";
 import checkout from "./checkout";
 import notification from "./notification";
+import app from './app';
 
 const store = configureStore({
     reducer: {
@@ -14,7 +15,8 @@ const store = configureStore({
         restaurant,
         cart,
         checkout,
-        notification
+        notification,
+        app
     }
 });
 

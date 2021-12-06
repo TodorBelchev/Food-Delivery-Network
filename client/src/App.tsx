@@ -7,6 +7,8 @@ import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
 import useHttp from './hooks/useHttp';
 import loadFontAwesome from './utils/loadFontAwesome';
+import IAuthState from './interfaces/IAuthState';
+import { appActions } from './store/app';
 
 import Layout from './components/layout/Layout/Layout';
 import Home from './pages/Home/Home';
@@ -15,7 +17,7 @@ import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
 import Notification from './components/UI/Notification/Notification';
-import IAuthState from './interfaces/IAuthState';
+import UserProfileGuard from './guards/UserProfileGuard';
 
 loadFontAwesome();
 
@@ -29,7 +31,10 @@ function App() {
 		dispatch(cartActions.autoLoadCart());
 		sendRequest({
 			url: 'http://localhost:3030/api/user/verify'
-		}, (res: IAuthState) => { dispatch(authActions.login(res)) });
+		}, (res: IAuthState) => {
+			dispatch(authActions.login(res));
+			dispatch(appActions.initDone());
+		});
 	}, [dispatch, sendRequest]);
 	return (
 		<Layout>
@@ -39,7 +44,9 @@ function App() {
 					<Home />
 				</Route>
 				<Route path='/profile/:id'>
-					<UserProfile />
+					<UserProfileGuard>
+						<UserProfile />
+					</UserProfileGuard>
 				</Route>
 				<Route path='/restaurant/:id'>
 					<RestaurantDetails />

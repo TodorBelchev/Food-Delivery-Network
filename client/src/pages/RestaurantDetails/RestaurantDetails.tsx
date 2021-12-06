@@ -13,6 +13,7 @@ import RestaurantDashboard from "../../components/restaurant/RestaurantDashboard
 import RestaurantHeader from "../../components/restaurant/RestaurantHeader/RestaurantHeader";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import ShoppingCart from "../../components/shoppingCart/ShoppingCart/ShoppingCart";
+import IsOwner from "../../guards/IsOwner";
 
 
 const RestaurantDetails: React.FC = () => {
@@ -40,10 +41,16 @@ const RestaurantDetails: React.FC = () => {
             {restaurant._id && !isLoading && <RestaurantHeader user={user} />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
-                    <RestaurantDashboard />
+                    {!isLoading &&
+                        <IsOwner>
+                            <RestaurantDashboard />
+                        </IsOwner>}
                 </Route>
                 <Route path="/restaurant/:id/edit">
-                    {restaurant._id && <CreateRestaurant edit={true} />}
+                    {restaurant._id &&
+                        <IsOwner>
+                            <CreateRestaurant edit={true} />
+                        </IsOwner>}
                 </Route>
                 <Route path="/">
                     {restaurant._id &&
