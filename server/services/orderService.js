@@ -10,7 +10,7 @@ const getOrderById = (id) => {
 };
 
 const getMyOrders = (id, page) => {
-    return Order.find({ user: id }).skip(page * 20).limit(20).populate('items.item').populate('restaurant');
+    return Order.find({ user: id }).sort({ date: 'desc' }).skip(page * 20).limit(20).populate('items.item').populate('restaurant');
 };
 
 const getMyOrdersCount = (id) => {

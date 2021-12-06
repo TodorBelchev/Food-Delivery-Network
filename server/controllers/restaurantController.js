@@ -22,7 +22,7 @@ const {
     deleteFromCloudinary,
     extractFilterFromQuery
 } = require('../utils');
-const { isLoggedIn, checkUser } = require('../middlewares');
+const { isLoggedIn, checkUser, isOwner, isCommentOwner } = require('../middlewares');
 
 const router = Router();
 
@@ -65,6 +65,30 @@ router.post('/create', isLoggedIn(), async (req, res) => {
             owner: req.decoded.id
         };
 
+        if (restaurantData.name.length < 6) {
+            throw new Error('Name must be at least 6 characters long!');
+        }
+
+        if (restaurantData.mainTheme.length < 6) {
+            throw new Error('Main theme must be at least 6 characters long!');
+        }
+
+        if (restaurantData.categories.length < 1) {
+            throw new Error('At least one category is required!');
+        }
+
+        if (formData.workTime.length < 6) {
+            throw new Error('Incorrect work time!');
+        }
+
+        if (!restaurantData.image) {
+            throw new Error('Image is required!');
+        }
+
+        if (restaurantData.cities.length < 1) {
+            throw new Error('At least one city is required!');
+        }
+
         const restaurant = await createRestaurant(restaurantData);
         res.status(200).send(restaurant);
     } catch (error) {
@@ -93,11 +117,11 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', isLoggedIn(), async (req, res) => {
+router.put('/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
     const form = formidable({ multiples: true });
     const imagesURL = [];
     try {
-        const restaurant = await getById(req.params.id);
+        const restaurant = await getById(req.params.restaurantId);
         const [formData, incFiles] = await getFormData(req, form);
         if (Object.keys(incFiles).length > 0) {
             for (const file of Object.values(incFiles)) {
@@ -123,6 +147,30 @@ router.put('/:id', isLoggedIn(), async (req, res) => {
             owner: req.decoded.id
         };
 
+        if (restaurantData.name.length < 6) {
+            throw new Error('Name must be at least 6 characters long!');
+        }
+
+        if (restaurantData.mainTheme.length < 6) {
+            throw new Error('Main theme must be at least 6 characters long!');
+        }
+
+        if (restaurantData.categories.length < 1) {
+            throw new Error('At least one category is required!');
+        }
+
+        if (formData.workTime.length < 6) {
+            throw new Error('Incorrect work time!');
+        }
+
+        if (!restaurantData.image) {
+            throw new Error('Image is required!');
+        }
+
+        if (restaurantData.cities.length < 1) {
+            throw new Error('At least one city is required!');
+        }
+
         Object.assign(restaurant, restaurantData);
         await restaurant.save();
         res.status(200).send(restaurant);
@@ -132,12 +180,12 @@ router.put('/:id', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.delete('/:id', isLoggedIn(), async (req, res) => {
+router.delete('/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
     try {
-        const restaurant = await getById(req.params.id);
+        const restaurant = await getById(req.params.restaurantId);
         const imgId = restaurant.image.public_id;
         await deleteFromCloudinary(imgId)
-        await deleteById(req.params.id);
+        await deleteById(req.params.restaurantId);
         res.status(200).send({ message: 'Success' });
     } catch (error) {
         console.log(error);
@@ -185,7 +233,7 @@ router.post('/:id/comment', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.put('/:id/comment/:commentId', isLoggedIn(), async (req, res) => {
+router.put('/:id/comment/:commentId', isLoggedIn(), isCommentOwner(),  async (req, res) => {
     try {
         const name = req.body.name.trim();
         const commentText = req.body.comment.trim();
@@ -240,7 +288,7 @@ router.get('/:id/comment', checkUser(), async (req, res) => {
     }
 });
 
-router.delete('/:restaurantId/comment/:commentId', isLoggedIn(), async (req, res) => {
+router.delete('/:restaurantId/comment/:commentId', isLoggedIn(), isCommentOwner(), async (req, res) => {
     try {
         await deleteCommentById(req.params.commentId);
         const ratings = await getAllRatingsByRestaurantId(req.params.restaurantId);

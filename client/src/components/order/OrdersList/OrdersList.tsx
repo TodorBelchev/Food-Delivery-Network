@@ -52,6 +52,10 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
         sendRequest(options, processResponse);
     }, [sendRequest, restaurant._id, status, processResponse, page]);
 
+    useEffect(() => {
+        fetchOrders();
+    }, [fetchOrders]);
+
     const onSuccessDelete = () => {
         fetchOrders();
     };
@@ -59,10 +63,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     const onSuccessChangeStatus = () => {
         fetchOrders();
     };
-
-    useEffect(() => {
-        fetchOrders();
-    }, [fetchOrders]);
 
     return (
         <div className="container">

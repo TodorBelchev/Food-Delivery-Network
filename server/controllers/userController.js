@@ -82,6 +82,10 @@ router.post('/register', async (req, res) => {
 
 router.put('/:id', isLoggedIn(), async (req, res) => {
 	try {
+		if (req.decoded.id !== req.params.id) {
+			throw new Error('Not authorized!');
+		}
+		
 		const firstName = req.body.firstName.trim();
 		const lastName = req.body.lastName.trim();
 		const email = req.body.email.trim();

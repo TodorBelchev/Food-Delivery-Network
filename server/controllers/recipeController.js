@@ -5,11 +5,11 @@ const { getById } = require('../services/restaurantService');
 const { createRecipe, deleteById, getRecipeById } = require('../services/recipeService');
 const { getFormData, uploadToCloudinary } = require('../utils');
 
-const { isLoggedIn } = require('../middlewares');
+const { isLoggedIn, isOwner } = require('../middlewares');
 
 const router = Router();
 
-router.post('/:RestaurantId/add-recipe', isLoggedIn(), async (req, res) => {
+router.post('/:restaurantId/add-recipe', isLoggedIn(), isOwner(), async (req, res) => {
     const form = formidable({ multiples: true });
     const imagesURL = [];
     try {
@@ -50,7 +50,7 @@ router.post('/:RestaurantId/add-recipe', isLoggedIn(), async (req, res) => {
             throw new Error('Category is required!');
         }
 
-        const restaurant = await getById(req.params.RestaurantId);
+        const restaurant = await getById(req.params.restaurantId);
         const recipe = await createRecipe({
             name,
             ingredients,
@@ -69,7 +69,7 @@ router.post('/:RestaurantId/add-recipe', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.put('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
+router.put('/:id/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const form = formidable({ multiples: true });
         const imagesURL = [];
@@ -97,6 +97,26 @@ router.put('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
             image: imagesURL[0] || recipe.image
         };
 
+        if (recipeData.name.length < 5) {
+            throw new Error('Recipe name must be at least 5 characters long!');
+        }
+
+        if (recipeData.ingredients.length < 3) {
+            throw new Error('Recipe ingredients must be at last 3!')
+        }
+
+        if (!recipeData.price) {
+            throw new Error('Price is required!');
+        }
+
+        if (!recipeData.weight) {
+            throw new Error('Weight is required!');
+        }
+
+        if (!recipeData.category) {
+            throw new Error('Category is required!');
+        }
+
         Object.assign(recipe, recipeData);
         await recipe.save();
         const restaurant = await getById(req.params.restaurantId);
@@ -107,7 +127,7 @@ router.put('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.delete('/:id/:restaurantId', isLoggedIn(), async (req, res) => {
+router.delete('/:id/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const restaurant = await getById(req.params.restaurantId);
         await deleteById(req.params.id);

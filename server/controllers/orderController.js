@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { isLoggedIn, checkUser } = require('../middlewares');
+const { isLoggedIn, checkUser, isOwner } = require('../middlewares');
 const {
     createOrder,
     getActiveOrdersByRestaurantIdAndPage,
@@ -85,7 +85,7 @@ router.post('/',
         }
     });
 
-router.get('/:restaurantId/active', isLoggedIn(), async (req, res) => {
+router.get('/:restaurantId/active', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const page = req.query.page - 1 || 0;
         const orders = await getActiveOrdersByRestaurantIdAndPage(req.params.restaurantId, page);
@@ -97,7 +97,7 @@ router.get('/:restaurantId/active', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.get('/:restaurantId/completed', isLoggedIn(), async (req, res) => {
+router.get('/:restaurantId/completed', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const page = req.query.page - 1 || 0;
         const orders = await getCompletedOrdersByRestaurantIdAndPage(req.params.restaurantId, page);
@@ -121,7 +121,7 @@ router.get('/my-orders', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.get('/:restaurantId/categories/count', isLoggedIn(), async (req, res) => {
+router.get('/:restaurantId/categories/count', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const convertedDate = getStartDate(req.query.period);
         const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId, convertedDate);
@@ -142,7 +142,7 @@ router.get('/:restaurantId/categories/count', isLoggedIn(), async (req, res) => 
     }
 });
 
-router.get('/:restaurantId/sales-volumes', isLoggedIn(), async (req, res) => {
+router.get('/:restaurantId/sales-volumes', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const convertedDate = getStartDate(req.query.period);
         const orders = await getCompletedOrdersByRestaurantId(req.params.restaurantId, convertedDate);
