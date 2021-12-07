@@ -18,7 +18,7 @@ const UserIcon: React.FC = () => {
     }
 
     const handleInsideClick = useCallback((e: React.MouseEvent) => {
-        if ((e.target as Node) === imgRef.current) {
+        if ((e.target as Node).nodeName === 'path' || (e.target as Node).nodeName === 'svg') {
             setPopupIsOpen(oldState => !oldState);
         } else if ((e.target as Node).nodeName === 'A' || (e.target as Node).nodeName === 'BUTTON') {
             setPopupIsOpen(false);

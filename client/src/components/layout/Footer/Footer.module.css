@@ -43,6 +43,7 @@
     flex-wrap: wrap;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-icon {
@@ -53,4 +54,16 @@
 .footer-icon:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+@media all and (max-width: 1440px) {
+    .footer-wrapper {
+        max-width: 1200px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .footer-wrapper {
+        max-width: 1000px;
+    }
 }

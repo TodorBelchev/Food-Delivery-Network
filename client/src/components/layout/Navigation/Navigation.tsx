@@ -41,7 +41,8 @@ const Navigation: React.FC = () => {
             <div className={classes.container}>
                 <NavLink to="/" className={classes['logo-link']}>
                     <FontAwesomeIcon icon={['fas', 'utensils']} className={classes.icon} />
-                    <h2>Food Delivery Network</h2>
+                    <h2 className={classes['logo-link-long']}>Food Delivery Network</h2>
+                    <h2 className={classes['logo-link-short']}>FDN</h2>
                 </NavLink>
                 <nav>
                     <ul className={classes['nav-list']}>

@@ -61,3 +61,34 @@
     letter-spacing: 2px;
     z-index: 1;
 }
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 -20px;
+}
+
+.list-item {
+    width: 248px;
+    margin: 0 20px;
+}
+
+@media all and (max-width: 1440px) {
+    .list-item {
+        width: 260px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .list-item {
+        width: 293px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .list-item {
+        width: 100%;
+    }
+}

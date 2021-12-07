@@ -5,7 +5,6 @@
 .kitchens {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -14,13 +13,8 @@
 }
 
 .kitchen {
-    flex-basis: 31%;
     position: relative;
-    height: 300px;
-    margin: 20px 0;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 2px lightgrey;
 }
 
 .kitchen:hover {
@@ -51,4 +45,39 @@
     font-weight: bold;
     letter-spacing: 2px;
     z-index: 1;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+}
+
+.list-item {
+    height: 300px;
+    width: 434px;
+    margin: 20px;
+    box-shadow: 0 0 5px 2px lightgrey;
+    border-radius: 15px;
+
+}
+
+@media all and (max-width: 1440px) {
+    .list-item {
+        width: 360px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .list-item {
+        width: 293px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .list-item {
+        width: 100%;
+    }
 }

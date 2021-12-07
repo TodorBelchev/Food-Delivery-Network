@@ -66,12 +66,23 @@
 
 @media (max-width: 1640px) {
     .popup {
-        left: -114px;
-        top: -14px;
+        left: -44px;
+        top: 53px;
     }
 
     .popup:after {
-        top: 20px;
-        left: calc(50% + 89px);
+        top: -9px;
+        left: 152px;
+    }
+}
+
+@media (max-width: 670px) {
+    .popup {
+        top: 47px;
+        left: -52px;
+    }
+    .popup:after {
+        top: -3px;
+        left: 160px;
     }
 }

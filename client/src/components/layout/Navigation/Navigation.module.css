@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px;
 }
 
 .icon {
@@ -37,7 +38,7 @@
 }
 
 .nav-list-item:last-child {
-    padding: 5px 0 5px 20px;
+    padding: 5px 0 5px 5px;
 }
 
 .logo-link {
@@ -55,4 +56,33 @@
 .user-icon:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.logo-link-short {
+    display: none;
+}
+
+@media all and (max-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .logo-link h2 {
+        font-size: 20px;
+    }
+    .logo-link-short {
+        display: block;
+    }
+    .logo-link-long {
+        display: none;
+    }
+
 }

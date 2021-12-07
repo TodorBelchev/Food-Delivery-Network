@@ -23,8 +23,9 @@ main {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 textarea {
@@ -68,4 +69,22 @@ a {
 
 .create-btn {
     margin: 30px 100px;
+}
+
+@media all and (max-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    main {
+        margin: 0px auto 300px;
+    }
 }
