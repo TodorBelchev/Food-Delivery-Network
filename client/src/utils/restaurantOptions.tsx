@@ -38,6 +38,12 @@ const getByTheme = (theme: string) => {
     }
 };
 
+const getFavorites = (query: string) => {
+    return {
+        url: `http://localhost:3030/api/restaurant/favorites?${query}`
+    }
+};
+
 const deleteRestaurant = (restaurantId: string) => {
     return {
         url: `http://localhost:3030/api/restaurant/${restaurantId}`,
@@ -86,6 +92,7 @@ const restaurantOptions = {
     getByOwner,
     getByCity,
     getByTheme,
+    getFavorites,
     addComment,
     deleteComment,
     getComments,

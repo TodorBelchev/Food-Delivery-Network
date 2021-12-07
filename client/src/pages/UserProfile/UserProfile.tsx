@@ -7,6 +7,7 @@ import HorizontalNav from "../../components/UI/HorizontalNav/HorizontalNav";
 import UserData from "../../components/userProfile/UserData/UserData";
 import MyRestaurants from "../../components/restaurant/MyRestaurants/MyRestaurants";
 import OrdersList from "../../components/order/OrdersList/OrdersList";
+import FavoriteRestaurants from "../../components/restaurant/FavoriteRestaurants/FavoriteRestaurants";
 
 const UserProfile: React.FC = () => {
     const user = useAppSelector(state => state.auth);
@@ -34,6 +35,9 @@ const UserProfile: React.FC = () => {
                 </Route>
                 <Route path="/profile/:id/restaurants">
                     <MyRestaurants />
+                </Route>
+                <Route path="/profile/:id/favorites">
+                    <FavoriteRestaurants />
                 </Route>
             </Switch>
         </>

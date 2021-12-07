@@ -3,7 +3,7 @@ const formidable = require('formidable');
 
 const { getById } = require('../services/restaurantService');
 const { createRecipe, deleteById, getRecipeById } = require('../services/recipeService');
-const { getFormData, uploadToCloudinary } = require('../utils');
+const { getFormData, uploadToCloudinary, deleteFromCloudinary } = require('../utils');
 
 const { isLoggedIn, isOwner } = require('../middlewares');
 
@@ -131,6 +131,8 @@ router.delete('/:id/:restaurantId', isLoggedIn(), isOwner(), async (req, res) =>
     try {
         const restaurant = await getById(req.params.restaurantId);
         await deleteById(req.params.id);
+        const recipe = restaurant.recipes.find(x => x._id.toString() === req.params.id);
+        await deleteFromCloudinary(recipe.image.public_id);
         restaurant.recipes = restaurant.recipes.filter(recipe => recipe._id.toString() !== req.params.id);
         await restaurant.save();
         res.status(200).send(restaurant);

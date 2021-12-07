@@ -9,7 +9,9 @@ const Spinner: React.FC<SpinnerProps> = (props) => {
         <div className={`
             ${classes['lds-dual-ring']}
             ${props.size === 'small' ? classes.small : ''}
-            ${props.size === 'medium' ? classes.medium: ''}`}></div>
+            ${props.size === 'medium' ? classes.medium : ''}`}
+        >
+        </div>
     )
 }
 

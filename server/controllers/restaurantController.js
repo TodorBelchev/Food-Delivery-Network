@@ -107,6 +107,17 @@ router.get('/by-owner', isLoggedIn(), async (req, res) => {
     }
 });
 
+router.get('/favorites', async (req, res) => {
+    try {
+        const ids = Object.keys(req.query || {}).map(x => getById(x));
+        const restaurants = await Promise.all(ids);
+        res.status(200).send(restaurants);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+});
+
 router.get('/:id', async (req, res) => {
     try {
         const restaurant = await getById(req.params.id).lean();
@@ -184,7 +195,7 @@ router.delete('/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
     try {
         const restaurant = await getById(req.params.restaurantId);
         const imgId = restaurant.image.public_id;
-        await deleteFromCloudinary(imgId)
+        await deleteFromCloudinary(imgId);
         await deleteById(req.params.restaurantId);
         res.status(200).send({ message: 'Success' });
     } catch (error) {

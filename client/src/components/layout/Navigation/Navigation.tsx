@@ -46,6 +46,11 @@ const Navigation: React.FC = () => {
                 <nav>
                     <ul className={classes['nav-list']}>
                         <li className={classes['nav-list-item']}>
+                            <NavLink to={user._id ? `/profile/${user._id}/favorites` : '/favorites'}>
+                                <FontAwesomeIcon icon={['far', 'heart']} className={classes['user-icon']} />
+                            </NavLink>
+                        </li>
+                        <li className={classes['nav-list-item']}>
                             {user.email ?
                                 <UserIcon /> :
                                 <FontAwesomeIcon icon={['far', 'user-circle']} onClick={onLoginClick} className={classes['user-icon']} />

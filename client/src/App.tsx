@@ -18,6 +18,7 @@ import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
 import Notification from './components/UI/Notification/Notification';
 import UserProfileGuard from './guards/UserProfileGuard';
+import FavoriteRestaurants from './components/restaurant/FavoriteRestaurants/FavoriteRestaurants';
 
 loadFontAwesome();
 
@@ -56,6 +57,9 @@ function App() {
 				</Route>
 				<Route path='/main-theme/:mainTheme'>
 					<MainTheme />
+				</Route>
+				<Route path='/favorites'>
+					<FavoriteRestaurants />
 				</Route>
 			</Switch>
 		</Layout>
