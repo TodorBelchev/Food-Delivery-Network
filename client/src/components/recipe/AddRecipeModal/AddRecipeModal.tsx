@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
@@ -77,7 +77,15 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
             setWeightValue(recipe.weight.toString());
             setCategoryValue(recipe.category);
         }
-    }, [recipe, setNameValue, setIngredientsValue, setPriceValue, setWeightValue, setCategoryValue])
+    }, [recipe, setNameValue, setIngredientsValue, setPriceValue, setWeightValue, setCategoryValue]);
+
+    const fileChangeHandler = (e: ChangeEvent) => {
+        const element = e.target as HTMLInputElement;
+        if (element.files?.length !== 0) {
+            setSelectedFile(element.files![0]);
+            setFileIsValid(true);
+        }
+    }
 
     const processResponse = (res: IRestaurant) => {
         // show OK notification
@@ -131,7 +139,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         onBlur={nameBlurHandler}
                     />
                     <span className={classes.placeholder}>Recipe name</span>
-                    {nameHasError && <p className={classes['input-notification']}>Recipe name must be at least 5 characters long!</p>}
+                    {nameHasError && <p className={classes['input-notification']}>At least 5 characters long!</p>}
                 </div>
                 <div className={classes.col}>
                     <input
@@ -145,7 +153,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         onBlur={ingredientsBlurHandler}
                     />
                     <span className={classes.placeholder}>Ingredients separated by ","</span>
-                    {ingredientsHasError && <p className={classes['input-notification']}>At least 3 ingredients are required!</p>}
+                    {ingredientsHasError && <p className={classes['input-notification']}>At least 3!</p>}
                 </div>
                 <div className={classes.col}>
                     <input
@@ -198,12 +206,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         type="file"
                         name="image"
                         disabled={isLoading}
-                        onChange={(e) => {
-                            if (e.target.files?.length !== 0) {
-                                setSelectedFile(e.target.files![0]);
-                                setFileIsValid(true);
-                            }
-                        }}
+                        onChange={fileChangeHandler}
                     />
                     {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>

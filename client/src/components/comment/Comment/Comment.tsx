@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useAppSelector } from '../../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import IComment from '../../../interfaces/IComment';
 import IRestaurant from '../../../interfaces/IRestaurant';
+import { notificationActions } from '../../../store/notification';
 import formatDate from '../../../utils/formatDate';
 import restaurantOptions from '../../../utils/restaurantOptions';
 
@@ -20,6 +21,7 @@ type CommentProps = JSX.IntrinsicElements['article'] & {
 }
 
 const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, deleteCommentHandler }) => {
+    const dispatch = useAppDispatch();
     const [isEditMode, setIsEditMode] = useState(false);
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const restaurant = useAppSelector(state => state.restaurant);
@@ -27,6 +29,12 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
     const { name, comment, rating, date, owner } = commentObj;
     const user = useAppSelector(state => state.auth);
     const formattedDate = formatDate(date);
+
+    useEffect(() => {
+        return () => {
+            dispatch(notificationActions.close());
+        }
+    }, [dispatch]);
 
     const editClickHandler = () => {
         setIsEditMode(true);

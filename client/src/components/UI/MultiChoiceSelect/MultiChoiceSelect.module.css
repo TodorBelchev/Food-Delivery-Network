@@ -60,3 +60,12 @@
     font-size: 12px;
     margin: 0;
 }
+
+@media all and (max-width: 670px) {
+    .input-notification {
+        top: 30px;
+        left: 10px;
+        width: 100%;
+        text-align: left;
+    }
+}

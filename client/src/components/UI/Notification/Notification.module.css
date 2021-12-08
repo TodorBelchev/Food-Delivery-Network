@@ -34,3 +34,21 @@
 .icon--close {
     cursor: pointer;
 }
+
+
+@media all and (max-width: 670px) {
+    .notification {
+        top: 45px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 90%;
+    }
+
+    .notification-text {
+        max-width: none;
+    }
+
+    .icon--close {
+        margin-left: auto;
+    }
+}

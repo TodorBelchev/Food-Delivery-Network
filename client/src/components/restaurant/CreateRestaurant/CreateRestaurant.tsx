@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
 import useHttp from '../../../hooks/useHttp';
@@ -8,12 +8,12 @@ import IRestaurant from '../../../interfaces/IRestaurant';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { restaurantActions } from '../../../store/restaurant';
 import getCities from '../../../utils/getCities';
+import restaurantOptions from '../../../utils/restaurantOptions';
 
 import MultiChoiceSelect, { InputStringType } from '../../UI/MultiChoiceSelect/MultiChoiceSelect';
 import Spinner from '../../UI/Spinner/Spinner';
 
 import classes from './CreateRestaurant.module.css';
-import restaurantOptions from '../../../utils/restaurantOptions';
 
 type CreateRestaurantProps = JSX.IntrinsicElements['section'] & {
     edit: boolean;
@@ -79,6 +79,14 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
 
     if (nameIsValid && mainThemeIsValid && categoriesIsValid && workTimeIsValid && fileIsValid) {
         formIsValid = true;
+    }
+
+    const fileChangeHandler = (e: ChangeEvent) => {
+        const element = e.target as HTMLInputElement;
+        if (element.files?.length !== 0) {
+            setSelectedFile(element.files![0]);
+            setFileIsValid(true);
+        }
     }
 
     const processResponse = (response: IRestaurant) => {
@@ -194,12 +202,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         type="file"
                         disabled={isLoading}
                         name="image"
-                        onChange={(e) => {
-                            if (e.target.files?.length !== 0) {
-                                setSelectedFile(e.target.files![0]);
-                                setFileIsValid(true);
-                            }
-                        }}
+                        onChange={fileChangeHandler}
                     />
                     {!fileIsValid && <p className={classes['input-notification']}>Restaurant cover image is required!</p>}
                 </div>
@@ -212,13 +215,15 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         disabled={isLoading}
                     />
                 </div>
-                <button
-                    className={`main-btn create-btn ${classes['create-restaurant-btn']}`}
-                    disabled={!formIsValid || isLoading}
-                >
-                    {edit ? 'Edit' : 'Create'}
-                    {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
-                </button>
+                <div className={classes.col}>
+                    <button
+                        className={`main-btn create-btn ${classes['create-restaurant-btn']}`}
+                        disabled={!formIsValid || isLoading}
+                    >
+                        {edit ? 'Edit' : 'Create'}
+                        {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                    </button>
+                </div>
             </form>
         </section>
     )
