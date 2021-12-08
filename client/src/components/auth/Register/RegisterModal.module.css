@@ -107,3 +107,33 @@ p.invite {
     cursor: pointer;
     font-size: 22px;
 }
+
+@media all and (max-width: 610px) {
+    .col {
+        width: 100%;
+    }
+    .register-title {
+        font-size: 16px;
+    }
+    .icon {
+        font-size: 22px;
+    }
+    .register-form {
+        padding-top: 10px;
+    }
+    .register-form input {
+        flex: 0 0 89%;
+    }
+    .placeholder {
+        left: 36px;
+    }
+    .main-btn {
+        font-size: 16px;
+        margin: 0 auto;
+        padding: 5px 10px;
+        width: 100px;
+    }
+    p.invite {
+        font-size: 14px;
+    }
+}

@@ -121,7 +121,7 @@ const RegisterModal: React.FC = () => {
                         : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
                     }
                     <span className={classes.placeholder}>Password</span>
-                    {passwordHasError && <p className={classes['input-notification']}>Password must be at least 6 characters</p>}
+                    {passwordHasError && <p className={classes['input-notification']}>At least 6 characters</p>}
                 </div>
                 <div className={classes.col}>
                     <label htmlFor="re-password">

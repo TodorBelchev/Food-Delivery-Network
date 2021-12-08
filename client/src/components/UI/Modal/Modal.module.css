@@ -17,3 +17,9 @@
     overflow: hidden;
     transform: translateX(-50%);
 }
+
+@media all and (max-width: 610px) {
+    .modal {
+        width: 90%;
+    }
+} 

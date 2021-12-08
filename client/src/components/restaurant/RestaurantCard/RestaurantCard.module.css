@@ -1,5 +1,4 @@
 .restaurant {
-    flex-basis: 23%;
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -73,4 +72,22 @@
 .icon {
     margin: 0 10px;
     font-size: 25px;
+}
+
+@media all and (max-width: 1440px) {
+    .restaurant {
+        width: 373px;
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .restaurant {
+        width: 306px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .restaurant {
+        width: 100%;
+    }
 }

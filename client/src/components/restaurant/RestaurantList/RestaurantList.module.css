@@ -6,3 +6,14 @@
     flex-wrap: wrap;
     margin: 20px -10px 0 -10px;
 }
+
+@media all and (max-width: 670px) {
+    .list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .list-item {
+        width: 100%;
+    }
+}
