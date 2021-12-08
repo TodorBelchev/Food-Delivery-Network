@@ -83,8 +83,8 @@ const SalesChart: React.FC = () => {
                         title: {
                             display: true,
                             text: 'Orders by category'
-                        }
-                    }
+                        },
+                    },
                 }
             }
         );
@@ -105,7 +105,7 @@ const SalesChart: React.FC = () => {
                 <option value="week">Week</option>
                 <option value="month">Month</option>
             </select>
-            {dataLabels.length > 0 && <canvas ref={canvasRef}></canvas>}
+            {dataLabels.length > 0 && <canvas ref={canvasRef} className={classes['canvas']}></canvas>}
             {dataLabels.length === 0 && <div>No data for selected period</div>}
         </div >
     )

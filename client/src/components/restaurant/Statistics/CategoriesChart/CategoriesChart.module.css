@@ -1,8 +1,9 @@
 .chart {
-    flex: 0 0 30%;
+    flex: 0 0 35%;
     box-shadow: 0 0 5px 2px lightgrey;
     padding: 10px;
     border-radius: 15px;
+    position: relative;
 }
 
 .chart-title {
@@ -18,4 +19,21 @@
 
 .hide {
     display: none;
+}
+
+.canvas {
+    width: 100% !important;
+}
+
+@media all and (max-width: 670px) {
+    .chart {
+        flex: 0 0 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .chart {
+        flex: 0 0 100%;
+    }
 }
