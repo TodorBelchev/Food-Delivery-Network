@@ -54,7 +54,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <img src={recipe.image.url} alt={recipe.name} />
             </div>
             <div className={classes['recipe-content']}>
-                <h3>{recipe.name} <span className={classes['recipe-content-weight']}>({recipe.weight}g)</span></h3>
+                <h3 className={classes['recipe-content-title']}>{recipe.name} <span className={classes['recipe-content-weight']}>({recipe.weight}g)</span></h3>
                 <p className={classes['recipe-content-text']}>{recipe.ingredients.join(', ')}</p>
                 <p>${recipe.price}</p>
             </div>

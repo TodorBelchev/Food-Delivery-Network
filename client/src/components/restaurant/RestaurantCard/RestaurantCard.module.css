@@ -90,4 +90,17 @@
     .restaurant {
         width: 100%;
     }
+    .restaurant-image-wrapper {
+        height: 170px;
+    }
+    .restaurant-title {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    .restaurant-score {
+        margin: 10px 0;
+    }
+    .restaurant-text-wrapper {
+        margin-bottom: 10px;
+    }
 }

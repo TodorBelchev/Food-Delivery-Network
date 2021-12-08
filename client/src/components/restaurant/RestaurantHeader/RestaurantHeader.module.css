@@ -96,3 +96,28 @@
     font-size: 20px;
     margin-left: 10px;
 }
+
+@media all and (max-width:670px) {
+    .restaurant-img {
+        height: 190px;
+    }
+    .restaurant-content {
+        flex-direction: column;
+    }
+    .restaurant-content-title-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .restaurant-content-title {
+        margin-right: 0;
+    }
+    .restaurant-content-subtitle {
+        margin-right: 0;
+    }
+    .icons {
+        justify-content: center;
+    }
+    .icon {
+        margin: 0 10px;
+    }
+}

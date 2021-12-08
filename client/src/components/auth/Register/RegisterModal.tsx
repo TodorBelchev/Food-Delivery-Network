@@ -141,7 +141,7 @@ const RegisterModal: React.FC = () => {
                         ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
                         : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
                     }
-                    <span className={classes.placeholder}>Repeat password</span>
+                    <span className={classes.placeholder}>Re-password</span>
                     {rePasswordHasError && <p className={classes['input-notification']}>Passwords must match</p>}
                 </div>
                 <button

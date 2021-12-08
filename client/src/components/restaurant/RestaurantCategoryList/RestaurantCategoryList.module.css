@@ -1,10 +1,10 @@
 .category {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -20px;
+    justify-content: space-between;
 }
 
 .category-title {
     flex: 0 0 100%;
-    margin: 20px 0 0 20px;
+    margin: 20px 0 0;
 }
