@@ -78,11 +78,11 @@
 
 @media (max-width: 670px) {
     .popup {
-        top: 47px;
-        left: -52px;
+        top: 37px;
+        left: -60px;
     }
     .popup:after {
         top: -3px;
-        left: 160px;
+        left: 162px;
     }
 }

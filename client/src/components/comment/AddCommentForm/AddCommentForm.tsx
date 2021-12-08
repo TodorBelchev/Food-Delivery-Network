@@ -82,8 +82,8 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                         onChange={nameChangeHandler}
                         onBlur={nameBlurHandler}
                     />
-                    <label htmlFor="name" className={classes.placeholder}>Name: ex.John Doe</label>
-                    {nameHasError && <p className={classes['input-notification']}>Name must be at least 6 characters long!</p>}
+                    <label htmlFor="name" className={classes.placeholder}>Name:</label>
+                    {nameHasError && <p className={classes['input-notification']}>At least 6 characters long!</p>}
                 </div>
                 <div className={classes.col}>
                     <textarea
@@ -97,8 +97,8 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                         onChange={commentChangeHandler}
                         onBlur={commentBlurHandler}
                     />
-                    <label htmlFor="comment" className={classes.placeholder}>Leave comment here...</label>
-                    {commentHasError && <p className={classes['input-notification']}>Comment must be at least 10 characters long!</p>}
+                    <label htmlFor="comment" className={classes.placeholder}>Comment:</label>
+                    {commentHasError && <p className={classes['input-notification']}>At least 10 characters long!</p>}
                 </div>
                 <div className={classes.controls}>
                     <div className={classes.rating}>
@@ -133,7 +133,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                             <span className={classes.icon}>&#9733;</span>
                         </label>
                     </div>
-                    <div>
+                    <div className={classes['controls-btns']}>
                         <button className={classes['controls-btn']}>Add</button>
                         <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
                     </div>

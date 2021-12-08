@@ -96,3 +96,16 @@
     background: rgb(233, 249, 255);
     padding: 10px;
 }
+
+@media all and (max-width: 670px) {
+    .comment-header {
+        flex-direction: column;
+    }
+    .comment-header-title {
+        text-align: center;
+    }
+    .comment-date,
+    .comment-text {
+        text-align: center;
+    }
+}

@@ -132,7 +132,7 @@
     text-shadow: 0 0 5px #0080ff;
 }
 
-.form .controls {
+.controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -156,4 +156,18 @@
 .error {
     color: #ff0000;
     padding: 10px 0 0 10px;
+}
+
+@media all and (max-width: 670px) {
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .controls-btns {
+        flex: 0 0 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
 }

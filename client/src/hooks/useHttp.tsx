@@ -1,8 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
+
 import { authActions } from '../store/auth';
 import { modalActions } from '../store/modal';
 import { notificationActions } from '../store/notification';
-import { useAppDispatch } from './reduxHooks';
+import { useAppDispatch, useAppSelector } from './reduxHooks';
 
 type reqConfig = {
     url: string;
@@ -15,6 +16,7 @@ const useHttp = () => {
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const notificationState = useAppSelector(state => state.notification);
 
     const sendRequest = useCallback(async (requestConfig: reqConfig, applyData) => {
         setIsLoading(true);
@@ -53,7 +55,10 @@ const useHttp = () => {
         if (error) {
             dispatch(notificationActions.show({ type: 'error', text: error }));
         }
-    }, [dispatch, error]);
+        if (notificationState.text === '') {
+            setError(null);
+        }
+    }, [dispatch, error, notificationState.text]);
 
     return {
         isLoading,

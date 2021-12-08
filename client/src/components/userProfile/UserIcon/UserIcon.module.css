@@ -12,3 +12,9 @@
 .container {
     position: relative;
 }
+
+@media all and (max-width: 670px) {
+    .user-icon {
+        font-size: 25px;
+    }
+}
