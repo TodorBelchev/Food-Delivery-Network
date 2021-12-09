@@ -1,6 +1,8 @@
+import env from "./env";
+
 const add = (data: FormData) => {
     return {
-        url: 'http://localhost:3030/api/restaurant/create',
+        url: `${env.BASE_URL}/restaurant/create`,
         method: 'POST',
         body: data
     }
@@ -8,7 +10,7 @@ const add = (data: FormData) => {
 
 const edit = (restaurantId: string, data: FormData) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${restaurantId}`,
+        url: `${env.BASE_URL}/restaurant/${restaurantId}`,
         method: 'PUT',
         body: data
     }
@@ -16,44 +18,44 @@ const edit = (restaurantId: string, data: FormData) => {
 
 const getById = (id: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${id}`
+        url: `${env.BASE_URL}/restaurant/${id}`
     }
 };
 
 const getByOwner = () => {
     return {
-        url: 'http://localhost:3030/api/restaurant/by-owner'
+        url: `${env.BASE_URL}/restaurant/by-owner`
     }
 };
 
 const getByCity = (city: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant?city=${city}`
+        url: `${env.BASE_URL}/restaurant?city=${city}`
     }
 };
 
 const getByTheme = (theme: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant?mainTheme=${theme}`
+        url: `${env.BASE_URL}/restaurant?mainTheme=${theme}`
     }
 };
 
 const getFavorites = (query: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/favorites?${query}`
+        url: `${env.BASE_URL}/restaurant/favorites?${query}`
     }
 };
 
 const deleteRestaurant = (restaurantId: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${restaurantId}`,
+        url: `${env.BASE_URL}/restaurant/${restaurantId}`,
         method: 'DELETE'
     }
 };
 
 const addComment = (restaurantId: string, name: string, comment: string, rating: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${restaurantId}/comment`,
+        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -64,18 +66,18 @@ const addComment = (restaurantId: string, name: string, comment: string, rating:
 
 const deleteComment = (restaurantId: string, commentId: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${restaurantId}/comment/${commentId}`,
+        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
         method: 'DELETE'
     }
 };
 
 const getComments = (restaurantId: string, page: number) => {
-    return { url: `http://localhost:3030/api/restaurant/${restaurantId}/comment?page=${page}` }
+    return { url: `${env.BASE_URL}/restaurant/${restaurantId}/comment?page=${page}` }
 };
 
 const editComment = (restaurantId: string, commentId: string, name: string, comment: string, rating: string) => {
     return {
-        url: `http://localhost:3030/api/restaurant/${restaurantId}/comment/${commentId}`,
+        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

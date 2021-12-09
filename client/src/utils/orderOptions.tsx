@@ -1,3 +1,5 @@
+import env from "./env";
+
 const add = (orderData: {
     address: string,
     city: string,
@@ -7,7 +9,7 @@ const add = (orderData: {
     restaurant: string
 }) => {
     return {
-        url: 'http://localhost:3030/api/order',
+        url: `${env.BASE_URL}/order`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -18,26 +20,26 @@ const add = (orderData: {
 
 const getOrders = (restaurantId: string, status: string, page: number) => {
     return {
-        url: `http://localhost:3030/api/order/${restaurantId}/${status}?page=${page}`
+        url: `${env.BASE_URL}/order/${restaurantId}/${status}?page=${page}`
     }
 };
 
 const getOrdersByOwner = (page: number) => {
     return {
-        url: `http://localhost:3030/api/order/my-orders?page=${page}`
+        url: `${env.BASE_URL}/order/my-orders?page=${page}`
     }
 };
 
 const deleteOrder = (orderId: string) => {
     return {
-        url: `http://localhost:3030/api/order/${orderId}`,
+        url: `${env.BASE_URL}/order/${orderId}`,
         method: 'DELETE'
     }
 };
 
 const edit = (orderId: string, status: string) => {
     return {
-        url: `http://localhost:3030/api/order/${orderId}`,
+        url: `${env.BASE_URL}/order/${orderId}`,
         method: 'PUT',
         body: JSON.stringify({ status }),
         headers: {
@@ -48,13 +50,13 @@ const edit = (orderId: string, status: string) => {
 
 const getOrdersCountByCategoryAndPeriod = (restaurantId: string, period: string) => {
     return {
-        url: `http://localhost:3030/api/order/${restaurantId}/categories/count?period=${period}`
+        url: `${env.BASE_URL}/order/${restaurantId}/categories/count?period=${period}`
     }
 };
 
 const getSalesByPeriod = (restaurantId: string, period: string) => {
     return {
-        url: `http://localhost:3030/api/order/${restaurantId}/sales-volumes?period=${period}`
+        url: `${env.BASE_URL}/order/${restaurantId}/sales-volumes?period=${period}`
     }
 };
 

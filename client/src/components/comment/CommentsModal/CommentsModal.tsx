@@ -123,7 +123,7 @@ const CommentsModal: React.FC = () => {
                         );
                     }
                 })}
-                {isLoading && <Spinner />}
+                {isLoading && <Spinner size="medium" />}
             </ul>
         </section>
     );

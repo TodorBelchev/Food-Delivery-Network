@@ -1,6 +1,8 @@
+import env from "./env";
+
 const login = (email: string, password: string) => {
     return {
-        url: 'http://localhost:3030/api/user/login',
+        url: `${env.BASE_URL}/user/login`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -14,7 +16,7 @@ const login = (email: string, password: string) => {
 
 const register = (email: string, password: string, rePassword: string) => {
     return {
-        url: 'http://localhost:3030/api/user/register',
+        url: `${env.BASE_URL}/user/register`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +30,7 @@ const register = (email: string, password: string, rePassword: string) => {
 };
 
 const logout = () => {
-    return { url: 'http://localhost:3030/api/user/logout' };
+    return { url: `${env.BASE_URL}/user/logout` };
 };
 
 const userOptions = {

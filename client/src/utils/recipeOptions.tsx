@@ -1,6 +1,8 @@
+import env from "./env";
+
 const add = (restaurantId: string, data: FormData) => {
     return {
-        url: `http://localhost:3030/api/recipe/${restaurantId}/add-recipe`,
+        url: `${env.BASE_URL}/recipe/${restaurantId}/add-recipe`,
         method: 'POST',
         body: data
     }
@@ -8,7 +10,7 @@ const add = (restaurantId: string, data: FormData) => {
 
 const edit = (recipeId: string, restaurantId: string, data: FormData) => {
     return {
-        url: `http://localhost:3030/api/recipe/${recipeId}/${restaurantId}`,
+        url: `${env.BASE_URL}/recipe/${recipeId}/${restaurantId}`,
         method: 'PUT',
         body: data
     }
@@ -16,7 +18,7 @@ const edit = (recipeId: string, restaurantId: string, data: FormData) => {
 
 const deleteRecipe = (recipeId: string, restaurantId: string) => {
     return {
-        url: `http://localhost:3030/api/recipe/${recipeId}/${restaurantId}`,
+        url: `${env.BASE_URL}/recipe/${recipeId}/${restaurantId}`,
         method: 'DELETE'
     }
 };
