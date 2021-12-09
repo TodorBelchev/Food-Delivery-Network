@@ -68,15 +68,18 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
         <div className="container">
             <ul className={classes.list}>
                 {isLoading && <Spinner />}
-                {!isLoading && orders.map(x => (
-                    <li key={x._id} className={classes['list-item']}>
-                        <OrdersListItem
-                            order={x}
-                            onSuccessDelete={onSuccessDelete}
-                            onSuccessChangeStatus={onSuccessChangeStatus}
-                        />
-                    </li>
-                ))}
+                {!isLoading && orders.length > 0 &&
+                    orders.map(x => (
+                        <li key={x._id} className={classes['list-item']}>
+                            <OrdersListItem
+                                order={x}
+                                onSuccessDelete={onSuccessDelete}
+                                onSuccessChangeStatus={onSuccessChangeStatus}
+                            />
+                        </li>
+                    ))}
+                {!isLoading && orders.length === 0 &&
+                    <h2 className={classes['no-orders-title']}>No orders yet!</h2>}
             </ul>
             {totalCount > 20 && <Paginator totalCount={totalCount} shownCount={20} page={page} isLoading={isLoading} />}
         </div>

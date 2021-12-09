@@ -7,10 +7,11 @@
 
 .nav--scrolled {
     box-shadow: 0 4px 5px -2px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0 4px 5px -2px rgb(0 0 0 / 25%);
 }
 
 .list {
-    padding: 10px;
+    padding: 10px 20px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -80,8 +81,8 @@
     left: unset;
 }
 
-@media all and (max-width:670px) {
+@media all and (max-width: 670px) {
     .nav {
-        top: 40px;
+        top: 38px;
     }
 }

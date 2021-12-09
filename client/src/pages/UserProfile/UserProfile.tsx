@@ -17,14 +17,14 @@ const UserProfile: React.FC = () => {
         { url: `/profile/${user._id}/create-restaurant`, text: 'Create Restaurant' },
         { url: `/profile/${user._id}/restaurants`, text: 'My restaurants' },
         { url: `/profile/${user._id}/favorites`, text: 'Favorite restaurants' },
-        { url: `/profile/${user._id}/orders`, text: 'Orders' },
+        { url: `/profile/${user._id}/orders`, text: 'My orders' },
     ];
 
     return (
         <>
             <HorizontalNav links={links} />
             <Switch>
-                <Route path="/profile/:id/" exact>
+                <Route path="/profile/:id" exact>
                     <UserData edit={false} />
                 </Route>
                 <Route path="/profile/:id/create-restaurant">

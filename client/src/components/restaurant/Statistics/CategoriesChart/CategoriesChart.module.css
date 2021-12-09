@@ -25,6 +25,10 @@
     width: 100% !important;
 }
 
+.no-data {
+    text-align: center;
+}
+
 @media all and (max-width: 670px) {
     .chart {
         flex: 0 0 50%;

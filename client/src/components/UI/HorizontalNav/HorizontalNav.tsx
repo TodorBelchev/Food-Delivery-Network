@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -10,24 +10,28 @@ type HorizontalNavProps = JSX.IntrinsicElements['nav'] & {
 }
 
 const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
-    const [scroll, setScroll] = useState(0);
-    const [elementScroll, setElementScroll] = useState(1);
+    const history = useHistory();
+    const [navStyleTop, setNavStyleTop] = useState(0);
+    const [elementScroll, setElementScroll] = useState(101);
     const [leftScroll, setLeftScroll] = useState(false);
     const [rightScroll, setRightScroll] = useState(false);
     const navRef = useRef<HTMLElement>(null);
     const ulRef = useRef<HTMLUListElement>(null);
 
-    const handleScroll = useCallback((e: Event) => {
-        const window = e.currentTarget as Window;
+    const handleYScroll = useCallback(() => {
         setElementScroll(navRef.current?.getBoundingClientRect().top || 1);
-        setScroll(window.scrollY);
+        const navBar = navRef.current as HTMLElement;
+        if (navBar) {
+            const styles = getComputedStyle(navBar);
+            setNavStyleTop(Number(styles.top.substring(0, styles.top.length - 2)));
+        }
     }, []);
 
     const onUlScroll = () => {
         setLeftScroll((ulRef.current as HTMLElement).scrollLeft > 0 ? true : false);
     };
 
-    const init = () => {
+    const init = useCallback(() => {
         const ul = ulRef.current as HTMLElement;
         if (ul.scrollWidth - ul.clientWidth > 0) {
             setRightScroll(true);
@@ -36,18 +40,20 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
         } else {
             setRightScroll(false);
         }
-    };
+    }, []);
 
     useEffect(() => {
         init();
-        setScroll(window.scrollY);
+        history.listen(() => {
+            window.scrollTo({ top: 0 });
+        });
         window.addEventListener('resize', init);
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleYScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleYScroll);
             window.removeEventListener('resize', init);
         };
-    }, [handleScroll]);
+    }, [handleYScroll, init, history]);
 
 
     const slideRight = () => {
@@ -74,9 +80,8 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
         }
     };
 
-
     return (
-        <nav ref={navRef} className={`${classes.nav} ${scroll > elementScroll ? classes['nav--scrolled'] : ''}`}>
+        <nav ref={navRef} className={`${classes.nav} ${elementScroll === navStyleTop ? classes['nav--scrolled'] : ''}`}>
             <ul ref={ulRef} onScroll={onUlScroll} className={`container ${classes.list}`}>
                 {leftScroll &&
                     <div className={classes['btn-wrapper']}>
@@ -84,8 +89,15 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
                     </div>
                 }
                 {links.map((link) => (
-                    <li className={classes['list-item']} key={uuidv4()}>
-                        <NavLink to={link.url}>{link.text}</NavLink>
+                    <li onClick={() => window.scroll({ top: 0 })} key={uuidv4()}>
+                        <NavLink
+                            activeClassName={classes.active}
+                            className={classes['list-item']}
+                            to={link.url}
+                            exact
+                        >
+                            {link.text}
+                        </NavLink>
                     </li>
                 ))}
                 {rightScroll &&

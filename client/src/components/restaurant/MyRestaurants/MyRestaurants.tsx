@@ -8,6 +8,8 @@ import Spinner from "../../UI/Spinner/Spinner";
 import RestaurantList from "../RestaurantList/RestaurantList";
 
 
+import classes from './MyRestaurants.module.css';
+
 const MyRestaurants: React.FC = () => {
     const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
     const { sendRequest, isLoading } = useHttp();
@@ -23,7 +25,7 @@ const MyRestaurants: React.FC = () => {
     return (
         <section className="container">
             {!isLoading && restaurants.length > 0 && <RestaurantList restaurants={restaurants} />}
-            {!isLoading && restaurants.length === 0 && <h2>No restaurants yet!</h2>}
+            {!isLoading && restaurants.length === 0 && <h2 className={classes.title}>No restaurants yet!</h2>}
             {isLoading && <Spinner />}
         </section>
     )

@@ -106,7 +106,7 @@ const CategoriesChart: React.FC = () => {
                 <option value="month">Month</option>
             </select>
             {dataLabels.length > 0 && <canvas ref={canvasRef} className={classes['canvas']}></canvas>}
-            {dataLabels.length === 0 && <div>No data for selected period</div>}
+            {dataLabels.length === 0 && <div className={classes['no-data']}>No data for selected period</div>}
         </div >
     )
 };

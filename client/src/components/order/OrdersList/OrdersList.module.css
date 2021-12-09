@@ -8,6 +8,16 @@
 }
 
 .list-item {
-    flex: 0 0 49%;
+    flex: 0 0 48%;
     margin: 0 5px;
+}
+
+.no-orders-title {
+    margin: 0 5px;
+}
+
+@media all and (max-width: 670px) {
+    .list-item {
+        flex: 0 0 100%;
+    }
 }
