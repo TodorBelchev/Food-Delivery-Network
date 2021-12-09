@@ -26,7 +26,7 @@ const { isLoggedIn, checkUser, isOwner, isCommentOwner } = require('../middlewar
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', checkUser(), async (req, res) => {
     try {
         const filter = extractFilterFromQuery(req.query);
         const restaurants = await getRestaurants(filter);
@@ -107,7 +107,7 @@ router.get('/by-owner', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.get('/favorites', async (req, res) => {
+router.get('/favorites', checkUser(), async (req, res) => {
     try {
         const ids = Object.keys(req.query || {}).map(x => getById(x));
         const restaurants = await Promise.all(ids);
@@ -118,7 +118,7 @@ router.get('/favorites', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkUser(), async (req, res) => {
     try {
         const restaurant = await getById(req.params.id).lean();
         res.status(200).send(restaurant);
