@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 import classes from './RestaurantCard.module.css';
+import ImageSuspense from '../../UI/ImageSuspense/ImageSuspense';
 
 type RestaurantCardProps = JSX.IntrinsicElements['article'] & {
     restaurant: IRestaurant
@@ -44,7 +45,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             }
             <NavLink to={`/restaurant/${restaurant._id}`}>
                 <article className={classes['restaurant-image-wrapper']}>
-                    <img className={classes['restaurant-img-wrapper-img']} src={restaurant.image.url} alt="pizza" />
+                    <ImageSuspense url={restaurant.image.url}>
+                        <img className={classes['restaurant-img-wrapper-img']} src={restaurant.image.url} alt={`${restaurant.name} restaurant`} />
+                    </ImageSuspense>
                 </article>
                 <article className={classes['restaurant-title-wrapper']}>
                     <h2 className={classes['restaurant-title']}>{restaurant.name}</h2>

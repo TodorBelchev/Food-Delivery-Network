@@ -2,12 +2,15 @@ import { modalActions } from '../../../store/modal';
 import { cartActions } from '../../../store/cart';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import IRecipe from '../../../interfaces/IRecipe';
+
+import AddRecipeModal from '../AddRecipeModal/AddRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal/DeleteRecipeModal';
 import Modal from '../../UI/Modal/Modal';
-import AddRecipeModal from '../AddRecipeModal/AddRecipeModal';
+import ImageSuspense from '../../UI/ImageSuspense/ImageSuspense';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 import classes from './Recipe.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type RecipeProps = JSX.IntrinsicElements['article'] & {
     recipe: IRecipe;
@@ -51,7 +54,9 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 </Modal>
             }
             <div className={classes['recipe-img-wrapper']}>
-                <img src={recipe.image.url} alt={recipe.name} />
+                <ImageSuspense url={recipe.image.url}>
+                    <img src={recipe.image.url} alt={recipe.name} />
+                </ImageSuspense>
             </div>
             <div className={classes['recipe-content']}>
                 <h3 className={classes['recipe-content-title']}>{recipe.name} <span className={classes['recipe-content-weight']}>({recipe.weight}g)</span></h3>
@@ -59,11 +64,11 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
                 <p>${recipe.price}</p>
             </div>
             <div onClick={addToCartHandler} className={classes['recipe-icon-wrapper']}>
-                <FontAwesomeIcon icon={['fas', 'plus']} className={classes['recipe-icon']}/>
+                <FontAwesomeIcon icon={['fas', 'plus']} className={classes['recipe-icon']} />
             </div>
             {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
-                <FontAwesomeIcon icon={['fas', 'edit']} onClick={editClickHandler} className={classes['recipe-icon']}/>
-                <FontAwesomeIcon icon={['fas', 'trash']} onClick={deleteClickHandler} className={classes['recipe-icon']}/>
+                <FontAwesomeIcon icon={['fas', 'edit']} onClick={editClickHandler} className={classes['recipe-icon']} />
+                <FontAwesomeIcon icon={['fas', 'trash']} onClick={deleteClickHandler} className={classes['recipe-icon']} />
             </div>}
         </article>
     )

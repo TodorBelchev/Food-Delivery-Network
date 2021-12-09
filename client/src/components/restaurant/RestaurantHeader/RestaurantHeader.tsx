@@ -11,6 +11,7 @@ import DeleteRestaurantModal from "../DeleteRestaurantModal/DeleteRestaurantModa
 import Modal from "../../UI/Modal/Modal";
 import AddRecipeModal from "../../recipe/AddRecipeModal/AddRecipeModal";
 import CommentsModal from "../../comment/CommentsModal/CommentsModal";
+import ImageSuspense from "../../UI/ImageSuspense/ImageSuspense";
 
 
 import classes from './RestaurantHeader.module.css';
@@ -72,7 +73,9 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ user }) => {
                     <CommentsModal />
                 </Modal>
             }
-            <img className={classes['restaurant-img']} src={restaurant.image.url} alt="" />
+            <ImageSuspense url={restaurant.image.url}>
+                <img className={classes['restaurant-img']} src={restaurant.image.url} alt={`${restaurant.name} restaurant`} />
+            </ImageSuspense>
             <article className={`${classes['restaurant-content']} container`}>
                 <article className={classes['restaurant-content-title-wrapper']}>
                     <NavLink to={`/restaurant/${restaurant._id}`} className={classes['restaurant-content-title']}>{restaurant.name}</NavLink>
