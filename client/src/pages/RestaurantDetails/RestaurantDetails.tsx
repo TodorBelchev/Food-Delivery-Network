@@ -41,14 +41,14 @@ const RestaurantDetails: React.FC = () => {
             {restaurant._id && !isLoading && <RestaurantHeader user={user} />}
             <Switch>
                 <Route path="/restaurant/:id/dashboard">
-                    {!isLoading &&
-                        <IsOwner>
+                    {!isLoading && restaurant._id &&
+                        <IsOwner restaurant={restaurant} >
                             <RestaurantDashboard />
                         </IsOwner>}
                 </Route>
                 <Route path="/restaurant/:id/edit">
-                    {restaurant._id &&
-                        <IsOwner>
+                    {restaurant._id && restaurant._id &&
+                        <IsOwner restaurant={restaurant} >
                             <CreateRestaurant edit={true} />
                         </IsOwner>}
                 </Route>

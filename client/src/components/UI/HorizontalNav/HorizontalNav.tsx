@@ -68,7 +68,7 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
         if (ul.scrollLeft < 120) {
             ul.scrollLeft = 0;
         }
-        
+
         if (ul.scrollWidth - ul.clientWidth > 0) {
             setRightScroll(true);
         }
@@ -83,13 +83,11 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
                         <button onClick={slideLeft} className={classes['left-arrow']}>&lt;</button>
                     </div>
                 }
-                {links.map((link) => {
-                    return (
-                        <li className={classes['list-item']} key={uuidv4()}>
-                            <NavLink to={link.url}>{link.text}</NavLink>
-                        </li>
-                    )
-                })}
+                {links.map((link) => (
+                    <li className={classes['list-item']} key={uuidv4()}>
+                        <NavLink to={link.url}>{link.text}</NavLink>
+                    </li>
+                ))}
                 {rightScroll &&
                     <div className={`${classes['btn-wrapper']} ${classes['btn-wrapper--right']}`}>
                         <button onClick={slideRight} className={classes['right-arrow']}>&gt;</button>

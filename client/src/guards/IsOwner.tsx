@@ -1,11 +1,16 @@
 import { Redirect } from 'react-router';
 
 import { useAppSelector } from '../hooks/reduxHooks';
+import IRestaurant from '../interfaces/IRestaurant';
 
 import Spinner from '../components/UI/Spinner/Spinner';
 
-const IsOwner = ({ children }: { children: JSX.Element }) => {
-    const restaurant = useAppSelector(state => state.restaurant);
+type IsOwnerProps = {
+    children: JSX.Element;
+    restaurant: IRestaurant;
+}
+
+const IsOwner = ({ children, restaurant }: IsOwnerProps) => {
     const user = useAppSelector(state => state.auth);
     const { isInitializing } = useAppSelector(state => state.app);
 

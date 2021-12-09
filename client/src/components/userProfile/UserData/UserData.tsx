@@ -228,16 +228,18 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
                     {addressHasError && <p className={classes['input-notification']}>Address must be at least 4 characters long!</p>}
                 </div>
                 {!isEditMode &&
-                    <button
-                        className={`main-btn create-btn ${classes['btn-container-btn']}`}
-                        onClick={editClickHandler}
-                        disabled={isLoading}
-                    >
-                        Edit
-                        {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
-                    </button>}
+                    <div className={`${classes['btn-container']} ${classes.col}`}>
+                        <button
+                            className={`main-btn create-btn ${classes['btn-container-btn']}`}
+                            onClick={editClickHandler}
+                            disabled={isLoading}
+                        >
+                            Edit
+                            {isLoading && <span className={classes['spinner-container']}><Spinner size="small" /></span>}
+                        </button>
+                    </div>}
                 {isEditMode &&
-                    <div className={classes['btn-container']}>
+                    <div className={`${classes['btn-container']} ${classes.col}`}>
                         <button
                             className={`main-btn ${classes['btn-container-btn']}`}
                             onClick={editClickHandler}
