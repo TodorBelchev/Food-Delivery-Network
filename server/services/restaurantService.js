@@ -18,8 +18,8 @@ const deleteById = (id) => {
     return Restaurant.findByIdAndDelete(id);
 }
 
-const getRestaurants = (filter, page) => {
-    return Restaurant.find(filter).skip(page * 16).limit(16).lean();
+const getRestaurants = (filter, page, sort) => {
+    return Restaurant.find(filter).sort(sort).skip(page * 16).limit(16).lean();
 }
 
 const getCount = (filter) => {

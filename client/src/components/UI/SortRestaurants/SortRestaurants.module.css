@@ -1,0 +1,30 @@
+.sort {
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.sort-select {
+    border: none;
+    border: 2px solid #0080ff;
+    border-radius: 5px;
+    padding: 5px 18px 5px 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.sort:after {
+    content: '<>';
+    font-size: 14px;
+    color: #333;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 6px;
+    top: 6px;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+  }

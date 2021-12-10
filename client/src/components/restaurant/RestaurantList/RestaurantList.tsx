@@ -1,4 +1,5 @@
 import IRestaurant from "../../../interfaces/IRestaurant";
+import SortRestaurants from "../../UI/SortRestaurants/SortRestaurants";
 
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 
@@ -12,13 +13,16 @@ type RestaurantListProps = JSX.IntrinsicElements['ul'] & {
 
 const RestaurantList: React.FC<RestaurantListProps> = ({ restaurants }) => {
     return (
-        <ul className={`${classes.list}`}>
-            {restaurants.map(x => (
-                <li key={x._id} className={classes['list-item']}>
-                    <RestaurantCard restaurant={x} />
-                </li>
-            ))}
-        </ul>
+        <>
+            <SortRestaurants />
+            <ul className={`${classes.list}`}>
+                {restaurants.map(x => (
+                    <li key={x._id} className={classes['list-item']}>
+                        <RestaurantCard restaurant={x} />
+                    </li>
+                ))}
+            </ul>
+        </>
     )
 };
 

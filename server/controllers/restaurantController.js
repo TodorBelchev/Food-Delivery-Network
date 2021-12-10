@@ -31,7 +31,14 @@ router.get('/', checkUser(), async (req, res) => {
     try {
         const page = Number(req.query.page) - 1 || 0;
         const filter = extractFilterFromQuery(req.query);
-        const restaurants = await getRestaurants(filter, page);
+        let sort = {};
+        if (req.query.sort) {
+            const [sortKey, sortValue] = req.query.sort.split('-');
+            sort[sortKey] = sortValue;
+        } else {
+            sort.rating = 'desc';
+        }
+        const restaurants = await getRestaurants(filter, page, sort);
         const count = await getCount(filter);
         res.status(200).send({ restaurants, count });
     } catch (error) {
