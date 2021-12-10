@@ -38,6 +38,10 @@ const restaurantSlice = createSlice({
             state.ratingsCount = action.payload.ratingsCount;
             state.recipes = action.payload.recipes;
         },
+        updateRating(state, action: PayloadAction<{ rating: number, ratingsCount: number}>) {
+            state.ratingsCount = action.payload.ratingsCount;
+            state.rating = action.payload.rating;
+        },
         clearRestaurant(state) {
             state._id = '';
             state.categories = [];

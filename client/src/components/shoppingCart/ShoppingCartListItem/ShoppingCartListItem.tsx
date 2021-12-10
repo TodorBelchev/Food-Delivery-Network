@@ -27,9 +27,9 @@ const ShoppingCartListItem: React.FC<ShoppingCartListItemProps> = ({ recipe, qua
             <div className={classes['cart-item-text']}>{recipe.name} ({recipe.weight}g) <span>x {quantity}</span></div>
             <div className={classes['cart-item-controls']}>
                 <div className={classes['cart-item-icons']}>
-                    <FontAwesomeIcon icon={['fas', 'minus']} onClick={removeFromCartClickHandler} />
+                    <FontAwesomeIcon className={classes['icon--red']} icon={['fas', 'minus']} onClick={removeFromCartClickHandler} />
                     <span>${recipe.price}</span>
-                    <FontAwesomeIcon icon={['fas', 'plus']} onClick={addToCartClickHandler} />
+                    <FontAwesomeIcon className={classes['icon--green']} icon={['fas', 'plus']} onClick={addToCartClickHandler} />
                     <span>${(recipe.price * quantity).toFixed(2)}</span>
                 </div>
             </div>

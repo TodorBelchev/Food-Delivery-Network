@@ -64,7 +64,7 @@ const CommentsModal: React.FC = () => {
         setPage(0);
         setPage(1);
         setTotalCommentsCount(res.comments.length);
-        dispatch(restaurantActions.setRestaurant(res.restaurant));
+        dispatch(restaurantActions.updateRating({ rating: res.restaurant.rating, ratingsCount: res.restaurant.ratingsCount }));
     }, [dispatch]);
 
     const editCommentHandler = (res: { comment: IComment, restaurant: IRestaurant }) => {
@@ -73,7 +73,7 @@ const CommentsModal: React.FC = () => {
             return x;
         });
         setComments(newComments);
-        dispatch(restaurantActions.setRestaurant(res.restaurant));
+        dispatch(restaurantActions.updateRating({ rating: res.restaurant.rating, ratingsCount: res.restaurant.ratingsCount }));
     };
 
     const deleteCommentHandler = (res: { restaurant: IRestaurant; commentId: string }) => {

@@ -27,3 +27,18 @@
 .cart-item-text span {
     font-weight: 600;
 }
+
+.icon--red {
+    color: #cc0000;
+}
+
+.icon--green {
+    color: rgb(0, 105, 0);
+}
+
+@media all and (max-width: 1000px) {
+    .cart-item-text,
+    .cart-item-icons {
+        font-size: 16px;
+    }
+}

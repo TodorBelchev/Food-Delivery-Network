@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import IRecipe from '../../../interfaces/IRecipe';
@@ -11,13 +12,13 @@ type RestaurantCategoryListProps = JSX.IntrinsicElements['div'] & {
     categoryRecipes: IRecipe[];
 }
 
-const RestaurantCategoryList: React.FC<RestaurantCategoryListProps> = ({ categoryRecipes }) => {
+const RestaurantCategoryList: React.FC<RestaurantCategoryListProps> = memo(({ categoryRecipes }) => {
     return (
         <div className={`${classes.category}`}>
             <h2 className={classes['category-title']}>{categoryRecipes[0].category}</h2>
             {categoryRecipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
         </div>
     )
-};
+});
 
 export default RestaurantCategoryList;

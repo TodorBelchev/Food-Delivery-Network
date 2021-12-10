@@ -65,3 +65,10 @@
     color: #ff0000;
     margin-bottom: 10px;
 }
+
+@media all and (max-width: 825px) {
+    .input-notification {
+        top: 52px;
+        left: 10px;
+    }
+}
