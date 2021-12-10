@@ -11,19 +11,18 @@ type HorizontalNavProps = JSX.IntrinsicElements['nav'] & {
 
 const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
     const history = useHistory();
-    const [navStyleTop, setNavStyleTop] = useState(0);
-    const [elementScroll, setElementScroll] = useState(101);
+    const [isSticky, setIsSticky] = useState(false);
     const [leftScroll, setLeftScroll] = useState(false);
     const [rightScroll, setRightScroll] = useState(false);
     const navRef = useRef<HTMLElement>(null);
     const ulRef = useRef<HTMLUListElement>(null);
 
     const handleYScroll = useCallback(() => {
-        setElementScroll(navRef.current?.getBoundingClientRect().top || 1);
         const navBar = navRef.current as HTMLElement;
         if (navBar) {
             const styles = getComputedStyle(navBar);
-            setNavStyleTop(Number(styles.top.substring(0, styles.top.length - 2)));
+            const distance = Number(styles.top.substring(0, styles.top.length - 2));
+            setIsSticky(distance <= window.scrollY);
         }
     }, []);
 
@@ -81,7 +80,7 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
     };
 
     return (
-        <nav ref={navRef} className={`${classes.nav} ${elementScroll === navStyleTop ? classes['nav--scrolled'] : ''}`}>
+        <nav ref={navRef} className={`${classes.nav} ${isSticky ? classes['nav--scrolled'] : ''}`}>
             <ul ref={ulRef} onScroll={onUlScroll} className={`container ${classes.list}`}>
                 {leftScroll &&
                     <div className={classes['btn-wrapper']}>

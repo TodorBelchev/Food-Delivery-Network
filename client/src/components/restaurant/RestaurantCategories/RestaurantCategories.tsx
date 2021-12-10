@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useAppSelector } from '../../../hooks/reduxHooks';
@@ -8,14 +9,13 @@ import RestaurantCategoryList from "../RestaurantCategoryList/RestaurantCategory
 import classes from './RestaurantCategories.module.css';
 
 
-const RestaurantCategories: React.FC = () => {
+const RestaurantCategories: React.FC = memo(() => {
     const restaurant = useAppSelector(state => state.restaurant);
     return (
         <section className={'container'}>
             {restaurant.categories.map(category => {
                 const categoryRecipes = restaurant.recipes.filter(recipe => recipe.category === category);
-
-
+                
                 if (categoryRecipes.length > 0) {
                     return <RestaurantCategoryList key={uuidv4()} categoryRecipes={categoryRecipes} />;
                 } else {
@@ -27,6 +27,6 @@ const RestaurantCategories: React.FC = () => {
             })}
         </section>
     )
-}
+});
 
 export default RestaurantCategories;
