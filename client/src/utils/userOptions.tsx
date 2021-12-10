@@ -1,8 +1,8 @@
-import env from "./env";
+const { REACT_APP_BASE_URL } = process.env;
 
 const login = (email: string, password: string) => {
     return {
-        url: `${env.BASE_URL}/user/login`,
+        url: `${REACT_APP_BASE_URL}/user/login`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ const login = (email: string, password: string) => {
 
 const register = (email: string, password: string, rePassword: string) => {
     return {
-        url: `${env.BASE_URL}/user/register`,
+        url: `${REACT_APP_BASE_URL}/user/register`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,13 +30,18 @@ const register = (email: string, password: string, rePassword: string) => {
 };
 
 const logout = () => {
-    return { url: `${env.BASE_URL}/user/logout` };
+    return { url: `${REACT_APP_BASE_URL}/user/logout` };
 };
+
+const verify = () => {
+    return { url: `${REACT_APP_BASE_URL}/user/verify` }
+}
 
 const userOptions = {
     login,
     register,
-    logout
+    logout,
+    verify
 }
 
 export default userOptions;

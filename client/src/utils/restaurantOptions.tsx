@@ -1,8 +1,8 @@
-import env from "./env";
+const { REACT_APP_BASE_URL } = process.env;
 
 const add = (data: FormData) => {
     return {
-        url: `${env.BASE_URL}/restaurant/create`,
+        url: `${REACT_APP_BASE_URL}/restaurant/create`,
         method: 'POST',
         body: data
     }
@@ -10,7 +10,7 @@ const add = (data: FormData) => {
 
 const edit = (restaurantId: string, data: FormData) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${restaurantId}`,
+        url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}`,
         method: 'PUT',
         body: data
     }
@@ -18,44 +18,44 @@ const edit = (restaurantId: string, data: FormData) => {
 
 const getById = (id: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${id}`
+        url: `${REACT_APP_BASE_URL}/restaurant/${id}`
     }
 };
 
 const getByOwner = () => {
     return {
-        url: `${env.BASE_URL}/restaurant/by-owner`
+        url: `${REACT_APP_BASE_URL}/restaurant/by-owner`
     }
 };
 
 const getByCity = (city: string, query: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant?city=${city}&${query}`
+        url: `${REACT_APP_BASE_URL}/restaurant?city=${city}&${query}`
     }
 };
 
 const getByTheme = (theme: string, query: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant?mainTheme=${theme}&${query}`
+        url: `${REACT_APP_BASE_URL}/restaurant?mainTheme=${theme}&${query}`
     }
 };
 
 const getFavorites = (query: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/favorites?${query}`
+        url: `${REACT_APP_BASE_URL}/restaurant/favorites?${query}`
     }
 };
 
 const deleteRestaurant = (restaurantId: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${restaurantId}`,
+        url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}`,
         method: 'DELETE'
     }
 };
 
 const addComment = (restaurantId: string, name: string, comment: string, rating: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment`,
+        url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}/comment`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -66,18 +66,18 @@ const addComment = (restaurantId: string, name: string, comment: string, rating:
 
 const deleteComment = (restaurantId: string, commentId: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
+        url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
         method: 'DELETE'
     }
 };
 
 const getComments = (restaurantId: string, page: number) => {
-    return { url: `${env.BASE_URL}/restaurant/${restaurantId}/comment?page=${page}` }
+    return { url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}/comment?page=${page}` }
 };
 
 const editComment = (restaurantId: string, commentId: string, name: string, comment: string, rating: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
+        url: `${REACT_APP_BASE_URL}/restaurant/${restaurantId}/comment/${commentId}`,
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

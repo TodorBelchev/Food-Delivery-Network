@@ -1,4 +1,4 @@
-import env from "./env";
+const { REACT_APP_BASE_URL } = process.env;
 
 const add = (orderData: {
     address: string,
@@ -9,7 +9,7 @@ const add = (orderData: {
     restaurant: string
 }) => {
     return {
-        url: `${env.BASE_URL}/order`,
+        url: `${REACT_APP_BASE_URL}/order`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -20,26 +20,26 @@ const add = (orderData: {
 
 const getOrders = (restaurantId: string, status: string, page: number) => {
     return {
-        url: `${env.BASE_URL}/order/${restaurantId}/${status}?page=${page}`
+        url: `${REACT_APP_BASE_URL}/order/${restaurantId}/${status}?page=${page}`
     }
 };
 
 const getOrdersByOwner = (page: number) => {
     return {
-        url: `${env.BASE_URL}/order/my-orders?page=${page}`
+        url: `${REACT_APP_BASE_URL}/order/my-orders?page=${page}`
     }
 };
 
 const deleteOrder = (orderId: string) => {
     return {
-        url: `${env.BASE_URL}/order/${orderId}`,
+        url: `${REACT_APP_BASE_URL}/order/${orderId}`,
         method: 'DELETE'
     }
 };
 
 const edit = (orderId: string, status: string) => {
     return {
-        url: `${env.BASE_URL}/order/${orderId}`,
+        url: `${REACT_APP_BASE_URL}/order/${orderId}`,
         method: 'PUT',
         body: JSON.stringify({ status }),
         headers: {
@@ -50,13 +50,13 @@ const edit = (orderId: string, status: string) => {
 
 const getOrdersCountByCategoryAndPeriod = (restaurantId: string, period: string) => {
     return {
-        url: `${env.BASE_URL}/order/${restaurantId}/categories/count?period=${period}`
+        url: `${REACT_APP_BASE_URL}/order/${restaurantId}/categories/count?period=${period}`
     }
 };
 
 const getSalesByPeriod = (restaurantId: string, period: string) => {
     return {
-        url: `${env.BASE_URL}/order/${restaurantId}/sales-volumes?period=${period}`
+        url: `${REACT_APP_BASE_URL}/order/${restaurantId}/sales-volumes?period=${period}`
     }
 };
 

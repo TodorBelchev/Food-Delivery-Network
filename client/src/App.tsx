@@ -19,6 +19,7 @@ import MainTheme from './pages/MainTheme/MainTheme';
 import Notification from './components/UI/Notification/Notification';
 import UserProfileGuard from './guards/UserProfileGuard';
 import FavoriteRestaurants from './components/restaurant/FavoriteRestaurants/FavoriteRestaurants';
+import userOptions from './utils/userOptions';
 
 loadFontAwesome();
 
@@ -30,9 +31,7 @@ function App() {
 	useEffect(() => {
 		dispatch(authActions.autoLoadFavorites());
 		dispatch(cartActions.autoLoadCart());
-		sendRequest({
-			url: 'http://localhost:3030/api/user/verify'
-		}, (res: IAuthState) => {
+		sendRequest(userOptions.verify(), (res: IAuthState) => {
 			dispatch(authActions.login(res));
 			dispatch(appActions.initDone());
 		});
