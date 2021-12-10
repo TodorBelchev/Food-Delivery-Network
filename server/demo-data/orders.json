@@ -1,0 +1,2205 @@
+[{
+  "_id": {
+    "$oid": "61ab576d0ff224fca5d9c671"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab576d0ff224fca5d9c672"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-27T11:56:29.212Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57720ff224fca5d9c67a"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57720ff224fca5d9c67b"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab57720ff224fca5d9c67c"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57720ff224fca5d9c67d"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-27T11:56:34.483Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57740ff224fca5d9c681"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57740ff224fca5d9c682"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-28T11:56:36.031Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57750ff224fca5d9c686"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57750ff224fca5d9c687"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-28T11:56:37.790Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57770ff224fca5d9c68b"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57770ff224fca5d9c68c"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-29T11:56:39.119Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57790ff224fca5d9c694"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57790ff224fca5d9c695"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57790ff224fca5d9c696"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57790ff224fca5d9c697"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-29T11:56:41.507Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab577b0ff224fca5d9c69b"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab577b0ff224fca5d9c69c"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-30T11:56:43.606Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab577d0ff224fca5d9c6a0"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab577d0ff224fca5d9c6a1"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-11-30T11:56:45.073Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab577e0ff224fca5d9c6a5"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab577e0ff224fca5d9c6a6"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-01T11:56:46.603Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57800ff224fca5d9c6aa"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57800ff224fca5d9c6ab"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-01T11:56:48.512Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57820ff224fca5d9c6af"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57820ff224fca5d9c6b0"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-02T11:56:50.257Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57b50ff224fca5d9c6b4"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57b50ff224fca5d9c6b5"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-02T11:57:41.690Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57b80ff224fca5d9c6bd"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57b80ff224fca5d9c6be"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab57b80ff224fca5d9c6bf"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57b80ff224fca5d9c6c0"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-03T11:57:44.592Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57ba0ff224fca5d9c6c4"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57ba0ff224fca5d9c6c5"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-03T11:57:46.173Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57bc0ff224fca5d9c6cb"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57bc0ff224fca5d9c6cc"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57bc0ff224fca5d9c6cd"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:57:48.262Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57c00ff224fca5d9c6db"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6dc"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6dd"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6de"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6df"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6e0"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57c00ff224fca5d9c6e1"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:57:52.981Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57c40ff224fca5d9c6e5"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57c40ff224fca5d9c6e6"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:57:56.910Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57c60ff224fca5d9c6ec"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57c60ff224fca5d9c6ed"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab57c60ff224fca5d9c6ee"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:57:58.773Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57c80ff224fca5d9c6f2"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 2,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57c80ff224fca5d9c6f3"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:00.569Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57ca0ff224fca5d9c6f7"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57ca0ff224fca5d9c6f8"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:02.184Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57cc0ff224fca5d9c6fc"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57cc0ff224fca5d9c6fd"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:04.089Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57cd0ff224fca5d9c701"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 3,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57cd0ff224fca5d9c702"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:05.866Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57cf0ff224fca5d9c706"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57cf0ff224fca5d9c707"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:07.494Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57d00ff224fca5d9c70b"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57d00ff224fca5d9c70c"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:08.879Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57d60ff224fca5d9c710"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57d60ff224fca5d9c711"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:14.539Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57da0ff224fca5d9c715"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57da0ff224fca5d9c716"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:18.451Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57dc0ff224fca5d9c71a"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57dc0ff224fca5d9c71b"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:20.273Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57dd0ff224fca5d9c71f"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57dd0ff224fca5d9c720"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:21.877Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57df0ff224fca5d9c724"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57df0ff224fca5d9c725"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:23.871Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57e10ff224fca5d9c729"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57e10ff224fca5d9c72a"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:25.272Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57e20ff224fca5d9c72e"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57e20ff224fca5d9c72f"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:26.680Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57e40ff224fca5d9c733"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 2,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57e40ff224fca5d9c734"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:28.856Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab57e90ff224fca5d9c742"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c743"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c744"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c745"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c746"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c747"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61ab57e90ff224fca5d9c748"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-04T11:58:33.573Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac660d5f61f24cfd7012c3"
+  },
+  "user": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "name": "Peter Petrov",
+  "phone": 999999999,
+  "city": "Varna",
+  "address": "8mi primorski polk",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61ac660d5f61f24cfd7012c4"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-05T07:11:09.669Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61acb009077f1bfcfd28497e"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61acb009077f1bfcfd28497f"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-05T12:26:49.650Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61acb35b8b98f7e975e649d9"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 2,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61acb35b8b98f7e975e649da"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-05T12:40:59.208Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adaeba43a1c967d6004016"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61adaeba43a1c967d6004017"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adaeba43a1c967d6004018"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:33:30.443Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adaefa43a1c967d600401c"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adaefa43a1c967d600401d"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:34:34.055Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adafb943a1c967d6004024"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adafb943a1c967d6004025"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:37:45.694Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb02043a1c967d6004224"
+  },
+  "user": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb02043a1c967d6004225"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:39:28.281Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb04c43a1c967d6004229"
+  },
+  "user": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb04c43a1c967d600422a"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:40:12.537Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb07443a1c967d6004236"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb07443a1c967d6004237"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:40:52.380Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb17443a1c967d600423d"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb17443a1c967d600423e"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:45:08.263Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb1fc43a1c967d6004244"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb1fc43a1c967d6004245"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:47:24.613Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb24b43a1c967d600424b"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb24b43a1c967d600424c"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:48:43.604Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb26143a1c967d6004250"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb26143a1c967d6004251"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:49:05.648Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb2fc43a1c967d6004257"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb2fc43a1c967d6004258"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:51:40.705Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb4c443a1c967d60043f0"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145555",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb4c443a1c967d60043f1"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T06:59:16.887Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb50e43a1c967d60043f8"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb50e43a1c967d60043f9"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T07:00:30.353Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb5eb43a1c967d60043ff"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb5eb43a1c967d6004400"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T07:04:11.798Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adb7ce43a1c967d6004404"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adb7ce43a1c967d6004405"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T07:12:14.421Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adbaac43a1c967d6004418"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adbaac43a1c967d6004419"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T07:24:28.996Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adbc50d7e8d56cf7790fe1"
+  },
+  "name": "John Doe",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Studentski grad 11",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adbc50d7e8d56cf7790fe2"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-06T07:31:28.191Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61adf79b37647e4379a07b7e"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ac83936dcf96178b058050"
+      },
+      "quantity": 3,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61adf79b37647e4379a07b7f"
+      }
+    }
+  ],
+  "status": "pending",
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-06T11:44:27.573Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61af409fc103e63861bb610f"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 2,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61af409fc103e63861bb6110"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-07T11:08:15.593Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61af40a6c103e63861bb612d"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb612e"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb612f"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6130"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6e7c4ad36a03305dac1d"
+      },
+      "quantity": 1,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6131"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6f6e4ad36a03305dac3c"
+      },
+      "quantity": 1,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6132"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6133"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6134"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61af40a6c103e63861bb6135"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-07T11:08:22.977Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b09fad202dd28d62f66b5a"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b5b"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b5c"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 2,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b5d"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b5e"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b5f"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b60"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6e7c4ad36a03305dac1d"
+      },
+      "quantity": 2,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b61"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6f6e4ad36a03305dac3c"
+      },
+      "quantity": 2,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b09fad202dd28d62f66b62"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-08T12:06:05.764Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1fb2528f8c24d1cf8875b"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b1fb2528f8c24d1cf8875c"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61b1fb2528f8c24d1cf8875d"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61b1fb2528f8c24d1cf8875e"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6e7c4ad36a03305dac1d"
+      },
+      "quantity": 1,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b1fb2528f8c24d1cf8875f"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b1fb2528f8c24d1cf88760"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T12:48:37.343Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b2f75c1038e5ef8857198b"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef8857198c"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef8857198d"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef8857198e"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab3b2319845f7741eaa7d6"
+      },
+      "quantity": 1,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef8857198f"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4dae87e2b9d1f4e710e4"
+      },
+      "quantity": 2,
+      "price": 5.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef88571990"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4e1f87e2b9d1f4e710f2"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef88571991"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6e7c4ad36a03305dac1d"
+      },
+      "quantity": 1,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef88571992"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab6f6e4ad36a03305dac3c"
+      },
+      "quantity": 1,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b2f75c1038e5ef88571993"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-10T06:44:44.451Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b317b11038e5ef885722f9"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61923c68e3ee86bb76bc1b58"
+      },
+      "quantity": 1,
+      "price": 4.99,
+      "_id": {
+        "$oid": "61b317b11038e5ef885722fa"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61ab4f3b87e2b9d1f4e71101"
+      },
+      "quantity": 1,
+      "price": 8.99,
+      "_id": {
+        "$oid": "61b317b11038e5ef885722fb"
+      }
+    },
+    {
+      "item": {
+        "$oid": "61923d77e3ee86bb76bc1b63"
+      },
+      "quantity": 1,
+      "price": 7.99,
+      "_id": {
+        "$oid": "61b317b11038e5ef885722fc"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-10T09:02:41.399Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b318b71038e5ef8857230e"
+  },
+  "user": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "name": "Gosho Goshev",
+  "phone": 999999999,
+  "city": "Sofia",
+  "address": "Mladost 145",
+  "items": [
+    {
+      "item": {
+        "$oid": "61ab6e7c4ad36a03305dac1d"
+      },
+      "quantity": 2,
+      "price": 1.99,
+      "_id": {
+        "$oid": "61b318b71038e5ef8857230f"
+      }
+    }
+  ],
+  "status": "completed",
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-10T09:07:03.037Z"
+  },
+  "__v": 0
+}]

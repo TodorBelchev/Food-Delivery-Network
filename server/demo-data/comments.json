@@ -1,0 +1,545 @@
+[{
+  "_id": {
+    "$oid": "61a876bf7f6eb928dd23a620"
+  },
+  "name": "Peter Petrov",
+  "comment": "Very delicious!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-02T07:33:19.952Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a876cc7f6eb928dd23a62c"
+  },
+  "name": "Peter Petrov",
+  "comment": "Fast delivery!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-02T07:33:32.354Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1fef828f8c24d1cf89622"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Good service!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:04:56.249Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ff0a28f8c24d1cf89634"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum dolor sit amet",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:05:14.323Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ff2728f8c24d1cf89646"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Best burgers!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:05:43.999Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ff5428f8c24d1cf8965e"
+  },
+  "name": "Stamat",
+  "comment": "Some random comment!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:06:28.524Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ff6028f8c24d1cf89670"
+  },
+  "name": "Stamat",
+  "comment": "Another random comment!",
+  "rating": 4,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:06:40.796Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ff6a28f8c24d1cf89682"
+  },
+  "name": "Stamat",
+  "comment": "I spam here...",
+  "rating": 4,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:06:50.788Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ffc028f8c24d1cf896ab"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:08:16.166Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ffe128f8c24d1cf896bd"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum...",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:08:49.049Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b1ffef28f8c24d1cf896cf"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Comment 11",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-09T13:09:03.600Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b319961038e5ef88572315"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Some random comment!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "date": {
+    "$date": "2021-12-10T09:10:46.824Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b33cc8b655a44e04791782"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum!",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac72fc6dcf96178b057ecd"
+  },
+  "date": {
+    "$date": "2021-12-10T11:40:56.191Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b33cdbb655a44e04791792"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac72fc6dcf96178b057ecd"
+  },
+  "date": {
+    "$date": "2021-12-10T11:41:15.073Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b33d47e8baf5ca271d7bad"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Grandma is awesome!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T11:43:03.435Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3418027ec68ed843c4865"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Some comment",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac67d25f61f24cfd7015d0"
+  },
+  "date": {
+    "$date": "2021-12-10T12:01:04.953Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3423b27ec68ed843c4880"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Best desserts!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61a09f0394912b08320f34bb"
+  },
+  "date": {
+    "$date": "2021-12-10T12:04:11.605Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3427927ec68ed843c4895"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac77046dcf96178b057f23"
+  },
+  "date": {
+    "$date": "2021-12-10T12:05:13.747Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b343ee27ec68ed843c48aa"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum 2",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac77046dcf96178b057f23"
+  },
+  "date": {
+    "$date": "2021-12-10T12:11:26.051Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3440d27ec68ed843c48c9"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ab77b84ad36a03305daeb2"
+  },
+  "date": {
+    "$date": "2021-12-10T12:11:57.817Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3441d27ec68ed843c48e3"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum 2",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ab77b84ad36a03305daeb2"
+  },
+  "date": {
+    "$date": "2021-12-10T12:12:13.420Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3457227ec68ed843c4902"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Best pizza!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ab77b84ad36a03305daeb2"
+  },
+  "date": {
+    "$date": "2021-12-10T12:17:54.854Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b345bf27ec68ed843c492b"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac67d25f61f24cfd7015d0"
+  },
+  "date": {
+    "$date": "2021-12-10T12:19:11.633Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3461e27ec68ed843c4946"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:20:46.582Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3468327ec68ed843c4970"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum 2",
+  "rating": 5,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:22:27.961Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b346e827ec68ed843c4987"
+  },
+  "name": "Gosho Goshev",
+  "comment": "Lorem ipsum",
+  "rating": 4,
+  "owner": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "restaurant": {
+    "$oid": "61a09f0394912b08320f34bb"
+  },
+  "date": {
+    "$date": "2021-12-10T12:24:08.084Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b3485f27ec68ed843c49a1"
+  },
+  "name": "Stamat",
+  "comment": "Musaka is lit!",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:30:23.950Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b34a7727ec68ed843c49b6"
+  },
+  "name": "Stamat",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:39:19.700Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b34af127ec68ed843c49ce"
+  },
+  "name": "Stamat",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:41:21.705Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b34b0727ec68ed843c49e1"
+  },
+  "name": "Stamat",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:41:43.925Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b34bbc27ec68ed843c4a06"
+  },
+  "name": "Stamat",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:44:44.144Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61b34bdb27ec68ed843c4a17"
+  },
+  "name": "Stamat",
+  "comment": "Lorem ipsum",
+  "rating": 5,
+  "owner": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "restaurant": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "date": {
+    "$date": "2021-12-10T12:45:15.300Z"
+  },
+  "__v": 0
+}]

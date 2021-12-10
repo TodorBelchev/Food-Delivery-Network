@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "61839c1d4cadf30cdddb2448"
+  },
+  "email": "gosho@abv.bg",
+  "password": "$2b$10$MG7fcoy4fRcOu2q6X.HTSuh5TfCDnWE4bPCojb.evorrN.1zaBFyq",
+  "isAdmin": false,
+  "__v": 0,
+  "address": "Mladost 145",
+  "city": "Sofia",
+  "firstName": "Gosho",
+  "lastName": "Goshev",
+  "phone": "0999999999"
+},{
+  "_id": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "email": "pesho@abv.bg",
+  "password": "$2b$10$EsJjPt67Vg.vqAnltD912.YxE/D4I83k0Eb7Omayys9aAWaMrHsm6",
+  "isAdmin": false,
+  "__v": 0,
+  "address": "8mi primorski polk",
+  "city": "Varna",
+  "firstName": "Peter",
+  "lastName": "Petrov",
+  "phone": "0999999999"
+},{
+  "_id": {
+    "$oid": "61b1fc5128f8c24d1cf8901d"
+  },
+  "email": "stamat@abv.bg",
+  "password": "$2b$10$MRxu5/aL5FfZtFJQrskSeOj1R8jsmvBZuzLd7P.g68sA/e0dme9NO",
+  "isAdmin": false,
+  "__v": 0
+}]

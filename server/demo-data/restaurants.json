@@ -1,0 +1,2285 @@
+[{
+  "_id": {
+    "$oid": "618ce1da59ad1d89291c4903"
+  },
+  "name": "Burgers by Chocho",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 4.7,
+  "ratingsCount": 12
+},{
+  "_id": {
+    "$oid": "61a09f0394912b08320f34bb"
+  },
+  "name": "Le Blanc Coq",
+  "mainTheme": "French",
+  "categories": [
+    "Desserts"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1637916419/w4kbfkw2ogqueiivwmgb.jpg",
+    "public_id": "w4kbfkw2ogqueiivwmgb",
+    "_id": {
+      "$oid": "61a09f0394912b08320f34bc"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ab70904ad36a03305dac4e"
+    },
+    {
+      "$oid": "61ab71024ad36a03305dac59"
+    },
+    {
+      "$oid": "61ab71914ad36a03305dac65"
+    },
+    {
+      "$oid": "61ab72304ad36a03305dac72"
+    },
+    {
+      "$oid": "61ab738f4ad36a03305daea0"
+    }
+  ],
+  "__v": 5,
+  "rating": 4.5,
+  "ratingsCount": 2
+},{
+  "_id": {
+    "$oid": "61ab77b84ad36a03305daeb2"
+  },
+  "name": "Ristorante italiano",
+  "mainTheme": "Italian",
+  "categories": [
+    "Pizza",
+    "Bruschetti",
+    "Focaccia",
+    "Kroc sandwiches"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638627257/vbo1hkgbzqxx2z7pxvsp.jpg",
+    "public_id": "vbo1hkgbzqxx2z7pxvsp",
+    "_id": {
+      "$oid": "61ab77b84ad36a03305daeb3"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ab78434ad36a03305daeba"
+    },
+    {
+      "$oid": "61ab7904136f69b98626c0e4"
+    },
+    {
+      "$oid": "61ab795cb41098df46b1805a"
+    },
+    {
+      "$oid": "61ab79f8b41098df46b1806b"
+    },
+    {
+      "$oid": "61ab79f9b41098df46b18079"
+    },
+    {
+      "$oid": "61ab7a91b41098df46b1808a"
+    },
+    {
+      "$oid": "61ab7b01b41098df46b18099"
+    },
+    {
+      "$oid": "61ab7c12b41098df46b180bc"
+    },
+    {
+      "$oid": "61ab7cf3b41098df46b180d0"
+    },
+    {
+      "$oid": "61ab7d44b41098df46b180e2"
+    },
+    {
+      "$oid": "61ab7dbab41098df46b180f5"
+    },
+    {
+      "$oid": "61ab7ed1b41098df46b1810b"
+    },
+    {
+      "$oid": "61ab7f51b41098df46b18123"
+    },
+    {
+      "$oid": "61ab7fb4b41098df46b18139"
+    },
+    {
+      "$oid": "61ab8051b41098df46b18150"
+    },
+    {
+      "$oid": "61ab80b3b41098df46b18168"
+    },
+    {
+      "$oid": "61ab8132b41098df46b18181"
+    }
+  ],
+  "rating": 4.7,
+  "ratingsCount": 3,
+  "__v": 17
+},{
+  "_id": {
+    "$oid": "61ac67d25f61f24cfd7015d0"
+  },
+  "name": "Bulgarian Grill",
+  "mainTheme": "Bulgarian",
+  "categories": [
+    "Grill",
+    "Salads"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638688724/av2cemky7btzll14akav.png",
+    "public_id": "av2cemky7btzll14akav",
+    "_id": {
+      "$oid": "61ac67d25f61f24cfd7015d1"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ac6a926dcf96178b057dfe"
+    },
+    {
+      "$oid": "61ac6af06dcf96178b057e09"
+    },
+    {
+      "$oid": "61ac6b8e6dcf96178b057e15"
+    },
+    {
+      "$oid": "61ac6c036dcf96178b057e22"
+    },
+    {
+      "$oid": "61ac6cc76dcf96178b057e38"
+    },
+    {
+      "$oid": "61ac6d656dcf96178b057e47"
+    },
+    {
+      "$oid": "61ac6db16dcf96178b057e57"
+    },
+    {
+      "$oid": "61ac6edf6dcf96178b057e74"
+    },
+    {
+      "$oid": "61ac6f736dcf96178b057e86"
+    },
+    {
+      "$oid": "61ac70a06dcf96178b057e9f"
+    },
+    {
+      "$oid": "61ac717d6dcf96178b057eb6"
+    }
+  ],
+  "rating": 4.5,
+  "ratingsCount": 2,
+  "__v": 12
+},{
+  "_id": {
+    "$oid": "61ac72fc6dcf96178b057ecd"
+  },
+  "name": "Master Sushi",
+  "mainTheme": "Chinese",
+  "categories": [
+    "Sushi",
+    "Sashimi"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638691581/xp5mc1vxoq7i77fd7jbh.jpg",
+    "public_id": "xp5mc1vxoq7i77fd7jbh",
+    "_id": {
+      "$oid": "61ac72fc6dcf96178b057ece"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ac73976dcf96178b057ed3"
+    },
+    {
+      "$oid": "61ac74126dcf96178b057ede"
+    },
+    {
+      "$oid": "61ac74716dcf96178b057eea"
+    },
+    {
+      "$oid": "61ac75506dcf96178b057efa"
+    },
+    {
+      "$oid": "61ac75d86dcf96178b057f0b"
+    },
+    {
+      "$oid": "61ac762d6dcf96178b057f1a"
+    }
+  ],
+  "rating": 4.5,
+  "ratingsCount": 2,
+  "__v": 6
+},{
+  "_id": {
+    "$oid": "61ac77046dcf96178b057f23"
+  },
+  "name": "Tay Fun",
+  "mainTheme": "Chinese",
+  "categories": [
+    "Dishes",
+    "Soups",
+    "Salads"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692613/qcefr8fgky1yw21k7vs4.jpg",
+    "public_id": "qcefr8fgky1yw21k7vs4",
+    "_id": {
+      "$oid": "61ac77046dcf96178b057f24"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ac77756dcf96178b057f2b"
+    },
+    {
+      "$oid": "61ac77e26dcf96178b057f36"
+    },
+    {
+      "$oid": "61ac782d6dcf96178b057f44"
+    },
+    {
+      "$oid": "61ac787e6dcf96178b057f51"
+    },
+    {
+      "$oid": "61ac78d06dcf96178b057f5f"
+    },
+    {
+      "$oid": "61ac79326dcf96178b057f6e"
+    },
+    {
+      "$oid": "61ac79806dcf96178b057f7e"
+    },
+    {
+      "$oid": "61ac79d06dcf96178b057f8f"
+    },
+    {
+      "$oid": "61ac7ac66dcf96178b057fb8"
+    },
+    {
+      "$oid": "61ac7af86dcf96178b057fcb"
+    },
+    {
+      "$oid": "61ac7b416dcf96178b057fdf"
+    }
+  ],
+  "rating": 4.5,
+  "ratingsCount": 2,
+  "__v": 11
+},{
+  "_id": {
+    "$oid": "61ac82d66dcf96178b058048"
+  },
+  "name": "Grandma knows best",
+  "mainTheme": "Bulgarian",
+  "categories": [
+    "Dishes",
+    "Soups",
+    "Dessert"
+  ],
+  "workHours": [
+    "11:00",
+    "22:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638695639/qfqtyqhor8sqe4oqt3og.jpg",
+    "public_id": "qfqtyqhor8sqe4oqt3og",
+    "_id": {
+      "$oid": "61ac82d66dcf96178b058049"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "recipes": [
+    {
+      "$oid": "61ac83936dcf96178b058050"
+    },
+    {
+      "$oid": "61ac849f6dcf96178b058066"
+    },
+    {
+      "$oid": "61ac85136dcf96178b058072"
+    },
+    {
+      "$oid": "61ac85ad6dcf96178b05807f"
+    },
+    {
+      "$oid": "61ac86426dcf96178b05808d"
+    },
+    {
+      "$oid": "61ac871d6dcf96178b05809f"
+    },
+    {
+      "$oid": "61ac87916dcf96178b0580af"
+    }
+  ],
+  "rating": 5,
+  "ratingsCount": 9,
+  "__v": 7
+},{
+  "_id": {
+    "$oid": "61b3241a79c3a505d4df06cd"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3244179c3a505d4df06ce"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3244479c3a505d4df06cf"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3244679c3a505d4df06d0"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3246b79c3a505d4df06d1"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3246d79c3a505d4df06d2"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3247079c3a505d4df06d3"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3247279c3a505d4df06d4"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3248c79c3a505d4df06d5"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 4,
+      "name": "Shumen"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3248f79c3a505d4df06d6"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b3249179c3a505d4df06d7"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b324a279c3a505d4df06d8"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b335ab79c3a505d4df06e1"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b335ad79c3a505d4df06e2"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b335b079c3a505d4df06e3"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+},{
+  "_id": {
+    "$oid": "61b335b279c3a505d4df06e4"
+  },
+  "name": "Duplicate",
+  "mainTheme": "Fast Food",
+  "categories": [
+    "Burgers",
+    "Salads",
+    "Drinks"
+  ],
+  "workHours": [
+    "8:00",
+    "23:00"
+  ],
+  "workDays": [
+    "Monday",
+    "Sunday"
+  ],
+  "cities": [
+    {
+      "_id": 9,
+      "name": "Ruse"
+    },
+    {
+      "_id": 8,
+      "name": "Pleven"
+    },
+    {
+      "_id": 7,
+      "name": "Veliko-Tarnovo"
+    },
+    {
+      "_id": 6,
+      "name": "Blagoevgrad"
+    },
+    {
+      "_id": 5,
+      "name": "Stara-Zagora"
+    },
+    {
+      "_id": 3,
+      "name": "Plovdiv"
+    },
+    {
+      "_id": 2,
+      "name": "Burgas"
+    },
+    {
+      "_id": 1,
+      "name": "Varna"
+    },
+    {
+      "_id": 0,
+      "name": "Sofia"
+    }
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636623658/kjixkdbgppfuh1wrufiq.jpg",
+    "public_id": "kjixkdbgppfuh1wrufiq",
+    "_id": {
+      "$oid": "618ce52b71039c1c33cd1207"
+    }
+  },
+  "owner": {
+    "$oid": "61839caa4cadf30cdddb2456"
+  },
+  "__v": 45,
+  "recipes": [
+    {
+      "$oid": "61923c68e3ee86bb76bc1b58"
+    },
+    {
+      "$oid": "61923d77e3ee86bb76bc1b63"
+    },
+    {
+      "$oid": "61ab3b2319845f7741eaa7d6"
+    },
+    {
+      "$oid": "61ab4dae87e2b9d1f4e710e4"
+    },
+    {
+      "$oid": "61ab4e1f87e2b9d1f4e710f2"
+    },
+    {
+      "$oid": "61ab4f3b87e2b9d1f4e71101"
+    },
+    {
+      "$oid": "61ab6e7c4ad36a03305dac1d"
+    },
+    {
+      "$oid": "61ab6f6e4ad36a03305dac3c"
+    }
+  ],
+  "rating": 0,
+  "ratingsCount": 0
+}]

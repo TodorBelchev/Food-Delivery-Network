@@ -1,0 +1,1512 @@
+[{
+  "_id": {
+    "$oid": "61923c68e3ee86bb76bc1b58"
+  },
+  "name": "Classic burger",
+  "price": 4.99,
+  "category": "Burgers",
+  "weight": 500,
+  "ingredients": [
+    "beef",
+    "onion",
+    "egg",
+    "garlic",
+    "salt",
+    "pepper",
+    "mayonnaise",
+    "ketchup",
+    "lettuce",
+    "tomato"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636973673/v7ng8xvibcepjxrqg9xm.jpg",
+    "public_id": "v7ng8xvibcepjxrqg9xm",
+    "_id": {
+      "$oid": "61923c68e3ee86bb76bc1b59"
+    }
+  },
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "61923d77e3ee86bb76bc1b63"
+  },
+  "name": "Cheese burger",
+  "price": 7.99,
+  "category": "Burgers",
+  "weight": 599,
+  "ingredients": [
+    "beef",
+    "cheese",
+    "onion",
+    "salt",
+    "pepper",
+    "ketchup",
+    "mayonnaise",
+    "lettuce",
+    "tomatoes",
+    "pickles"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1636973943/yvb7ldtwrwikfp3p91is.jpg",
+    "public_id": "yvb7ldtwrwikfp3p91is",
+    "_id": {
+      "$oid": "61923d77e3ee86bb76bc1b64"
+    }
+  },
+  "__v": 5
+},{
+  "_id": {
+    "$oid": "61ab3b2319845f7741eaa7d6"
+  },
+  "name": "Caesar salad",
+  "price": 5.99,
+  "category": "Salads",
+  "weight": 499,
+  "ingredients": [
+    "salad",
+    "iceberg",
+    "spinach",
+    "cucumbers",
+    "Caesar sauce",
+    "nuts",
+    "cherry tomatoes",
+    "parmesan",
+    "bruschetta",
+    "olive oil",
+    "chicken fillet"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638611747/nr7x1gr3l0r4t3qwnvcv.jpg",
+    "public_id": "nr7x1gr3l0r4t3qwnvcv",
+    "_id": {
+      "$oid": "61ab3b2319845f7741eaa7d7"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab4dae87e2b9d1f4e710e4"
+  },
+  "name": "Caesar salad with tuna",
+  "price": 5.99,
+  "category": "Salads",
+  "weight": 549,
+  "ingredients": [
+    "green and red salad",
+    "iceberg",
+    "spinach",
+    "cucumbers",
+    "Caesar sauce",
+    "nuts",
+    "cherry tomatoes",
+    "parmesan",
+    "baked bruschetta",
+    "olive oil",
+    "tuna"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638616495/czmnpqdo2wicenilahcb.jpg",
+    "public_id": "czmnpqdo2wicenilahcb",
+    "_id": {
+      "$oid": "61ab4dae87e2b9d1f4e710e5"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab4e1f87e2b9d1f4e710f2"
+  },
+  "name": "Shopska salad",
+  "price": 4.99,
+  "category": "Salads",
+  "weight": 449,
+  "ingredients": [
+    "pink tomato",
+    "cucumber",
+    "roasted red pepper",
+    "roasted eggplant",
+    "red onion",
+    "cheese"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638616608/otd8znff1lwkmracu77i.jpg",
+    "public_id": "otd8znff1lwkmracu77i",
+    "_id": {
+      "$oid": "61ab4e1f87e2b9d1f4e710f3"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab4f3b87e2b9d1f4e71101"
+  },
+  "name": "Rich burger",
+  "price": 8.99,
+  "category": "Burgers",
+  "weight": 799,
+  "ingredients": [
+    "bread",
+    "beef patty",
+    "bacon",
+    "cheddar",
+    "onion",
+    "pink tomato",
+    "egg",
+    "fries",
+    "sauce",
+    "mayonnaise",
+    "ketchup",
+    "cognac",
+    "Tabasco and Worcester"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638616892/pgw5lylath9bkq6o36ds.jpg",
+    "public_id": "pgw5lylath9bkq6o36ds",
+    "_id": {
+      "$oid": "61ab4f3b87e2b9d1f4e71102"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab6e7c4ad36a03305dac1d"
+  },
+  "name": "Coca-Cola 1L",
+  "price": 1.99,
+  "category": "Drinks",
+  "weight": 1000,
+  "ingredients": [
+    "carbonated water",
+    "high fructose corn syrup",
+    "caramel color",
+    "phosphoric acid",
+    "natural flavors",
+    "caffeine"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638624893/qruqq1qld3wnksnqj69d.jpg",
+    "public_id": "qruqq1qld3wnksnqj69d",
+    "_id": {
+      "$oid": "61ab6e7c4ad36a03305dac1e"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab6f6e4ad36a03305dac3c"
+  },
+  "name": "Sprite 1L",
+  "price": 1.99,
+  "category": "Drinks",
+  "weight": 1000,
+  "ingredients": [
+    "carbonated water",
+    "high fructose corn syrup",
+    "citric acid",
+    "natural flavors",
+    "sodium citrate",
+    "sodium benzoate"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638625135/l5cvimwv0id0j1jgsuqc.jpg",
+    "public_id": "l5cvimwv0id0j1jgsuqc",
+    "_id": {
+      "$oid": "61ab6f6e4ad36a03305dac3d"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab70904ad36a03305dac4e"
+  },
+  "name": "Macarons",
+  "price": 9.99,
+  "category": "Desserts",
+  "weight": 399,
+  "ingredients": [
+    "powdered sugar",
+    "almond flour",
+    "eggs",
+    "butter",
+    "vanilla extract"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638625425/y4ibjolva5celtwpxchv.jpg",
+    "public_id": "y4ibjolva5celtwpxchv",
+    "_id": {
+      "$oid": "61ab70904ad36a03305dac4f"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab71024ad36a03305dac59"
+  },
+  "name": "Tulipes",
+  "price": 8.99,
+  "category": "Desserts",
+  "weight": 399,
+  "ingredients": [
+    "eggs",
+    "sugar",
+    "flour",
+    "vannilla",
+    "butter",
+    "ice cream"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638625539/eaod0dgiiw33sn1hb9zd.jpg",
+    "public_id": "eaod0dgiiw33sn1hb9zd",
+    "_id": {
+      "$oid": "61ab71024ad36a03305dac5a"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab71914ad36a03305dac65"
+  },
+  "name": "Crêpes",
+  "price": 5.99,
+  "category": "Desserts",
+  "weight": 299,
+  "ingredients": [
+    "eggs",
+    "sugar",
+    "flour",
+    "milk",
+    "butter",
+    "strawberries",
+    "grapes"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638625682/nfdghmekjerlmusni60e.jpg",
+    "public_id": "nfdghmekjerlmusni60e",
+    "_id": {
+      "$oid": "61ab71914ad36a03305dac66"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab72304ad36a03305dac72"
+  },
+  "name": "Tarte Tatin",
+  "price": 14.99,
+  "category": "Desserts",
+  "weight": 699,
+  "ingredients": [
+    "butter",
+    "sugar",
+    "apples",
+    "cranberries",
+    "cream",
+    "yogurt"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638625841/nwls6rztjnftb8xdutu2.jpg",
+    "public_id": "nwls6rztjnftb8xdutu2",
+    "_id": {
+      "$oid": "61ab72304ad36a03305dac73"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab738f4ad36a03305daea0"
+  },
+  "name": "Creme Caramel",
+  "price": 5.99,
+  "category": "Desserts",
+  "weight": 199,
+  "ingredients": [
+    "eggs",
+    "sugar",
+    "water",
+    "vanilla",
+    "cream",
+    "milk"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638626192/ushenainu07t5mhtakjj.jpg",
+    "public_id": "ushenainu07t5mhtakjj",
+    "_id": {
+      "$oid": "61ab738f4ad36a03305daea1"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab78434ad36a03305daeba"
+  },
+  "name": "Capricciosa",
+  "price": 6.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato paste",
+    "mozzarella",
+    "pork loin",
+    "pickles",
+    "fresh mushrooms",
+    "olives",
+    "oregano",
+    "olive oil"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638627396/dyyavrtbkimp86nfoa2s.jpg",
+    "public_id": "dyyavrtbkimp86nfoa2s",
+    "_id": {
+      "$oid": "61ab78434ad36a03305daebb"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7904136f69b98626c0e4"
+  },
+  "name": "Parma",
+  "price": 7.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato paste",
+    "mozzarella",
+    "chicken grilled",
+    "melted cheese",
+    "olives",
+    "fresh arugula",
+    "olive oil",
+    "oregano"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638956615/rto5d66bjcbhmcggmosc.jpg",
+    "public_id": "rto5d66bjcbhmcggmosc",
+    "_id": {
+      "$oid": "61b07e47202dd28d62f6606d"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab795cb41098df46b1805a"
+  },
+  "name": "Pollo e Fungi",
+  "price": 6.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato paste",
+    "mozzarella",
+    "chicken ham",
+    "mushrooms",
+    "oregano",
+    "olive oil"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638627677/quj1tiawvkym9bv16anu.jpg",
+    "public_id": "quj1tiawvkym9bv16anu",
+    "_id": {
+      "$oid": "61ab795cb41098df46b1805b"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab79f8b41098df46b1806b"
+  },
+  "name": "Margarita",
+  "price": 7.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato paste",
+    "mozzarella",
+    "fresh basil",
+    "oregano",
+    "olive oil"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638627833/sxwzam7xmuaoywdvzmaa.jpg",
+    "public_id": "sxwzam7xmuaoywdvzmaa",
+    "_id": {
+      "$oid": "61ab79f8b41098df46b1806c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7a91b41098df46b1808a"
+  },
+  "name": "Quattro Salami",
+  "price": 7.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato paste",
+    "mozzarella",
+    "chicken sausage",
+    "pepperoni",
+    "bacon",
+    "Italian prosciutto",
+    "fresh arugula",
+    "oregano",
+    "olive oil"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638627986/i2gx3w0fjekh6qmk0ynl.jpg",
+    "public_id": "i2gx3w0fjekh6qmk0ynl",
+    "_id": {
+      "$oid": "61ab7a91b41098df46b1808b"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7b01b41098df46b18099"
+  },
+  "name": "Vegetarian",
+  "price": 7.99,
+  "category": "Pizza",
+  "weight": 549,
+  "ingredients": [
+    "flour",
+    "tomato sauce",
+    "mozzarella",
+    "grilled zucchini mix of peppers and eggplant",
+    "mushrooms",
+    "olives",
+    "fresh basil",
+    "oregano",
+    "olive oil"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638628098/ywpbkouvtj0sxsdxs1be.jpg",
+    "public_id": "ywpbkouvtj0sxsdxs1be",
+    "_id": {
+      "$oid": "61ab7b01b41098df46b1809a"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7c12b41098df46b180bc"
+  },
+  "name": "Caprese with garlic",
+  "price": 4.99,
+  "category": "Bruschetti",
+  "weight": 329,
+  "ingredients": [
+    "Ciabatta with a mix of pink tomato salad mozzarella",
+    "basil",
+    "olive oil",
+    "oregano",
+    "red onion",
+    "garlic"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638628371/uuidh661wmfoob3c1f1z.jpg",
+    "public_id": "uuidh661wmfoob3c1f1z",
+    "_id": {
+      "$oid": "61ab7c12b41098df46b180bd"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7cf3b41098df46b180d0"
+  },
+  "name": "Italian prosciutto",
+  "price": 4.99,
+  "category": "Bruschetti",
+  "weight": 329,
+  "ingredients": [
+    "Ciabatta garnished with Italian ham",
+    "parmesan",
+    "olive oil",
+    "fresh basil leaves"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638628596/tvuul2x37didl91iuhgh.jpg",
+    "public_id": "tvuul2x37didl91iuhgh",
+    "_id": {
+      "$oid": "61ab7cf3b41098df46b180d1"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7d44b41098df46b180e2"
+  },
+  "name": "Bacon and melted cheese",
+  "price": 4.99,
+  "category": "Bruschetti",
+  "weight": 329,
+  "ingredients": [
+    "Ciabatta",
+    "baked with bacon",
+    "red pepper",
+    "red onion and melted cheese"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638628677/tgnmunldlu2rm09qfmhi.jpg",
+    "public_id": "tgnmunldlu2rm09qfmhi",
+    "_id": {
+      "$oid": "61ab7d44b41098df46b180e3"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7dbab41098df46b180f5"
+  },
+  "name": "Salmon and Philadelphia",
+  "price": 5.99,
+  "category": "Bruschetti",
+  "weight": 329,
+  "ingredients": [
+    "Ciabatta with salmon",
+    "Philadelphia cheese",
+    "aroma capers"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638628795/clj61v4b47nouccpnjdd.jpg",
+    "public_id": "clj61v4b47nouccpnjdd",
+    "_id": {
+      "$oid": "61ab7dbab41098df46b180f6"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7ed1b41098df46b1810b"
+  },
+  "name": "Focaccia with Caprese",
+  "price": 6.99,
+  "category": "Focaccia",
+  "weight": 399,
+  "ingredients": [
+    "pink tomato sliced salad of mozzarella",
+    "melted cheese",
+    "topped with fresh basil leaves"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629074/zltgbc4hhwfuugptx96h.jpg",
+    "public_id": "zltgbc4hhwfuugptx96h",
+    "_id": {
+      "$oid": "61ab7ed1b41098df46b1810c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7f51b41098df46b18123"
+  },
+  "name": "Focaccia with Chèvre",
+  "price": 6.99,
+  "category": "Focaccia",
+  "weight": 399,
+  "ingredients": [
+    "goat cheese",
+    "pepperoni sausage",
+    "melted cheese",
+    "garnished with fresh arugula"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629202/nhak6rqanovcdjdholf1.jpg",
+    "public_id": "nhak6rqanovcdjdholf1",
+    "_id": {
+      "$oid": "61ab7f51b41098df46b18124"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab7fb4b41098df46b18139"
+  },
+  "name": "Focaccia with Brie",
+  "price": 7.99,
+  "category": "Focaccia",
+  "weight": 399,
+  "ingredients": [
+    "brie cheese",
+    "cherry tomatoes",
+    "Philadelphia cheese",
+    "topped with fresh arugula"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629301/czna1e30xmln4o5pmjvi.jpg",
+    "public_id": "czna1e30xmln4o5pmjvi",
+    "_id": {
+      "$oid": "61ab7fb4b41098df46b1813a"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab8051b41098df46b18150"
+  },
+  "name": "Kroc with cheese",
+  "price": 5.99,
+  "category": "Kroc sandwiches",
+  "weight": 399,
+  "ingredients": [
+    "white bread",
+    "cheese",
+    "french fries",
+    "Heinz sauces: mayonnaise and ketchup",
+    "pickles"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629459/b7ov6a62d6f487kzkcxn.jpg",
+    "public_id": "b7ov6a62d6f487kzkcxn",
+    "_id": {
+      "$oid": "61ab8051b41098df46b18151"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab80b3b41098df46b18168"
+  },
+  "name": "Kroc with chicken fillet",
+  "price": 6.99,
+  "category": "Kroc sandwiches",
+  "weight": 399,
+  "ingredients": [
+    "white bread",
+    "chicken fillet",
+    "kashkaval",
+    "fries",
+    "Heinz sauces: mayonnaise and ketchup",
+    "pickles"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629556/snqpzyz0vk4emujluemh.jpg",
+    "public_id": "snqpzyz0vk4emujluemh",
+    "_id": {
+      "$oid": "61ab80b3b41098df46b18169"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab8132b41098df46b18181"
+  },
+  "name": "Kroc with pork fillet",
+  "price": 7.99,
+  "category": "Kroc sandwiches",
+  "weight": 399,
+  "ingredients": [
+    "white bread",
+    "pork fillet",
+    "cheese",
+    "fries",
+    "Heinz sauces: mayonnaise and ketchup",
+    "pickles"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638629683/zdeqjgaxd28fxvvzyj7p.jpg",
+    "public_id": "zdeqjgaxd28fxvvzyj7p",
+    "_id": {
+      "$oid": "61ab8132b41098df46b18182"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6a926dcf96178b057dfe"
+  },
+  "name": "Meatroll",
+  "price": 0.99,
+  "category": "Grill",
+  "weight": 79,
+  "ingredients": [
+    "beef",
+    "pork",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638689428/gtkvaudntdo6qf0cuk5a.jpg",
+    "public_id": "gtkvaudntdo6qf0cuk5a",
+    "_id": {
+      "$oid": "61ac6a926dcf96178b057dff"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6af06dcf96178b057e09"
+  },
+  "name": "Meatball",
+  "price": 0.99,
+  "category": "Grill",
+  "weight": 79,
+  "ingredients": [
+    "beef",
+    "pork",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638689521/bdb60jmacamprzhecr81.jpg",
+    "public_id": "bdb60jmacamprzhecr81",
+    "_id": {
+      "$oid": "61ac6af06dcf96178b057e0a"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6b8e6dcf96178b057e15"
+  },
+  "name": "Chicken skewer",
+  "price": 1.99,
+  "category": "Grill",
+  "weight": 119,
+  "ingredients": [
+    "chicken",
+    "pepper",
+    "onion",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638689679/pwcerf8dwpydgmt9fapl.jpg",
+    "public_id": "pwcerf8dwpydgmt9fapl",
+    "_id": {
+      "$oid": "61ac6b8e6dcf96178b057e16"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6c036dcf96178b057e22"
+  },
+  "name": "Pork skewer",
+  "price": 1.99,
+  "category": "Grill",
+  "weight": 119,
+  "ingredients": [
+    "pork",
+    "pepper",
+    "onion",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638689796/dr3kanamzkol8nvf5qid.jpg",
+    "public_id": "dr3kanamzkol8nvf5qid",
+    "_id": {
+      "$oid": "61ac6c036dcf96178b057e23"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6cc76dcf96178b057e38"
+  },
+  "name": "Homemade sausage",
+  "price": 1.99,
+  "category": "Grill",
+  "weight": 119,
+  "ingredients": [
+    "pork",
+    "beef",
+    "onion",
+    "garlic",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638689992/sviabu5oasly6jlyq9cu.jpg",
+    "public_id": "sviabu5oasly6jlyq9cu",
+    "_id": {
+      "$oid": "61ac6cc76dcf96178b057e39"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6d656dcf96178b057e47"
+  },
+  "name": "Pork steak",
+  "price": 3.99,
+  "category": "Grill",
+  "weight": 149,
+  "ingredients": [
+    "pork",
+    "grill sauce",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638690150/kvie6utasycno32eezle.jpg",
+    "public_id": "kvie6utasycno32eezle",
+    "_id": {
+      "$oid": "61ac6d656dcf96178b057e48"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6db16dcf96178b057e57"
+  },
+  "name": "Beef steak",
+  "price": 4.99,
+  "category": "Grill",
+  "weight": 149,
+  "ingredients": [
+    "beef",
+    "grill sauce",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638690227/t7ulrbqlsovgfjhpgyon.jpg",
+    "public_id": "t7ulrbqlsovgfjhpgyon",
+    "_id": {
+      "$oid": "61ac6db16dcf96178b057e58"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6edf6dcf96178b057e74"
+  },
+  "name": "Russian salad",
+  "price": 2.99,
+  "category": "Salads",
+  "weight": 249,
+  "ingredients": [
+    "potatoes",
+    "carrots",
+    "eggs",
+    "pickles",
+    "peas",
+    "ham",
+    "parsley",
+    "mayonnaise"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638690528/dotrgvxqcbzs1ficw5dl.jpg",
+    "public_id": "dotrgvxqcbzs1ficw5dl",
+    "_id": {
+      "$oid": "61ac6edf6dcf96178b057e75"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac6f736dcf96178b057e86"
+  },
+  "name": "Potato salad",
+  "price": 2.99,
+  "category": "Salads",
+  "weight": 249,
+  "ingredients": [
+    "potatoes",
+    "onion",
+    "parsley",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638690676/ydu0mubi5yalcekjxdiv.jpg",
+    "public_id": "ydu0mubi5yalcekjxdiv",
+    "_id": {
+      "$oid": "61ac6f736dcf96178b057e87"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac70a06dcf96178b057e9f"
+  },
+  "name": "Shopska salad",
+  "price": 5.99,
+  "category": "Salads",
+  "weight": 399,
+  "ingredients": [
+    "pink tomato",
+    "cucumber",
+    "red pepper",
+    "egg",
+    "red onion",
+    "cheese",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638690978/qx9h8iv0wgcohjo5qtwr.jpg",
+    "public_id": "qx9h8iv0wgcohjo5qtwr",
+    "_id": {
+      "$oid": "61ac70a06dcf96178b057ea0"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac717d6dcf96178b057eb6"
+  },
+  "name": "Milk salad",
+  "price": 5.99,
+  "category": "Salads",
+  "weight": 399,
+  "ingredients": [
+    "yougurt",
+    "pickles",
+    "walnut",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638691199/ceh0izsojifybnxjnkyp.jpg",
+    "public_id": "ceh0izsojifybnxjnkyp",
+    "_id": {
+      "$oid": "61ac717d6dcf96178b057eb7"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac73976dcf96178b057ed3"
+  },
+  "name": "Salmon set",
+  "price": 25.99,
+  "category": "Sushi",
+  "weight": 499,
+  "ingredients": [
+    "uramaki smoked salmon",
+    "futomaki salmon and avocado",
+    "spicy salmon",
+    "hosomaki salmon. nigiri salmon"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638691736/iu1c2wx39a5ya4amwstb.jpg",
+    "public_id": "iu1c2wx39a5ya4amwstb",
+    "_id": {
+      "$oid": "61ac73976dcf96178b057ed4"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac74126dcf96178b057ede"
+  },
+  "name": "Nigiri set",
+  "price": 23.99,
+  "category": "Sushi",
+  "weight": 399,
+  "ingredients": [
+    "nigiri salmon",
+    "tone",
+    "shrimp",
+    "eel",
+    "octopus",
+    "japanese omelet"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638691860/ssgn3pzqe17brensiezf.jpg",
+    "public_id": "ssgn3pzqe17brensiezf",
+    "_id": {
+      "$oid": "61ac74126dcf96178b057edf"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac74716dcf96178b057eea"
+  },
+  "name": "Mix set",
+  "price": 19.99,
+  "category": "Sushi",
+  "weight": 449,
+  "ingredients": [
+    "uramaki california",
+    "smoked salmon",
+    "futomaki taco",
+    "smoked chicken"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638691954/achw43y0mx8buqrknnzn.jpg",
+    "public_id": "achw43y0mx8buqrknnzn",
+    "_id": {
+      "$oid": "61ac74716dcf96178b057eeb"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac75506dcf96178b057efa"
+  },
+  "name": "Sashimi Ton",
+  "price": 4.99,
+  "category": "Sashimi",
+  "weight": 59,
+  "ingredients": [
+    "ton",
+    "wasabi",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692178/by8yfslyx32m4pc2mrvx.jpg",
+    "public_id": "by8yfslyx32m4pc2mrvx",
+    "_id": {
+      "$oid": "61ac75506dcf96178b057efb"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac75d86dcf96178b057f0b"
+  },
+  "name": "Sashimi Salmon",
+  "price": 4.99,
+  "category": "Sashimi",
+  "weight": 59,
+  "ingredients": [
+    "salmon",
+    "wasabi",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692314/j7f8hk2rhcvhizie3ood.jpg",
+    "public_id": "j7f8hk2rhcvhizie3ood",
+    "_id": {
+      "$oid": "61ac75d86dcf96178b057f0c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac762d6dcf96178b057f1a"
+  },
+  "name": "Sashimi Shrimp",
+  "price": 4.99,
+  "category": "Sashimi",
+  "weight": 59,
+  "ingredients": [
+    "shrimp",
+    "wasabi",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692399/s4aqun5od0srgyxfxks2.jpg",
+    "public_id": "s4aqun5od0srgyxfxks2",
+    "_id": {
+      "$oid": "61ac762d6dcf96178b057f1b"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac77756dcf96178b057f2b"
+  },
+  "name": "Chicken in Yusian style",
+  "price": 9.99,
+  "category": "Dishes",
+  "weight": 499,
+  "ingredients": [
+    "chicken",
+    "bamboo",
+    "pepper",
+    "carrots",
+    "spicy sauce",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692726/plrfsxadcleyjocucgds.jpg",
+    "public_id": "plrfsxadcleyjocucgds",
+    "_id": {
+      "$oid": "61ac77756dcf96178b057f2c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac77e26dcf96178b057f36"
+  },
+  "name": "Saivan chicken",
+  "price": 9.99,
+  "category": "Dishes",
+  "weight": 499,
+  "ingredients": [
+    "chicken fillet",
+    "chicken leg",
+    "caramelized sugar",
+    "soy sauce",
+    "white rice"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692836/xje5tghrdhoqg8zwto8b.jpg",
+    "public_id": "xje5tghrdhoqg8zwto8b",
+    "_id": {
+      "$oid": "61ac77e26dcf96178b057f37"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac782d6dcf96178b057f44"
+  },
+  "name": "Sichuan Chicken",
+  "price": 9.99,
+  "category": "Dishes",
+  "weight": 499,
+  "ingredients": [
+    "pieces of chicken",
+    "black mushrooms",
+    "carrots",
+    "cabbage",
+    "pepper and hot sauce"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692910/pklmkpelpktxcws1bxnv.jpg",
+    "public_id": "pklmkpelpktxcws1bxnv",
+    "_id": {
+      "$oid": "61ac782d6dcf96178b057f45"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac787e6dcf96178b057f51"
+  },
+  "name": "Imperial pork",
+  "price": 9.99,
+  "category": "Dishes",
+  "weight": 499,
+  "ingredients": [
+    "pork",
+    "vegetables",
+    "peanuts",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638692991/bitw1avjiwckso0iqwt2.jpg",
+    "public_id": "bitw1avjiwckso0iqwt2",
+    "_id": {
+      "$oid": "61ac787e6dcf96178b057f52"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac78d06dcf96178b057f5f"
+  },
+  "name": "Breaded pork with vegetables",
+  "price": 10.99,
+  "category": "Dishes",
+  "weight": 499,
+  "ingredients": [
+    "pork",
+    "mushrooms",
+    "cabbage",
+    "carrots",
+    "peas",
+    "corn",
+    "onions"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693073/r4o4fdypfqnldgiwnteq.jpg",
+    "public_id": "r4o4fdypfqnldgiwnteq",
+    "_id": {
+      "$oid": "61ac78d06dcf96178b057f60"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac79326dcf96178b057f6e"
+  },
+  "name": "Spicy sour soup",
+  "price": 4.99,
+  "category": "Soups",
+  "weight": 399,
+  "ingredients": [
+    "ham",
+    "chicken",
+    "eggs",
+    "black mushrooms"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693171/fhjtmdinpmglyhgsutzx.jpg",
+    "public_id": "fhjtmdinpmglyhgsutzx",
+    "_id": {
+      "$oid": "61ac79326dcf96178b057f6f"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac79806dcf96178b057f7e"
+  },
+  "name": "Kuandon soup",
+  "price": 4.99,
+  "category": "Soups",
+  "weight": 299,
+  "ingredients": [
+    "ham",
+    "peas",
+    "carrots",
+    "corn"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693249/tcwxs4anudadsiew6wqe.jpg",
+    "public_id": "tcwxs4anudadsiew6wqe",
+    "_id": {
+      "$oid": "61ac79806dcf96178b057f7f"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac79d06dcf96178b057f8f"
+  },
+  "name": "Pork tripe soup",
+  "price": 4.99,
+  "category": "Soups",
+  "weight": 299,
+  "ingredients": [
+    "tripe",
+    "cucumbers",
+    "garlic and hot sauce"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693329/f6gpgyv6fvxakthmwvxc.jpg",
+    "public_id": "f6gpgyv6fvxakthmwvxc",
+    "_id": {
+      "$oid": "61ac79d06dcf96178b057f90"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac7ac66dcf96178b057fb8"
+  },
+  "name": "Chinese salad",
+  "price": 10.99,
+  "category": "Salads",
+  "weight": 499,
+  "ingredients": [
+    "beef",
+    "pork",
+    "black and white mushrooms",
+    "peanuts",
+    "rice noodles",
+    "cucumbers",
+    "tomatoes",
+    "drizzled with spicy sauce"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693575/jebly8qiooffewhynitq.jpg",
+    "public_id": "jebly8qiooffewhynitq",
+    "_id": {
+      "$oid": "61ac7ac66dcf96178b057fb9"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac7af86dcf96178b057fcb"
+  },
+  "name": "Soybean sprout salad",
+  "price": 4.99,
+  "category": "Salads",
+  "weight": 299,
+  "ingredients": [
+    "soy sprouts",
+    "cucumbers",
+    "carrots",
+    "rice noodles"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693626/wapfaqcxgqwjttetoqz4.jpg",
+    "public_id": "wapfaqcxgqwjttetoqz4",
+    "_id": {
+      "$oid": "61ac7af86dcf96178b057fcc"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac7b416dcf96178b057fdf"
+  },
+  "name": "Mixed vegetable with chicken",
+  "price": 4.99,
+  "category": "Salads",
+  "weight": 299,
+  "ingredients": [
+    "cabbage",
+    "carrots",
+    "cucumbers",
+    "tomatoes",
+    "chicken strips"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638693698/dzxo2zuts7lcwryztrm0.jpg",
+    "public_id": "dzxo2zuts7lcwryztrm0",
+    "_id": {
+      "$oid": "61ac7b416dcf96178b057fe0"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac83936dcf96178b058050"
+  },
+  "name": "Musaka",
+  "price": 4.99,
+  "category": "Dishes",
+  "weight": 399,
+  "ingredients": [
+    "minced beef and pork",
+    "potatoes",
+    "onion",
+    "pepper",
+    "carrot",
+    "parsley",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638695828/qqiqyxkmb0graba7pmnt.jpg",
+    "public_id": "qqiqyxkmb0graba7pmnt",
+    "_id": {
+      "$oid": "61ac83936dcf96178b058051"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac849f6dcf96178b058066"
+  },
+  "name": "Stuffed cabbage leaves",
+  "price": 4.99,
+  "category": "Dishes",
+  "weight": 399,
+  "ingredients": [
+    "minced pork and beef",
+    "cabbage",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696096/fcnauguyjdywtrr4jktc.jpg",
+    "public_id": "fcnauguyjdywtrr4jktc",
+    "_id": {
+      "$oid": "61ac849f6dcf96178b058067"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac85136dcf96178b058072"
+  },
+  "name": "Stuffed vine leaves",
+  "price": 4.99,
+  "category": "Dishes",
+  "weight": 399,
+  "ingredients": [
+    "minced beef and pork",
+    "vine leaves",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696212/l6f2l4xwx4ja649byuxh.jpg",
+    "public_id": "l6f2l4xwx4ja649byuxh",
+    "_id": {
+      "$oid": "61ac85136dcf96178b058073"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac85ad6dcf96178b05807f"
+  },
+  "name": "Beef potbelly soup",
+  "price": 3.99,
+  "category": "Soups",
+  "weight": 399,
+  "ingredients": [
+    "beef potbelly",
+    "milk",
+    "olive",
+    "butter",
+    "garlic",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696366/yh36aou1tgmtrkanyp34.jpg",
+    "public_id": "yh36aou1tgmtrkanyp34",
+    "_id": {
+      "$oid": "61ac85ad6dcf96178b058080"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac86426dcf96178b05808d"
+  },
+  "name": "Bead soup",
+  "price": 3.99,
+  "category": "Soups",
+  "weight": 399,
+  "ingredients": [
+    "minced beef and pork",
+    "rice",
+    "carrot",
+    "potato",
+    "onion",
+    "eggs",
+    "milk",
+    "spices"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696515/f6wbgjibb7jexo3hvsh3.jpg",
+    "public_id": "f6wbgjibb7jexo3hvsh3",
+    "_id": {
+      "$oid": "61ac86426dcf96178b05808e"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac871d6dcf96178b05809f"
+  },
+  "name": "Cookies",
+  "price": 2.99,
+  "category": "Dessert",
+  "weight": 199,
+  "ingredients": [
+    "flour",
+    "sugar",
+    "vanilla"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696735/s9faddmbi1i0mbhc0aa0.jpg",
+    "public_id": "s9faddmbi1i0mbhc0aa0",
+    "_id": {
+      "$oid": "61ac871d6dcf96178b0580a0"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ac87916dcf96178b0580af"
+  },
+  "name": "Apple cake",
+  "price": 12.99,
+  "category": "Dessert",
+  "weight": 599,
+  "ingredients": [
+    "flour",
+    "sugar",
+    "eggs",
+    "vanilla",
+    "apples"
+  ],
+  "image": {
+    "url": "http://res.cloudinary.com/dex8g0z5j/image/upload/v1638696851/rx4lp43eayngvfz6h6ao.jpg",
+    "public_id": "rx4lp43eayngvfz6h6ao",
+    "_id": {
+      "$oid": "61ac87916dcf96178b0580b0"
+    }
+  },
+  "__v": 0
+}]
