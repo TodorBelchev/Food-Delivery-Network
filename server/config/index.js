@@ -17,7 +17,22 @@ const config = {
 			credentials: true
 		}
 	},
-	production: {}
+	production: {
+        PORT: process.env.PORT || 80,
+        DB_CONNECTION: process.env.DB_CONNECTION,
+        COOKIE_NAME: 'X-Authorization',
+        SECRET: 'very strong secret',
+        SALT_ROUNDS: 10,
+        CLOUDINARY: {
+            cloud_name: process.env.CLOUDINARY_NAME,
+            api_key: process.env.CLOUDINARY_KEY,
+            api_secret: process.env.CLOUDINARY_SECRET
+        },
+        CORS: {
+            origin: ["https://food-delivery-network.herokuapp.com/"],
+            credentials: true
+        }
+    }
 };
 
 module.exports = config[env];
