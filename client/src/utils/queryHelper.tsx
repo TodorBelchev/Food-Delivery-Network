@@ -8,15 +8,18 @@ const constructNewQuery = (query: IObject) => {
 };
 
 const extractQueryObject = (search: string) => {
-    const query = search
-        .split('?')[1]
-        .split('&')
-        .reduce((acc: { [key: string]: string; }, curr) => {
-            const [queryName, value] = curr.split('=');
-            acc[queryName] = value;
-            return acc;
-        }, {});
-    return query;
+    if (search.length > 0) {
+        const query = search
+            .split('?')[1]
+            .split('&')
+            .reduce((acc: { [key: string]: string; }, curr) => {
+                const [queryName, value] = curr.split('=');
+                acc[queryName] = value;
+                return acc;
+            }, {});
+        return query;
+    }
+    return {};
 };
 
 export {

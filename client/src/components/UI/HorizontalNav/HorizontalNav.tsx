@@ -19,10 +19,11 @@ const HorizontalNav: React.FC<HorizontalNavProps> = ({ links }) => {
 
     const handleYScroll = useCallback(() => {
         const navBar = navRef.current as HTMLElement;
-        if (navBar) {
+        const ul = ulRef.current as HTMLUListElement;
+        if (navBar && ul) {
             const styles = getComputedStyle(navBar);
             const distance = Number(styles.top.substring(0, styles.top.length - 2));
-            setIsSticky(distance <= window.scrollY);
+            setIsSticky(distance === ul.getBoundingClientRect().top && window.scrollY > 0);
         }
     }, []);
 

@@ -109,7 +109,6 @@ const UserData: React.FC<UserDataProps> = ({ edit }) => {
     const processResponse = (e: IAuthState) => {
         dispatch(authActions.login(e));
         setIsEditMode(false);
-        // show OK notification
     }
 
     const submitHandler = (e: React.FormEvent) => {

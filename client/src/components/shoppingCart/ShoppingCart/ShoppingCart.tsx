@@ -19,6 +19,7 @@ const ShoppingCart: React.FC = () => {
     const { restaurants } = useAppSelector(state => state.cart);
     const restaurant = useAppSelector(state => state.restaurant);
     const dispatch = useAppDispatch();
+    const notificationState = useAppSelector(state => state.notification);
     const cartRecipes = restaurants.find(x => x.restaurantId === restaurant._id)?.recipes;
     const totalPrice = Number(cartRecipes?.reduce((acc, curr) => acc += curr.quantity * curr.recipe.price, 0).toFixed(2));
     const totalQuantity = cartRecipes?.reduce((acc, curr) => acc += curr.quantity, 0);
@@ -37,9 +38,11 @@ const ShoppingCart: React.FC = () => {
 
     useEffect(() => {
         return () => {
-            dispatch(notificationActions.close());
+            if (notificationState.type === 'error') {
+                dispatch(notificationActions.close());
+            }
         }
-    }, [dispatch])
+    }, [dispatch, notificationState.type])
 
     return (
         <>

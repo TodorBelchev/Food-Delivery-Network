@@ -6,7 +6,8 @@ const {
     createRestaurant,
     getByOwnerId,
     getById,
-    deleteById
+    deleteById,
+    getCount
 } = require('../services/restaurantService');
 const {
     createComment,
@@ -28,9 +29,11 @@ const router = Router();
 
 router.get('/', checkUser(), async (req, res) => {
     try {
+        const page = Number(req.query.page) - 1 || 0;
         const filter = extractFilterFromQuery(req.query);
-        const restaurants = await getRestaurants(filter);
-        res.status(200).send(restaurants);
+        const restaurants = await getRestaurants(filter, page);
+        const count = await getCount(filter);
+        res.status(200).send({ restaurants, count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -244,7 +247,7 @@ router.post('/:id/comment', isLoggedIn(), async (req, res) => {
     }
 });
 
-router.put('/:id/comment/:commentId', isLoggedIn(), isCommentOwner(),  async (req, res) => {
+router.put('/:id/comment/:commentId', isLoggedIn(), isCommentOwner(), async (req, res) => {
     try {
         const name = req.body.name.trim();
         const commentText = req.body.comment.trim();

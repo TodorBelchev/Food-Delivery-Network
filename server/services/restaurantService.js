@@ -18,8 +18,12 @@ const deleteById = (id) => {
     return Restaurant.findByIdAndDelete(id);
 }
 
-const getRestaurants = (filter) => {
-    return Restaurant.find(filter).lean();
+const getRestaurants = (filter, page) => {
+    return Restaurant.find(filter).skip(page * 16).limit(16).lean();
+}
+
+const getCount = (filter) => {
+    return Restaurant.countDocuments(filter);
 }
 
 module.exports = {
@@ -27,5 +31,6 @@ module.exports = {
     getByOwnerId,
     getById,
     deleteById,
-    getRestaurants
+    getRestaurants,
+    getCount
 }

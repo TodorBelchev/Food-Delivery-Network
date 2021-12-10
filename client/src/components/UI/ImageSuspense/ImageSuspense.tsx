@@ -9,6 +9,7 @@ type ImageSuspenseProps = {
 }
 
 const ImageSuspense: React.FC<ImageSuspenseProps> = ({ children, url }) => {
+    const [isMounted, setIsMounted] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
     const cacheImage = async (imageSrc: string) => {
@@ -25,8 +26,13 @@ const ImageSuspense: React.FC<ImageSuspenseProps> = ({ children, url }) => {
             await cacheImage(url);
             setIsLoading(false);
         }
-        loadImage();
-    }, [url]);
+        if (isMounted) {
+            loadImage();
+        }
+        return () => {
+            setIsMounted(false);
+        }
+    }, [url, isMounted]);
 
     return (
         <>

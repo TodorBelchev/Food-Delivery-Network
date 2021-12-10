@@ -88,7 +88,6 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
     }
 
     const processResponse = (res: IRestaurant) => {
-        // show OK notification
         dispatch(restaurantActions.setRestaurant(res));
         dispatch(modalActions.close());
     }

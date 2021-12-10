@@ -12,15 +12,6 @@
     flex-basis: 100%;
 }
 
-.kitchen {
-    position: relative;
-    overflow: hidden;
-}
-
-.kitchen:hover {
-    cursor: pointer;
-}
-
 .kitchen img {
     object-fit: cover;
     width: 100%;
@@ -61,7 +52,8 @@
     margin: 20px;
     box-shadow: 0 0 5px 2px lightgrey;
     border-radius: 15px;
-
+    position: relative;
+    overflow: hidden;
 }
 
 @media all and (max-width: 1440px) {

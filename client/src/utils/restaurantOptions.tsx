@@ -28,15 +28,15 @@ const getByOwner = () => {
     }
 };
 
-const getByCity = (city: string) => {
+const getByCity = (city: string, query: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant?city=${city}`
+        url: `${env.BASE_URL}/restaurant?city=${city}&${query}`
     }
 };
 
-const getByTheme = (theme: string) => {
+const getByTheme = (theme: string, query: string) => {
     return {
-        url: `${env.BASE_URL}/restaurant?mainTheme=${theme}`
+        url: `${env.BASE_URL}/restaurant?mainTheme=${theme}&${query}`
     }
 };
 
