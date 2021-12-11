@@ -1,0 +1,19 @@
+.scroll-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px;
+    background: #a7a7a7;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 6px;
+    transition: all 0.5s ease;
+}
+
+.scroll-btn-icon {
+    color: #fff;
+}
+
+.scroll-btn:hover {
+    background: #808080;
+}

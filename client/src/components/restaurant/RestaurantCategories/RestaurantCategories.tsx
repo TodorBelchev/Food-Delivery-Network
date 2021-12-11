@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { useAppSelector } from '../../../hooks/reduxHooks';
 import IRecipe from '../../../interfaces/IRecipe';
 
 import RestaurantCategoryList from "../RestaurantCategoryList/RestaurantCategoryList";

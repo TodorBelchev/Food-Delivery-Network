@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Route, Switch } from 'react-router';
 import './App.css';
 
-import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
+import { useAppDispatch } from './hooks/reduxHooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
 import useHttp from './hooks/useHttp';
@@ -16,7 +16,6 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails';
 import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
-import Notification from './components/UI/Notification/Notification';
 import UserProfileGuard from './guards/UserProfileGuard';
 import FavoriteRestaurants from './components/restaurant/FavoriteRestaurants/FavoriteRestaurants';
 import userOptions from './utils/userOptions';
@@ -26,7 +25,6 @@ loadFontAwesome();
 function App() {
 	const { sendRequest } = useHttp();
 	const dispatch = useAppDispatch();
-	const notificationState = useAppSelector(state => state.notification);
 
 	useEffect(() => {
 		dispatch(authActions.autoLoadFavorites());
@@ -36,9 +34,9 @@ function App() {
 			dispatch(appActions.initDone());
 		});
 	}, [dispatch, sendRequest]);
+	
 	return (
 		<Layout>
-			{notificationState.text && <Notification />}
 			<Switch>
 				<Route path='/' exact>
 					<Home />
