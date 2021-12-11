@@ -148,6 +148,10 @@
     cursor: pointer;
 }
 
+.controls-btn:disabled {
+    background-color: #a7a7a7;
+}
+
 .controls-btn--danger {
     background: #cc0000;
     margin-left: 10px;

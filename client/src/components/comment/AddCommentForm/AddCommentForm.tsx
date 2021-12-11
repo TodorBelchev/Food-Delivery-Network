@@ -26,6 +26,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
     const {
         value: nameValue,
         hasError: nameHasError,
+        isValid: nameIsValid,
         valueChangeHandler: nameChangeHandler,
         inputBlurHandler: nameBlurHandler,
         setValue: setNameValue
@@ -33,11 +34,12 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
     const {
         value: commentValue,
         hasError: commentHasError,
+        isValid: commentIsValid,
         valueChangeHandler: commentChangeHandler,
         inputBlurHandler: commentBlurHandler
     } = useUserInput(validators.minLength.bind(null, 10));
 
-    const formIsValid = !nameHasError && !commentHasError;
+    const formIsValid = nameIsValid && commentIsValid;
 
     useEffect(() => {
         if (user.firstName && user.lastName) {
@@ -134,7 +136,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                         </label>
                     </div>
                     <div className={classes['controls-btns']}>
-                        <button className={classes['controls-btn']}>Add</button>
+                        <button className={classes['controls-btn']} disabled={!formIsValid || isLoading}>Add</button>
                         <button onClick={cancelClickHandler} className={`${classes['controls-btn']} ${classes['controls-btn--danger']}`} type="button">Cancel</button>
                     </div>
                 </div>

@@ -87,7 +87,7 @@ const CommentsModal: React.FC = () => {
             setPage(1);
         }
         setComments(newComments);
-        dispatch(restaurantActions.setRestaurant(res.restaurant));
+        dispatch(restaurantActions.updateRating({ rating: res.restaurant.rating, ratingsCount: res.restaurant.ratingsCount }));
     };
 
     return (

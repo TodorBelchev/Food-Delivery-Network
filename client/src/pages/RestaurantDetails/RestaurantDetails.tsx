@@ -35,6 +35,7 @@ const RestaurantDetails: React.FC = () => {
             dispatch(restaurantActions.clearRestaurant());
         };
     }, [id, sendRequest, processResponse, dispatch]);
+
     return (
         <>
             {isLoading && <Spinner />}
@@ -55,7 +56,7 @@ const RestaurantDetails: React.FC = () => {
                 <Route path="/">
                     {restaurant._id &&
                         !isLoading &&
-                        <RestaurantCategories />}
+                        <RestaurantCategories categories={restaurant.categories} recipes={restaurant.recipes} />}
                     {restaurant._id &&
                         !isLoading &&
                         restaurantIsInCart &&
