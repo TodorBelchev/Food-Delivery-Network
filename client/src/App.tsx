@@ -51,7 +51,7 @@ function App() {
 				<Route path='/restaurant/:id'>
 					<RestaurantDetails />
 				</Route>
-				<Route path='/city/:cityName'>
+				<Route path='/city/:cityName' >
 					<City />
 				</Route>
 				<Route path='/main-theme/:mainTheme'>

@@ -10,6 +10,7 @@ const SortRestaurants: React.FC = () => {
 
     const onSortChange = (e: React.FormEvent<HTMLSelectElement>) => {
         query.sort = e.currentTarget.value;
+        query.page = '1';
         history.push(`${history.location.pathname}?${constructNewQuery(query)}`)
     }
 

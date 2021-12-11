@@ -15,9 +15,9 @@ const UserProfile: React.FC = () => {
     const links: { url: string; text: string }[] = [
         { url: `/profile/${user._id}`, text: 'Profile' },
         { url: `/profile/${user._id}/create-restaurant`, text: 'Create Restaurant' },
-        { url: `/profile/${user._id}/restaurants`, text: 'My restaurants' },
-        { url: `/profile/${user._id}/favorites`, text: 'Favorite restaurants' },
-        { url: `/profile/${user._id}/orders`, text: 'My orders' },
+        { url: `/profile/${user._id}/restaurants?sort=rating-desc&page=1`, text: 'My restaurants' },
+        { url: `/profile/${user._id}/favorites?sort=rating-desc&page=1`, text: 'Favorite restaurants' },
+        { url: `/profile/${user._id}/orders?page=1`, text: 'My orders' },
     ];
 
     return (

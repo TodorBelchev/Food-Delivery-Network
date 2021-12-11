@@ -22,9 +22,9 @@ const getById = (id: string) => {
     }
 };
 
-const getByOwner = () => {
+const getByOwner = (query: string) => {
     return {
-        url: `${REACT_APP_BASE_URL}/restaurant/by-owner`
+        url: `${REACT_APP_BASE_URL}/restaurant/by-owner?${query}`
     }
 };
 

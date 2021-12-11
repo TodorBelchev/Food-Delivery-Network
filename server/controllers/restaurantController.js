@@ -7,7 +7,8 @@ const {
     getByOwnerId,
     getById,
     deleteById,
-    getCount
+    getCount,
+    getFavorites
 } = require('../services/restaurantService');
 const {
     createComment,
@@ -109,8 +110,19 @@ router.post('/create', isLoggedIn(), async (req, res) => {
 
 router.get('/by-owner', isLoggedIn(), async (req, res) => {
     try {
-        const restaurants = await getByOwnerId(req.decoded.id);
-        res.status(200).send(restaurants);
+        const page = Number(req.query.page) - 1 || 0;
+        const filter = extractFilterFromQuery(req.query);
+        let sort = {};
+        if (req.query.sort) {
+            const [sortKey, sortValue] = req.query.sort.split('-');
+            sort[sortKey] = sortValue;
+        } else {
+            sort.rating = 'desc';
+        }
+        filter.owner = { $in: [req.decoded.id] };
+        const restaurants = await getByOwnerId(req.decoded.id, page, sort);
+        const count = await getCount(filter);
+        res.status(200).send({ restaurants, count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -119,9 +131,18 @@ router.get('/by-owner', isLoggedIn(), async (req, res) => {
 
 router.get('/favorites', checkUser(), async (req, res) => {
     try {
-        const ids = Object.keys(req.query || {}).map(x => getById(x));
-        const restaurants = await Promise.all(ids);
-        res.status(200).send(restaurants);
+        const page = Number(req.query.page) - 1 || 0;
+        let sort = {};
+        if (req.query.sort) {
+            const [sortKey, sortValue] = req.query.sort.split('-');
+            sort[sortKey] = sortValue;
+        } else {
+            sort.rating = 'desc';
+        }
+        const ids = (JSON.parse(req.query.favorites) || []);
+        const restaurants = await getFavorites(ids, page, sort);
+        const count = await getCount({ _id: { $in: ids } });
+        res.status(200).send({ restaurants, count: count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });

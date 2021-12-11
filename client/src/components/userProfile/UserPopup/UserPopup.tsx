@@ -36,8 +36,8 @@ const UserPopup: React.FC = () => {
         <div className={classes.popup}>
             <div className={classes.inner}>
                 <NavLink to={`/profile/${user._id}`} className={classes.link}>Profile</NavLink>
-                <NavLink to={`/profile/${user._id}/orders`} className={classes.link}>Orders</NavLink>
-                <NavLink to={`/profile/${user._id}/restaurants`} className={classes.link}>My restaurants</NavLink>
+                <NavLink to={`/profile/${user._id}/orders?page=1`} className={classes.link}>Orders</NavLink>
+                <NavLink to={`/profile/${user._id}/restaurants?sort=rating-desc&page=1`} className={classes.link}>My restaurants</NavLink>
                 {isMounted && <button className={classes.btn} onClick={logoutHandler}>Sign out</button>}
                 {!isMounted && <button className={classes.btn}>Sign out</button>}
             </div>

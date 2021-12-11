@@ -10,8 +10,8 @@ const RestaurantDashboard: React.FC = () => {
     const restaurant = useAppSelector(state => state.restaurant);
     const links: { url: string; text: string }[] = [
         { url: `/restaurant/${restaurant._id}/dashboard/statistics`, text: 'Statistics' },
-        { url: `/restaurant/${restaurant._id}/dashboard/active-orders`, text: 'Active orders' },
-        { url: `/restaurant/${restaurant._id}/dashboard/completed-orders`, text: 'Completed orders' },
+        { url: `/restaurant/${restaurant._id}/dashboard/active-orders?page=1`, text: 'Active orders' },
+        { url: `/restaurant/${restaurant._id}/dashboard/completed-orders?page=1`, text: 'Completed orders' },
     ];
 
     return (
