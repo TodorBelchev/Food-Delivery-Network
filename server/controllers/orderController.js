@@ -15,7 +15,7 @@ const {
 } = require('../services/orderService');
 const { getById } = require('../services/restaurantService');
 const { getMultipleById } = require('../services/recipeService');
-const { getStartDate, isOpen } = require('../utils');
+const { getStartDate } = require('../utils');
 
 const router = Router();
 
@@ -46,12 +46,7 @@ router.post('/',
             }
 
             const restaurantDBObj = await getById(restaurant);
-            const restaurantIsOpen = isOpen(restaurantDBObj.workHours);
             const hasCity = restaurantDBObj.cities.some(x => x.name.toLocaleLowerCase() === city.toLocaleLowerCase());
-
-            if (!restaurantIsOpen) {
-                throw new Error(`Unable to checkout. Restaurant working hours: ${restaurantDBObj.workHours.join('-')}`)
-            }
 
             if (!hasCity) {
                 const citiesString = restaurantDBObj.cities.map(x => x.name).join(', ');
