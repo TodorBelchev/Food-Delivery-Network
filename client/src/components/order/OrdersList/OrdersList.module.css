@@ -17,6 +17,10 @@
 }
 
 @media all and (max-width: 670px) {
+    .list {
+        width: 100%;
+    }
+    
     .list-item {
         flex: 0 0 100%;
     }

@@ -99,8 +99,20 @@ input.input--invalid {
 }
 
 @media all and (max-width: 670px) {
+    .add-recipe {
+        max-height: 400px;
+        overflow: scroll;
+    }
+
     .col {
         width: 100%;
         margin: 0;
+    }
+}
+
+@media all and (max-height: 720px) {
+    .add-recipe {
+        max-height: 400px;
+        overflow: scroll;
     }
 }

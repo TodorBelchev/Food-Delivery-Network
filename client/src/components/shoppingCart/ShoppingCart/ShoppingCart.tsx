@@ -54,7 +54,10 @@ const ShoppingCart: React.FC = () => {
                 </div>,
                 document.getElementById('backdrop-root')!
             )}
-            <section className={`${classes.cart} ${classes['show-header']} ${isTouched && isOpen ? classes.expanding : ''} ${isTouched && !isOpen ? classes.shrinking : ''}`}>
+            <section className={`${classes.cart}
+            ${classes['show-header']} ${isTouched && isOpen ? classes.expanding : ''}
+            ${isTouched && !isOpen ? classes.shrinking : ''}
+            ${!isOpen ? classes['scroll-disabled'] : ''}`}>
                 <article onClick={headerClickHandler} className={classes['cart-header']}>
                     <article className={classes['cart-header-img-wrapper']}>
                         <FontAwesomeIcon className={classes['cart-header-img-wrapper-icon']} icon={['fas', 'shopping-cart']} />

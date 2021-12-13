@@ -15,6 +15,20 @@
     transition: all 0.3s ease;
 }
 
+.scroll-disabled {
+    overflow-y: hidden;
+    padding-right: 10px;
+}
+
+.cart::-webkit-scrollbar {
+    width: 10px;
+}
+
+.cart::-webkit-scrollbar-thumb {
+    background: #757575;
+    border-radius: 10px;
+}
+
 .show-header {
     animation: showHeader 0.3s ease forwards;
 }

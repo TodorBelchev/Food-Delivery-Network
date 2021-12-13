@@ -5,6 +5,14 @@
     overflow-y: scroll;
 }
 
+.comments::-webkit-scrollbar {
+    width: 10px;
+}
+
+.comments::-webkit-scrollbar-thumb {
+    background: #757575;
+}
+
 .comments-title {
     margin: 0;
 }
@@ -51,4 +59,17 @@
     color: #fff;
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+@media all and (max-width: 670px) {
+    .comments {
+        max-height: 400px;
+    }
+}
+
+@media all and (max-height: 720px) {
+    .comments {
+        max-height: 400px;
+        overflow: scroll;
+    }
 }
