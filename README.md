@@ -6,6 +6,7 @@
 * React JS
 * React Router Dom v5
 * React Transition Group
+* Redux
 * Node.js
 * HTML & CSS
 * Chart.js
