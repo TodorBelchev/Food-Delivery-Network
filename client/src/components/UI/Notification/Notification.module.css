@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     z-index: 15;
+    transition: all 0.3s ease;
 }
 
 .notification-text {
@@ -35,6 +36,31 @@
     cursor: pointer;
 }
 
+.entering {
+    animation: showNotification 0.3s ease forwards;
+}
+
+.exiting {
+    animation: hideNotification 0.3s ease forwards;
+}
+
+@keyframes showNotification {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hideNotification {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
 
 @media all and (max-width: 670px) {
     .notification {
