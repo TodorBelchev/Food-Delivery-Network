@@ -4,6 +4,8 @@
 * MongoDB + Mongoose
 * Express.js
 * React JS
+* React Router Dom v5
+* React Transition Group
 * Node.js
 * HTML & CSS
 * Chart.js
@@ -14,5 +16,6 @@
 * Logged users extend functionality with option to create restaurants, add/edit/delete comments, profile page
 * Restaurant owners have access to restaurant dashboard with statistics, create/edit/delete recipes, edit restaurant
 ### Test
-* To run server cd server folder and npm run dev(there is some demo data for local database in server/demo-data folder, in case you want to setup your own database project locally)
+* To run server cd server folder and npm run dev(there is some demo data for local database in server/demo-data folder, in case you want to setup your own database project locally).
+</br>**Note you need to replace cloudinary credentials in server/config/index.js
 * To run client app cd client and npm start
