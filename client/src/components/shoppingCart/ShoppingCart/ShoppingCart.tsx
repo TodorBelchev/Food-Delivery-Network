@@ -15,6 +15,7 @@ import ShoppingCartListItem from '../ShoppingCartListItem/ShoppingCartListItem';
 import classes from './ShoppingCart.module.css';
 
 const ShoppingCart: React.FC = () => {
+    const [isTouched, setIsTouched] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const { restaurants } = useAppSelector(state => state.cart);
     const restaurant = useAppSelector(state => state.restaurant);
@@ -26,9 +27,10 @@ const ShoppingCart: React.FC = () => {
     usePreventScrolling(isOpen);
 
     const headerClickHandler = () => {
+        setIsTouched(true);
         setIsOpen(oldState => {
             dispatch(modalActions.close());
-            return !oldState
+            return !oldState;
         });
     }
 
@@ -48,11 +50,11 @@ const ShoppingCart: React.FC = () => {
         <>
             {isOpen && ReactDOM.createPortal(
                 <div onClick={backDropClickHandler}>
-                    <Backdrop closeHandler={backDropClickHandler}/>
+                    <Backdrop closeHandler={backDropClickHandler} />
                 </div>,
                 document.getElementById('backdrop-root')!
             )}
-            <section className={classes.cart}>
+            <section className={`${classes.cart} ${classes['show-header']} ${isTouched && isOpen ? classes.expanding : ''} ${isTouched && !isOpen ? classes.shrinking : ''}`}>
                 <article onClick={headerClickHandler} className={classes['cart-header']}>
                     <article className={classes['cart-header-img-wrapper']}>
                         <FontAwesomeIcon className={classes['cart-header-img-wrapper-icon']} icon={['fas', 'shopping-cart']} />
@@ -64,7 +66,7 @@ const ShoppingCart: React.FC = () => {
                         {isOpen && <FontAwesomeIcon icon={['fas', 'chevron-down']} />}
                     </div>
                 </article>
-                {isOpen && <section className={classes['cart-content']}>
+                <section className={classes['cart-content']}>
                     <article className={classes['cart-content-recipes']}>
                         <ul className={classes['cart-content-recipes-list']}>
                             {cartRecipes?.map(x => (
@@ -94,7 +96,7 @@ const ShoppingCart: React.FC = () => {
                     <article className={classes['cart-content-checkout']}>
                         <CheckoutForm cartRecipes={cartRecipes!} />
                     </article>
-                </section>}
+                </section>
             </section>
         </>
     );

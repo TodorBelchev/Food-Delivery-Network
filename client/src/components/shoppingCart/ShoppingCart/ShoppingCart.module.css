@@ -1,6 +1,6 @@
 .cart {
     position: fixed;
-    bottom: 0;
+    bottom: -437px;
     background: white;
     z-index: 1;
     left: 50%;
@@ -12,6 +12,46 @@
     z-index: 11;
     max-height: 437px;
     overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.show-header {
+    animation: showHeader 0.3s ease forwards;
+}
+
+.expanding {
+    animation: showExpanded 0.3s ease forwards;
+}
+
+.shrinking {
+    animation: hideExpanded 0.3s ease forwards;
+}
+
+@keyframes showHeader {
+    0% {
+        bottom: -437px;
+    }
+    100% {
+        bottom: -370px;
+    }
+}
+
+@keyframes showExpanded {
+    0% {
+        bottom: -370px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes hideExpanded {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: -370px;
+    }
 }
 
 .cart-header {
@@ -110,7 +150,7 @@
     .cart {
         max-width: 1200px;
     }
-    
+
     .cart-header-text {
         margin-right: 60px;
     }
