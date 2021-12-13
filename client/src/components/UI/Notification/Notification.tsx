@@ -39,7 +39,6 @@ const Notification: React.FC = () => {
         <>
             {ReactDOM.createPortal(
                 <>
-                    {notificationState.text && null}
                     {notificationState.text && <Transition timeout={300} in={show} mountOnEnter nodeRef={nodeRef}>
                         {state => {
                             let animateClasses = '';

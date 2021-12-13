@@ -1,7 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 import { authActions } from '../../../store/auth';
 import { modalActions } from '../../../store/modal';
+import { notificationActions } from '../../../store/notification';
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import useHttp from '../../../hooks/useHttp';
 import useUserInput from '../../../hooks/useUserInput';
@@ -44,6 +45,12 @@ const RegisterModal: React.FC = () => {
         inputBlurHandler: rePasswordBlurHandler,
         reset: resetRePassword
     } = useUserInput(validators.stringMatch.bind(null, passwordValue));
+
+    useEffect(() => {
+        return () => {
+            dispatch(notificationActions.close());
+        }
+    }, [dispatch]);
 
     let formIsValid = false;
 

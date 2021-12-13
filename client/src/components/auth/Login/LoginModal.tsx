@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 import { authActions } from '../../../store/auth';
 import { modalActions } from '../../../store/modal';
@@ -8,6 +8,7 @@ import useUserInput from '../../../hooks/useUserInput';
 import validators from '../../../validators';
 import IAuthState from '../../../interfaces/IAuthState';
 import userOptions from '../../../utils/userOptions';
+import { notificationActions } from '../../../store/notification';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Spinner from '../../UI/Spinner/Spinner';
@@ -35,6 +36,12 @@ const LoginModal: React.FC = () => {
         inputBlurHandler: passwordBlurHandler,
         reset: resetPassword
     } = useUserInput(validators.minLength.bind(null, 6));
+
+    useEffect(() => {
+        return () => {
+            dispatch(notificationActions.close());
+        }
+    }, [dispatch]);
 
     let formIsValid = false;
 

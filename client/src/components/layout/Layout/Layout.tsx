@@ -7,7 +7,7 @@ const Layout: React.FC = (props) => {
 
     return (
         <>
-			<Notification />
+            <Notification />
             <ScrollToTopBtn />
             <Navigation />
             <main>{props.children}</main>

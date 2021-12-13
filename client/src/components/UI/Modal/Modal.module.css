@@ -5,7 +5,7 @@
     width: 100%;
     height: 100vh;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.85);
 }
 
 .modal {
@@ -15,7 +15,35 @@
     width: 600px;
     z-index: 2;
     overflow: hidden;
-    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.entering {
+    animation: showModal 0.3s ease forwards;
+}
+
+.exiting {
+    animation: hideModal 0.3s ease forwards;
+}
+
+@keyframes showModal {
+    0% {
+        transform: translateX(-50%) scale(0.5) ;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1) ;
+    }
+}
+
+@keyframes hideModal {
+    0% {
+        transform: translateX(-50%) scale(1) ;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(0) ;
+    }
 }
 
 @media all and (max-width: 610px) {

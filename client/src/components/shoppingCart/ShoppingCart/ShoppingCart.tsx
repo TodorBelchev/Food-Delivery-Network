@@ -48,7 +48,7 @@ const ShoppingCart: React.FC = () => {
         <>
             {isOpen && ReactDOM.createPortal(
                 <div onClick={backDropClickHandler}>
-                    <Backdrop />
+                    <Backdrop closeHandler={backDropClickHandler}/>
                 </div>,
                 document.getElementById('backdrop-root')!
             )}
