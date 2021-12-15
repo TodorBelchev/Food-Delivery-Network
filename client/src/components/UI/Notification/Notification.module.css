@@ -65,8 +65,7 @@
 @media all and (max-width: 670px) {
     .notification {
         top: 45px;
-        right: 50%;
-        transform: translateX(50%);
+        right: 5%;
         width: 90%;
     }
 

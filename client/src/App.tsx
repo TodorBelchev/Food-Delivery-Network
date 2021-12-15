@@ -5,6 +5,7 @@ import './App.css';
 import { useAppDispatch } from './hooks/reduxHooks';
 import { authActions } from './store/auth';
 import { cartActions } from './store/cart';
+import userOptions from './utils/userOptions';
 import useHttp from './hooks/useHttp';
 import loadFontAwesome from './utils/loadFontAwesome';
 import IAuthState from './interfaces/IAuthState';
@@ -18,7 +19,8 @@ import City from './pages/City/City';
 import MainTheme from './pages/MainTheme/MainTheme';
 import UserProfileGuard from './guards/UserProfileGuard';
 import FavoriteRestaurants from './components/restaurant/FavoriteRestaurants/FavoriteRestaurants';
-import userOptions from './utils/userOptions';
+import About from './pages/About/About';
+import Terms from './pages/Terms/Terms';
 
 loadFontAwesome();
 
@@ -57,6 +59,15 @@ function App() {
 				</Route>
 				<Route path='/favorites'>
 					<FavoriteRestaurants />
+				</Route>
+				<Route path='/about-us'>
+					<About />
+				</Route>
+				<Route path='/contacts'>
+					<About />
+				</Route>
+				<Route path='/terms-and-conditions'>
+					<Terms />
 				</Route>
 			</Switch>
 		</Layout>

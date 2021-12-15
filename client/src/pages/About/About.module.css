@@ -1,0 +1,28 @@
+.about {
+    text-align: justify;
+}
+
+.about-title {
+    text-align: center;
+    flex: 0 0 100%;
+}
+
+.about-text {
+    line-height: 2;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.contacts-text,
+.contacts-map {
+    flex: 0 0 50%;
+}
+
+.contacts-map iframe {
+    width: -webkit-fill-available;
+}

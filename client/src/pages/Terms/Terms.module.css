@@ -1,0 +1,13 @@
+.terms {
+    text-align: center;
+}
+
+.terms-list {
+    padding: 0;
+    list-style: none;
+}
+
+.terms-list-item {
+    margin-top: 20px;
+    line-height: 1.5;
+}

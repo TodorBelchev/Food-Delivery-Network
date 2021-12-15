@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                         <Link className={classes['footer-list-item-link']} to="/about-us">About us</Link>
                     </li>
                     <li className={classes['footer-list-item']}>
-                        <Link className={classes['footer-list-item-link']} to="/terms-and-condition">Terms and conditions</Link>
+                        <Link className={classes['footer-list-item-link']} to="/terms-and-conditions">Terms and conditions</Link>
                     </li>
                 </ul>
                 <ul className={`${classes.social} ${classes['footer-list']}`}>
