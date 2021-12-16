@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useLocation } from 'react-router';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 
 import useHttp from '../../../hooks/useHttp';
@@ -23,7 +23,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     const [page, setPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const { sendRequest, isLoading } = useHttp();
-    const history = useHistory();
+    const location = useLocation();
     const restaurant = useAppSelector(state => state.restaurant);
 
     useEffect(() => {
@@ -33,11 +33,12 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     }, [status]);
 
     useEffect(() => {
-        if (history.location.search) {
-            const query = extractQueryObject(history.location.search);
+
+        if (location.search) {
+            const query = extractQueryObject(location.search);
             setPage(Number(query.page) || 1);
         }
-    }, [history.location.search]);
+    }, [location.search]);
 
     const processResponse = useCallback((res: { orders: IOrder[], count: number }) => {
         setOrders(res.orders);
