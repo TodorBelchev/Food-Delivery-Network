@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router';
 import './App.css';
 
 import { useAppDispatch } from './hooks/reduxHooks';
@@ -68,6 +68,9 @@ function App() {
 				</Route>
 				<Route path='/terms-and-conditions'>
 					<Terms />
+				</Route>
+				<Route path='*'>
+					<Redirect to='/' />
 				</Route>
 			</Switch>
 		</Layout>
