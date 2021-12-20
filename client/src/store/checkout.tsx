@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import ICheckout from "../interfaces/ICheckout";
 
-const initialState: ICheckout = {
+export const initialCheckoutState: ICheckout = {
     phone: null,
     name: null,
     city: null,
@@ -11,7 +11,7 @@ const initialState: ICheckout = {
 
 const checkoutSlice = createSlice({
     name: 'checkout',
-    initialState,
+    initialState: initialCheckoutState,
     reducers: {
         save(state, action: PayloadAction<ICheckout>) {
             state.phone = action.payload.phone;

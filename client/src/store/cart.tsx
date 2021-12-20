@@ -4,13 +4,13 @@ import ICartState from "../interfaces/ICartState";
 import IRecipe from "../interfaces/IRecipe";
 
 
-const initialState: ICartState = {
+export const initialCartState: ICartState = {
     restaurants: []
 }
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState: initialCartState,
     reducers: {
         addToCart(state, action: PayloadAction<{ restaurantId: string; recipe: IRecipe }>) {
             const restaurant = state.restaurants.find(x => x.restaurantId === action.payload.restaurantId);

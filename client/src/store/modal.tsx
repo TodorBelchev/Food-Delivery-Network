@@ -3,14 +3,14 @@ import { IModalState } from "../interfaces/IModalState";
 
 
 
-const initialState: IModalState = {
+export const initialModalState: IModalState = {
     isOpen: false,
     overlayName: ''
 }
 
 const modalSlice = createSlice({
     name: 'modal',
-    initialState,
+    initialState: initialModalState,
     reducers: {
         open(state, action: PayloadAction<string>) {
             state.isOpen = true;

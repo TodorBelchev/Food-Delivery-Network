@@ -63,7 +63,7 @@ const Notification: React.FC = () => {
                         }}
                     </Transition>}
                 </>,
-                document.getElementById('notification')!
+                document.getElementById('notification') || document.createElement('div') // for testing purposes
             )}
         </>
     );

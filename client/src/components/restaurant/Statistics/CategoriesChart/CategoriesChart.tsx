@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Chart, registerables } from 'chart.js';
+import Chart from 'chart.js/auto';
 
 import useHttp from '../../../../hooks/useHttp';
 import orderOptions from '../../../../utils/orderOptions';
@@ -8,7 +8,6 @@ import { useAppSelector } from '../../../../hooks/reduxHooks';
 
 import classes from './CategoriesChart.module.css';
 
-Chart.register(...registerables);
 
 const CategoriesChart: React.FC = () => {
     const { sendRequest } = useHttp();

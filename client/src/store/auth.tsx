@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import IAuthState from "../interfaces/IAuthState";
 
-const initialState: IAuthState = {
+export const initialAuthState: IAuthState = {
     email: null,
     isAdmin: false,
     _id: null,
@@ -16,7 +16,7 @@ const initialState: IAuthState = {
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState,
+    initialState: initialAuthState,
     reducers: {
         login(state, action: PayloadAction<IAuthState>) {
             state.email = action.payload.email;

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import IRestaurant from "../interfaces/IRestaurant";
 
-const initialState: IRestaurant = {
+export const initialRestaurantState: IRestaurant = {
     _id: '',
     categories: [],
     cities: [],
@@ -22,7 +22,7 @@ const initialState: IRestaurant = {
 
 const restaurantSlice = createSlice({
     name: 'restaurant',
-    initialState,
+    initialState: initialRestaurantState,
     reducers: {
         setRestaurant(state, action: PayloadAction<IRestaurant>) {
             state._id = action.payload._id;

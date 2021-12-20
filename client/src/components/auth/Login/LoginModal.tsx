@@ -87,6 +87,7 @@ const LoginModal: React.FC = () => {
                         type="email"
                         name="email"
                         id="email"
+                        data-testid="email"
                         disabled={isLoading}
                         value={emailValue}
                         onChange={emailChangeHandler}
@@ -105,13 +106,14 @@ const LoginModal: React.FC = () => {
                         type={passwordIsHidden ? 'password' : 'text'}
                         name="password"
                         id="password"
+                        data-testid="password"
                         disabled={isLoading}
                         value={passwordValue}
                         onChange={passwordChangeHandler}
                         onBlur={passwordBlurHandler}
                     />
                     {passwordIsHidden
-                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                        ? <FontAwesomeIcon data-testid="show-password" icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
                         : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
                     }
                     <span className={classes.placeholder}>Password</span>

@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = {
+export const initialAppState = {
     isInitializing: true
 }
 
 const appSlice = createSlice({
     name: 'app',
-    initialState,
+    initialState: initialAppState,
     reducers: {
         initDone(state) {
             state.isInitializing = false;
