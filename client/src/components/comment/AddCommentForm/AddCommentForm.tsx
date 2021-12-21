@@ -127,7 +127,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ cancelClickHandler, add
                             <span className={classes.icon}>&#9733;</span>
                         </label>
                         <label>
-                            <input type="radio" name="rating" value="5" />
+                            <input data-testid="rating" type="radio" name="rating" value="5" />
                             <span className={classes.icon}>&#9733;</span>
                             <span className={classes.icon}>&#9733;</span>
                             <span className={classes.icon}>&#9733;</span>
