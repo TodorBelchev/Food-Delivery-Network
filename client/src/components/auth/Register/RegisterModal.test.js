@@ -5,17 +5,17 @@ import { Provider } from 'react-redux';
 import loadFontAwesome from '../../../utils/loadFontAwesome';
 import store from '../../../store';
 
-import LoginModal from "./LoginModal";
+import RegisterModal from './RegisterModal';
 
 loadFontAwesome();
 
-describe('Login modal', () => {
+describe('Register modal', () => {
     beforeEach(() => {
         render(
             <Provider store={store}>
-                <LoginModal />
+                <RegisterModal />
             </Provider>
-        );
+        )
     });
 
     test('should show email error', () => {
@@ -59,17 +59,19 @@ describe('Login modal', () => {
     });
 
     test('button should be disabled', () => {
-        const loginBtn = screen.getByText('Sign in');
+        const loginBtn = screen.getByText('Sign up');
         expect(loginBtn).toBeDisabled();
     });
 
     test('button should be enabled', () => {
         const emailInput = screen.getByTestId('email');
         const passwordInput = screen.getByTestId('password');
+        const rePasswordInput = screen.getByTestId('re-password');
         userEvent.type(emailInput, 'pesho@abv.bg');
         userEvent.type(passwordInput, '123123');
+        userEvent.type(rePasswordInput, '123123');
 
-        const loginBtn = screen.getByText('Sign in');
+        const loginBtn = screen.getByText('Sign up');
         expect(loginBtn).toBeEnabled();
     });
 
@@ -87,6 +89,20 @@ describe('Login modal', () => {
         expect(type).toEqual('password');
     });
 
+    test('rePassword should be visible', () => {
+        const toggleIcon = screen.getByTestId('show-re-password');
+        userEvent.click(toggleIcon);
+        const rePasswordInput = screen.getByTestId('re-password');
+        const type = rePasswordInput.getAttribute('type');
+        expect(type).toEqual('text');
+    });
+
+    test('rePassword should not be visible', () => {
+        const rePasswordInput = screen.getByTestId('re-password');
+        const type = rePasswordInput.getAttribute('type');
+        expect(type).toEqual('password');
+    });
+
     test('should send request', async () => {
         window.fetch = jest.fn();
         window.fetch.mockResolvedValueOnce({
@@ -97,19 +113,21 @@ describe('Login modal', () => {
 
         const emailInput = screen.getByTestId('email');
         const passwordInput = screen.getByTestId('password');
-        const loginBtn = screen.getByText('Sign in');
+        const rePasswordInput = screen.getByTestId('re-password');
+        const registerBtn = screen.getByText('Sign up');
 
         userEvent.type(emailInput, 'pesho@abv.bg');
         userEvent.type(passwordInput, '123123');
-        userEvent.click(loginBtn);
+        userEvent.type(rePasswordInput, '123123');
+        userEvent.click(registerBtn);
 
         await waitFor(() => expect(window.fetch).toHaveBeenCalledTimes(1));
     });
 
-    test('should switch to register', () => {
-        const link = screen.getByRole('link', { name: /sign up now!/i });
+    test('should switch to login', () => {
+        const link = screen.getByRole('link', { name: /sign in now!/i });
         userEvent.click(link);
         const modalState = store.getState().modal;
-        expect(modalState.overlayName).toEqual('register');
+        expect(modalState.overlayName).toEqual('login');
     });
 });

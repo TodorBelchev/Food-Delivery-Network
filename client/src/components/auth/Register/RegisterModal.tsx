@@ -101,6 +101,7 @@ const RegisterModal: React.FC = () => {
                         placeholder=" "
                         name="email"
                         id="email"
+                        data-testid="email"
                         disabled={isLoading}
                         value={emailValue}
                         onChange={emailChangeHandler}
@@ -119,12 +120,13 @@ const RegisterModal: React.FC = () => {
                         placeholder=" "
                         name="password"
                         id="password"
+                        data-testid="password"
                         value={passwordValue}
                         onChange={passwordChangeHandler}
                         onBlur={passwordBlurHandler}
                     />
                     {passwordIsHidden
-                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
+                        ? <FontAwesomeIcon data-testid="show-password" icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
                         : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={togglePasswordVisibility} />
                     }
                     <span className={classes.placeholder}>Password</span>
@@ -140,12 +142,13 @@ const RegisterModal: React.FC = () => {
                         placeholder=" "
                         name="re-password"
                         id="re-password"
+                        data-testid="re-password"
                         value={rePasswordValue}
                         onChange={rePasswordChangeHandler}
                         onBlur={rePasswordBlurHandler}
                     />
                     {rePasswordIsHidden
-                        ? <FontAwesomeIcon icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
+                        ? <FontAwesomeIcon data-testid="show-re-password" icon={['far', 'eye-slash']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
                         : <FontAwesomeIcon icon={['far', 'eye']} className={`${classes['icon']} ${classes['eye']}`} onClick={toggleRePasswordVisibility} />
                     }
                     <span className={classes.placeholder}>Re-password</span>
