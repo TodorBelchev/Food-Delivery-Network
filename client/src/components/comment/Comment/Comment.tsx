@@ -59,7 +59,7 @@ const Comment: React.FC<CommentProps> = ({ commentObj, editCommentHandler, delet
         <>
             {!isEditMode && !isDeleteMode && <article className={classes.comment}>
                 <div className={classes['comment-header']}>
-                    <h4 className={classes['comment-header-title']}>
+                    <h4 className={classes['comment-header-title']} data-testid="comment-title">
                         {name}
                         {user._id === owner ? <button onClick={editClickHandler} className={classes['comment-edit-btn']}>Edit</button> : null}
                         {user._id === owner ? <button onClick={deleteClickHandler} className={`${classes['comment-delete-btn']} ${classes['comment-delete-btn--red']}`}>Delete</button> : null}
