@@ -95,7 +95,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
             <article className={classes['order-summary']}>
                 <p>
                     <span>Order:</span>
-                    <span>${price.toFixed(2)}</span>
+                    <span data-testid="order-amount">${price.toFixed(2)}</span>
                 </p>
                 <p>
                     <span>Delivery:</span>

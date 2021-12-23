@@ -47,14 +47,14 @@ const Navigation: React.FC = () => {
                 <nav>
                     <ul className={classes['nav-list']}>
                         <li className={classes['nav-list-item']}>
-                            <NavLink to={user._id ? `/profile/${user._id}/favorites` : '/favorites'}>
+                            <NavLink data-testid="favorites-link" to={user._id ? `/profile/${user._id}/favorites` : '/favorites'}>
                                 <FontAwesomeIcon icon={['far', 'heart']} className={classes['user-icon']} />
                             </NavLink>
                         </li>
                         <li className={classes['nav-list-item']}>
                             {user.email ?
                                 <UserIcon /> :
-                                <FontAwesomeIcon icon={['far', 'user-circle']} onClick={onLoginClick} className={classes['user-icon']} />
+                                <FontAwesomeIcon icon={['far', 'user-circle']} data-testid="user-icon" onClick={onLoginClick} className={classes['user-icon']} />
                             }
                         </li>
                     </ul>
