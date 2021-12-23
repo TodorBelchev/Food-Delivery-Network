@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && mv build ../server/public || move build ../server/public",
-    "test": "react-scripts test --env=jsdom --verbose=true",
+    "test": "react-scripts test --env=jsdom --verbose=true --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
