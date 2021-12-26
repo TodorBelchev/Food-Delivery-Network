@@ -33,7 +33,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ status }) => {
     }, [status]);
 
     useEffect(() => {
-
         if (location.search) {
             const query = extractQueryObject(location.search);
             setPage(Number(query.page) || 1);

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -26,7 +26,9 @@ describe('Navigation', () => {
         const link = screen.getByTestId('favorites-link');
         let pathName = new URL(link.href).pathname;
         expect(pathName).toEqual('/favorites');
-        store.dispatch(authActions.login({_id: '123', email: 'pesho@abv.bg'}));
+        act(() => {
+            store.dispatch(authActions.login({_id: '123', email: 'pesho@abv.bg'}));
+        });
         pathName = new URL(link.href).pathname;
         expect(pathName).toEqual('/profile/123/favorites');
     });
