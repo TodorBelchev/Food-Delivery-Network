@@ -21,6 +21,8 @@ const OrdersListItem: React.FC<OrdersListItemProps> = ({ order, onSuccessDelete,
     const dispatch = useAppDispatch();
     const modalState = useAppSelector(state => state.modal);
     const formattedDate = formatDate(order.date);
+    const price = order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+    const totalPrice = price > 10 ? price.toFixed(2) : (price + 3.99).toFixed(2);
 
     const orderClickHandler = (e: React.MouseEvent) => {
         if ((e.target as HTMLElement).tagName === "A") { return; }
@@ -50,7 +52,7 @@ const OrdersListItem: React.FC<OrdersListItemProps> = ({ order, onSuccessDelete,
                     <p className={classes['order-date']}>{formattedDate}</p>
                 </div>
                 <div>
-                    <p className={classes['order-price']}>${(order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0)).toFixed(2)}</p>
+                    <p className={classes['order-price']}>${totalPrice}</p>
                 </div>
             </article>
         </>

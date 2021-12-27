@@ -29,7 +29,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ order, onSuccessDelete, onSucce
     const formattedDate = formatDate(order.date);
     const price = order.items.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
     const delivery = price > 10 ? 'Free' : '$3.99';
-    const totalPrice = price > 10 ? (price + 3.99).toFixed(2) : price.toFixed(2);
+    const totalPrice = price > 10 ? price.toFixed(2) : (price + 3.99).toFixed(2);
     const isOwner = user._id === restaurant.owner;
 
     useEffect(() => {

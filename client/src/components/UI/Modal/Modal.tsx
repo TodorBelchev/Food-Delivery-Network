@@ -59,13 +59,13 @@ const Modal: React.FC = ({ children }) => {
                                 null :
                                 ReactDOM.createPortal(
                                     <Backdrop closeHandler={closeHandler} />,
-                                    document.getElementById('backdrop-root')!
+                                    document.getElementById('backdrop-root')! || document.createElement('div') // for testing
                                 )}
                             {ReactDOM.createPortal(
                                 <div className={`${classes.modal} ${modalClasses}`}>
                                     {children}
                                 </div>,
-                                document.getElementById('overlay-root')!
+                                document.getElementById('overlay-root')! || document.createElement('div') // for testing
                             )}
                         </>
                     )
