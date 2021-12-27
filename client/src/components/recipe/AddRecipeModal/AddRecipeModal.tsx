@@ -124,7 +124,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
     }
     return (
         <section className={`${classes['add-recipe']} container`}>
-            <h2>Add recipe</h2>
+            <h2>{recipe ? 'Edit' : 'Add'} recipe</h2>
             <form className={classes['create-restaurant-form']} onSubmit={submitHandler}>
                 <div className={classes.col}>
                     <input
@@ -132,6 +132,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         type="text"
                         placeholder=" "
                         name="name"
+                        data-testid="name"
                         disabled={isLoading}
                         value={nameValue}
                         onChange={nameChangeHandler}
@@ -145,7 +146,8 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         className={`${classes['create-restaurant-form-input']} ${ingredientsHasError ? classes['input--invalid'] : ''}`}
                         type="text"
                         placeholder=" "
-                        name="name"
+                        name="ingredients"
+                        data-testid="ingredients"
                         disabled={isLoading}
                         value={ingredientsValue}
                         onChange={ingredientsChangeHandler}
@@ -159,7 +161,8 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         className={`${classes['create-restaurant-form-input']} ${weightHasError ? classes['input--invalid'] : ''}`}
                         type="number"
                         placeholder=" "
-                        name="name"
+                        name="weight"
+                        data-testid="weight"
                         disabled={isLoading}
                         value={weightValue}
                         onChange={weightChangeHandler}
@@ -173,7 +176,8 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         className={`${classes['create-restaurant-form-input']} ${priceHasError ? classes['input--invalid'] : ''}`}
                         type="number"
                         placeholder=" "
-                        name="name"
+                        name="price"
+                        data-testid="price"
                         disabled={isLoading}
                         value={priceValue}
                         onChange={priceChangeHandler}
@@ -189,6 +193,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         disabled={isLoading}
                         onChange={categoryChangeHandler}
                         onBlur={categoryBlurHandler}
+                        data-testid="category"
                     >
                         <option hidden>Select category</option>
                         {restaurant.categories.map(x => <option key={uuidv4()}>{x}</option>)}
@@ -204,6 +209,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ recipe }) => {
                         id="image"
                         type="file"
                         name="image"
+                        data-testid="image"
                         disabled={isLoading}
                         onChange={fileChangeHandler}
                     />

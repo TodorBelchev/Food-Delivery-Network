@@ -48,7 +48,6 @@ describe('Comment', () => {
     test('should send delete request', async () => {
         window.fetch = jest.fn();
         window.fetch.mockResolvedValueOnce({ json: async () => { return {} }, });
-        const commentTitle = screen.getByTestId('comment-title');
         const deleteBtn = screen.getByText('Delete');
         userEvent.click(deleteBtn);
         const confirmationDeleteBtn = screen.getByText('Delete');
