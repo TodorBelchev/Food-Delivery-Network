@@ -60,13 +60,13 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
             </div>
             <div className={classes['recipe-content']}>
                 <h3 className={classes['recipe-content-title']}>{recipe.name} <span className={classes['recipe-content-weight']}>({recipe.weight}g)</span></h3>
-                <p className={classes['recipe-content-text']}>{recipe.ingredients.join(', ')}</p>
-                <p>${recipe.price}</p>
+                <p className={classes['recipe-content-text']} data-testid="ingredients">{recipe.ingredients.join(', ')}</p>
+                <p data-testid="price">${recipe.price}</p>
             </div>
-            <div onClick={addToCartHandler} className={classes['recipe-icon-wrapper']}>
+            <div onClick={addToCartHandler} className={classes['recipe-icon-wrapper']} data-testid="icon-wrapper">
                 <FontAwesomeIcon icon={['fas', 'plus']} className={classes['recipe-icon']} />
             </div>
-            {isAdmin && <div className={classes['recipe-admin-icons-wrapper']}>
+            {isAdmin && <div className={classes['recipe-admin-icons-wrapper']} data-testid="admin-controls">
                 <FontAwesomeIcon icon={['fas', 'edit']} onClick={editClickHandler} className={classes['recipe-icon']} />
                 <FontAwesomeIcon icon={['fas', 'trash']} onClick={deleteClickHandler} className={classes['recipe-icon']} />
             </div>}
