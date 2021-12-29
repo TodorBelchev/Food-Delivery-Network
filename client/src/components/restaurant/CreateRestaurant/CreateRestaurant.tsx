@@ -142,6 +142,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         type="text"
                         placeholder=" "
                         name="name"
+                        data-testid="name"
                         disabled={isLoading}
                         value={nameValue}
                         onChange={nameChangeHandler}
@@ -156,6 +157,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         type="text"
                         placeholder=" "
                         name="theme"
+                        data-testid="theme"
                         disabled={isLoading}
                         value={mainThemeValue}
                         onChange={mainThemeChangeHandler}
@@ -170,6 +172,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         type="text"
                         placeholder=" "
                         name="categories"
+                        data-testid="categories"
                         disabled={isLoading}
                         value={categoriesValue}
                         onChange={categoriesChangeHandler}
@@ -184,6 +187,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                         type="text"
                         placeholder=" "
                         name="work-time"
+                        data-testid="work-time"
                         disabled={isLoading}
                         value={workTimeValue}
                         onChange={workTimeChangeHandler}
@@ -199,6 +203,7 @@ const CreateRestaurant: React.FC<CreateRestaurantProps> = ({ edit }) => {
                     <input
                         className={classes['file-btn']}
                         id="image"
+                        data-testid="image"
                         type="file"
                         disabled={isLoading}
                         name="image"
