@@ -23,9 +23,11 @@ const createUser = (email, password) => {
     return user.save();
 };
 
-module.exports = {
+const userService = {
     getUserByEmail,
     createUser,
     editUserById,
     getUserById
 }
+
+module.exports = userService;

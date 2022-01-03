@@ -14,11 +14,11 @@ const allowed = [
     ".ico"
 ];
 
-const start = async () => {
+const createApp = async (dbSetup) => {
 	const app = express();
 	expressSetup(app);
 	cloudinary.config(config.CLOUDINARY);
-	await mongooseSetup();
+	await dbSetup();
 
 	app.get("*", (req, res) => {
 		if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
@@ -31,4 +31,6 @@ const start = async () => {
 	app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}`));
 };
 
-start();
+createApp(mongooseSetup);
+
+module.exports = createApp;
