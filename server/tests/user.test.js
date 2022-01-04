@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const expressSetup = require('../config/express');
 const userService = require('../services/userService');
 const { SALT_ROUNDS } = require('../config');
+const { createToken } = require('../utils');
 
 const app = express();
 expressSetup(app);
@@ -12,7 +13,8 @@ expressSetup(app);
 jest.mock('../services/userService', () => {
     return {
         getUserByEmail: jest.fn(),
-        createUser: jest.fn()
+        createUser: jest.fn(),
+        editUserById: jest.fn(),
     }
 });
 
@@ -144,10 +146,178 @@ describe('User controller', () => {
             const getUserByEmailServiceMock = jest.spyOn(userService, 'getUserByEmail')
                 .mockImplementation(() => Promise.resolve({ email: 'pesho@abv.bg', _id: '123', password: '#somehash$' }));
             const { body, statusCode } = await supertest(app).post('/api/user/login').send(reqBody);
-            
+
             expect(statusCode).toEqual(400);
             expect(body.message).toEqual('Invalid credentials!');
             expect(getUserByEmailServiceMock).toHaveBeenCalledTimes(1);
         });
     });
+
+    describe('PUT /:id', () => {
+        test('should edit user', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(200);
+            expect(editUserByIdMock).toHaveBeenCalledTimes(1);
+        });
+
+        test('should throw error if user is not authorized', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { statusCode } = await supertest(app).put('/api/user/123456')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if first name length < 4', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pe',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('First name must be at least 4 characters long!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if last name length < 4', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Pe',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('Last name must be at least 4 characters long!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if city length < 4', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'So',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('City must be at least 4 characters long!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if address length < 4', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Som',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('Address must be at least 4 characters long!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if email is not valid', async () => {
+            const reqBody = {
+                email: 'pesho',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '0999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('Please enter a valid email!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+
+        test('should throw error if phone is not valid', async () => {
+            const reqBody = {
+                email: 'pesho@abv.bg',
+                firstName: 'Pesho',
+                lastName: 'Petrov',
+                city: 'Sofia',
+                address: 'Some address',
+                phone: '999999999'
+            }
+            const token = createToken({ email: 'pesho@abv.bg', id: '123' });
+            const editUserByIdMock = jest.spyOn(userService, 'editUserById')
+                .mockImplementation(() => Promise.resolve({ ...reqBody, _id: '123' }));
+            const { body, statusCode } = await supertest(app).put('/api/user/123')
+                .set('Cookie', [`X-Authorization=${token}`])
+                .send(reqBody);
+
+            expect(statusCode).toEqual(400);
+            expect(body.message).toEqual('Please enter a valid phone number!');
+            expect(editUserByIdMock).toHaveBeenCalledTimes(0);
+        });
+    })
 });
