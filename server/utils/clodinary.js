@@ -1,5 +1,4 @@
 const cloudinary = require('cloudinary');
-const config = require('../config');
 
 const uploadToCloudinary = (image) => {
 	return new Promise((resolve, reject) => {

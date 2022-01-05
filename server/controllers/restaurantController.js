@@ -64,13 +64,12 @@ router.post('/create', isLoggedIn(), async (req, res) => {
             throw new Error('At least one image is required!');
         }
 
-
         const restaurantData = {
             name: formData.name,
             mainTheme: formData.mainTheme,
-            categories: formData.categories.split(',').map(x => x.trim()),
-            workHours: formData.workTime.split(' ')[1].split('-'),
-            workDays: formData.workTime.split(' ')[0].split('-'),
+            categories: formData.categories.split(',')?.map(x => x.trim()).filter(x => x !== ''),
+            workHours: formData.workTime.split(' ')[1]?.split('-'),
+            workDays: formData.workTime.split(' ')[0]?.split('-'),
             cities: JSON.parse(formData.cities),
             image: imagesURL[0],
             owner: req.decoded.id
@@ -90,10 +89,6 @@ router.post('/create', isLoggedIn(), async (req, res) => {
 
         if (formData.workTime.length < 6) {
             throw new Error('Incorrect work time!');
-        }
-
-        if (!restaurantData.image) {
-            throw new Error('Image is required!');
         }
 
         if (restaurantData.cities.length < 1) {

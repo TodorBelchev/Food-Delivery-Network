@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "jest --testEnvironment=node"
+    "test": "jest --testEnvironment=node --coverage --verbose"
   },
   "author": "",
   "license": "ISC",
