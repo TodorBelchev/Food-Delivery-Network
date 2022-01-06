@@ -137,7 +137,7 @@ router.get('/favorites', checkUser(), async (req, res) => {
         const ids = (JSON.parse(req.query.favorites) || []);
         const restaurants = await getFavorites(ids, page, sort);
         const count = await getCount({ _id: { $in: ids } });
-        res.status(200).send({ restaurants, count: count });
+        res.status(200).send({ restaurants, count });
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: error.message });
@@ -146,7 +146,7 @@ router.get('/favorites', checkUser(), async (req, res) => {
 
 router.get('/:id', checkUser(), async (req, res) => {
     try {
-        const restaurant = await getById(req.params.id).lean();
+        const restaurant = await getById(req.params.id);
         res.status(200).send(restaurant);
     } catch (error) {
         console.log(error);
@@ -167,18 +167,15 @@ router.put('/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
             }
 
             formData.images = imagesURL;
-            if (formData.images.length == 0) {
-                throw new Error('At least one image is required!');
-            }
             await deleteFromCloudinary(restaurant.image.public_id);
         }
 
         const restaurantData = {
             name: formData.name,
             mainTheme: formData.mainTheme,
-            categories: formData.categories.split(',').map(x => x.trim()),
-            workHours: formData.workTime.split(' ')[1].split('-'),
-            workDays: formData.workTime.split(' ')[0].split('-'),
+            categories: formData.categories.split(',')?.map(x => x.trim()).filter(x => x !== ''),
+            workHours: formData.workTime.split(' ')[1]?.split('-'),
+            workDays: formData.workTime.split(' ')[0]?.split('-'),
             cities: JSON.parse(formData.cities),
             image: imagesURL[0] || restaurant.image,
             owner: req.decoded.id
@@ -198,10 +195,6 @@ router.put('/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
 
         if (formData.workTime.length < 6) {
             throw new Error('Incorrect work time!');
-        }
-
-        if (!restaurantData.image) {
-            throw new Error('Image is required!');
         }
 
         if (restaurantData.cities.length < 1) {
@@ -287,7 +280,6 @@ router.put('/:id/comment/:commentId', isLoggedIn(), isCommentOwner(), async (req
         if (!rating) {
             throw new Error('Rating is required!')
         }
-
 
         const comment = await getCommentById(req.params.commentId);
         Object.assign(comment, { name, comment: commentText, rating });
