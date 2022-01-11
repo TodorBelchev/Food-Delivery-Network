@@ -75,6 +75,11 @@ router.put('/:id/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
         const imagesURL = [];
         const recipe = await getRecipeById(req.params.id);
         const [formData, incFiles] = await getFormData(req, form);
+
+        if (Object.keys(incFiles).length == 0) {
+            throw new Error('At least one image is required!');
+        }
+        
         if (Object.keys(incFiles).length > 0) {
             for (const file of Object.values(incFiles)) {
                 const res = await uploadToCloudinary(file.path);
@@ -82,9 +87,7 @@ router.put('/:id/:restaurantId', isLoggedIn(), isOwner(), async (req, res) => {
             }
 
             formData.images = imagesURL;
-            if (formData.images.length == 0) {
-                throw new Error('At least one image is required!');
-            }
+           
             await deleteFromCloudinary(recipe.image.public_id);
         }
 

@@ -9,7 +9,6 @@ const commentService = require('../services/commentService');
 const cloudinary = require('../utils/clodinary');
 const parseForm = require('../utils/parseForm');
 const { createToken } = require('../utils');
-const { get } = require('express/lib/request');
 
 const app = express();
 expressSetup(app);
