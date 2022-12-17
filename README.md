@@ -1,4 +1,3 @@
-# Food-Delivery-Network - https://food-delivery-network.herokuapp.com/
 ## React JS project for SoftUni React course
 ### Technologies used:
 * MongoDB + Mongoose
